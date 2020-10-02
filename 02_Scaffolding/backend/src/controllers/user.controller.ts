@@ -2,13 +2,20 @@
 import express, { Router, Request, Response } from 'express';
 import { UserService } from '../services/user.service';
 import { verifyToken } from '../middlewares/checkAuth';
+import {isUsernameUnique, isEmailUnique} from '../middlewares/checkReg';
 
 const userController: Router = express.Router();
 const userService = new UserService();
 
 userController.post('/register',
     (req: Request, res: Response) => {
-        userService.register(req.body).then(registered => res.send(registered)).catch(err => res.status(500).send(err));
+        if (isUsernameUnique(req)) {
+            if (isEmailUnique(req)) {
+                userService.register(req.body).then(registered => res.send(registered)).catch(err => res.status(500).send(err));
+            }
+            res.status(333).send('the email is already used');
+        }
+        res.status(333).send('the username is already used');
     }
 );
 
