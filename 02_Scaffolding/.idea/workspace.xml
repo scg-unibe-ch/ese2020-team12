@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -20,9 +23,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6cbc2ed8-fafa-4bcb-a218-19705b580d7b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/src/middlewares/checkReg.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/db.sqlite" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/controllers/user.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/user.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/models/user.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/user.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/middlewares/checkReg.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/middlewares/checkReg.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +38,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript File" />
+        <option value="GraphQL File" />
+        <option value="tsconfig.json" />
       </list>
     </option>
   </component>
@@ -53,8 +60,16 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2020.2.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="ts.external.directory.path" value="C:\Users\marko\Documents\Informatik\ESE\ese2020-team12\02_Scaffolding\backend\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\marko\Documents\Informatik\ESE\ese2020-team12\02_Scaffolding\backend" />
+      <recent name="C:\Users\marko\Documents\Informatik\ESE\ese2020-team12\02_Scaffolding\backend\src\middlewares" />
+      <recent name="C:\Users\marko\Documents\Informatik\ESE\ese2020-team12\02_Scaffolding\backend\src" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -64,7 +79,14 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1601648849513</updated>
-      <workItem from="1601648851453" duration="3104000" />
+      <workItem from="1601648851453" duration="3509000" />
+      <workItem from="1601652385128" duration="5000" />
+      <workItem from="1601657049361" duration="1119000" />
+      <workItem from="1601658465327" duration="1948000" />
+      <workItem from="1601714329210" duration="1093000" />
+      <workItem from="1601716285950" duration="255000" />
+      <workItem from="1601716554988" duration="278000" />
+      <workItem from="1601717190827" duration="17920000" />
     </task>
     <servers />
   </component>
@@ -81,27 +103,52 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="311" y="115" key="#Inspections" timestamp="1601651511958">
+    <state x="311" y="115" key="#Inspections" timestamp="1601753802618">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state x="311" y="115" key="#Inspections/0.0.1368.872@0.0.1368.872" timestamp="1601651511958" />
-    <state width="1348" height="227" key="GridCell.Tab.0.bottom" timestamp="1601649188788">
+    <state x="311" y="115" key="#Inspections/0.0.1368.872@0.0.1368.872" timestamp="1601753802618" />
+    <state x="459" y="238" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1601743969513">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state width="1348" height="227" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1601649188788" />
-    <state width="1348" height="227" key="GridCell.Tab.0.center" timestamp="1601649188787">
+    <state x="459" y="238" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1368.872@0.0.1368.872" timestamp="1601743969513" />
+    <state x="534" y="380" key="#com.intellij.ide.util.TreeDirectoryChooserDialog" timestamp="1601659422508">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state width="1348" height="227" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1601649188787" />
-    <state width="1348" height="227" key="GridCell.Tab.0.left" timestamp="1601649188787">
+    <state x="534" y="380" key="#com.intellij.ide.util.TreeDirectoryChooserDialog/0.0.1368.872@0.0.1368.872" timestamp="1601659422508" />
+    <state x="218" y="308" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1601743999536">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state width="1348" height="227" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1601649188787" />
-    <state width="1348" height="227" key="GridCell.Tab.0.right" timestamp="1601649188787">
+    <state x="218" y="308" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1368.872@0.0.1368.872" timestamp="1601743999536" />
+    <state width="1348" height="227" key="GridCell.Tab.0.bottom" timestamp="1601652362165">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state width="1348" height="227" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1601649188787" />
+    <state width="1348" height="227" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1601652362165" />
+    <state width="1348" height="227" key="GridCell.Tab.0.center" timestamp="1601652362165">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state width="1348" height="227" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1601652362165" />
+    <state width="1348" height="227" key="GridCell.Tab.0.left" timestamp="1601652362165">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state width="1348" height="227" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1601652362165" />
+    <state width="1348" height="227" key="GridCell.Tab.0.right" timestamp="1601652362165">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state width="1348" height="227" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1601652362165" />
+    <state x="186" y="81" key="SettingsEditor" timestamp="1601716540173">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="186" y="81" key="SettingsEditor/0.0.1368.872@0.0.1368.872" timestamp="1601716540173" />
+    <state x="528" y="209" key="refactoring.ChangeSignatureDialog" timestamp="1601758743492">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="528" y="209" key="refactoring.ChangeSignatureDialog/0.0.1368.872@0.0.1368.872" timestamp="1601758743492" />
+    <state x="347" y="184" width="672" height="678" key="search.everywhere.popup" timestamp="1601659042658">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="347" y="184" width="672" height="678" key="search.everywhere.popup/0.0.1368.872@0.0.1368.872" timestamp="1601659042658" />
   </component>
 </project>
