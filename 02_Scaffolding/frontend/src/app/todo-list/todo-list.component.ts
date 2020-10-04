@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+/*import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { TodoList } from '../models/todo-list.model';
 import { HttpClient } from '@angular/common/http';
 import { TodoItem } from '../models/todo-item.model';
@@ -64,4 +64,4 @@ export class TodoListComponent {
       this.todoList.todoItems.splice(this.todoList.todoItems.indexOf(todoItem), 1);
     });
   }
-}
+}*/
