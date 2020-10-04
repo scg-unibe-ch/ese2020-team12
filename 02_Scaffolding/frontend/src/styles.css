@@ -1,18 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
-
-html, body { height: 100%; }
-body { margin: 30px; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-.mat-card {
-  margin: 20px 0;
-  background-color: #EEE;
+app-topbar {
+  width: 98%;
+  height: 50px;
+  background-color: dodgerblue;
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
 }
 
-button, input {
-  margin-left: 15px !important;
-  margin-right: 15px !important;
-}
-
-.mat-form-field-wrapper {
-  margin-right: 25px !important;
+.button{
+  background-color:transparent;
+  border-radius:27px;
+  border:1px solid #ffffff;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:15px;
+  padding:6px 10px;
+  text-decoration:none;
 }
