@@ -43,6 +43,7 @@ import { ReactiveFormsModule } from '@angular/forms';
         MatCardModule,
         MatTabsModule,
         MatToolbarModule,
+        ReactiveFormsModule,
         RouterModule.forRoot([
           {path: '', component: TopbarComponent},
           {path: 'signup', component: SignupComponent}
