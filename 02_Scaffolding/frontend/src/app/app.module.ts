@@ -17,7 +17,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { TopbarComponent } from './topbar/topbar.component';
-import {RouterModule} from '@angular/router'; //module used in topbar folder
+import {RouterModule} from '@angular/router';
+import { SignupComponent } from './signup/signup.component';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import {RouterModule} from '@angular/router'; //module used in topbar folder
     TodoItemComponent,
     UserLoginComponent,
     TopbarComponent,
-    TopbarComponent
+    TopbarComponent,
+    SignupComponent
   ],
     imports: [
         BrowserModule,
