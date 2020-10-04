@@ -16,27 +16,32 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { UserLoginComponent } from './user-login/user-login.component';
+import { TopbarComponent } from './topbar/topbar.component';
+import {RouterModule} from '@angular/router'; //module used in topbar folder
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoListComponent,
     TodoItemComponent,
-    UserLoginComponent
+    UserLoginComponent,
+    TopbarComponent,
+    TopbarComponent
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    HttpClientModule,
-    MatButtonModule,
-    MatListModule,
-    MatInputModule,
-    MatCheckboxModule,
-    MatCardModule,
-    MatTabsModule,
-    MatToolbarModule
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        HttpClientModule,
+        MatButtonModule,
+        MatListModule,
+        MatInputModule,
+        MatCheckboxModule,
+        MatCardModule,
+        MatTabsModule,
+        MatToolbarModule,
+        RouterModule
+    ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
