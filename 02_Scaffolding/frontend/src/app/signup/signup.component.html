@@ -1,1 +1,49 @@
-<p>signup works!</p>
+<h3>Cart</h3>
+
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+
+  <div>
+    <label for="name">
+      Name
+    </label>
+    <input id="name" type="text" formControlName="name">
+  </div>
+
+  <div>
+    <label for="surname">
+      Name
+    </label>
+    <input id="surname" type="text" formControlName="surname">
+  </div>
+
+  <div>
+    <label for="username">
+      Name
+    </label>
+    <input id="username" type="text" formControlName="username">
+  </div>
+
+  <div>
+    <label for="email">
+      Name
+    </label>
+    <input id="email" type="text" formControlName="email">
+  </div>
+
+  <div>
+    <label for="password">
+      Name
+    </label>
+    <input id="password" type="text" formControlName="password">
+  </div>
+
+  <div>
+    <label for="passwordAgain">
+      Name
+    </label>
+    <input id="passwordAgain" type="text" formControlName="passwordAgain">
+  </div>
+
+  <button class="button" type="submit">Submit Registration</button>
+
+</form>
