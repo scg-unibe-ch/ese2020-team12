@@ -10,7 +10,7 @@ app-topbar {
 }
 
 .button{
-  background-color:transparent;
+  background-color: grey;
   border-radius:20%;
   border: .5mm solid #ffffff;
   display:inline-block;

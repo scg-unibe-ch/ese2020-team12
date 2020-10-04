@@ -1,25 +1,28 @@
 
 #name{
-  margin-left: 70%;
-
 }
 
 #surname{
-  margin-left: 63.5%;
+
 }
 
 #username{
-  margin-left: 61.3%;
+
 }
 
 #email{
-  margin-left: 69.4%;
+
 }
 
 #password{
-  margin-left: 61.8%;
+
 }
 
 #passwordAgain{
-  margin-left: 50.3%;
+
+}
+
+#submitregistration{
+  margin-left: 43%;
+  margin-top: 20%;
 }
