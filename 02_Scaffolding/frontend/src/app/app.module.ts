@@ -29,7 +29,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     //TodoItemComponent,
     UserLoginComponent,
     TopbarComponent,
-    TopbarComponent,
     SignupComponent
   ],
     imports: [
@@ -46,7 +45,7 @@ import { ReactiveFormsModule } from '@angular/forms';
         ReactiveFormsModule,
         RouterModule.forRoot([
           {path: '', component: TopbarComponent},
-          {path: 'signup', component: SignupComponent}
+          {path: 'signup', component: SignupComponent},
         ])
     ],
   providers: [
