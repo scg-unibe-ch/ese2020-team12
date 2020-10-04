@@ -27,7 +27,7 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit(customerData) {
+  onSubmit(customerData): void {
     // Process checkout data here
     console.warn('Your registration has been submitted', customerData);
   }
