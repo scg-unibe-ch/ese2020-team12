@@ -17,8 +17,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { TopbarComponent } from './topbar/topbar.component';
-import {RouterModule} from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { SignupComponent } from './signup/signup.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -43,7 +45,10 @@ import { SignupComponent } from './signup/signup.component';
         MatCardModule,
         MatTabsModule,
         MatToolbarModule,
-        RouterModule
+        RouterModule.forRoot([
+          {path: '', component: TopbarComponent},
+          {path: 'signup', component: SignupComponent}
+        ])
     ],
   providers: [
     {
