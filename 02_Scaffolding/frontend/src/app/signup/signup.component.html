@@ -1,6 +1,6 @@
 <h3>Cart</h3>
 
-<form [formGroup]="signupForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit(signupForm.value)">
 
   <div>
     <label for="name">
@@ -11,35 +11,35 @@
 
   <div>
     <label for="surname">
-      Name
+      Surname
     </label>
     <input id="surname" type="text" formControlName="surname">
   </div>
 
   <div>
     <label for="username">
-      Name
+      Username
     </label>
     <input id="username" type="text" formControlName="username">
   </div>
 
   <div>
     <label for="email">
-      Name
+      E-Mail
     </label>
     <input id="email" type="text" formControlName="email">
   </div>
 
   <div>
     <label for="password">
-      Name
+      Password
     </label>
     <input id="password" type="text" formControlName="password">
   </div>
 
   <div>
     <label for="passwordAgain">
-      Name
+      Repeat Password
     </label>
     <input id="passwordAgain" type="text" formControlName="passwordAgain">
   </div>
