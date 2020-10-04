@@ -24,10 +24,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6cbc2ed8-fafa-4bcb-a218-19705b580d7b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/db.sqlite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/controllers/user.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/user.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/middlewares/checkReg.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/middlewares/checkReg.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,6 +84,8 @@
       <workItem from="1601716285950" duration="255000" />
       <workItem from="1601716554988" duration="278000" />
       <workItem from="1601717190827" duration="17920000" />
+      <workItem from="1601762546819" duration="23000" />
+      <workItem from="1601830933529" duration="2259000" />
     </task>
     <servers />
   </component>

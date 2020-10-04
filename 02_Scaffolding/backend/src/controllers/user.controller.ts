@@ -11,6 +11,7 @@ const userService = new UserService();
 userController.post('/register',
     (req: Request, res: Response) => {
         return User.findOne({
+            // look trough the database if the userName or the email already exist
             where: {
                 [Op.or]: [
                     {userName: req.body.userName},
@@ -20,6 +21,7 @@ userController.post('/register',
         })
             .then(user => {
                 if (user == null) {
+                    // make a new account
                     userService.register(req.body).then(registered => res.send(registered));
                 } else {
                     res.send('Username or Email is already used!');
@@ -28,6 +30,7 @@ userController.post('/register',
     });
 
 // userService.register(req.body).then(registered => res.send(registered)).catch(err => res.status(500).send(err));
+
 userController.post('/login',
     (req: Request, res: Response) => {
         userService.login(req.body).then(login => res.send(login)).catch(err => res.status(500).send(err));
