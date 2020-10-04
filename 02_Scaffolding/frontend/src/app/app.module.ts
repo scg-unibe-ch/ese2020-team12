@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppComponent } from './app.component';
+//Imports from original scaffoling -->
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
@@ -14,12 +14,15 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { AuthInterceptor } from './auth/auth.interceptor';
-import { UserLoginComponent } from './user-login/user-login.component';
-import { TopbarComponent } from './topbar/topbar.component';
+// until here <--
+
 import { RouterModule } from '@angular/router';
-import { SignupComponent } from './signup/signup.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { AppComponent } from './app.component';
+import { UserLoginComponent } from './user-login/user-login.component';
+import { TopbarComponent } from './topbar/topbar.component';
+import { SignupComponent } from './signup/signup.component';
 
 
 @NgModule({
@@ -44,7 +47,7 @@ import { ReactiveFormsModule } from '@angular/forms';
         MatToolbarModule,
         ReactiveFormsModule,
         RouterModule.forRoot([
-          {path: '', component: TopbarComponent},
+          {path: '', component: AppComponent},
           {path: 'signup', component: SignupComponent},
         ])
     ],
