@@ -23,6 +23,7 @@ import { AppComponent } from './app.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { TopbarComponent } from './topbar/topbar.component';
 import { SignupComponent } from './signup/signup.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { SignupComponent } from './signup/signup.component';
     //TodoItemComponent,
     UserLoginComponent,
     TopbarComponent,
-    SignupComponent
+    SignupComponent,
+    HomeComponent
   ],
     imports: [
         BrowserModule,
@@ -47,7 +49,7 @@ import { SignupComponent } from './signup/signup.component';
         MatToolbarModule,
         ReactiveFormsModule,
         RouterModule.forRoot([
-          {path: '', component: AppComponent},
+          {path: '', component: HomeComponent},
           {path: 'signup', component: SignupComponent},
         ])
     ],
