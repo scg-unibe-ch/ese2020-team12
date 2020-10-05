@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+/*import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TodoItem } from '../../models/todo-item.model';
 
 @Component({
@@ -26,4 +26,4 @@ export class TodoItemComponent {
     // Emits event to parent component that TodoItem got deleted
     this.delete.emit(this.todoItem);
   }
-}
+}*/

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { TodoList } from './models/todo-list.model';
 import { TodoItem } from './models/todo-item.model';
 import { environment } from '../environments/environment';
+import { TopbarComponent } from './topbar/topbar.component';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,10 @@ export class AppComponent implements OnInit {
 
   constructor(private httpClient: HttpClient) {}
 
-  // TodoList - CREATE
+  ngOnInit(): void {
+  }
+
+  /*// TodoList - CREATE
   onListCreate(): void {
     this.httpClient.post(environment.endpointURL + 'todolist', {
       name: this.newTodoListName
@@ -50,5 +54,5 @@ export class AppComponent implements OnInit {
     this.httpClient.delete(environment.endpointURL + 'todolist/' + todoList.listId).subscribe(() => {
       this.todoLists.splice(this.todoLists.indexOf(todoList), 1);
     });
-  }
+  }*/
 }
