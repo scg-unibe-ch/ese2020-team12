@@ -22,9 +22,10 @@ userController.post('/register',
             .then(user => {
                 if (user == null) {
                     // make a new account
+                    console.log('it functioned');
                     userService.register(req.body).then(registered => res.send(registered));
                 } else {
-                    res.send('Username or Email is already used!');
+                    res.send('Email or Username is already used');
                 }
             }).catch(err => Promise.reject({ message: err }));
     });

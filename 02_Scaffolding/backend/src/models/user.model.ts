@@ -67,11 +67,11 @@ export class User extends Model<UserAttributes, UserCreationAttributes> implemen
             },
             postalCode: {
                 type: DataTypes.INTEGER,
-                    allowNull: false
+                    allowNull: true
             },
             place: {
                 type: DataTypes.STRING,
-                    allowNull: false
+                    allowNull: true
             }
         },
             {

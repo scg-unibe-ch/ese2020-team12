@@ -17,10 +17,10 @@
   </div>
 
   <div style="position: absolute; left: 40%; top: 27%">
-    <label for="username">
+    <label for="userName">
       Username
     </label>
-    <input id="username" type="text" formControlName="username">
+    <input id="userName" type="text" formControlName="username">
   </div>
 
   <div style="position: absolute; left: 40%; top: 30%">
@@ -44,7 +44,8 @@
     <input id="passwordAgain" type="text" formControlName="passwordAgain">
   </div>
 
-    <button id="submitregistration" class="button" type="submit">Submit Registration</button>
+    <button id="submitregistration" class="button" (click)="registration()">Submit Registration</button>
+
 
 
 </form>
