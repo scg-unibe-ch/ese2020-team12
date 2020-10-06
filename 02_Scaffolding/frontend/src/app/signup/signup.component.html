@@ -1,51 +1,46 @@
-<h2 style="position: absolute; left: 45%; top: 15%">Sign Up </h2>
+<div class="container-signup">
+  
+<h2>Sign Up </h2>
 
-<form formGroup="signupForm" (ngSubmit)="onSubmit(signupForm.value)">
+<form formGroup="signupForm" (ngSubmit)="onSubmit(signupForm.value)" method="post">
 
-  <div style="position: absolute; left: 40%; top: 21%">
-    <label for="name">
-      Name
-    </label>
-    <input id="name" type="text" formControlName="name">
+  <div class="row">
+    <div class="col-25"><label for="name">Name</label></div>
+    <div class="col-75"><input id="name" type="text" formControlName="name"></div>
   </div>
 
-  <div style="position: absolute; left: 40%; top: 24%">
-    <label for="surname">
-      Surname
-    </label>
-    <input id="surname" type="text" formControlName="surname">
-  </div>
+    <div class="row">
+      <div class="col-25"><label for="surname">Surname</label></div>
+      <div class="col-75"><input id="surname" type="text" formControlName="surname"></div>
+    </div>
 
-  <div style="position: absolute; left: 40%; top: 27%">
-    <label for="userName">
-      Username
-    </label>
-    <input id="userName" type="text" formControlName="username">
-  </div>
+    <div class="row">
+      <div class="col-25"><label for="userName">Username</label></div>
+      <div class="col-75"><input id="userName" type="text" formControlName="userName"></div>
+    </div>
 
-  <div style="position: absolute; left: 40%; top: 30%">
-    <label for="email">
-      E-Mail
-    </label>
-    <input id="email" type="text" formControlName="email">
-  </div>
+    <div class="row">
+      <div class="col-25"><label for="email">E-Mail</label></div>
+      <div class="col-75"><input id="email" type="text" formControlName="email"></div>
+    </div>
 
-  <div style="position: absolute; left: 40%; top: 33%">
-    <label for="password">
-      Password
-    </label>
-    <input id="password" type="text" formControlName="password">
-  </div>
+    <div class="row">
+      <div class="col-25"><label for="password">Password</label></div>
+      <div class="col-75"><input id="password" type="text" formControlName="password"></div>
+    </div>
 
-  <div style="position: absolute; left: 40%; top: 36%">
-    <label for="passwordAgain">
-      Repeat Password
-    </label>
-    <input id="passwordAgain" type="text" formControlName="passwordAgain">
-  </div>
+    <div class="row">
+      <div class="col-25"><label for="passwordAgain">Repeat Password</label></div>
+      <div class="col-75"><input id="passwordAgain" type="text" formControlName="passwordAgain"></div>
+    </div>
 
-    <button id="submitregistration" class="button" (click)="registration()">Submit Registration</button>
+    <div class="row">
+      <input type="submit" value="Sign Up" id="submitregistration" class="button" (click)="registration()">
+    </div>
+
+
+  </form>
+</div>
 
 
 
-</form>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 import {ActivatedRoute} from '@angular/router';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
@@ -20,6 +21,9 @@ export class SignupComponent implements OnInit {
   userName: '';
   email: '';
   password: '';
+
+  userToken: string;
+  loggedIn = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -54,6 +58,8 @@ export class SignupComponent implements OnInit {
       localStorage.setItem('userName', res.user.userName);
       localStorage.setItem('email', res.user.email);
       localStorage.setItem('password', res.user.password);
+    }, (error: any) => {
+      console.log("Is this right?");
     });
   }
 }
