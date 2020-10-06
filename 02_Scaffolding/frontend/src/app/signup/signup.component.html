@@ -5,39 +5,58 @@
 <form formGroup="signupForm" (ngSubmit)="onSubmit(signupForm.value)" method="post">
 
   <div class="row">
-    <div class="col-25"><label for="name">Name</label></div>
-    <div class="col-75"><input id="name" type="text" formControlName="name"></div>
+    <div class="col-25"><label for="name">Name*</label></div>
+    <div class="col-75"><input id="name" type="text" formControlName="name" required></div>
   </div>
 
     <div class="row">
-      <div class="col-25"><label for="surname">Surname</label></div>
-      <div class="col-75"><input id="surname" type="text" formControlName="surname"></div>
+      <div class="col-25"><label for="surname">Surname*</label></div>
+      <div class="col-75"><input id="surname" type="text" formControlName="surname" required></div>
     </div>
 
     <div class="row">
-      <div class="col-25"><label for="userName">Username</label></div>
-      <div class="col-75"><input id="userName" type="text" formControlName="userName"></div>
+      <div class="col-25"><label for="userName">Username*</label></div>
+      <div class="col-75"><input id="userName" type="text" formControlName="userName" required></div>
     </div>
 
     <div class="row">
-      <div class="col-25"><label for="email">E-Mail</label></div>
-      <div class="col-75"><input id="email" type="text" formControlName="email"></div>
+      <div class="col-25"><label for="email">E-Mail*</label></div>
+      <div class="col-75"><input id="email" type="text" formControlName="email" required></div>
     </div>
 
     <div class="row">
-      <div class="col-25"><label for="password">Password</label></div>
-      <div class="col-75"><input id="password" type="password" formControlName="password"></div>
+      <div class="col-25"><label for="street">Strasse</label></div>
+      <div class="col-75"><input id="street" type="text" formControlName="street"></div>
     </div>
 
     <div class="row">
-      <div class="col-25"><label for="passwordAgain">Repeat Password</label></div>
-      <div class="col-75"><input id="passwordAgain" type="password" formControlName="passwordAgain"></div>
+      <div class="col-25"><label for="housenumber">Hausnummer</label></div>
+      <div class="col-75"><input id="housenumber" type="text" formControlName="housenumber"></div>
+    </div>
+
+    <div class="row">
+      <div class="col-25"><label for="city">Ort</label></div>
+      <div class="col-75"><input id="city" type="text" formControlName="city"></div>
+    </div>
+
+    <div class="row">
+      <div class="col-25"><label for="postalCode">PLZ*</label></div>
+      <div class="col-75"><input id="postalCode" type="text" formControlName="postalCode" required></div>
+    </div>
+
+    <div class="row">
+      <div class="col-25"><label for="password">Password*</label></div>
+      <div class="col-75"><input id="password" type="password" formControlName="password" required></div>
+    </div>
+
+    <div class="row">
+      <div class="col-25"><label for="passwordAgain">Repeat Password*</label></div>
+      <div class="col-75"><input id="passwordAgain" type="password" formControlName="passwordAgain" required></div>
     </div>
 
     <div class="row">
       <input type="submit" value="Sign Up" id="submitregistration" class="button" (click)="registration()">
     </div>
-
 
   </form>
 </div>
