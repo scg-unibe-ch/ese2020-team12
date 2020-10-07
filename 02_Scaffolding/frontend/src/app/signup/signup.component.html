@@ -50,16 +50,17 @@
 
   <!--
     Password must contain lowercase [a-z]+, UPPERCASE [A-Z]+, numbers [0-9]+, special chars \W
-    VALID: Aa1@aaaa
+    VALID: Aa1@aaaa ,
     INVALID: AA1@AAAA (no lowercase letter)
     INVALID: aa1@aaaa (no uppercase letter)
     INVALID: Aaa@aaaa (no number)
     INVALID: Aa1aaaaa (no special char)
+    idea: working with logical inversion of the or function
     -->
     <div class="row">
       <div class="col-25"><label for="password">Password*</label></div>
-      <div class="col-75"><input id="password" type="password" formControlName="password"
-                                 pattern="[a-z]+[A-Z]+[0-9]+\W" minlength="8" required></div>
+      <div class="col-75"><input id="password" type="text" formControlName="password"
+                                 pattern="[^[[^a-z]+|[^A-Z]+|[^0-9]+|\w+]]" minlength="8" required></div>
     </div>
 
     <div class="row">
