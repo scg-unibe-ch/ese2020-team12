@@ -21,6 +21,11 @@ export class SignupComponent implements OnInit {
   userName: '';
   email: '';
   password: '';
+  street: '';
+  houseNumber: number;
+  place: '';
+  postalCode: number;
+
 
   userToken: string;
   loggedIn = false;
@@ -46,20 +51,37 @@ export class SignupComponent implements OnInit {
 
   registration(): void {
     console.log('you pressed the button');
-    this.httpClient.post(environment.endpointURL + 'user/register', {
+    this.httpClient.post(environment.endpointURL + 'user/signup', {
       name: this.name,
       surname: this.surname,
       userName: this.userName,
       email: this.email,
+      street: this.street,
+      houseNumber: this.houseNumber,
+      place: this.place,
+      postalCode: this.postalCode,
       password: this.password
     }).subscribe((res: any) => {
-      localStorage.setItem('name', res.user.name);
-      localStorage.setItem('surname', res.user.surname);
-      localStorage.setItem('userName', res.user.userName);
-      localStorage.setItem('email', res.user.email);
-      localStorage.setItem('password', res.user.password);
-    }, (error: any) => {
-      console.log("Is this right?");
-    });
+        console.log('---- req gugus azeige-------------');
+        console.log('name: ' + res.body.name);
+        console.log('surname: ' + res.body.surname);
+        console.log('username: ' + res.body.username);
+        console.log('email: ' + res.body.email);
+        console.log('street: ' + res.body.street);
+        console.log('houseNumber: ' + res.body.houseNumber);
+        console.log('place: ' + res.body.place);
+        console.log('postalCode:' + res.body.postalCode);
+        console.log('password:' + res.body.password);
+        console.log('---- req gugus fertig-------------');
+        localStorage.setItem('name', res.signup.name);
+        localStorage.setItem('surname', res.signup.surname);
+        localStorage.setItem('userName', res.signup.userName);
+        localStorage.setItem('email', res.signup.email);
+        localStorage.setItem('street', res.signup.street);
+        localStorage.setItem('houseNumber', res.signup.houseNumber);
+        localStorage.setItem('place', res.signup.place);
+        localStorage.setItem('postalCode', res.signup.postalCode);
+    }
+    );
   }
 }
