@@ -8,20 +8,11 @@ import {Op} from 'sequelize';
 const userController: Router = express.Router();
 const userService = new UserService();
 
+
+
 userController.post('/signup',
     (req: Request, res: Response) => {
-        console.log('---- Verbindung gut-------------');
-        console.log('---- req gugus azeige-------------');
-        console.log('name: ' + req.body.name);
-        console.log('surname: ' + req.body.surname);
-        console.log('username: ' + req.body.username);
-        console.log('email: ' + req.body.email);
-        console.log('street: ' + req.body.street);
-        console.log('houseNumber: ' + req.body.houseNumber);
-        console.log('place: ' + req.body.place);
-        console.log('postalCode:' + req.body.postalCode);
-        console.log('password:' + req.body.password);
-        console.log('---- req gugus fertig-------------');
+    console.log(req.params);
         return User.findOne({
             // look trough the database if the userName or the email already exist
             where: {
@@ -34,7 +25,7 @@ userController.post('/signup',
                 if (user == null) {
                     // make a new account
                     console.log('it functioned');
-                    userService.register(req.body).then(registered => res.send(registered));
+                    userService.register(req.body).then(registered => res.status(201).send(registered));
                 } else {
                     res.status(409).send('Email or Username is already used');
                 }

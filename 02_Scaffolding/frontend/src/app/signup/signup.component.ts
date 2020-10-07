@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { FormControl } from '@angular/forms';
 import {ActivatedRoute} from '@angular/router';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
@@ -26,10 +25,6 @@ export class SignupComponent implements OnInit {
   place: '';
   postalCode: number;
 
-
-  userToken: string;
-  loggedIn = false;
-
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
@@ -50,7 +45,6 @@ export class SignupComponent implements OnInit {
 
 
   registration(): void {
-    console.log('you pressed the button');
     this.httpClient.post(environment.endpointURL + 'user/signup', {
       name: this.name,
       surname: this.surname,
@@ -62,26 +56,14 @@ export class SignupComponent implements OnInit {
       postalCode: this.postalCode,
       password: this.password
     }).subscribe((res: any) => {
-        console.log('---- req gugus azeige-------------');
-        console.log('name: ' + res.body.name);
-        console.log('surname: ' + res.body.surname);
-        console.log('username: ' + res.body.username);
-        console.log('email: ' + res.body.email);
-        console.log('street: ' + res.body.street);
-        console.log('houseNumber: ' + res.body.houseNumber);
-        console.log('place: ' + res.body.place);
-        console.log('postalCode:' + res.body.postalCode);
-        console.log('password:' + res.body.password);
-        console.log('---- req gugus fertig-------------');
-        localStorage.setItem('name', res.signup.name);
-        localStorage.setItem('surname', res.signup.surname);
-        localStorage.setItem('userName', res.signup.userName);
-        localStorage.setItem('email', res.signup.email);
-        localStorage.setItem('street', res.signup.street);
-        localStorage.setItem('houseNumber', res.signup.houseNumber);
-        localStorage.setItem('place', res.signup.place);
-        localStorage.setItem('postalCode', res.signup.postalCode);
+        localStorage.setItem('name', res.user.name);
+        localStorage.setItem('surname', res.user.surname);
+        localStorage.setItem('userName', res.user.userName);
+        localStorage.setItem('email', res.user.email);
+        localStorage.setItem('street', res.user.street);
+        localStorage.setItem('houseNumber', res.user.houseNumber);
+        localStorage.setItem('place', res.user.place);
+        localStorage.setItem('postalCode', res.user.postalCode);
     }
     );
-  }
-}
+}}

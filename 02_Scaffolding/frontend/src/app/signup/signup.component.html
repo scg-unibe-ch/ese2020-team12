@@ -6,17 +6,17 @@
 
   <div class="row">
     <div class="col-25"><label for="name">Name*</label></div>
-    <div class="col-75"><input id="name" type="text" formControlName="name" required></div>
+    <div class="col-75"><input id="name" type="text" formControlName="name"  name="name" required></div>
   </div>
 
     <div class="row">
       <div class="col-25"><label for="surname">Surname*</label></div>
-      <div class="col-75"><input id="surname" type="text" formControlName="surname" required></div>
+      <div class="col-75"><input id="surname" type="text" formControlName="surname"  name="surname" required></div>
     </div>
 
     <div class="row">
       <div class="col-25"><label for="userName">Username*</label></div>
-      <div class="col-75"><input id="userName" type="text" formControlName="userName" required></div>
+      <div class="col-75"><input id="userName" type="text" formControlName="userName" name="userName" required></div>
     </div>
 
     <!--
@@ -25,27 +25,27 @@
     <div class="row">
       <div class="col-25"><label for="email">E-Mail*</label></div>
       <div class="col-75"><input id="email" type="text" formControlName="email"
-                                 pattern="\w+@\w+[.]\w+" required></div>
+                                 pattern="\w+@\w+[.]\w+" name="email"required></div>
     </div>
 
     <div class="row">
       <div class="col-25"><label for="street">Street</label></div>
-      <div class="col-75"><input id="street" type="text" formControlName="street"></div>
+      <div class="col-75"><input id="street" type="text" formControlName="street" name="street"></div>
     </div>
 
     <div class="row">
       <div class="col-25"><label for="houseNumber">House number</label></div>
-      <div class="col-75"><input id="houseNumber" type="number" formControlName="houseNumber"></div>
+      <div class="col-75"><input id="houseNumber" type="number" formControlName="houseNumber" name="houseNumber"></div>
     </div>
 
     <div class="row">
       <div class="col-25"><label for="city"></label>City</div>
-      <div class="col-75"><input id="city" type="text" formControlName="place"></div>
+      <div class="col-75"><input id="city" type="text" formControlName="place" name="city"></div>
     </div>
 
     <div class="row">
       <div class="col-25"><label for="postalCode">Postal Code*</label></div>
-      <div class="col-75"><input id="postalCode" type="number" formControlName="postalCode" required></div>
+      <div class="col-75"><input id="postalCode" type="number" formControlName="postalCode" name="postalCode" required></div>
     </div>
 
   <!--
@@ -60,7 +60,7 @@
     <div class="row">
       <div class="col-25"><label for="password">Password*</label></div>
       <div class="col-75"><input id="password" type="text" formControlName="password"
-                                 pattern="[^[[^a-z]+|[^A-Z]+|[^0-9]+|\w+]]" minlength="8" required></div>
+                                 pattern="[^[[^a-z]+|[^A-Z]+|[^0-9]+|\w+]]" minlength="8" name="password" required></div>
     </div>
 
     <div class="row">
