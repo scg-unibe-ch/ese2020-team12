@@ -23,12 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6cbc2ed8-fafa-4bcb-a218-19705b580d7b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/db.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/controllers/user.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/user.controller.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/signup/signup.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/signup/signup.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/signup/signup.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/signup/signup.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
