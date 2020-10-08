@@ -1,24 +1,47 @@
-<a id="logo" [routerLink]="['/']">
+<!--<a id="log" [routerLink]="['/']">
   <h1>Page-Logo</h1>
 </a>
 
-<div id="username">
+<div id="usernam">
   <label for="username"></label>
   <input type ="text" placeholder="enter username">
 </div>
 
-<div id="password">
+<div id="passwor">
   <label for="password"></label>
   <input type ="text" placeholder="enter password">
 </div>
 
-<div id="signinbutton">
+<div id="signinbutto">
   <button class="button" type="submit">sign in</button>
 </div>
 
 
-<a id="signup" title ="click here to sign up to our page" routerLink="/signup">
+<a id="signu" title ="click here to sign up to our page" routerLink="/signup">
   <h4>sign up</h4>
 </a>
+-->
+
+<div class="container-topbar">
+
+  <form formGroup="topbarForm" method="post">
+
+    <div class="logo">
+      <a id="logo" [routerLink]="['/']">Page-Logo</a>
+    </div>
+
+    <div class="top-right-block">
+      <div class="input-column">
+        <div class="row-10"><input id="username" type="text" placeholder="enter username"></div>
+        <div class="row-10"><input id="password" type="password" placeholder="enter password"></div>
+      </div>
 
 
+      <input class=button id="signinbutton" type="submit" value="sign in">
+
+      <a id="signup" routerLink="/signup">sign up</a>
+    </div>
+
+  </form>
+
+</div>
