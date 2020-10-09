@@ -12,7 +12,7 @@ const userService = new UserService();
 
 userController.post('/signup',
     (req: Request, res: Response) => {
-    console.log(req.params);
+    console.log('1');
         return User.findOne({
             // look trough the database if the userName or the email already exist
             where: {
@@ -33,6 +33,21 @@ userController.post('/signup',
     });
 
 // userService.register(req.body).then(registered => res.send(registered)).catch(err => res.status(500).send(err));
+
+userController.delete('/:id', (req: Request, res: Response ) => {
+    User.findByPk(req.params.id)
+        .then(found => {
+            if (found != null) {
+                found.destroy()
+                    .then(user => res.status(200).send({ deleted: user }))
+                    .catch(err => res.status(500).send(err));
+            } else {
+                res.sendStatus(404);
+            }
+        }).catch(err => res.status(500).send(err));
+});
+
+
 
 userController.post('/login',
     (req: Request, res: Response) => {
