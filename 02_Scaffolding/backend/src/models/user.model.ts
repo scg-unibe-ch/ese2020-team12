@@ -11,7 +11,7 @@ export interface UserAttributes {
     street: string;
     houseNumber: number;
     postalCode: number;
-    place: string;
+    city: string;
 }
 
 export interface UserCreationAttributes extends Optional<UserAttributes, 'userId'> { }
@@ -26,7 +26,7 @@ export class User extends Model<UserAttributes, UserCreationAttributes> implemen
     street!: string;
     houseNumber!: number;
     postalCode!: number;
-    place!: string;
+    city!: string;
 
     public static initialize(sequelize: Sequelize) {
         User.init({
@@ -69,7 +69,7 @@ export class User extends Model<UserAttributes, UserCreationAttributes> implemen
                 type: DataTypes.INTEGER,
                     allowNull: true
             },
-            place: {
+            city: {
                 type: DataTypes.STRING,
                     allowNull: true
             }
