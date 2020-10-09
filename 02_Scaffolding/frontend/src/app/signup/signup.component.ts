@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {AbstractControl, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators} from '@angular/forms';
 import {ActivatedRoute} from '@angular/router';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
@@ -53,9 +53,9 @@ export class SignupComponent implements OnInit {
   passwordAgain: new FormControl('', Validators.compose([
     Validators.required,
     Validators.minLength(8),
+    // custom validator
   ])),
   });
-
 
   errorMessages = {
     surname: [
@@ -97,63 +97,18 @@ export class SignupComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private httpClient: HttpClient,
-  ) {
-    /*
-    this.signUpForm = this.formBuilder.group({
-      surname: new FormControl('', Validators.compose([
-        Validators.required
-      ])),
-      userName: new FormControl('', Validators.compose([
-        Validators.required
-      ])),
-      name: new FormControl('', Validators.compose([
-        Validators.required
-      ])),
-      email: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.minLength(6),
-        Validators.maxLength(30),
-        Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')
-      ])),
-      street: new FormControl(''),
-      houseNumber: new FormControl(''),
-      city: new FormControl('', Validators.compose([
-        Validators.required
-        ]
-      )),
-      postalCode: new FormControl('', Validators.compose([
-          Validators.required
-        ]
-      )),
-      password: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.minLength(6),
-        Validators.maxLength(30)
-      ])),
-      passwordAgain: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.minLength(6),
-        Validators.maxLength(30)
-      ])),
-    }, {
-      //validators: this.passwordCompare.bind(this)
-    });
-    */
-  }
+  ) {}
 
   ngOnInit(): void {
   }
 
   onSubmit(): void {
-    console.log('onSubmit() has been triggered');
-    /*
     if (this.signUpForm.valid) {
       this.sendForm();
     }
     else {
       console.log('not submitted');
     }
-     */
   }
 
   sendForm(): void {
@@ -180,6 +135,17 @@ export class SignupComponent implements OnInit {
         localStorage.setItem('houseNumber', this.houseNumber);
       });
   }
+
+  // a validator that is used at passwordAgain to check whether it's the same value as in password
+  // not working properly yet (ask mauri)
+  passwordValidator(control: AbstractControl): {[key: string]: boolean} | null{
+    if (control.value === this.password.value){
+      return { passwordValidity: true};
+    }
+    return null;
+  }
+
+
 
 
 }
