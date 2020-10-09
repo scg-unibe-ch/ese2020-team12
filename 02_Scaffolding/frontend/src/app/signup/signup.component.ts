@@ -11,20 +11,51 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./signup.component.css']
 })
 
-
-
 export class SignupComponent implements OnInit {
 
-  signUpForm: FormGroup;
   name;
   surname;
-  userName;
+  username;
   email;
   street;
   houseNumber;
   city;
   postalCode;
   password;
+  passwordAgain;
+
+  signUpForm = this.formBuilder.group({
+  name: new FormControl('', Validators.compose([
+    Validators.required
+  ])),
+  surname: new FormControl('', Validators.compose([
+    Validators.required
+  ])),
+  username: new FormControl('', Validators.compose([
+    Validators.required
+  ])),
+  email: new FormControl('', Validators.compose([
+    Validators.required,
+    Validators.minLength(6),
+    Validators.maxLength(30),
+    Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')
+  ])),
+  street: new FormControl(''),
+  houseNumber: new FormControl(''),
+  city: new FormControl(''),
+  postalCode: new FormControl('', Validators.compose([
+    Validators.required
+  ])),
+  password: new FormControl('', Validators.compose([
+    Validators.required,
+    Validators.minLength(8),
+  ])),
+  passwordAgain: new FormControl('', Validators.compose([
+    Validators.required,
+    Validators.minLength(8),
+  ])),
+  });
+
 
   errorMessages = {
     surname: [
@@ -34,14 +65,14 @@ export class SignupComponent implements OnInit {
     name: [
       { type: 'required', message: 'Name is required.' }
     ],
-    userName: [
+    username: [
       { type: 'required', message: 'Username is required.' }
     ],
     email: [
       { type: 'required', message: 'Email is required.' },
       { type: 'minlength', message: 'Email length.' },
       { type: 'maxlength', message: 'Email length.' },
-      { type: 'required', message: 'please enter a valid email address.' }
+      { type: 'pattern', message: 'please enter a valid email address.' }
     ],
     postalCode: [
       { type: 'required', message: 'Postal code is required.' }
@@ -67,6 +98,7 @@ export class SignupComponent implements OnInit {
     private route: ActivatedRoute,
     private httpClient: HttpClient,
   ) {
+    /*
     this.signUpForm = this.formBuilder.group({
       surname: new FormControl('', Validators.compose([
         Validators.required
@@ -104,27 +136,24 @@ export class SignupComponent implements OnInit {
         Validators.maxLength(30)
       ])),
     }, {
-      validators: this.passwordCompare.bind(this)
+      //validators: this.passwordCompare.bind(this)
     });
+    */
   }
 
   ngOnInit(): void {
   }
 
   onSubmit(): void {
+    console.log('onSubmit() has been triggered');
+    /*
     if (this.signUpForm.valid) {
       this.sendForm();
     }
     else {
       console.log('not submitted');
     }
-  }
-
-  // tslint:disable-next-line:typedef
-  passwordCompare(formGroup: FormGroup) {
-    const { value: password } = formGroup.get('password');
-    const { value: confirmPassword } = formGroup.get('passwordAgain');
-    return password === confirmPassword ? null : { passwordNotMatch: true };
+     */
   }
 
   sendForm(): void {
@@ -142,7 +171,7 @@ export class SignupComponent implements OnInit {
       .subscribe((res: Response) => {
         localStorage.setItem('name', this.name);
         localStorage.setItem('surname', this.surname);
-        localStorage.setItem('userName', this.userName);
+        localStorage.setItem('userName', this.username);
         localStorage.setItem('email', this.email);
         localStorage.setItem('street', this.street);
         localStorage.setItem('city', this.city);
@@ -150,7 +179,7 @@ export class SignupComponent implements OnInit {
         localStorage.setItem('password', this.password);
         localStorage.setItem('houseNumber', this.houseNumber);
       });
-}
+  }
 
 
 }
