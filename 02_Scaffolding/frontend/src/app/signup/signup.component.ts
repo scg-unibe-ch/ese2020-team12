@@ -3,6 +3,7 @@ import {AbstractControl, FormBuilder, FormControl, FormGroup, ValidatorFn, Valid
 import {ActivatedRoute} from '@angular/router';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
+import {passwordValidator} from './password-validator.directive';
 
 
 @Component({
@@ -50,11 +51,11 @@ export class SignupComponent implements OnInit {
     Validators.required,
     Validators.minLength(8),
   ])),
-  passwordAgain: new FormControl('', Validators.compose([
+  passwordAgain: new FormControl('', [
     Validators.required,
     Validators.minLength(8),
-    // custom validator
-  ])),
+    passwordValidator(this.password)
+  ]),
   });
 
   errorMessages = {
@@ -136,14 +137,16 @@ export class SignupComponent implements OnInit {
       });
   }
 
+  /*
   // a validator that is used at passwordAgain to check whether it's the same value as in password
   // not working properly yet (ask mauri)
-  passwordValidator(control: AbstractControl): {[key: string]: boolean} | null{
+  function passwordValidator(control: AbstractControl): { [key: string]: boolean } | null {
     if (control.value === this.password.value){
       return { passwordValidity: true};
     }
     return null;
   }
+   */
 
 
 
