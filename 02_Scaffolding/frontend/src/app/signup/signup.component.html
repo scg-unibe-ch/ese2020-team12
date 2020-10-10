@@ -91,7 +91,12 @@
 
   <!--
     Password must contain lowercase [a-z]+, UPPERCASE [A-Z]+, numbers [0-9]+, special chars \W
-    VALID: Aa1@aaaa ,
+    Valid combinations:
+    a1A@aaaa, a1@Aaaaa, aA1@aaaa, aA@1aaaa, a@1Aaaaa, a@A1aaaa,
+    A@1aaaaa, A@a1aaaa, A1@aaaaa, A1a@aaaa, Aa@1aaaa, Aa1@aaaa,
+    1aA@aaaa, 1a@Aaaaa, 1Aa@aaaa, 1A@aaaaa, 1@aAaaaa, 1@Aaaaaa,
+    @1aAaaaa, @1Aaaaaa, @a1Aaaaa, @aA1aaaa, @A1aaaaa, @Aa1aaaa
+
     INVALID: AA1@AAAA (no lowercase letter)
     INVALID: aa1@aaaa (no uppercase letter)
     INVALID: Aaa@aaaa (no number)
@@ -120,7 +125,15 @@
         </div>
       </ng-container>
     </div>
+    <div class="errorMessages">
+      <div *ngIf="signUpForm.errors?.differentPassword && (signUpForm.touched || signUpForm.dirty)" class="cross-validation-error-message alert alert-danger">
+        Passwords must match
+      </div>
+    </div>
+
   </div>
+
+
 
   <pre>
         Hint: {{ signUpForm.errors | json }}

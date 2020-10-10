@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {AbstractControl, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators} from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import {passwordValidator} from './password-validator.directive';
 import {ActivatedRoute} from '@angular/router';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
-import {passwordValidator} from './password-validator.directive';
 
 
 @Component({
@@ -50,13 +50,14 @@ export class SignupComponent implements OnInit {
   password: new FormControl('', Validators.compose([
     Validators.required,
     Validators.minLength(8),
+    Validators.pattern('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|]).{8,32}')
   ])),
-  passwordAgain: new FormControl('', [
+  passwordAgain: new FormControl('', Validators.compose([
     Validators.required,
     Validators.minLength(8),
-    passwordValidator(this.password)
-  ]),
-  });
+    Validators.pattern('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|]).{8,32}')
+  ])),
+  }, { validators: passwordValidator });
 
   errorMessages = {
     surname: [
@@ -72,7 +73,6 @@ export class SignupComponent implements OnInit {
     email: [
       { type: 'required', message: 'Email is required.' },
       { type: 'minlength', message: 'Email length.' },
-      { type: 'maxlength', message: 'Email length.' },
       { type: 'pattern', message: 'please enter a valid email address.' }
     ],
     postalCode: [
@@ -85,12 +85,12 @@ export class SignupComponent implements OnInit {
     password: [
       { type: 'required', message: 'password is required.' },
       { type: 'minlength', message: 'password length.' },
-      { type: 'maxlength', message: 'password length.' }
+      { type: 'pattern', message: 'password must be safer' }
     ],
     passwordAgain: [
       { type: 'required', message: 'password is required.' },
       { type: 'minlength', message: 'password length.' },
-      { type: 'maxlength', message: 'password length.' }
+      { type: 'pattern', message: 'password must be safer' }
     ],
   };
 
@@ -136,19 +136,4 @@ export class SignupComponent implements OnInit {
         localStorage.setItem('houseNumber', this.houseNumber);
       });
   }
-
-  /*
-  // a validator that is used at passwordAgain to check whether it's the same value as in password
-  // not working properly yet (ask mauri)
-  function passwordValidator(control: AbstractControl): { [key: string]: boolean } | null {
-    if (control.value === this.password.value){
-      return { passwordValidity: true};
-    }
-    return null;
-  }
-   */
-
-
-
-
 }

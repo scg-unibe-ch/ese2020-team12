@@ -1,17 +1,17 @@
 import { Directive } from '@angular/core';
-import {AbstractControl, ValidatorFn} from '@angular/forms';
+import { FormGroup, ValidationErrors, ValidatorFn } from '@angular/forms';
 
 @Directive({
   selector: '[appPasswordValidator]'
 })
 export class PasswordValidatorDirective {
-
   constructor() { }
 }
 
-export function passwordValidator(password: string): ValidatorFn {
-  return (control: AbstractControl): {[key: string]: any} | null => {
-    const allowed = (password === control.value);
-    return allowed ? {forbiddenName: {value: control.value}} : null;
-  };
-}
+/** A password must match the second password */
+export const passwordValidator: ValidatorFn = (control: FormGroup): ValidationErrors | null => {
+  const password = control.get('password');
+  const passwordAgain = control.get('passwordAgain');
+
+  return password && passwordAgain && password.value !== passwordAgain.value ? { differentPassword: true } : null;
+};
