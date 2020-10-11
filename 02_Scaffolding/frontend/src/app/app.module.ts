@@ -24,6 +24,7 @@ import { UserLoginComponent } from './user-login/user-login.component';
 import { TopbarComponent } from './topbar/topbar.component';
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
+import { PasswordValidatorDirective } from './signup/password-validator.directive';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { HomeComponent } from './home/home.component';
     UserLoginComponent,
     TopbarComponent,
     SignupComponent,
-    HomeComponent
+    HomeComponent,
+    PasswordValidatorDirective
   ],
     imports: [
         BrowserModule,
