@@ -9,7 +9,7 @@ import {environment} from '../../environments/environment';
 })
 export class TopbarComponent implements OnInit {
 
-  userName: string;
+  username = '';
   password = '';
 
   userToken: string;
@@ -27,7 +27,7 @@ export class TopbarComponent implements OnInit {
   checkUserStatus(): void {
     // Get user data from local storage
     this.userToken = localStorage.getItem('userToken');
-    this.userName = localStorage.getItem('userName');
+    this.username = localStorage.getItem('userName');
 
     // Set boolean whether a user is logged in or not
     this.loggedIn = !!(this.userToken);
@@ -35,7 +35,7 @@ export class TopbarComponent implements OnInit {
 
   login(): void {
     this.httpClient.post(environment.endpointURL + 'user/login', {
-      userName: this.userName,
+      userName: this.username,
       password: this.password
     }).subscribe((res: any) => {
       // Set user data in local storage

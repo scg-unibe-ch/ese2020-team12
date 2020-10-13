@@ -1,6 +1,6 @@
-<div class="container-topbar">
+<mat-card class="container-topbar">
 
-  <form formGroup="topbarForm" method="post">
+  <div>
 
     <div class="logo">
       <a id="logo" [routerLink]="['/']">Page-Logo</a>
@@ -9,41 +9,22 @@
     <div class="top-right-block" *ngIf="!loggedIn">
 
       <div class="input-column">
-        <div class="row-10"><input id="username" type="text" placeholder="enter username" name="username"></div>
-        <div class="row-10"><input id="password" type="password" placeholder="enter password" name="password"></div>
+        <div class="row-10"><label for="username"></label><input [(ngModel)]="username" id="username" type="text" placeholder="enter username" name="username"></div>
+        <div class="row-10"><label for="password"></label><input [(ngModel)]="password" id="password" type="password" placeholder="enter password" name="password"></div>
       </div>
 
-      <input type=submit class=button id="signinbutton" value="sign in">
+      <button type="button" class=button id="signinbutton" (click)="login()">sign in</button>
 
       <a id="signup" routerLink="/signup">sign up</a>
+      
     </div>
 
     <div class="top-right-block" *ngIf="loggedIn">
-      <div class="row-10"><a>mashallah</a></div>
+      <div class="row-10"><a>Sie sind eingeloggt</a></div>
+      <button type="button" class=button id="signoutbutton" (click)="logout()">sign out</button>
     </div>
 
-  </form>
-
-</div>
-
-<!--<mat-card>
-  <div *ngIf="!loggedIn">
-    <mat-form-field>
-      <input id="username" placeholder="User Name" [(ngModel)]="userName" name="userName">
-    </mat-form-field>
-    <mat-form-field>
-      <input id="password" placeholder="Password" [(ngModel)]="password" name="password" type="password">
-    </mat-form-field>
-    <button mat-flat-button color="primary" (click)="login()">Login</button>
   </div>
 
-  <div *ngIf="loggedIn">
-    <button mat-flat-button color="warn" (click)="logout()">Logout</button>
-    You are currently logged in as {{ userName }}
-  </div>
 </mat-card>
 
-<mat-card>
-  <button mat-flat-button color="primary" (click)="accessSecuredEndpoint()">Access Secure Endpoint (only for logged in users)</button>
-  {{ secureEndpointResponse }}
-</mat-card>-->
