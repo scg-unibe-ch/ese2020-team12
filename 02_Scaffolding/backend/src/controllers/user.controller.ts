@@ -13,7 +13,8 @@ const userService = new UserService();
 
 userController.post('/signup', verifyUserUnique,
     (req: Request, res: Response) => {
-        userService.register(req.body).then(registered => res.send(registered)).catch(err => res.status(500).send(err));
+        console.log('----->:' + req.body.userName);
+        userService.register(req.body).then(registered => res.status(201).send(registered)).catch(err => res.status(500).send(err));
     });
 
 // userService.register(req.body).then(registered => res.send(registered)).catch(err => res.status(500).send(err));

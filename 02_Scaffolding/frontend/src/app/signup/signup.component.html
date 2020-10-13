@@ -1,12 +1,12 @@
-<div class="container-signup">
+<mat-card [formGroup]="signUpForm" class="container-signup">
 
 <h2>Sign Up </h2>
 
-<form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+<!--<form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">-->
 
   <div class="row">
     <div class="col-25"><label for="name">Name*</label></div>
-    <div class="col-75"><input class="form-control" id="name" type="text" formControlName="name" name="name" required></div>
+    <div class="col-75"><input [(ngModel)]="name" class="form-control" id="name" type="text" formControlName="name" name="name" required></div>
     <div class="errorMessages">
       <ng-container *ngFor="let error of errorMessages.name">
         <div class="errorMessages" *ngIf="signUpForm.get('name').hasError(error.type) && (signUpForm.get('name').dirty || signUpForm.get('name').touched)">
@@ -18,7 +18,7 @@
 
   <div class="row">
     <div class="col-25"><label for="surname">Surname*</label></div>
-    <div class="col-75"><input id="surname" type="text" formControlName="surname" name="surname" required></div>
+    <div class="col-75"><input [(ngModel)]="surname" id="surname" type="text" formControlName="surname" name="surname" required></div>
     <div class="errorMessages">
       <ng-container *ngFor="let error of errorMessages.surname">
         <div class="errorMessages" *ngIf="signUpForm.get('surname').hasError(error.type) && (signUpForm.get('surname').dirty || signUpForm.get('surname').touched)">
@@ -30,7 +30,7 @@
 
   <div class="row">
     <div class="col-25"><label for="username">Username*</label></div>
-    <div class="col-75"><input id="username" type="text" formControlName="username" name="username" required></div>
+    <div class="col-75"><input [(ngModel)]="username" id="username" type="text" formControlName="username" name="username" required></div>
     <div class="errorMessages">
       <ng-container *ngFor="let error of errorMessages.username">
         <div class="errorMessages" *ngIf="signUpForm.get('username').hasError(error.type) && (signUpForm.get('username').dirty || signUpForm.get('username').touched)">
@@ -45,7 +45,7 @@
     -->
   <div class="row">
     <div class="col-25"><label for="email">E-Mail*</label></div>
-    <div class="col-75"><input id="email" type="text" formControlName="email" name="email" required></div>
+    <div class="col-75"><input [(ngModel)]="email" id="email" type="text" formControlName="email" name="email" required></div>
     <div class="errorMessages">
       <ng-container *ngFor="let error of errorMessages.email">
         <div class="errorMessages" *ngIf="signUpForm.get('email').hasError(error.type) && (signUpForm.get('email').dirty || signUpForm.get('email').touched)">
@@ -57,17 +57,17 @@
 
   <div class="row">
     <div class="col-25"><label for="street">Street</label></div>
-    <div class="col-75"><input id="street" type="text" formControlName="street" name="street"></div>
+    <div class="col-75"><input [(ngModel)]="street" id="street" type="text" formControlName="street" name="street"></div>
   </div>
 
   <div class="row">
     <div class="col-25"><label for="houseNumber">House number</label></div>
-    <div class="col-75"><input id="houseNumber" type="text" formControlName="houseNumber" name="houseNumber"></div>
+    <div class="col-75"><input [(ngModel)]="houseNumber" id="houseNumber" type="text" formControlName="houseNumber" name="houseNumber"></div>
   </div>
 
   <div class="row">
     <div class="col-25"><label for="city">City*</label></div>
-    <div class="col-75"><input id="city" type="text" formControlName="city" name="city"></div>
+    <div class="col-75"><input [(ngModel)]="city" id="city" type="text" formControlName="city" name="city"></div>
     <div class="errorMessages">
       <ng-container *ngFor="let error of errorMessages.city">
         <div class="errorMessages" *ngIf="signUpForm.get('city').hasError(error.type) && (signUpForm.get('city').dirty || signUpForm.get('city').touched)">
@@ -79,7 +79,7 @@
 
   <div class="row">
     <div class="col-25"><label for="postalCode">Postal Code*</label></div>
-    <div class="col-75"><input id="postalCode" type="text" formControlName="postalCode" name="postalCode" required></div>
+    <div class="col-75"><input [(ngModel)]="postalCode" id="postalCode" type="text" formControlName="postalCode" name="postalCode" required></div>
     <div class="errorMessages">
       <ng-container *ngFor="let error of errorMessages.postalCode">
         <div class="errorMessages" *ngIf="signUpForm.get('postalCode').hasError(error.type) && (signUpForm.get('postalCode').dirty || signUpForm.get('postalCode').touched)">
@@ -105,7 +105,7 @@
     -->
   <div class="row">
     <div class="col-25"><label for="password">Password*</label></div>
-    <div class="col-75"><input id="password" type="password" formControlName="password" name="password" required></div>
+    <div class="col-75"><input [(ngModel)]="password" id="password" type="password" formControlName="password" name="password" required></div>
     <div class="errorMessages">
       <ng-container *ngFor="let error of errorMessages.password">
         <div class="errorMessages" *ngIf="signUpForm.get('password').hasError(error.type) && (signUpForm.get('password').dirty || signUpForm.get('password').touched)">
@@ -140,12 +140,11 @@
   </pre>
 
   <div class="row">
-    <input type="submit" value="Sign Up" for="submitregistration" class="button" [disabled]="!signUpForm.valid">
-    <button type="submit" id="submitregistration" [disabled]="!signUpForm.valid">Signup</button>
+    <button type="button" class="button" (click)="sendForm()">Sign Up</button>
   </div>
 
-  </form>
-</div>
+  <!--</form>-->
+</mat-card>
 
 
 
