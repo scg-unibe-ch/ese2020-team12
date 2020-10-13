@@ -4,30 +4,16 @@ import { UserService } from '../services/user.service';
 import { verifyToken } from '../middlewares/checkAuth';
 import {User} from '../models/user.model';
 import {Op} from 'sequelize';
+import {verifyUserUnique} from '../middlewares/userUnique';
 
 const userController: Router = express.Router();
 const userService = new UserService();
 
 
 
-userController.post('/signup',
+userController.post('/signup', verifyUserUnique,
     (req: Request, res: Response) => {
-        return User.findOne({
-            // look trough the database if the userName or the email already exist
-            where: {
-                [Op.or]: [
-                    {userName: req.body.userName},
-                    {email : req.body.email}
-                ]
-            }
-        }).then(user => {
-                if (user == null) {
-                    // make a new account
-                    userService.register(req.body).then(registered => res.status(201).send(registered));
-                } else {
-                    res.status(409).send('Email or Username is already used');
-                }
-            }).catch(err => res.status(500).send(err));
+        userService.register(req.body).then(registered => res.send(registered)).catch(err => res.status(500).send(err));
     });
 
 // userService.register(req.body).then(registered => res.send(registered)).catch(err => res.status(500).send(err));
@@ -45,7 +31,7 @@ userController.delete('/:id', (req: Request, res: Response ) => {
         }).catch(err => res.status(500).send(err));
 });
 
-userController.put(':id', (req: Request, res: Response) => {
+userController.put('/:id', verifyUserUnique , (req: Request, res: Response) => {
     User.findByPk(req.params.id)
         .then(found => {
             if (found != null) {
