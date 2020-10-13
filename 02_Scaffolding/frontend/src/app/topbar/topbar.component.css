@@ -1,7 +1,7 @@
 .container-topbar {
   width: 100vw;
   height: 70px;
-  background-color: dodgerblue;
+  background-color: #09abff;
   padding: 10px;
   border-radius: 1px;
 }
@@ -28,6 +28,20 @@
   padding: 0 1vw;
   float: left;
 }
+.row-20 {
+  padding: 1vw 1vw;
+  color: white;
+  display: inline-block;
+  font-size: medium;
+  float: right;
+}
+#signoutbutton{
+  width: 6vw;
+  padding: .5vw 0vw;
+  float: right;
+  margin-top: .5vw;
+  margin-right: 2vw;
+}
 
 .column{
   float: left;
@@ -35,19 +49,8 @@
   margin-top: .5vw;
 }
 
-input[type=submit] {
-  background-color: rgb(130, 148, 177);
-  color: white;
-  padding: 12px 1vw;
-  border: none;
-  display:inline-block;
-  cursor:pointer;
-  border-radius: 4px;
-  float: left;
-  margin: .5vw 0 0 .5vw;
-}
-input[type=submit]:hover {
-  background-color: rgb(101, 116, 140);
+input[type=text]:hover,[type=password]:hover {
+  background-color: rgb(141, 177, 239);
 }
 
 #signup {
