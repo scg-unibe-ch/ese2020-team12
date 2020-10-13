@@ -17,7 +17,7 @@ import { AuthInterceptor } from './auth/auth.interceptor';
 // until here <--
 
 import { RouterModule } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { UserLoginComponent } from './user-login/user-login.component';
@@ -51,9 +51,10 @@ import { PasswordValidatorDirective } from './signup/password-validator.directiv
         MatToolbarModule,
         ReactiveFormsModule,
         RouterModule.forRoot([
-          {path: '', component: HomeComponent},
-          {path: 'signup', component: SignupComponent},
-        ])
+            {path: '', component: HomeComponent},
+            {path: 'signup', component: SignupComponent},
+        ]),
+        FormsModule
     ],
   providers: [
     {

@@ -6,18 +6,44 @@
       <a id="logo" [routerLink]="['/']">Page-Logo</a>
     </div>
 
-    <div class="top-right-block">
+    <div class="top-right-block" *ngIf="!loggedIn">
+
       <div class="input-column">
-        <div class="row-10"><input id="username" type="text" placeholder="enter username"></div>
-        <div class="row-10"><input id="password" type="password" placeholder="enter password"></div>
+        <div class="row-10"><input id="username" type="text" placeholder="enter username" name="username"></div>
+        <div class="row-10"><input id="password" type="password" placeholder="enter password" name="password"></div>
       </div>
 
-
-      <input class=button id="signinbutton" type="submit" value="sign in">
+      <input type=submit class=button id="signinbutton" value="sign in">
 
       <a id="signup" routerLink="/signup">sign up</a>
+    </div>
+
+    <div class="top-right-block" *ngIf="loggedIn">
+      <div class="row-10"><a>mashallah</a></div>
     </div>
 
   </form>
 
 </div>
+
+<!--<mat-card>
+  <div *ngIf="!loggedIn">
+    <mat-form-field>
+      <input id="username" placeholder="User Name" [(ngModel)]="userName" name="userName">
+    </mat-form-field>
+    <mat-form-field>
+      <input id="password" placeholder="Password" [(ngModel)]="password" name="password" type="password">
+    </mat-form-field>
+    <button mat-flat-button color="primary" (click)="login()">Login</button>
+  </div>
+
+  <div *ngIf="loggedIn">
+    <button mat-flat-button color="warn" (click)="logout()">Logout</button>
+    You are currently logged in as {{ userName }}
+  </div>
+</mat-card>
+
+<mat-card>
+  <button mat-flat-button color="primary" (click)="accessSecuredEndpoint()">Access Secure Endpoint (only for logged in users)</button>
+  {{ secureEndpointResponse }}
+</mat-card>-->
