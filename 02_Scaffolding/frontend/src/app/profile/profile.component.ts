@@ -6,10 +6,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  userToken: string;
+  loggedIn = false;
 
-  constructor() { }
+  username = '';
+  password = '';
 
-  ngOnInit(): void {
+  constructor() {
   }
 
+  ngOnInit(): void {
+    this.checkUserStatus();
+  }
+
+  checkUserStatus(): void {
+    // Get user data from local storage
+    this.userToken = localStorage.getItem('userToken');
+    this.username = localStorage.getItem('userName');
+
+    // Set boolean whether a user is logged in or not
+    this.loggedIn = !!(this.userToken);
+  }
 }

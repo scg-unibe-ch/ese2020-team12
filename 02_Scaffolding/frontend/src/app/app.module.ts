@@ -55,6 +55,7 @@ import { PasswordValidatorDirective } from './signup/password-validator.directiv
         RouterModule.forRoot([
             {path: '', component: HomeComponent},
             {path: 'signup', component: SignupComponent},
+            {path: 'profile', component: ProfileComponent}
         ]),
         FormsModule
     ],

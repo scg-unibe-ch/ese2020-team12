@@ -33,12 +33,16 @@
   color: white;
   display: inline-block;
   font-size: medium;
+  float: left;
+  width: 80%;
+}
+.row-20 a{
   float: right;
 }
 #signoutbutton{
   width: 6vw;
   padding: .5vw 0vw;
-  float: right;
+  float: left;
   margin-top: .5vw;
   margin-right: 2vw;
 }

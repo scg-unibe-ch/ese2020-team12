@@ -21,11 +21,13 @@
 
 
     <div class="top-right-block" *ngIf="loggedIn">
-      <div class="row-20"><a routerLink="/profile">{{username}}</a></div>
-      <button type="button" class=button id="signoutbutton" (click)="logout()">sign out</button>
+      <div class="row-20"><a id="profile" routerLink='/profile'>{{username}}</a></div>
+      <button type="button" class=button id="signoutbutton" (click)="logout()" onClick="window.location.reload();">sign out</button>
     </div>
 
   </div>
 
 </mat-card>
+
+
 

@@ -1,0 +1,38 @@
+/*Insert into profile.component.css */
+
+.container-personalinfo {
+  margin: 0 auto;
+  width: 80vw;
+  background-color: skyblue;
+}
+
+.col-30 {
+  float: left;
+  width: 30%;
+  margin-top: 1vh;
+  border: 1px solid black;
+}
+
+.col-70 {
+  float: left;
+  width: 70%;
+  margin-top: 1vh;
+  border: 1px solid black;
+}
+
+.row:after {
+  clear: both;
+  display: table;
+  content: "";
+}
+
+.profilepicture {
+  width: 60%;
+  margin: 2vw 20%;
+}
+
+.container-useritems {
+  margin: 0 auto;
+  width: 60vw;
+  background-color: rgb(18, 132, 177);
+}

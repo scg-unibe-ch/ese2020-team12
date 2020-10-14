@@ -1,8 +1,52 @@
-<h3>home works!</h3>
+<meta http-equiv="Refresh" content="0; url='/'" *ngIf="!loggedIn"/>
 
-<p>As soon as we have some content, we can start to build on this page...</p>
+<div class="container-personalinfo" *ngIf="loggedIn">
+  <div class="col-30">
+    <img class="profilepicture" src="https://www.postplanner.com/hs-fs/hub/513577/file-2886416984-png/blog-files/facebook-profile-pic-vs-cover-photo-sq.png?width=250&height=250&name=facebook-profile-pic-vs-cover-photo-sq.png" alt="Here is your face"/>
+    <div class="bio">
+      Here comes your biografie or whatever you'd like to write about yourself on the website. Shoul be dynamic and text should be getted from database.
+    </div>
+    <a class="editlink" href="whatever.html" >Edit your Bio</a>
+  </div>
+  <div class="col-70">
+    <div class="row">
+      <div class="col-30">
+        Username:
+      </div>
+      <div class="col-70">
+        smoerk
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-30">
+        Password:
+      </div>
+      <div class="col-70">
+        dotted
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-30">
+        Address:
+      </div>
+      <div class="col-70">
+        Street <br>
+        Housenumber <br>
+        City <br>
+        Postalcode <br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-30">
+        Email:
+      </div>
+      <div class="col-70">
+        some@email.com
+      </div>
+    </div>
+    <input type="submit" value="Save changes!">
+  </div>
+</div>
+<div class="container-useritems">
 
-<p>Until then: Lolololo</p>
-
-<iframe src="https://giphy.com/embed/6a67zVJ0wMMOzg3YKA" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen>
-</iframe>
+</div>
