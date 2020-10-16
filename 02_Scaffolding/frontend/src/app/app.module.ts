@@ -26,6 +26,7 @@ import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PasswordValidatorDirective } from './signup/password-validator.directive';
+import { AddArticleComponent } from './add-article/add-article.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { PasswordValidatorDirective } from './signup/password-validator.directiv
     SignupComponent,
     HomeComponent,
     ProfileComponent,
-    PasswordValidatorDirective
+    PasswordValidatorDirective,
+    AddArticleComponent
   ],
     imports: [
         BrowserModule,

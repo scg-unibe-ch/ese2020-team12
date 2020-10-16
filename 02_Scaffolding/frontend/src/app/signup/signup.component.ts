@@ -90,7 +90,7 @@ export class SignupComponent implements OnInit {
       city: new FormControl(''),
       postalCode: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.pattern('[0-9]{4,8}')
+        Validators.pattern('[0-9]')
       ])),
       password: new FormControl('', Validators.compose([
         Validators.required,
