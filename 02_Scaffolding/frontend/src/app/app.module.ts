@@ -57,7 +57,8 @@ import { AddArticleComponent } from './add-article/add-article.component';
         RouterModule.forRoot([
             {path: '', component: HomeComponent},
             {path: 'signup', component: SignupComponent},
-            {path: 'profile', component: ProfileComponent}
+            {path: 'profile', component: ProfileComponent},
+            {path: 'add-article', component: AddArticleComponent}
         ]),
         FormsModule
     ],

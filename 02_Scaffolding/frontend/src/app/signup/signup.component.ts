@@ -61,6 +61,7 @@ export class SignupComponent implements OnInit {
       {type: 'pattern', message: 'password must be safer'}
     ],
   };
+
   signUpForm: FormGroup;
 
   constructor(

@@ -1,1 +1,46 @@
-<p>add-article works!</p>
+
+<form [formGroup]="addArticleForm" (ngSubmit)="onSubmit()">
+
+  <div class="row">
+    <div class="">
+      <label for="articleType">Choose article type: </label>
+      <select class="custom-select" (change)="changeType($event)" id="articleType" formControlName="articleType">
+        <option value="" disabled></option>
+        <option *ngFor="let articleType of articleTypes" [ngValue]="articleType">{{articleType}}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="">
+      <label for="title">Title: </label>
+      <input [(ngModel)]="title" id="title" type="text" formControlName="title" name="title" required>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="">
+      <label for="price">Price: </label>
+      <input [(ngModel)]="price" id="price" type="number" formControlName="price" name="price" required>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="">
+      <label for="description">Description: </label>
+      <input [(ngModel)]="description" id="description" type="text" formControlName="description" name="description" required>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="">
+      <label for="location">Location: </label>
+      <input [(ngModel)]="location" id="location" type="text" formControlName="location" name="location" required>
+    </div>
+  </div>
+
+  <div class="row">
+    <button type="submit">Add Article</button>
+  </div>
+
+</form>
