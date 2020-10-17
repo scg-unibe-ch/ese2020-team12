@@ -3,7 +3,6 @@ import express, { Router, Request, Response } from 'express';
 import { UserService } from '../services/user.service';
 import { verifyToken } from '../middlewares/checkAuth';
 import {User} from '../models/user.model';
-import {Op} from 'sequelize';
 import {verifyUserUnique} from '../middlewares/userUnique';
 
 const userController: Router = express.Router();
@@ -13,7 +12,6 @@ const userService = new UserService();
 
 userController.post('/signup', verifyUserUnique,
     (req: Request, res: Response) => {
-        console.log('----->:' + req.body.userName);
         userService.register(req.body).then(registered => res.status(201).send(registered)).catch(err => res.status(500).send(err));
     });
 

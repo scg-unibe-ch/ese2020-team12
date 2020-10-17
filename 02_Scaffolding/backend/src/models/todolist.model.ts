@@ -8,10 +8,10 @@ export interface TodoListAttributes {
 
 export interface TodoListCreationAttributes extends Optional<TodoListAttributes, 'todoListId'> { }
 
-export class TodoList extends Model<TodoListAttributes, TodoListCreationAttributes> implements TodoListAttributes {
+export class ArticleListO extends Model<TodoListAttributes, TodoListCreationAttributes> implements TodoListAttributes {
 
     public static associations: {
-        todoItems: Association<TodoList, TodoItem>;
+        todoItems: Association<ArticleListO, TodoItem>;
     };
     todoListId!: number;
     name!: string;
@@ -22,7 +22,7 @@ export class TodoList extends Model<TodoListAttributes, TodoListCreationAttribut
     public readonly todoItems?: TodoItem[];
 
     public static initialize(sequelize: Sequelize) {
-        TodoList.init(
+        ArticleListO.init(
             {
                 todoListId: {
                     type: DataTypes.INTEGER,
@@ -38,7 +38,7 @@ export class TodoList extends Model<TodoListAttributes, TodoListCreationAttribut
         );
     }
     public static createAssociations() {
-        TodoList.hasMany(TodoItem, {
+        ArticleListO.hasMany(TodoItem, {
             as: 'todoItems',
             foreignKey: 'todoListId'
         });

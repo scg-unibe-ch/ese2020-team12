@@ -1,18 +1,18 @@
 import express from 'express';
 import { Router, Request, Response } from 'express';
-import { ArticleListO } from '../models/todolist.model';
+import {ArticleList} from '../models/article.model';
 
-const todoListController: Router = express.Router();
+const articleController: Router = express.Router();
 
-todoListController.post('/', (req: Request, res: Response) => {
-    ArticleListO.create(req.body).then(created => {
+articleController.post('/', (req: Request, res: Response) => {
+    ArticleList.create(req.body).then(created => {
         res.status(201).send(created);
     })
-        .catch(err => res.status(500).send(err));
+        .catch(err => res.status(500).send( err));
 });
 
-todoListController.put('/:id', (req: Request, res: Response) => {
-    ArticleListO.findByPk(req.params.id)
+articleController.put('/:id', (req: Request, res: Response) => {
+    ArticleList.findByPk(req.params.id)
         .then(found => {
             if (found != null) {
                 found.update(req.body).then(updated => {
@@ -26,8 +26,8 @@ todoListController.put('/:id', (req: Request, res: Response) => {
         .catch(err => res.status(500).send(err));
 });
 
-todoListController.delete('/:id', (req: Request, res: Response) => {
-    ArticleListO.findByPk(req.params.id)
+articleController.delete('/:id', (req: Request, res: Response) => {
+    ArticleList.findByPk(req.params.id)
         .then(found => {
             if (found != null) {
                 found.destroy()
@@ -40,11 +40,12 @@ todoListController.delete('/:id', (req: Request, res: Response) => {
         .catch(err => res.status(500).send(err));
 });
 
-todoListController.get('/', (req: Request, res: Response) => {
-    // this automatically fills each todolist with the according todoitems
-    ArticleListO.findAll({ include: [ArticleListO.associations.todoItems] })
+articleController.get('/', (req: Request, res: Response) => {
+    // this automatically fills each ArticleList with the according productItems and serviceItems
+    ArticleList.findAll({ include: ArticleList.associations.productItems})
+        // ArticleList.associations.serviceItems]})
         .then(list => res.status(200).send(list))
         .catch(err => res.status(500).send(err));
 });
 
-export const TodoListController: Router = todoListController;
+export const ArticleController: Router = articleController;

@@ -1,5 +1,5 @@
 import { Optional, Model, Sequelize, DataTypes } from 'sequelize';
-import { TodoList } from './todolist.model';
+import { ArticleListO } from './todolist.model';
 
 export interface TodoItemAttributes {
     todoItemId: number;
@@ -44,7 +44,7 @@ export class TodoItem extends Model<TodoItemAttributes, TodoItemCreationAttribut
 
     }
     public static createAssociations() {
-        TodoItem.belongsTo(TodoList, {
+        TodoItem.belongsTo(ArticleListO, {
             targetKey: 'todoListId',
             as: 'todoList',
             onDelete: 'cascade',
