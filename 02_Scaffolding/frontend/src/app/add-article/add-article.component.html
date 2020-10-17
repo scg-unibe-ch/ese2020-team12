@@ -65,16 +65,16 @@
         <option *ngFor="let delivery of deliveryOptions" [ngValue]="delivery">{{delivery}}</option>
       </select>
       <label for="deliverySpecs">Delivery Specifications (including costs): </label>
-      <input [(ngModel)]="description" id="deliverySpecs" type="text" formControlName="deliverySpecs" name="deliverySpecs">
+      <input [(ngModel)]="deliverySpecs" id="deliverySpecs" type="text" formControlName="deliverySpecs" name="deliverySpecs">
     </div>
   </div>
 
   <div class="row">
     <div class="">
       <label for="expenses">Expenses (Specification): </label>
-      <input [(ngModel)]="description" id="expenses" type="text" formControlName="expenses" name="expenses">
+      <input [(ngModel)]="expenses" id="expenses" type="text" formControlName="expenses" name="expenses">
       <label for="expensesCost">Expenses (CHF): </label>
-      <input [(ngModel)]="description" id="expensesCost" type="number" formControlName="expensesCost" name="expensesCost">
+      <input [(ngModel)]="expensesCost" id="expensesCost" type="number" formControlName="expensesCost" name="expensesCost">
     </div>
   </div>
 
