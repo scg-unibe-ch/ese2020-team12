@@ -37,22 +37,28 @@ export class AddArticleComponent implements OnInit {
     private httpClient: HttpClient,
   ) {
     this.addArticleForm = this.formBuilder.group({
-        articleType: new FormControl('', Validators.compose(
+      articleType: new FormControl('', Validators.compose(
           [Validators.required]
-        )),
-        title: new FormControl('', Validators.compose(
+      )),
+      title: new FormControl('', Validators.compose(
           [Validators.required]
-        )),
-        price: new FormControl('', Validators.compose(
+      )),
+      price: new FormControl('', Validators.compose(
           [Validators.required]
-        )),
-        description: new FormControl('', Validators.compose(
+      )),
+      pricingType: new FormControl(''),
+      description: new FormControl('', Validators.compose(
           [Validators.required]
-        )),
-        location: new FormControl('', Validators.compose(
+      )),
+      location: new FormControl('', Validators.compose(
         [Validators.required]
-        )),
-
+      )),
+      sellOrLend: new FormControl(''),
+      lendingStatus: new FormControl(''),
+      delivery: new FormControl(''),
+      deliverySpecs: new FormControl(''),
+      expenses: new FormControl(''),
+      expensesCost: new FormControl('')
     });
   }
 
@@ -94,8 +100,9 @@ export class AddArticleComponent implements OnInit {
   }
 
   /*
-  sendForm(): void {
-    this.httpClient.post(environment.endpointURL + 'user/signup', {
+  // only copy-pasted method from the signupForm, needs to be updated
+  addArticleRequest(): void {
+    this.httpClient.post(environment.endpointURL + 'user/add-article', {
       name: this.name,
       surname: this.surname,
       userName: this.username,
@@ -118,8 +125,7 @@ export class AddArticleComponent implements OnInit {
       localStorage.setItem('password', res.password);
     });
   }
-   */
-
+  */
 
 
 }
