@@ -34,7 +34,8 @@ export class SignupComponent implements OnInit {
       {type: 'required', message: 'Name is required.'}
     ],
     username: [
-      {type: 'required', message: 'Username is required.'}
+      {type: 'required', message: 'Username is required.'},
+      {type: 'maxlength', message: 'Username is too long.'}
     ],
     email: [
       {type: 'required', message: 'Email is required.'},
@@ -42,7 +43,8 @@ export class SignupComponent implements OnInit {
       {type: 'pattern', message: 'please enter a valid email address.'}
     ],
     postalCode: [
-      {type: 'required', message: 'Postal code is required.'}
+      {type: 'required', message: 'Postal code is required.'},
+      {type: 'pattern', message: 'Postal code must consist of numbers'}
     ],
     city: [
       {type: 'required', message: 'City is required.'}
@@ -59,6 +61,7 @@ export class SignupComponent implements OnInit {
       {type: 'pattern', message: 'password must be safer'}
     ],
   };
+
   signUpForm: FormGroup;
 
   constructor(
@@ -74,7 +77,8 @@ export class SignupComponent implements OnInit {
         Validators.required
       ])),
       username: new FormControl('', Validators.compose([
-        Validators.required
+        Validators.required,
+        Validators.maxLength(16)
       ])),
       email: new FormControl('', Validators.compose([
         Validators.required,
@@ -86,7 +90,8 @@ export class SignupComponent implements OnInit {
       houseNumber: new FormControl(''),
       city: new FormControl(''),
       postalCode: new FormControl('', Validators.compose([
-        Validators.required
+        Validators.required,
+        Validators.pattern('[0-9]')
       ])),
       password: new FormControl('', Validators.compose([
         Validators.required,

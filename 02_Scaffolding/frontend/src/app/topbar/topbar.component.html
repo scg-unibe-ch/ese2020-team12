@@ -9,8 +9,8 @@
     <div class="top-right-block" *ngIf="!loggedIn">
 
       <div class="input-column">
-        <div class="row-10"><label for="username"></label><input [(ngModel)]="username" id="username" type="text" placeholder="enter username" name="username"></div>
-        <div class="row-10"><label for="password"></label><input [(ngModel)]="password" id="password" type="password" placeholder="enter password" name="password"></div>
+        <div class="row-10"><label for="username"></label><input [(ngModel)]="username" id="username" type="text" placeholder="username" name="username"></div>
+        <div class="row-10"><label for="password"></label><input [(ngModel)]="password" id="password" type="password" placeholder="password" name="password"></div>
       </div>
 
       <button type="button" class=button id="signinbutton" (click)="login()">sign in</button>
