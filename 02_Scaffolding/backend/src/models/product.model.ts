@@ -67,14 +67,12 @@ export class ProductItem extends Model<ProductItemAttributes, ProductItemCreatio
         );
 
     }
-    /*
     public static createAssociations() {
         ArticleList.belongsTo(ArticleList, {
             targetKey: 'articleListId',
-            as: 'article',
             onDelete: 'cascade',
             foreignKey: 'articleListId'
         });
-    }*/
+    }
 
 }

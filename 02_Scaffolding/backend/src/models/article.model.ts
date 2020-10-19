@@ -25,6 +25,7 @@ export class ArticleList extends Model<ArticleListAttributes, ArticleListCreatio
     public addServiceItem!: HasManyAddAssociationMixin<ServiceItem, number>;
 
     public readonly productItems?: ProductItem[];
+
     // public readonly serviceItems?: ServiceItem[];
 
     public static initialize(sequelize: Sequelize) {
@@ -40,16 +41,16 @@ export class ArticleList extends Model<ArticleListAttributes, ArticleListCreatio
                     allowNull: false
                 }
             },
-            { tableName: 'articles', sequelize }
+            {tableName: 'articles', sequelize}
         );
     }
-    /*
+
     public static createAssociations() {
         ArticleList.hasMany(ProductItem, {
-            foreignKey: 'articleListId'
-        }); /*
+            foreignKey: 'articleListId',
+        });
         ArticleList.hasMany(ServiceItem, {
             foreignKey: 'articleListId'
         });
-    }*/
+    }
 }

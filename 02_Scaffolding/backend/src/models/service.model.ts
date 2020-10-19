@@ -54,14 +54,13 @@ export class ServiceItem extends Model<ServiceItemAttributes, ServiceItemCreatio
             { sequelize, tableName: 'services' }
         );
 
-    }/*
+    }
     public static createAssociations() {
         ServiceItem.belongsTo(ArticleList, {
             targetKey: 'articleListId',
-            as: 'article',
             onDelete: 'cascade',
             foreignKey: 'articleListId'
         });
-    }*/
+    }
 
 }

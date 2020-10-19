@@ -37,8 +37,8 @@ export class Server {
         ProductItem.initialize(this.sequelize);
         ArticleList.initialize(this.sequelize);
         ServiceItem.initialize(this.sequelize);
-        // ProductItem.createAssociations();
-        // ServiceItem.createAssociations();
+        ArticleList.createAssociations();
+        ProductItem.createAssociations();
 
         this.sequelize.sync().then(() => {                           // create connection to the database
             this.server.listen(this.port, () => {                                   // start server on specified port
