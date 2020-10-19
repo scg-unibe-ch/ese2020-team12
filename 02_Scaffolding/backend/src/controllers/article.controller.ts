@@ -42,8 +42,14 @@ articleController.delete('/:id', (req: Request, res: Response) => {
 
 articleController.get('/', (req: Request, res: Response) => {
     // this automatically fills each ArticleList with the according productItems and serviceItems
-    ArticleList.findAll({ include: ArticleList.associations.productItems})
-        // ArticleList.associations.serviceItems]})
+    ArticleList.findAll(
+        {include:
+            [
+                ArticleList.associations.sellProductItems,
+                ArticleList.associations.lendProductItems,
+                ArticleList.associations.serviceItems
+            ]
+    })
         .then(list => res.status(200).send(list))
         .catch(err => res.status(500).send(err));
 });

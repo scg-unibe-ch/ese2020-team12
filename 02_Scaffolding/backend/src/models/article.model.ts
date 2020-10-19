@@ -1,7 +1,8 @@
 import { Optional, Model, HasManyGetAssociationsMixin, HasManyAddAssociationMixin, DataTypes, Sequelize, Association } from 'sequelize';
-import { ProductItem } from './product.model';
-import {ServiceItem} from './service.model';
-// import { ServiceItem } from './service.model';
+import { SellProductItem } from './sellProduct.model';
+import { ServiceItem } from './service.model';
+import {LendProductItem} from './lendProduct.model';
+
 
 export interface ArticleListAttributes {
     articleListId: number;
@@ -13,20 +14,23 @@ export interface ArticleListCreationAttributes extends Optional<ArticleListAttri
 export class ArticleList extends Model<ArticleListAttributes, ArticleListCreationAttributes> implements ArticleListAttributes {
 
     public static associations: {
-        productItems: Association<ArticleList, ProductItem>;
+        sellProductItems: Association<ArticleList, SellProductItem>;
+        lendProductItems: Association<ArticleList, LendProductItem>;
         serviceItems: Association<ArticleList, ServiceItem>;
     };
     articleListId!: number;
     userId!: number;
 
-    public getProductItems!: HasManyGetAssociationsMixin<ProductItem>;
+    public getSellProductItems!: HasManyGetAssociationsMixin<SellProductItem>;
+    public getLendProductItems!: HasManyGetAssociationsMixin<LendProductItem>;
     public getServiceItems!: HasManyGetAssociationsMixin<ServiceItem>;
-    public addProductItem!: HasManyAddAssociationMixin<ProductItem, number>;
+    public addSellProductItem!: HasManyAddAssociationMixin<SellProductItem, number>;
+    public addLendProductItem!: HasManyAddAssociationMixin<SellProductItem, number>;
     public addServiceItem!: HasManyAddAssociationMixin<ServiceItem, number>;
 
-    public readonly productItems?: ProductItem[];
-
-    // public readonly serviceItems?: ServiceItem[];
+    public readonly SellProductItems?: SellProductItem[];
+    public readonly LendProductItems?: LendProductItem[];
+    public readonly serviceItems?: ServiceItem[];
 
     public static initialize(sequelize: Sequelize) {
         ArticleList.init(
@@ -46,7 +50,10 @@ export class ArticleList extends Model<ArticleListAttributes, ArticleListCreatio
     }
 
     public static createAssociations() {
-        ArticleList.hasMany(ProductItem, {
+        ArticleList.hasMany(SellProductItem, {
+            foreignKey: 'articleListId',
+        });
+        ArticleList.hasMany(LendProductItem, {
             foreignKey: 'articleListId',
         });
         ArticleList.hasMany(ServiceItem, {

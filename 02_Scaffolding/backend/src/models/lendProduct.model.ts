@@ -1,34 +1,36 @@
 import { Optional, Model, Sequelize, DataTypes } from 'sequelize';
 import { ArticleList } from './article.model';
 
-export interface ProductItemAttributes {
+export interface LendProductItemAttributes {
     productId: number;
     title: string;
     price: string;
+    hourOrDay: boolean;
     description: string;
     location: string;
-    sellOrLend: boolean;
-    delivery: boolean;
+    status: boolean;
+    handling: string;
     articleListId: number;
 }
 
 
-export interface ProductItemCreationAttributes extends Optional<ProductItem, 'productId'> { }
+export interface LProductItemCreationAttributes extends Optional<LendProductItem, 'productId'> { }
 
 
-export class ProductItem extends Model<ProductItemAttributes, ProductItemCreationAttributes> implements ProductItemAttributes {
+export class LendProductItem extends Model<LendProductItemAttributes, LProductItemCreationAttributes> implements LendProductItemAttributes {
     productId!: number;
     title!: string;
     price!: string;
+    hourOrDay!: boolean;
     description!: string;
     location!: string;
-    sellOrLend!: boolean;
-    delivery!: boolean;
+    status!: boolean;
+    handling!: string;
     articleListId!: number;
 
 
     public static initialize(sequelize: Sequelize) { // definition for database
-        ProductItem.init({
+        LendProductItem.init({
                 productId: {
                     type: DataTypes.INTEGER,
                     autoIncrement: true,
@@ -42,6 +44,10 @@ export class ProductItem extends Model<ProductItemAttributes, ProductItemCreatio
                     type: DataTypes.STRING,
                     allowNull: false
                 },
+                hourOrDay: {
+                    type: DataTypes.BOOLEAN,
+                    allowNull: false
+                },
                 description: {
                     type: DataTypes.STRING,
                     allowNull: true
@@ -50,12 +56,12 @@ export class ProductItem extends Model<ProductItemAttributes, ProductItemCreatio
                     type: DataTypes.STRING,
                     allowNull: true
                 },
-                sellOrLend: {
+                status: {
                     type: DataTypes.BOOLEAN,
                     allowNull: false
                 },
-                delivery: {
-                    type: DataTypes.BOOLEAN,
+                handling: {
+                    type: DataTypes.STRING,
                     allowNull: true
                 },
                 articleListId: {
@@ -63,7 +69,7 @@ export class ProductItem extends Model<ProductItemAttributes, ProductItemCreatio
                     allowNull: false
                 }
             },
-            { sequelize, tableName: 'products' }
+            { sequelize, tableName: 'lendProducts' }
         );
 
     }

@@ -1,37 +1,35 @@
 import { Optional, Model, Sequelize, DataTypes } from 'sequelize';
 import { ArticleList } from './article.model';
 
-export interface ServiceItemAttributes {
-    serviceId: number;
+export interface SellProductItemAttributes {
+    productId: number;
     title: string;
     price: string;
-    hourOrDay: boolean;
     description: string;
     location: string;
-    expenses: string;
-    expCost: string;
+    delivery: boolean;
+    delSpec: string;
     articleListId: number;
 }
 
 
-export interface ServiceItemCreationAttributes extends Optional<ServiceItem, 'serviceId'> { }
+export interface SProductItemCreationAttributes extends Optional<SellProductItem, 'productId'> { }
 
 
-export class ServiceItem extends Model<ServiceItemAttributes, ServiceItemCreationAttributes> implements ServiceItemAttributes {
-    serviceId!: number;
+export class SellProductItem extends Model<SellProductItemAttributes, SProductItemCreationAttributes> implements SellProductItemAttributes {
+    productId!: number;
     title!: string;
     price!: string;
-    hourOrDay!: boolean;
     description!: string;
     location!: string;
-    expenses: string;
-    expCost!: string;
+    delivery!: boolean;
+    delSpec!: string;
     articleListId!: number;
 
 
     public static initialize(sequelize: Sequelize) { // definition for database
-        ServiceItem.init({
-                serviceId: {
+        SellProductItem.init({
+                productId: {
                     type: DataTypes.INTEGER,
                     autoIncrement: true,
                     primaryKey: true
@@ -44,10 +42,6 @@ export class ServiceItem extends Model<ServiceItemAttributes, ServiceItemCreatio
                     type: DataTypes.STRING,
                     allowNull: false
                 },
-                hourOrDay: {
-                    type: DataTypes.BOOLEAN,
-                    allowNull: false
-                },
                 description: {
                     type: DataTypes.STRING,
                     allowNull: true
@@ -56,25 +50,25 @@ export class ServiceItem extends Model<ServiceItemAttributes, ServiceItemCreatio
                     type: DataTypes.STRING,
                     allowNull: true
                 },
-                expenses: {
-                    type: DataTypes.STRING,
-                    allowNull: false
+                delivery: {
+                    type: DataTypes.BOOLEAN,
+                    allowNull: true
                 },
-                expCost: {
+                delSpec: {
                     type: DataTypes.STRING,
-                    allowNull: false
+                    allowNull: true
                 },
                 articleListId: {
                     type: DataTypes.INTEGER,
                     allowNull: false
                 }
             },
-            { sequelize, tableName: 'services' }
+            { sequelize, tableName: 'sellProducts' }
         );
 
     }
     public static createAssociations() {
-        ServiceItem.belongsTo(ArticleList, {
+        ArticleList.belongsTo(ArticleList, {
             targetKey: 'articleListId',
             onDelete: 'cascade',
             foreignKey: 'articleListId'

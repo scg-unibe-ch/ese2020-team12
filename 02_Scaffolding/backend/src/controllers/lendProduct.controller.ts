@@ -1,18 +1,18 @@
 import express from 'express';
 import { Router, Request, Response } from 'express';
-import { ProductItem } from '../models/product.model';
+import {LendProductItem} from '../models/lendProduct.model';
 
-const productController: Router = express.Router();
+const lendProductController: Router = express.Router();
 
-productController.post('/', (req: Request, res: Response) => {
+lendProductController.post('/', (req: Request, res: Response) => {
     console.log(req.body);
-    ProductItem.create(req.body)
+    LendProductItem.create(req.body)
         .then(inserted => res.send(inserted))
         .catch(err => res.status(500).send(err));
 });
 
-productController.put('/:id', (req: Request, res: Response) => {
-    ProductItem.findByPk(req.params.id)
+lendProductController.put('/:id', (req: Request, res: Response) => {
+    LendProductItem.findByPk(req.params.id)
         .then(found => {
             if (found != null) {
                 found.update(req.body).then(updated => {
@@ -26,8 +26,8 @@ productController.put('/:id', (req: Request, res: Response) => {
 
 });
 
-productController.delete('/:id', (req: Request, res: Response) => {
-    ProductItem.findByPk(req.params.id)
+lendProductController.delete('/:id', (req: Request, res: Response) => {
+    LendProductItem.findByPk(req.params.id)
         .then(found => {
             if (found != null) {
                 found.destroy().then(() => res.status(200).send());
@@ -38,4 +38,4 @@ productController.delete('/:id', (req: Request, res: Response) => {
         .catch(err => res.status(500).send(err));
 });
 
-export const ProductItemController: Router = productController;
+export const LendProductItemController: Router = lendProductController;
