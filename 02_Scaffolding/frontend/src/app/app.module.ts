@@ -27,6 +27,9 @@ import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PasswordValidatorDirective } from './signup/password-validator.directive';
 import { AddArticleComponent } from './add-article/add-article.component';
+import { SellProductComponent } from './add-article/sell-product/sell-product.component';
+import { LendProductComponent } from './add-article/lend-product/lend-product.component';
+import { ProvideServiceComponent } from './add-article/provide-service/provide-service.component';
 
 
 @NgModule({
@@ -40,7 +43,10 @@ import { AddArticleComponent } from './add-article/add-article.component';
     HomeComponent,
     ProfileComponent,
     PasswordValidatorDirective,
-    AddArticleComponent
+    AddArticleComponent,
+    SellProductComponent,
+    LendProductComponent,
+    ProvideServiceComponent
   ],
     imports: [
         BrowserModule,
