@@ -30,6 +30,7 @@ import { AddArticleComponent } from './add-article/add-article.component';
 import { SellProductComponent } from './add-article/sell-product/sell-product.component';
 import { LendProductComponent } from './add-article/lend-product/lend-product.component';
 import { ProvideServiceComponent } from './add-article/provide-service/provide-service.component';
+import {MatSelectModule} from "@angular/material/select";
 
 
 @NgModule({
@@ -48,26 +49,30 @@ import { ProvideServiceComponent } from './add-article/provide-service/provide-s
     LendProductComponent,
     ProvideServiceComponent
   ],
-    imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        HttpClientModule,
-        MatButtonModule,
-        MatListModule,
-        MatInputModule,
-        MatCheckboxModule,
-        MatCardModule,
-        MatTabsModule,
-        MatToolbarModule,
-        ReactiveFormsModule,
-        RouterModule.forRoot([
-            {path: '', component: HomeComponent},
-            {path: 'signup', component: SignupComponent},
-            {path: 'profile', component: ProfileComponent},
-            {path: 'add-article', component: AddArticleComponent}
-        ]),
-        FormsModule
-    ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    MatButtonModule,
+    MatListModule,
+    MatInputModule,
+    MatCheckboxModule,
+    MatCardModule,
+    MatTabsModule,
+    MatToolbarModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot([
+      {path: '', component: HomeComponent},
+      {path: 'signup', component: SignupComponent},
+      {path: 'profile', component: ProfileComponent},
+      {path: 'add-article', component: AddArticleComponent},
+      {path: 'add-article/sell-product', component: SellProductComponent},
+      {path: 'add-article/lend-product', component: LendProductComponent},
+      {path: 'add-article/provide-service', component: ProvideServiceComponent},
+    ]),
+    FormsModule,
+    MatSelectModule
+  ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
