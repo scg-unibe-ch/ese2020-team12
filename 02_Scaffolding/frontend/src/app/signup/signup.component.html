@@ -1,10 +1,10 @@
-<mat-card [formGroup]="signUpForm" class="container-signup">
+<!--<mat-card [formGroup]="signUpForm" class="container-signup">
 
-<h2>Sign Up </h2>
+<h2>Sign Up </h2>-->
 
 <!--<form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">-->
 
-  <div class="row">
+  <!--<div class="row">
     <div class="col-25"><label for="name">Name*</label></div>
     <div class="col-75"><input [(ngModel)]="name" class="form-control" id="name" type="text" formControlName="name" name="name" required></div>
     <div class="errorMessages">
@@ -38,12 +38,12 @@
         </div>
       </ng-container>
     </div>
-  </div>
+  </div>-->
 
     <!--
     E-Mail must be of the format "xY3@xY3.xY3"
     -->
-  <div class="row">
+  <!--<div class="row">
     <div class="col-25"><label for="email">E-Mail*</label></div>
     <div class="col-75"><input [(ngModel)]="email" id="email" type="text" formControlName="email" name="email" required></div>
     <div class="errorMessages">
@@ -87,7 +87,7 @@
         </div>
       </ng-container>
     </div>
-  </div>
+  </div>-->
 
   <!--
     Password must contain lowercase [a-z]+, UPPERCASE [A-Z]+, numbers [0-9]+, special chars \W
@@ -103,7 +103,7 @@
     INVALID: Aa1aaaaa (no special char)
     idea: working with logical inversion of the or function
     -->
-  <div class="row">
+  <!--<div class="row">
     <div class="col-25"><label for="password">Password*</label></div>
     <div class="col-75"><input [(ngModel)]="password" id="password" type="password" formControlName="password" name="password" required></div>
     <div class="errorMessages">
@@ -141,10 +141,76 @@
 
   <div class="row">
     <button type="button" class="button" (click)="sendForm()">Sign Up</button>
-  </div>
+  </div>-->
 
   <!--</form>-->
+<!--</mat-card>-->
+
+<mat-card [formGroup]="signUpForm">
+
+<form class="example-form" >
+
+  <a>Sign Up</a>
+
+  <table class="example-full-width" cellspacing="0"><tr>
+    <td><mat-form-field class="example-full-width">
+      <mat-label>First name</mat-label>
+      <input matInput type=text name="name" [(ngModel)]="name" placeholder="Ex. Peter">
+    </mat-form-field></td>
+    <td><mat-form-field class="example-full-width">
+      <mat-label>Last Name</mat-label>
+      <input matInput type=text name="surname" [(ngModel)]="surname" placeholder="Ex. Johnson">
+    </mat-form-field></td>
+  </tr></table>
+
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Username</mat-label>
+    <input matInput type=text name="username" [(ngModel)]="username" placeholder="your chosen username">
+  </mat-form-field>
+
+
+  <mat-form-field class="example-full-width">
+    <mat-label>E-Mail</mat-label>
+    <input matInput type=text name="email" [(ngModel)]="email" placeholder="Ex. peter.johnson@mail.com">
+  </mat-form-field>
+
+
+  <table class="example-full-width" cellspacing="0"><tr>
+    <td><mat-form-field class="example-full-width">
+      <mat-label>Street</mat-label>
+      <input matInput type=text name="street" [(ngModel)]="street" placeholder="Ex. Mainstreet">
+    </mat-form-field></td>
+    <td><mat-form-field class="example-full-width">
+      <mat-label>Housenumber</mat-label>
+      <input matInput type=text name="houseNumber" [(ngModel)]="houseNumber" placeholder="Ex. 12">
+    </mat-form-field></td>
+  </tr></table>
+
+  <table class="example-full-width" cellspacing="0"><tr>
+    <td><mat-form-field class="example-full-width">
+      <mat-label>Postal Code</mat-label>
+      <input matInput type=text name="postalCode" [(ngModel)]="postalCode" placeholder="Ex. 1234">
+    </mat-form-field></td>
+    <td><mat-form-field class="example-full-width">
+      <mat-label>City</mat-label>
+      <input matInput type=text name="city" [(ngModel)]="city" placeholder="Ex. Bern">
+    </mat-form-field></td>
+  </tr></table>
+
+  <table class="example-full-width" cellspacing="0"><tr>
+    <td><mat-form-field class="example-full-width">
+      <mat-label>Password</mat-label>
+      <input matInput type=password name="password" [(ngModel)]="password" placeholder="enter your password">
+    </mat-form-field></td>
+    <td><mat-form-field class="example-full-width">
+      <mat-label>Repeat Password</mat-label>
+      <input matInput type=password name="passwordAgain" [(ngModel)]="passwordAgain" placeholder="repeat your password">
+    </mat-form-field></td>
+  </tr></table>
+
+  <button mat-raised-button color="primary" (click)="sendForm()">sign in</button>
+
+</form>
+
 </mat-card>
-
-
-
