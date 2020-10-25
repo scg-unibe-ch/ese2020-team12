@@ -1,54 +1,48 @@
+<div *ngIf="!loggedIn">
 
-  <div *ngIf="!loggedIn">
+  <p>
+    <mat-toolbar color="primary">
 
-    <p>
-      <mat-toolbar color="primary">
+      <span><a mat-button [routerLink]="['/']">Logo</a></span>
 
-        <span><a mat-button [routerLink]="['/']">Logo</a></span>
+      <span class="example-spacer"></span>
 
-        <span class="example-spacer"></span>
+      <mat-form-field appearance="fill">
+        <mat-label for="username">username</mat-label>
+        <input matInput [(ngModel)]="username" id="username" type="text" name="username">
+      </mat-form-field>
 
-        <mat-form-field appearance="fill">
-          <mat-label for="username">username</mat-label>
-          <input matInput [(ngModel)]="username" id="username" type="text" name="username">
-        </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label for="password">password</mat-label>
+        <input matInput [(ngModel)]="password" id="password" type="password" name="password">
+      </mat-form-field>
 
-        <mat-form-field appearance="fill">
-          <mat-label for="password">password</mat-label>
-          <input matInput [(ngModel)]="password" id="password" type="password" name="password">
-        </mat-form-field>
+      <button mat-raised-button color="secondary" (click)="login()">sign in</button>
 
-        <button mat-raised-button color="secondary" (click)="login()">sign in</button>
+      <a mat-button routerLink="/signup" >sign up</a>
 
-        <a mat-button routerLink="/signup" >sign up</a>
+    </mat-toolbar>
+  </p>
 
-      </mat-toolbar>
-    </p>
-
-  </div>
+</div>
 
 
-    <!--<div class="top-right-block" *ngIf="loggedIn">
-      <div class="row-20"><a id="profile" routerLink='/profile'>{{username}}</a></div>
-      <button type="button" class=button id="signoutbutton" (click)="logout()" onClick="window.location.reload();">sign out</button>
-    </div>-->
+<div *ngIf="loggedIn">
+  <p>
+    <mat-toolbar color="primary">
 
-  <div *ngIf="loggedIn">
-    <p>
-      <mat-toolbar color="primary">
+      <span><a mat-button [routerLink]="['/']">Logo</a></span>
 
-        <span><a mat-button [routerLink]="['/']">Logo</a></span>
+      <span class="example-spacer"></span>
 
-        <span class="example-spacer"></span>
+      <a mat-button routerLink='/profile'>{{username}}</a>
 
-        <a mat-button routerLink='/profile'>{{username}}</a>
+      <button mat-raised-button color="secondary" (click)="logout()" onClick="window.location.reload()">logout</button>
 
-        <button mat-raised-button color="secondary" (click)="logout()" onClick="window.location.reload()">logout</button>
+    </mat-toolbar>
+  </p>
 
-      </mat-toolbar>
-    </p>
-
-  </div>
+</div>
 
 
 
