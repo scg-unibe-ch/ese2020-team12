@@ -87,4 +87,7 @@ export class SellProductComponent implements OnInit {
   }
    */
 
+  addArticleRequest() {
+
+  }
 }
