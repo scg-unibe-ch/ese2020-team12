@@ -60,8 +60,12 @@ export class LendProductComponent implements OnInit {
       location: new FormControl('', Validators.compose(
         [Validators.required]
       )),
-      lendingStatus: new FormControl(''),
-      handling: new FormControl('')
+      lendingStatus: new FormControl('', Validators.compose(
+        [Validators.required]
+      )),
+      handling: new FormControl('', Validators.compose(
+        [Validators.required]
+      ))
     });
   }
 
