@@ -1,1 +1,69 @@
-<p>lend-product works!</p>
+<mat-card [formGroup]="addArticleForm" class="container-productSelling">
+
+  <div>
+
+    <h2>Lending a Product</h2>
+
+    <mat-form-field appearance="fill">
+      <mat-label for="title">Title</mat-label>
+      <input matInput>
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field appearance="fill">
+      <mat-label for="title">Price (CHF)</mat-label>
+      <input matInput>
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Price</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let price of pricingOptions" [value]="price.value">
+          {{price.value}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field appearance="fill">
+      <mat-label for="title">Description</mat-label>
+      <textarea matInput></textarea>
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field appearance="fill">
+      <mat-label for="title">Location</mat-label>
+      <input matInput>
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Status</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let status of statusOptions" [value]="status.value">
+          {{status.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field appearance="fill">
+      <mat-label for="title">Handling</mat-label>
+      <textarea matInput></textarea>
+    </mat-form-field>
+
+    <br>
+
+    <button mat-raised-button color="primary" (click)="addArticleRequest()">Add Product</button>
+
+  </div>
+
+
+</mat-card>
