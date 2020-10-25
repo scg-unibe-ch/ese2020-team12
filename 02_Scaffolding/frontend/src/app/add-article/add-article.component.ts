@@ -4,6 +4,12 @@ import {ActivatedRoute} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 
+
+interface ArticleType{
+  text: string;
+  link: string;
+}
+
 @Component({
   selector: 'app-add-article',
   templateUrl: './add-article.component.html',
@@ -12,91 +18,26 @@ import {environment} from '../../environments/environment';
 export class AddArticleComponent implements OnInit {
 
   articleType;
-  title;
-  price;
-  pricingType;
-  description;
-  location;
-  sellOrLend;
-  lendingStatus;
-  delivery;
-  deliverySpecs;
-  expenses;
-  expensesCost;
 
-  addArticleForm: FormGroup;
-  articleTypes: any = [ 'Product', 'Service'];
-  pricingTypes: any = [ 'per hour', 'per day'];
-  distribution: any = [ 'Sell', 'Lend'];
-  lendingStates: any = [ 'Available', 'Lent'];
-  deliveryOptions: any = [ 'Yes', 'No'];
+  articleTypes: ArticleType[] = [
+    {text: 'sell a product', link: '/add-article/sell-product'},
+    {text: 'lend a product', link: '/add-article/lend-product'},
+    {text: 'provide a service', link: '/add-article/provide-service'}
+  ];
 
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private httpClient: HttpClient,
   ) {
-    this.addArticleForm = this.formBuilder.group({
-      articleType: new FormControl('', Validators.compose(
-          [Validators.required]
-      )),
-      title: new FormControl('', Validators.compose(
-          [Validators.required]
-      )),
-      price: new FormControl('', Validators.compose(
-          [Validators.required]
-      )),
-      pricingType: new FormControl(''),
-      description: new FormControl('', Validators.compose(
-          [Validators.required]
-      )),
-      location: new FormControl('', Validators.compose(
-        [Validators.required]
-      )),
-      sellOrLend: new FormControl(''),
-      lendingStatus: new FormControl(''),
-      delivery: new FormControl(''),
-      deliverySpecs: new FormControl(''),
-      expenses: new FormControl(''),
-      expensesCost: new FormControl('')
-    });
+    this.articleType = new FormControl('', Validators.compose([Validators.required]));
   }
 
   ngOnInit(): void {
   }
 
-  onSubmit() {
-
-  }
-
-  changeArticleType(e: any): void {
-    this.articleType.setValue(e.target.value, {
-      onlySelf: true
-    });
-  }
-
-  changePricingType(e: any): void {
-    this.pricingType.setValue(e.target.value, {
-      onlySelf: true
-    });
-  }
-
-  changeDistroType(e: any): void {
-    this.sellOrLend.setValue(e.target.value, {
-      onlySelf: true
-    });
-  }
-
-  changeLendingStatus(e: any): void {
-    this.lendingStatus.setValue(e.target.value, {
-      onlySelf: true
-    });
-  }
-
-  changeDeliveryOption(e: any): void {
-    this.delivery.setValue(e.target.value, {
-      onlySelf: true
-    });
+  getArticleTypeLink(): string {
+    return this.articleType;
   }
 
   /*
