@@ -1,4 +1,4 @@
-.container-topbar {
+/*.container-topbar {
   width: 100vw;
   height: 70px;
   background-color: #09abff;
@@ -81,5 +81,10 @@ input[type=text], input[type=password]{
     float: right;
   }
 
+}*/
+
+.example-spacer {
+  flex: 1 1 auto;
 }
+
 
