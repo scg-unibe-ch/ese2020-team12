@@ -55,4 +55,7 @@ export class SellProductComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSubmit(): void {
+
+  }
 }

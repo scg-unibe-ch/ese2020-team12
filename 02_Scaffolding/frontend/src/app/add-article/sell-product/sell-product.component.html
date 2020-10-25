@@ -1,27 +1,37 @@
 <mat-card [formGroup]="addArticleForm" class="container-productSelling">
 
   <div>
+
     <h2>Selling a Product</h2>
+
     <mat-form-field appearance="fill">
       <mat-label for="title">Title</mat-label>
       <input matInput>
     </mat-form-field>
+
     <br>
+
     <mat-form-field appearance="fill">
       <mat-label for="title">Price (CHF)</mat-label>
       <input matInput>
     </mat-form-field>
+
     <br>
+
     <mat-form-field appearance="fill">
       <mat-label for="title">Description</mat-label>
       <textarea matInput></textarea>
     </mat-form-field>
+
     <br>
+
     <mat-form-field appearance="fill">
       <mat-label for="title">Location</mat-label>
       <input matInput>
     </mat-form-field>
+
     <br>
+
     <mat-form-field appearance="fill">
       <mat-label>Delivery</mat-label>
       <mat-select>
@@ -30,11 +40,18 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
+
     <br>
+
     <mat-form-field appearance="fill">
       <mat-label for="title">Delivery Specification</mat-label>
       <textarea matInput></textarea>
     </mat-form-field>
+
+    <br>
+
+    <button mat-raised-button color="primary" (click)="onSubmit()">Add Product</button>
+
   </div>
 
 
