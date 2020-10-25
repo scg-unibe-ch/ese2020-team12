@@ -31,6 +31,7 @@ import { SellProductComponent } from './add-article/sell-product/sell-product.co
 import { LendProductComponent } from './add-article/lend-product/lend-product.component';
 import { ProvideServiceComponent } from './add-article/provide-service/provide-service.component';
 import {MatSelectModule} from "@angular/material/select";
+import {MatGridListModule} from '@angular/material/grid-list';
 
 
 @NgModule({
@@ -71,7 +72,8 @@ import {MatSelectModule} from "@angular/material/select";
       {path: 'add-article/provide-service', component: ProvideServiceComponent},
     ]),
     FormsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatGridListModule
   ],
   providers: [
     {

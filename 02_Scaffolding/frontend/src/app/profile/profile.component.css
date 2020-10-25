@@ -1,9 +1,23 @@
 /*Insert into profile.component.css */
 
-.container-personalinfo {
+.mat-tab-group {
   margin: 0 auto;
-  width: 80vw;
-  background-color: skyblue;
+  width: 70vw;
+}
+
+.mat-grid-tile {
+  border: 1px solid black;
+}
+
+.edit-profile {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.example-full-width {
+  width: 100%;
 }
 
 .col-30 {
