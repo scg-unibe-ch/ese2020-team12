@@ -17,7 +17,7 @@ interface ArticleType{
 })
 export class AddArticleComponent implements OnInit {
 
-  articleType;
+  articleForm;
 
   articleTypes: ArticleType[] = [
     {text: 'sell a product', link: '/add-article/sell-product'},
@@ -26,19 +26,13 @@ export class AddArticleComponent implements OnInit {
   ];
 
   constructor(
-    private formBuilder: FormBuilder,
-    private route: ActivatedRoute,
-    private httpClient: HttpClient,
   ) {
-    this.articleType = new FormControl('', Validators.compose([Validators.required]));
+    this.articleForm = new FormControl('', Validators.compose([Validators.required]));
   }
 
   ngOnInit(): void {
   }
 
-  getArticleTypeLink(): string {
-    return this.articleType;
-  }
 
   /*
   // only copy-pasted method from the signupForm, needs to be updated

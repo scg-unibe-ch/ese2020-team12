@@ -3,12 +3,18 @@
 
   <h2>I would like to</h2>
 
-  <div *ngFor="let articleType of articleTypes">
+  <mat-form-field appearance="fill">
+    <mat-select class="custom-select" [formControl]="articleForm" formControlName="articleType" required>
+      <mat-option *ngFor="let articleType of articleTypes" [value]="articleType.link">
+        {{articleType.text}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 
-    <a mat-raised-button color="primary"  [routerLink]="articleType.link">
-      {{articleType.text}}
-    </a><br><br>
+  <br>
 
+  <div *ngIf="articleForm.value">
+    <button mat-raised-button color="primary" [routerLink]="articleForm.value" >Next</button>
   </div>
 
 </mat-card>
