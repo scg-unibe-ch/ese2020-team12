@@ -48,8 +48,12 @@ export class SellProductComponent implements OnInit {
       location: new FormControl('', Validators.compose(
         [Validators.required]
       )),
-      delivery: new FormControl(''),
-      deliverySpecs: new FormControl('')
+      delivery: new FormControl('', Validators.compose(
+        [Validators.required]
+      )),
+      deliverySpecs: new FormControl('', Validators.compose(
+        [Validators.required]
+      ))
     });
   }
 

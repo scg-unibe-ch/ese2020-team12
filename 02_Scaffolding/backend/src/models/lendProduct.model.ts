@@ -2,7 +2,7 @@ import { Optional, Model, Sequelize, DataTypes } from 'sequelize';
 import { ArticleList } from './article.model';
 
 export interface LendProductItemAttributes {
-    productId: number;
+    lendProductId: number;
     title: string;
     price: string;
     hourOrDay: boolean;
@@ -14,11 +14,11 @@ export interface LendProductItemAttributes {
 }
 
 
-export interface LProductItemCreationAttributes extends Optional<LendProductItem, 'productId'> { }
+export interface LProductItemCreationAttributes extends Optional<LendProductItem, 'lendProductId'> { }
 
 
 export class LendProductItem extends Model<LendProductItemAttributes, LProductItemCreationAttributes> implements LendProductItemAttributes {
-    productId!: number;
+    lendProductId!: number;
     title!: string;
     price!: string;
     hourOrDay!: boolean;
@@ -31,7 +31,7 @@ export class LendProductItem extends Model<LendProductItemAttributes, LProductIt
 
     public static initialize(sequelize: Sequelize) { // definition for database
         LendProductItem.init({
-                productId: {
+                lendProductId: {
                     type: DataTypes.INTEGER,
                     autoIncrement: true,
                     primaryKey: true
@@ -76,6 +76,7 @@ export class LendProductItem extends Model<LendProductItemAttributes, LProductIt
     public static createAssociations() {
         ArticleList.belongsTo(ArticleList, {
             targetKey: 'articleListId',
+            as: 'lendProductList',
             onDelete: 'cascade',
             foreignKey: 'articleListId'
         });

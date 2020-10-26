@@ -1,28 +1,18 @@
 import express from 'express';
 import { Router, Request, Response } from 'express';
 import {LendProductItem} from '../models/lendProduct.model';
+import {LendProductService} from '../services/lendProduct.service';
 
 const lendProductController: Router = express.Router();
+const lendProductService = new LendProductService();
 
 lendProductController.post('/', (req: Request, res: Response) => {
-    console.log(req.body);
-    LendProductItem.create(req.body)
-        .then(inserted => res.send(inserted))
-        .catch(err => res.status(500).send(err));
+    lendProductService.postLendProduct(req.body).then(added => res.status(201).send(added)).catch(err => res.status(500).send(err));
+
 });
 
 lendProductController.put('/:id', (req: Request, res: Response) => {
-    LendProductItem.findByPk(req.params.id)
-        .then(found => {
-            if (found != null) {
-                found.update(req.body).then(updated => {
-                    res.status(200).send(updated);
-                });
-            } else {
-                res.sendStatus(404);
-            }
-        })
-        .catch(err => res.status(500).send(err));
+    lendProductService.putLendProduct(req.body).then(changed => res.status(200).send(changed)).catch(err => res.status(500).send(err));
 
 });
 

@@ -51,8 +51,12 @@ export class ProvideServiceComponent implements OnInit {
       location: new FormControl('', Validators.compose(
         [Validators.required]
       )),
-      expenses: new FormControl(''),
-      expensesCost: new FormControl('')
+      expenses: new FormControl('', Validators.compose(
+        [Validators.required]
+      )),
+      expensesCost: new FormControl('', Validators.compose(
+        [Validators.required]
+      ))
     });
   }
 

@@ -1,27 +1,18 @@
 import express from 'express';
 import { Router, Request, Response } from 'express';
 import { ServiceItem } from '../models/service.model';
+import {ServiceProductService} from '../services/service.service';
 
 const serviceController: Router = express.Router();
+const serviceItemService = new ServiceProductService();
 
 serviceController.post('/', (req: Request, res: Response) => {
-    ServiceItem.create(req.body)
-        .then(inserted => res.send(inserted))
-        .catch(err => res.status(500).send(err));
+    serviceItemService.postService(req.body).then(added => res.status(201).send(added)).catch(err => res.status(500).send(err));
+
 });
 
 serviceController.put('/:id', (req: Request, res: Response) => {
-    ServiceItem.findByPk(req.params.id)
-        .then(found => {
-            if (found != null) {
-                found.update(req.body).then(updated => {
-                    res.status(200).send(updated);
-                });
-            } else {
-                res.sendStatus(404);
-            }
-        })
-        .catch(err => res.status(500).send(err));
+    serviceItemService.putService(req.body).then(changed => res.status(200).send(changed)).catch(err => res.status(500).send(err));
 
 });
 

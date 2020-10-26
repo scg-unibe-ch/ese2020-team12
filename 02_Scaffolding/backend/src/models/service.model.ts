@@ -76,6 +76,7 @@ export class ServiceItem extends Model<ServiceItemAttributes, ServiceItemCreatio
     public static createAssociations() {
         ServiceItem.belongsTo(ArticleList, {
             targetKey: 'articleListId',
+            as: 'serviceList',
             onDelete: 'cascade',
             foreignKey: 'articleListId'
         });

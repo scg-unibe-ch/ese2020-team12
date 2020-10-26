@@ -1,85 +1,17 @@
 
-<form [formGroup]="addArticleForm" (ngSubmit)="onSubmit()">
+<mat-card>
 
-  <div class="row">
-    <div class="">
-      <label for="articleType">Choose article type: </label>
-      <select class="custom-select" (change)="changeArticleType($event)" id="articleType" formControlName="articleType">
-        <option value="" disabled></option>
-        <option *ngFor="let articleType of articleTypes" [ngValue]="articleType">{{articleType}}</option>
-      </select>
-    </div>
+  <h2>I would like to</h2>
+
+  <div *ngFor="let articleType of articleTypes">
+
+    <a mat-raised-button color="primary"  [routerLink]="articleType.link">
+      {{articleType.text}}
+    </a><br><br>
+
   </div>
 
-  <div class="row">
-    <div class="">
-      <label for="title">Title: </label>
-      <input [(ngModel)]="title" id="title" type="text" formControlName="title" name="title" required>
-    </div>
-  </div>
+</mat-card>
 
-  <div class="row">
-    <div class="">
-      <label for="price">Price(CHF): </label>
-      <input [(ngModel)]="price" id="price" type="number" formControlName="price" name="price" required>
-      <select class="custom-select" (change)="changePricingType($event)" id="pricingType" formControlName="pricingType">
-        <option value="" disabled></option>
-        <option *ngFor="let pricingType of pricingTypes" [ngValue]="pricingType">{{pricingType}}</option>
-      </select>
-    </div>
-  </div>
 
-  <div class="row">
-    <div class="">
-      <label for="description">Description: </label>
-      <input [(ngModel)]="description" id="description" type="text" formControlName="description" name="description" required>
-    </div>
-  </div>
 
-  <div class="row">
-    <div class="">
-      <label for="location">Location: </label>
-      <input [(ngModel)]="location" id="location" type="text" formControlName="location" name="location" required>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="">
-      <label for="sellOrLend">Sell or Lend? </label>
-      <select class="custom-select" (change)="changeDistroType($event)" id="sellOrLend" formControlName="sellOrLend">
-        <option value="" disabled></option>
-        <option *ngFor="let sellOrLend of distribution" [ngValue]="sellOrLend">{{sellOrLend}}</option>
-      </select>
-      <select class="custom-select" (change)="changeLendingStatus($event)" id="lendingStatus" formControlName="lendingStatus">
-        <option value="" disabled></option>
-        <option *ngFor="let lendingStatus of lendingStates" [ngValue]="lendingStatus">{{lendingStatus}}</option>
-      </select>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="">
-      <label for="delivery">Delivery: </label>
-      <select class="custom-select" (change)="changeDeliveryOption($event)" id="delivery" formControlName="delivery">
-        <option value="" disabled></option>
-        <option *ngFor="let delivery of deliveryOptions" [ngValue]="delivery">{{delivery}}</option>
-      </select>
-      <label for="deliverySpecs">Delivery Specifications (including costs): </label>
-      <input [(ngModel)]="deliverySpecs" id="deliverySpecs" type="text" formControlName="deliverySpecs" name="deliverySpecs">
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="">
-      <label for="expenses">Expenses (Specification): </label>
-      <input [(ngModel)]="expenses" id="expenses" type="text" formControlName="expenses" name="expenses">
-      <label for="expensesCost">Expenses (CHF): </label>
-      <input [(ngModel)]="expensesCost" id="expensesCost" type="number" formControlName="expensesCost" name="expensesCost">
-    </div>
-  </div>
-
-  <div class="row">
-    <button type="button" class="button" (click)="onSubmit()">Add Article</button>
-  </div>
-
-</form>
