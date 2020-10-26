@@ -51,13 +51,17 @@ export class ArticleList extends Model<ArticleListAttributes, ArticleListCreatio
 
     public static createAssociations() {
         ArticleList.hasMany(SellProductItem, {
+            as: 'SellProductItems',
             foreignKey: 'articleListId',
         });
+        /*
         ArticleList.hasMany(LendProductItem, {
+            as: 'LendProductItems',
             foreignKey: 'articleListId',
         });
         ArticleList.hasMany(ServiceItem, {
+            as: 'serviceItems',
             foreignKey: 'articleListId'
-        });
+        });*/
     }
 }

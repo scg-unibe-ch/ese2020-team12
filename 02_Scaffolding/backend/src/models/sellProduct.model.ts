@@ -2,7 +2,7 @@ import { Optional, Model, Sequelize, DataTypes } from 'sequelize';
 import { ArticleList } from './article.model';
 
 export interface SellProductItemAttributes {
-    productId: number;
+    sellProductId: number;
     title: string;
     price: string;
     description: string;
@@ -13,11 +13,11 @@ export interface SellProductItemAttributes {
 }
 
 
-export interface SProductItemCreationAttributes extends Optional<SellProductItem, 'productId'> { }
+export interface SProductItemCreationAttributes extends Optional<SellProductItem, 'sellProductId'> { }
 
 
 export class SellProductItem extends Model<SellProductItemAttributes, SProductItemCreationAttributes> implements SellProductItemAttributes {
-    productId!: number;
+    sellProductId!: number;
     title!: string;
     price!: string;
     description!: string;
@@ -29,7 +29,7 @@ export class SellProductItem extends Model<SellProductItemAttributes, SProductIt
 
     public static initialize(sequelize: Sequelize) { // definition for database
         SellProductItem.init({
-                productId: {
+                sellProductId: {
                     type: DataTypes.INTEGER,
                     autoIncrement: true,
                     primaryKey: true
@@ -70,6 +70,7 @@ export class SellProductItem extends Model<SellProductItemAttributes, SProductIt
     public static createAssociations() {
         ArticleList.belongsTo(ArticleList, {
             targetKey: 'articleListId',
+            as: 'sellProductList',
             onDelete: 'cascade',
             foreignKey: 'articleListId'
         });
