@@ -14,24 +14,24 @@ export class ProfileComponent implements OnInit {
   userToken: string;
   loggedIn = false;
 
-  username = '';
-  password = '';
-  email = '';
-  name = '';
-  surname = '';
-  street = '';
-  houseNumber = '';
-  postalCode = '';
-  place = '';
+  name;
+  surname;
+  username;
+  email;
+  street;
+  houseNumber;
+  place;
+  postalCode;
+  password;
 
-  new_username = '';
-  new_email = '';
-  new_name = '';
-  new_surname = '';
-  new_street = '';
-  new_houseNumber = '';
-  new_postalCode = '';
-  new_place = '';
+  newUsername = '';
+  newEmail = '';
+  newName = '';
+  newSurname = '';
+  newStreet = '';
+  newHouseNumber = '';
+  newPostalCode = '';
+  newPlace = '';
 
   ngOnInit(): void {
     this.checkUserStatus();
@@ -61,26 +61,26 @@ export class ProfileComponent implements OnInit {
     private httpClient: HttpClient,
   ) {
     this.editProfileForm = this.formBuilder.group({
-      new_name: new FormControl('', Validators.compose([
+      newName: new FormControl('', Validators.compose([
         Validators.required
       ])),
-      new_surname: new FormControl('', Validators.compose([
+      newSurname: new FormControl('', Validators.compose([
         Validators.required
       ])),
-      new_username: new FormControl('', Validators.compose([
+      newUsername: new FormControl('', Validators.compose([
         Validators.required,
         Validators.maxLength(16)
       ])),
-      new_email: new FormControl('', Validators.compose([
+      newEmail: new FormControl('', Validators.compose([
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(30),
         Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')
       ])),
-      new_street: new FormControl(''),
-      new_houseNumber: new FormControl(''),
-      new_place: new FormControl(''),
-      new_postalCode: new FormControl('', Validators.compose([
+      newStreet: new FormControl(''),
+      newHouseNumber: new FormControl(''),
+      newPlace: new FormControl(''),
+      newPostalCode: new FormControl('', Validators.compose([
         Validators.required,
         Validators.pattern('[0-9]')
       ]))
@@ -88,15 +88,23 @@ export class ProfileComponent implements OnInit {
   }
 
   sendForm(): void {
-    this.httpClient.put(environment.endpointURL + 'user/profile', {
-      name: this.new_name,
-      surname: this.new_surname,
-      userName: this.new_username,
-      email: this.new_email,
-      street: this.new_street,
-      houseNumber: this.new_houseNumber,
-      place: this.new_place,
-      postalCode: this.new_postalCode,
+    console.log('----->name:' + this.newName);
+    console.log('----->name:' + this.newSurname);
+    console.log('----->name:' + this.username);
+    console.log('----->name:' + this.newEmail);
+    console.log('----->name:' + this.newStreet);
+    console.log('----->name:' + this.newHouseNumber);
+    console.log('----->name:' + this.newPlace);
+    console.log('----->name:' + this.newPostalCode);
+    this.httpClient.put(environment.endpointURL + 'user/', {
+      name: this.newName,
+      surname: this.newSurname,
+      userName: this.username,
+      email: this.newEmail,
+      street: this.newStreet,
+      houseNumber: this.newHouseNumber,
+      place: this.newPlace,
+      postalCode: this.newPostalCode,
     }).subscribe((res: any) => {
       // Set user data in local storage
       localStorage.setItem('name', res.name);

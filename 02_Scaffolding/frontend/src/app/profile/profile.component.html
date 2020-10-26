@@ -2,7 +2,7 @@
 
 
 <mat-tab-group mat-align-tabs="center" *ngIf="loggedIn">
-  <mat-tab label="Profile">  
+  <mat-tab label="Profile">
 
     <mat-card>
       <mat-card-header>
@@ -33,10 +33,10 @@
 
       </mat-card-content>
     </mat-card>
-    
+
   </mat-tab>
-  <mat-tab label="Edit Profile"> 
-    
+  <mat-tab label="Edit Profile">
+
     <mat-card class="edit-profile" [formGroup]="editProfileForm">
       <mat-card-header>
         <mat-card-title>{{username}}</mat-card-title>
@@ -47,40 +47,40 @@
         <form class="edit-profile">
           <mat-form-field class="example-full-width">
             <mat-label>Email</mat-label>
-            <input matInput [(ngModels)]="new_email" placeholder="{{ email }}" value="{{ email }}">
+            <input matInput name="newEmail" [(ngModel)]="newEmail"  value="scheiss" placeholder="{{ email }}">
           </mat-form-field>
-        
+
           <mat-form-field class="example-full-width">
             <mat-label>Name</mat-label>
-            <input matInput  [(ngModels)]="new_name" placeholder="{{ name }}" value="{{ name }}">
+            <input matInput name="newName" [(ngModel)]="newName" placeholder="{{ name }}" value="{{ name }}">
           </mat-form-field>
 
           <mat-form-field class="example-full-width">
             <mat-label>Surname</mat-label>
-            <input matInput [(ngModels)]="new_surname" placeholder="{{ surname }}" value="{{ surname }}">
+            <input matInput name="newSurname" [(ngModel)]="newSurname" placeholder="{{ surname }}" value="{{ surname }}">
           </mat-form-field>
 
           <mat-form-field class="example-full-width">
             <mat-label>Street</mat-label>
-            <input matInput [(ngModels)]="new_street" placeholder="{{ street }}" value="{{ street }}">
+            <input matInput name="newStreet" [(ngModel)]="newStreet" placeholder="{{ street }}" value="{{ street }}">
           </mat-form-field>
 
          <mat-form-field class="example-full-width">
             <mat-label>Housenumber</mat-label>
-            <input matInput [(ngModels)]="new_houseNumber" placeholder="{{ houseNumber }}" value="{{ houseNumber }}">
+            <input matInput name="newHouseNumber" [(ngModel)]="newHouseNumber" placeholder="{{ houseNumber }}" value="{{ houseNumber }}">
           </mat-form-field>
 
           <mat-form-field class="example-full-width">
             <mat-label>Postal Code</mat-label>
-            <input matInput [(ngModels)]="new_postalCode" placeholder="{{ postalCode }}" value="{{ postalCode }}">
+            <input matInput name="newPostalCode" [(ngModel)]="newPostalCode" placeholder="{{ postalCode }}" value="{{ postalCode }}">
           </mat-form-field>
 
           <mat-form-field class="example-full-width">
             <mat-label>Place</mat-label>
-            <input matInput [(ngModels)]="new_place" placeholder="{{ place }}" value="{{ place }}">
+            <input matInput name="newPlace" [(ngModel)]="newPlace" placeholder="{{ place }}" value="{{ place }}">
           </mat-form-field>
         </form>
-        
+
       </mat-card-content>
       <mat-card-actions>
         <button mat-button (click)="sendForm()">Save changes</button>
@@ -88,8 +88,8 @@
     </mat-card>
 
   </mat-tab>
-  <mat-tab label="Articles"> 
-    
+  <mat-tab label="Articles">
+
     <div class="container-personalinfo" >
       <div class="col-30">
         <img class="profilepicture" src="https://www.postplanner.com/hs-fs/hub/513577/file-2886416984-png/blog-files/facebook-profile-pic-vs-cover-photo-sq.png?width=250&height=250&name=facebook-profile-pic-vs-cover-photo-sq.png" alt="Here is your face"/>
@@ -138,7 +138,7 @@
       </div>
     </div>
     <div class="container-useritems">
-    
+
     </div>
 
   </mat-tab>

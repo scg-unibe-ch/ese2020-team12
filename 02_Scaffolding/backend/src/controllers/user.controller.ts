@@ -12,6 +12,7 @@ const userService = new UserService();
 
 userController.post('/signup', verifyUserUnique,
     (req: Request, res: Response) => {
+        console.log(req.body);
         userService.register(req.body).then(registered => res.status(201).send(registered)).catch(err => res.status(500).send(err));
     });
 
@@ -30,15 +31,21 @@ userController.delete('/:id', (req: Request, res: Response ) => {
         }).catch(err => res.status(500).send(err));
 });
 
-userController.put('/:id', verifyUserUnique , (req: Request, res: Response) => {
-    User.findByPk(req.params.id)
+userController.put('/', verifyUserUnique , (req: Request, res: Response) => {
+    console.log('routing ok');
+    console.log(req.body.userName);
+    User.findOne({
+        where: {
+            userName: req.body.userName
+        }
+    })
         .then(found => {
             if (found != null) {
                 found.update(req.body).then( update => {
                     res.status(200).send(update);
                 });
             } else {
-                res.sendStatus(404);
+                res.sendStatus(404).send('du chline spasst');
             }
         }).catch(err => res.status(500).send(err));
 });
@@ -51,10 +58,12 @@ userController.post('/login',
     }
 );
 
-userController.get('/', verifyToken, // you can add middleware on specific requests like that
+userController.get('/profile', verifyToken, // you can add middleware on specific requests like that
     (req: Request, res: Response) => {
         userService.getAll(req.body).then(users => res.send(users)).catch(err => res.status(500).send(err));
     }
 );
+
+
 
 export const UserController: Router = userController;
