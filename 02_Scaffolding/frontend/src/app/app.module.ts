@@ -27,6 +27,11 @@ import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PasswordValidatorDirective } from './signup/password-validator.directive';
 import { AddArticleComponent } from './add-article/add-article.component';
+import { SellProductComponent } from './add-article/sell-product/sell-product.component';
+import { LendProductComponent } from './add-article/lend-product/lend-product.component';
+import { ProvideServiceComponent } from './add-article/provide-service/provide-service.component';
+import {MatSelectModule} from "@angular/material/select";
+import {MatGridListModule} from '@angular/material/grid-list';
 
 
 @NgModule({
@@ -40,28 +45,36 @@ import { AddArticleComponent } from './add-article/add-article.component';
     HomeComponent,
     ProfileComponent,
     PasswordValidatorDirective,
-    AddArticleComponent
+    AddArticleComponent,
+    SellProductComponent,
+    LendProductComponent,
+    ProvideServiceComponent
   ],
-    imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        HttpClientModule,
-        MatButtonModule,
-        MatListModule,
-        MatInputModule,
-        MatCheckboxModule,
-        MatCardModule,
-        MatTabsModule,
-        MatToolbarModule,
-        ReactiveFormsModule,
-        RouterModule.forRoot([
-            {path: '', component: HomeComponent},
-            {path: 'signup', component: SignupComponent},
-            {path: 'profile', component: ProfileComponent},
-            {path: 'add-article', component: AddArticleComponent}
-        ]),
-        FormsModule
-    ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    MatButtonModule,
+    MatListModule,
+    MatInputModule,
+    MatCheckboxModule,
+    MatCardModule,
+    MatTabsModule,
+    MatToolbarModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot([
+      {path: '', component: HomeComponent},
+      {path: 'signup', component: SignupComponent},
+      {path: 'profile', component: ProfileComponent},
+      {path: 'add-article', component: AddArticleComponent},
+      {path: 'add-article/sell-product', component: SellProductComponent},
+      {path: 'add-article/lend-product', component: LendProductComponent},
+      {path: 'add-article/provide-service', component: ProvideServiceComponent},
+    ]),
+    FormsModule,
+    MatSelectModule,
+    MatGridListModule
+  ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

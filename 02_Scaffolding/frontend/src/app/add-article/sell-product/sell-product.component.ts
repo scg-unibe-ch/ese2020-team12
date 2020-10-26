@@ -1,28 +1,33 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators, ReactiveFormsModule} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
-import {environment} from '../../environments/environment';
 
 
-interface ArticleType{
-  text: string;
-  link: string;
+interface Delivery {
+  value: boolean;
+  viewValue: string;
 }
 
 @Component({
-  selector: 'app-add-article',
-  templateUrl: './add-article.component.html',
-  styleUrls: ['./add-article.component.css']
+  selector: 'app-sell-product',
+  templateUrl: './sell-product.component.html',
+  styleUrls: ['./sell-product.component.css']
 })
-export class AddArticleComponent implements OnInit {
+export class SellProductComponent implements OnInit {
 
   articleType;
+  title;
+  price;
+  description;
+  location;
+  delivery;
+  deliverySpecs;
 
-  articleTypes: ArticleType[] = [
-    {text: 'sell a product', link: '/add-article/sell-product'},
-    {text: 'lend a product', link: '/add-article/lend-product'},
-    {text: 'provide a service', link: '/add-article/provide-service'}
+  addArticleForm: FormGroup;
+  deliveryOptions: Delivery[] = [
+    {value: true, viewValue: 'Yes'},
+    {value: false, viewValue: 'No'}
   ];
 
   constructor(
@@ -30,18 +35,36 @@ export class AddArticleComponent implements OnInit {
     private route: ActivatedRoute,
     private httpClient: HttpClient,
   ) {
-    this.articleType = new FormControl('', Validators.compose([Validators.required]));
+    this.addArticleForm = this.formBuilder.group({
+      title: new FormControl('', Validators.compose(
+        [Validators.required]
+      )),
+      price: new FormControl('', Validators.compose(
+        [Validators.required]
+      )),
+      description: new FormControl('', Validators.compose(
+        [Validators.required]
+      )),
+      location: new FormControl('', Validators.compose(
+        [Validators.required]
+      )),
+      delivery: new FormControl('', Validators.compose(
+        [Validators.required]
+      )),
+      deliverySpecs: new FormControl('', Validators.compose(
+        [Validators.required]
+      ))
+    });
   }
 
   ngOnInit(): void {
   }
 
-  getArticleTypeLink(): string {
-    return this.articleType;
+  onSubmit(): void {
+
   }
 
   /*
-  // only copy-pasted method from the signupForm, needs to be updated
   addArticleRequest(): void {
     this.httpClient.post(environment.endpointURL + 'user/add-article', {
       name: this.name,
@@ -66,7 +89,9 @@ export class AddArticleComponent implements OnInit {
       localStorage.setItem('password', res.password);
     });
   }
-  */
+   */
 
+  addArticleRequest() {
 
+  }
 }

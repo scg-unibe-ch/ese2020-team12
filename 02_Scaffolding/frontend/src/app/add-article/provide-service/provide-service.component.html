@@ -1,0 +1,65 @@
+<mat-card [formGroup]="addArticleForm" class="container-productSelling">
+
+  <div>
+
+    <h2>Providing a Cervix</h2>
+
+    <mat-form-field appearance="fill">
+      <mat-label for="title">Title</mat-label>
+      <input matInput [(ngModel)]="title" id="title" type="text" formControlName="title" required>
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field appearance="fill">
+      <mat-label for="price">Price (CHF)</mat-label>
+      <input matInput [(ngModel)]="price" id="price" formControlName="price" required>
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field appearance="fill">
+      <mat-label for="pricingType">Price</mat-label>
+      <mat-select class="custom-select" id="pricingType" formControlName="pricingType" required>
+        <mat-option *ngFor="let pricingType of pricingOptions" [value]="pricingType.value">
+          {{pricingType.value}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field appearance="fill">
+      <mat-label for="description">Description</mat-label>
+      <textarea matInput [(ngModel)]="description" id="description" formControlName="description" required></textarea>
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field appearance="fill">
+      <mat-label for="location">Location</mat-label>
+      <input matInput [(ngModel)]="location" id="location" type="text" formControlName="location" required>
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field appearance="fill">
+      <mat-label for="expenses">Expenses</mat-label>
+      <textarea matInput [(ngModel)]="expenses" id="expenses" formControlName="expenses" required></textarea>
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field appearance="fill">
+      <mat-label for="expensesCost">Expenses Cost (CHF)</mat-label>
+      <input matInput [(ngModel)]="expensesCost" id="expensesCost" type="text" formControlName="expensesCost" required>
+    </mat-form-field>
+
+    <br>
+
+    <button mat-raised-button color="primary" (click)="addArticleRequest()">Add Cervix</button>
+
+  </div>
+
+
+</mat-card>
