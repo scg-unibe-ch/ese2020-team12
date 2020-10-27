@@ -35,7 +35,7 @@
     <mat-form-field appearance="fill">
       <mat-label for="delivery">Delivery</mat-label>
       <mat-select class="custom-select" id="delivery" formControlName="delivery" required>
-        <mat-option *ngFor="let delivery of deliveryOptions" [value]="delivery.value">
+        <mat-option *ngFor="let delivery of deliveryOptions" [(ngModel)]="delivery.value" [value]="delivery.value">
           {{delivery.viewValue}}
         </mat-option>
       </mat-select>
