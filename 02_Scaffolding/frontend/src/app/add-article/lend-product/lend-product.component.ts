@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
+import {environment} from "../../../environments/environment";
 
 
 interface Pricing{
@@ -72,7 +73,26 @@ export class LendProductComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addArticleRequest() {
-
+  addArticleRequest(): void {
+    this.httpClient.post(environment.endpointURL + 'add-article/lend-product/', {
+      title: this.title,
+      price: this.price,
+      hourOrDay: this.pricingType,
+      description: this.description,
+      location: this.location,
+      status: this.lendingStatus,
+      handling: this.handling,
+      articleListId: 1
+    }).subscribe((res: any) => {
+      // Set user data in local storage
+      localStorage.setItem('title', res.title);
+      localStorage.setItem('price', res.price);
+      localStorage.setItem('hourOrDay', res.hourOrDay);
+      localStorage.setItem('description', res.description);
+      localStorage.setItem('location', res.location);
+      localStorage.setItem('status', res.status);
+      localStorage.setItem('handling', res.handling);
+      localStorage.setItem('articleListId', res.articleListId);
+    });
   }
 }
