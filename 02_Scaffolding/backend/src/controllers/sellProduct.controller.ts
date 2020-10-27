@@ -9,6 +9,7 @@ const sellProductService = new SellProductService();
 
 
 sellProductController.post('/', (req: Request, res: Response) => {
+    console.log(req.body);
     sellProductService.postSellProduct(req.body).then(added => res.status(201).send(added)).catch(err => res.status(500).send(err));
 
 });

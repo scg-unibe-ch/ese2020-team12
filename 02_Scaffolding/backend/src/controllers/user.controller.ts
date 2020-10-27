@@ -32,8 +32,6 @@ userController.delete('/:id', (req: Request, res: Response ) => {
 });
 
 userController.put('/', verifyUserUnique , (req: Request, res: Response) => {
-    console.log('routing ok');
-    console.log(req.body.userName);
     User.findOne({
         where: {
             userName: req.body.userName
@@ -45,7 +43,7 @@ userController.put('/', verifyUserUnique , (req: Request, res: Response) => {
                     res.status(200).send(update);
                 });
             } else {
-                res.sendStatus(404).send('du chline spasst');
+                res.sendStatus(404);
             }
         }).catch(err => res.status(500).send(err));
 });

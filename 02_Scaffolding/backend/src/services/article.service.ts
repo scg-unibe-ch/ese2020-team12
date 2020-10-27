@@ -1,5 +1,6 @@
 import {ArticleList, ArticleListAttributes} from '../models/article.model';
 import {SellProductItem} from '../models/sellProduct.model';
+import {LendProductItem} from '../models/lendProduct.model';
 
 
 
@@ -42,8 +43,17 @@ export class ArticleService {
     }
 
     public getArticles(body: ArticleListAttributes): Promise<ArticleListAttributes[]> {
-        console.log(ArticleList.associations.sellProductItems);
-        return ArticleList.findAll();
+        console.log(body);
+        return ArticleList.findAll(
+                  {
+                      include:
+                          [
+                              ArticleList.associations.sellProductItems,
+                              ArticleList.associations.lendProductItems,
+                              ArticleList.associations.serviceItems
+                          ]
+              }
+        );
     /*
     * ,
             include:

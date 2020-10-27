@@ -3,8 +3,8 @@ import {LendProductItem, LProductItemCreationAttributes} from '../models/lendPro
 
 export class LendProductService {
 
-    public postLendProduct(sellProduct: LProductItemCreationAttributes): Promise<LProductItemCreationAttributes> {
-        return LendProductItem.create(sellProduct).then(inserted => Promise.resolve(inserted)).catch(err => Promise.reject(err));
+    public postLendProduct(lendProduct: LProductItemCreationAttributes): Promise<LProductItemCreationAttributes> {
+        return LendProductItem.create(lendProduct).then(inserted => Promise.resolve(inserted)).catch(err => Promise.reject(err));
     }
 
     public putLendProduct(article: LProductItemCreationAttributes): Promise<LProductItemCreationAttributes> {

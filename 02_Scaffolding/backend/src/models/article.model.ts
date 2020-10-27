@@ -26,7 +26,7 @@ export class ArticleList extends Model<ArticleListAttributes, ArticleListCreatio
     public getServiceItems!: HasManyGetAssociationsMixin<ServiceItem>;
     public addSellProductItem!: HasManyAddAssociationMixin<SellProductItem, number>;
     public addLendProductItem!: HasManyAddAssociationMixin<SellProductItem, number>;
-    public addServiceItem!: HasManyAddAssociationMixin<ServiceItem, number>;
+    public addServiceItems!: HasManyAddAssociationMixin<ServiceItem, number>;
 
     public readonly SellProductItems?: SellProductItem[];
     public readonly LendProductItems?: LendProductItem[];
@@ -51,17 +51,16 @@ export class ArticleList extends Model<ArticleListAttributes, ArticleListCreatio
 
     public static createAssociations() {
         ArticleList.hasMany(SellProductItem, {
-            as: 'SellProductItems',
+            as: 'sellProducts',
             foreignKey: 'articleListId',
         });
-        /*
         ArticleList.hasMany(LendProductItem, {
-            as: 'LendProductItems',
+            as: 'lendProducts',
             foreignKey: 'articleListId',
         });
         ArticleList.hasMany(ServiceItem, {
-            as: 'serviceItems',
+            as: 'services',
             foreignKey: 'articleListId'
-        });*/
+        });
     }
 }

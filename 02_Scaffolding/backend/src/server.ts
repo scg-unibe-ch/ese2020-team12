@@ -63,10 +63,10 @@ export class Server {
             .use(cors())
             .use(express.json())                    // parses an incoming json to an object
             .use(morgan('tiny'))                    // logs incoming requests
-            .use('/sellProduct', SellProductItemController)   // any request on this path is forwarded to the TodoItemController
-            .use('/lendProduct', LendProductItemController)
+            .use('/add-article/sell-product', SellProductItemController)
+            .use('/add-article/lend-product', LendProductItemController)
             .use('/article', ArticleController)
-            .use('/service', ServiceController)
+            .use('/add-article/provide-service', ServiceController)
             .use('/user', UserController)
             .use('/secured', SecuredController)
             .options('*', cors(options))
