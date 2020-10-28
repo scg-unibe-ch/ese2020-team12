@@ -24,6 +24,9 @@ export class SignupComponent implements OnInit {
   postalCode;
   password;
   passwordAgain;
+  userToken;
+
+  loggedIn = false;
 
   errorMessages = {
     surname: [
@@ -133,6 +136,12 @@ export class SignupComponent implements OnInit {
       localStorage.setItem('place', res.place);
       localStorage.setItem('postalCode', res.postalCode);
       localStorage.setItem('password', res.password);
+      localStorage.setItem('userToken', res.token);
     });
+    this.login();
+  }
+  login(): void {
+    this.userToken = localStorage.getItem('userToken');
+    this.loggedIn = !!(this.userToken);
   }
 }
