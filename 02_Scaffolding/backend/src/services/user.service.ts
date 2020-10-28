@@ -32,7 +32,7 @@ export class UserService {
     public getAll(userData: UserAttributes): Promise<User[]> {
         return User.findAll({
             where: {
-                userId: userData.userId
+                userName: userData.userName
             }
         });
     }

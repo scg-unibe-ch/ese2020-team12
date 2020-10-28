@@ -34,7 +34,7 @@ export class ArticleListO extends Model<TodoListAttributes, TodoListCreationAttr
                     allowNull: false
                 }
             },
-            { tableName: 'todolists', sequelize }
+            { tableName: 'todolist', sequelize }
         );
     }
     public static createAssociations() {

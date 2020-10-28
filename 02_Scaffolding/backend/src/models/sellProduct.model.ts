@@ -70,7 +70,7 @@ export class SellProductItem extends Model<SellProductItemAttributes, SProductIt
     public static createAssociations() {
         ArticleList.belongsTo(ArticleList, {
             targetKey: 'articleListId',
-            as: 'sellProductList',
+            as: 'articles',
             onDelete: 'cascade',
             foreignKey: 'articleListId'
         });

@@ -11,6 +11,7 @@ export class UserLoginComponent implements OnInit {
 
   userName = '';
   password = '';
+  userId: string;
 
   userToken: string;
   loggedIn = false;
@@ -27,6 +28,7 @@ export class UserLoginComponent implements OnInit {
     // Get user data from local storage
     this.userToken = localStorage.getItem('userToken');
     this.userName = localStorage.getItem('userName');
+    this.userId = localStorage.getItem('userId');
 
     // Set boolean whether a user is logged in or not
     this.loggedIn = !!(this.userToken);
@@ -40,7 +42,7 @@ export class UserLoginComponent implements OnInit {
       // Set user data in local storage
       localStorage.setItem('userToken', res.token);
       localStorage.setItem('userName', res.user.userName);
-
+      localStorage.setItem('userId', res.user.userId);
       this.checkUserStatus();
     });
   }
@@ -49,6 +51,7 @@ export class UserLoginComponent implements OnInit {
     // Remove user data from local storage
     localStorage.removeItem('userToken');
     localStorage.removeItem('userName');
+    localStorage.removeItem('userId');
 
     this.checkUserStatus();
   }

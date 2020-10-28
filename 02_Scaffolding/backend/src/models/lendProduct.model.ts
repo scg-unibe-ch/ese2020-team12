@@ -76,7 +76,7 @@ export class LendProductItem extends Model<LendProductItemAttributes, LProductIt
     public static createAssociations() {
         ArticleList.belongsTo(ArticleList, {
             targetKey: 'articleListId',
-            as: 'lendProductList',
+            as: 'lArticles',
             onDelete: 'cascade',
             foreignKey: 'articleListId'
         });

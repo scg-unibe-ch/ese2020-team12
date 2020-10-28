@@ -3,7 +3,7 @@
   <p>
     <mat-toolbar color="primary">
 
-      <span><a mat-button [routerLink]="['/']">Logo</a></span>
+      <a mat-button [routerLink]="['/']">Logo</a>
 
       <span class="example-spacer"></span>
 
@@ -17,9 +17,9 @@
         <input matInput [(ngModel)]="password" id="password" type="password" name="password">
       </mat-form-field>
 
-      <button mat-raised-button color="secondary" (click)="login()">sign in</button>
+      <button mat-raised-button color="basic" (click)="login()">sign in</button>
 
-      <a mat-button routerLink="/signup" >sign up</a>
+      <a mat-button color="basic" routerLink="/signup" >sign up</a>
 
     </mat-toolbar>
   </p>
@@ -31,11 +31,15 @@
   <p>
     <mat-toolbar color="primary">
 
-      <span><a mat-button [routerLink]="['/']">Logo</a></span>
+      <a mat-button [routerLink]="['/']">Logo</a>
 
       <span class="example-spacer"></span>
+      <!-- i need some space here, not much, but a little -->
+      <span class="i-need-some-space"></span>
 
-      <a mat-button routerLink='/profile'>{{username}}</a>
+      <a mat-button color="basic" routerLink='/profile'>{{username}}</a>
+
+      <a mat-button color="basic" routerLink="/add-article">Add Article</a>
 
       <button mat-raised-button color="secondary" (click)="logout()" onClick="window.location.reload()">logout</button>
 

@@ -1,6 +1,6 @@
-<mat-card [formGroup]="addArticleForm" class="container-productSelling">
+<mat-card>
 
-  <div>
+  <div [formGroup]="addArticleForm" class="container-productSelling">
 
     <h2>Providing a Cervix</h2>
 
@@ -20,7 +20,7 @@
 
     <mat-form-field appearance="fill">
       <mat-label for="pricingType">Price</mat-label>
-      <mat-select class="custom-select" id="pricingType" formControlName="pricingType" required>
+      <mat-select class="custom-select" [(ngModel)]="pricingType" id="pricingType" formControlName="pricingType" required>
         <mat-option *ngFor="let pricingType of pricingOptions" [value]="pricingType.value">
           {{pricingType.value}}
         </mat-option>

@@ -1,6 +1,6 @@
-<mat-card [formGroup]="addArticleForm" class="container-productSelling">
+<mat-card>
 
-  <div>
+  <div [formGroup]="addArticleForm" class="container-productSelling">
 
     <h2>Selling a Product</h2>
 
@@ -34,7 +34,7 @@
 
     <mat-form-field appearance="fill">
       <mat-label for="delivery">Delivery</mat-label>
-      <mat-select class="custom-select" id="delivery" formControlName="delivery" required>
+      <mat-select class="custom-select" [(ngModel)]="delivery" id="delivery" formControlName="delivery" required>
         <mat-option *ngFor="let delivery of deliveryOptions" [value]="delivery.value">
           {{delivery.viewValue}}
         </mat-option>
