@@ -88,15 +88,7 @@ export class ProfileComponent implements OnInit {
   }
 
   sendForm(): void {
-    console.log('----->name:' + this.newName);
-    console.log('----->name:' + this.newSurname);
-    console.log('----->name:' + this.username);
-    console.log('----->name:' + this.newEmail);
-    console.log('----->name:' + this.newStreet);
-    console.log('----->name:' + this.newHouseNumber);
-    console.log('----->name:' + this.newPlace);
-    console.log('----->name:' + this.newPostalCode);
-    this.httpClient.put(environment.endpointURL + 'user/', {
+    this.httpClient.put(environment.endpointURL + 'user/profile', {
       name: this.newName,
       surname: this.newSurname,
       userName: this.username,

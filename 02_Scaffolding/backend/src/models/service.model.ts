@@ -1,5 +1,5 @@
 import { Optional, Model, Sequelize, DataTypes } from 'sequelize';
-import { ArticleList } from './article.model';
+import {User} from './user.model';
 
 export interface ServiceItemAttributes {
     serviceId: number;
@@ -10,7 +10,7 @@ export interface ServiceItemAttributes {
     location: string;
     expenses: string;
     expCost: string;
-    articleListId: number;
+    userId: number;
 }
 
 
@@ -26,7 +26,7 @@ export class ServiceItem extends Model<ServiceItemAttributes, ServiceItemCreatio
     location!: string;
     expenses: string;
     expCost!: string;
-    articleListId!: number;
+    userId!: number;
 
 
     public static initialize(sequelize: Sequelize) { // definition for database
@@ -64,7 +64,7 @@ export class ServiceItem extends Model<ServiceItemAttributes, ServiceItemCreatio
                     type: DataTypes.STRING,
                     allowNull: false
                 },
-                articleListId: {
+                userId: {
                     type: DataTypes.INTEGER,
                     allowNull: false
                 }
@@ -74,11 +74,11 @@ export class ServiceItem extends Model<ServiceItemAttributes, ServiceItemCreatio
 
     }
     public static createAssociations() {
-        ServiceItem.belongsTo(ArticleList, {
-            targetKey: 'articleListId',
+        ServiceItem.belongsTo(User, {
+            targetKey: 'userId',
             as: 'svArticles',
             onDelete: 'cascade',
-            foreignKey: 'articleListId'
+            foreignKey: 'userId'
         });
     }
 

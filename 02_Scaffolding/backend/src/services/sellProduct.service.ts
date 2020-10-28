@@ -10,7 +10,7 @@ export class SellProductService {
     public putSellProduct(article: SProductItemCreationAttributes): Promise<SProductItemCreationAttributes> {
         return SellProductItem.findOne({
             where: {
-                articleListId: article.articleListId
+                userId: article.userId
             }})
             .then(found => {
                 if (found != null) {
@@ -24,7 +24,7 @@ export class SellProductService {
     public deleteArticle(article: SProductItemCreationAttributes) {
         SellProductItem.findOne({
             where: {
-                articleListId: article.articleListId
+                userId: article.userId
             }})
             .then(found => {
                 if (found != null) {

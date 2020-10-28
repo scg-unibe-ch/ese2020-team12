@@ -22,6 +22,7 @@ export class UserLoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.checkUserStatus();
+    this.getUserId();
   }
 
   checkUserStatus(): void {
@@ -44,6 +45,12 @@ export class UserLoginComponent implements OnInit {
       localStorage.setItem('userName', res.user.userName);
       localStorage.setItem('userId', res.user.userId);
       this.checkUserStatus();
+    });
+  }
+
+  getUserId(): void {
+    this.httpClient.get(environment.endpointURL + 'user/profile').subscribe((res: any) => {
+      this.userId = res.userId;
     });
   }
 

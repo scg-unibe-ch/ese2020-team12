@@ -1,4 +1,15 @@
-import {Optional, Model, Sequelize, DataTypes, STRING} from 'sequelize';
+import {
+    Optional,
+    Model,
+    Sequelize,
+    DataTypes,
+    Association,
+    HasManyGetAssociationsMixin,
+    HasManyAddAssociationMixin
+} from 'sequelize';
+import {SellProductItem} from './sellProduct.model';
+import {LendProductItem} from './lendProduct.model';
+import {ServiceItem} from './service.model';
 
 export interface UserAttributes {
     userId: number;
@@ -16,6 +27,22 @@ export interface UserAttributes {
 export interface UserCreationAttributes extends Optional<UserAttributes, 'userId'> { }
 
 export class User extends Model<UserAttributes, UserCreationAttributes> implements UserAttributes {
+    public static associations: {
+        sellProductItems: Association<User, SellProductItem>;
+        lendProductItems: Association<User, LendProductItem>;
+        serviceItems: Association<User, ServiceItem>;
+    };
+
+    public getSellProductItems!: HasManyGetAssociationsMixin<SellProductItem>;
+    public getLendProductItems!: HasManyGetAssociationsMixin<LendProductItem>;
+    public getServiceItems!: HasManyGetAssociationsMixin<ServiceItem>;
+    public addSellProductItem!: HasManyAddAssociationMixin<SellProductItem, number>;
+    public addLendProductItem!: HasManyAddAssociationMixin<SellProductItem, number>;
+    public addServiceItems!: HasManyAddAssociationMixin<ServiceItem, number>;
+
+    public readonly SellProductItems?: SellProductItem[];
+    public readonly LendProductItems?: LendProductItem[];
+    public readonly serviceItems?: ServiceItem[];
     userId!: number;
     userName!: string;
     email!: string;
@@ -78,5 +105,20 @@ export class User extends Model<UserAttributes, UserCreationAttributes> implemen
                 tableName: 'users'
             }
         );
+    }
+
+    public static createAssociations() {
+        User.hasMany(SellProductItem, {
+            as: 'sellProducts',
+            foreignKey: 'userId',
+        });
+        User.hasMany(LendProductItem, {
+            as: 'lendProducts',
+            foreignKey: 'userId',
+        });
+        User.hasMany(ServiceItem, {
+            as: 'services',
+            foreignKey: 'userId'
+        });
     }
 }
