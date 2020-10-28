@@ -1,5 +1,5 @@
 import { Optional, Model, Sequelize, DataTypes } from 'sequelize';
-import { ArticleList } from './article.model';
+import {User} from './user.model';
 
 export interface SellProductItemAttributes {
     sellProductId: number;
@@ -9,7 +9,7 @@ export interface SellProductItemAttributes {
     location: string;
     delivery: boolean;
     delSpec: string;
-    articleListId: number;
+    userId: number;
 }
 
 
@@ -24,7 +24,7 @@ export class SellProductItem extends Model<SellProductItemAttributes, SProductIt
     location!: string;
     delivery!: boolean;
     delSpec!: string;
-    articleListId!: number;
+    userId!: number;
 
 
     public static initialize(sequelize: Sequelize) { // definition for database
@@ -58,7 +58,7 @@ export class SellProductItem extends Model<SellProductItemAttributes, SProductIt
                     type: DataTypes.STRING,
                     allowNull: true
                 },
-                articleListId: {
+                userId: {
                     type: DataTypes.INTEGER,
                     allowNull: false
                 }
@@ -68,11 +68,11 @@ export class SellProductItem extends Model<SellProductItemAttributes, SProductIt
 
     }
     public static createAssociations() {
-        ArticleList.belongsTo(ArticleList, {
-            targetKey: 'articleListId',
+        SellProductItem.belongsTo(User, {
+            targetKey: 'userId',
             as: 'articles',
             onDelete: 'cascade',
-            foreignKey: 'articleListId'
+            foreignKey: 'userId'
         });
     }
 

@@ -31,7 +31,8 @@ userController.delete('/:id', (req: Request, res: Response ) => {
         }).catch(err => res.status(500).send(err));
 });
 
-userController.put('/', verifyUserUnique , (req: Request, res: Response) => {
+userController.put('/profile', verifyToken , (req: Request, res: Response) => {
+    console.log('test:---' + req.body);
     User.findOne({
         where: {
             userName: req.body.userName

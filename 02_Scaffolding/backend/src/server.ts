@@ -7,14 +7,12 @@ import { User } from './models/user.model';
 
 
 import cors from 'cors';
-import {ArticleController} from './controllers/article.controller';
 import { SellProductItemController} from './controllers/sellProduct.controller';
 import {ServiceController} from './controllers/service.controller';
 
 import {LendProductItemController} from './controllers/lendProduct.controller';
 import {LendProductItem} from './models/lendProduct.model';
 import {SellProductItem} from './models/sellProduct.model';
-import {ArticleList} from './models/article.model';
 import {ServiceItem} from './models/service.model';
 
 
@@ -27,11 +25,9 @@ export class Server {
         this.server = this.configureServer();
         this.sequelize = this.configureSequelize();
         User.initialize(this.sequelize);
-        ArticleList.initialize(this.sequelize);
         LendProductItem.initialize(this.sequelize);
         SellProductItem.initialize(this.sequelize);
         ServiceItem.initialize(this.sequelize);
-        ArticleList.createAssociations();
         SellProductItem.createAssociations();
         LendProductItem.createAssociations();
         ServiceItem.createAssociations();
@@ -65,7 +61,6 @@ export class Server {
             .use(morgan('tiny'))                    // logs incoming requests
             .use('/add-article/sell-product', SellProductItemController)
             .use('/add-article/lend-product', LendProductItemController)
-            .use('/article', ArticleController)
             .use('/add-article/provide-service', ServiceController)
             .use('/user', UserController)
             .use('/secured', SecuredController)
