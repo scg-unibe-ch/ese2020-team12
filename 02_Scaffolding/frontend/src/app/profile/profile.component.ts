@@ -24,15 +24,6 @@ export class ProfileComponent implements OnInit {
   postalCode;
   password;
 
-  newUsername = '';
-  newEmail = '';
-  newName = '';
-  newSurname = '';
-  newStreet = '';
-  newHouseNumber = '';
-  newPostalCode = '';
-  newPlace = '';
-
   ngOnInit(): void {
     this.checkUserStatus();
   }
@@ -61,26 +52,26 @@ export class ProfileComponent implements OnInit {
     private httpClient: HttpClient,
   ) {
     this.editProfileForm = this.formBuilder.group({
-      newName: new FormControl('', Validators.compose([
+      name: new FormControl('', Validators.compose([
         Validators.required
       ])),
-      newSurname: new FormControl('', Validators.compose([
+      surname: new FormControl('', Validators.compose([
         Validators.required
       ])),
-      newUsername: new FormControl('', Validators.compose([
+      username: new FormControl('', Validators.compose([
         Validators.required,
         Validators.maxLength(16)
       ])),
-      newEmail: new FormControl('', Validators.compose([
+      email: new FormControl('', Validators.compose([
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(30),
         Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')
       ])),
-      newStreet: new FormControl(''),
-      newHouseNumber: new FormControl(''),
-      newPlace: new FormControl(''),
-      newPostalCode: new FormControl('', Validators.compose([
+      street: new FormControl(''),
+      houseNumber: new FormControl(''),
+      place: new FormControl(''),
+      postalCode: new FormControl('', Validators.compose([
         Validators.required,
         Validators.pattern('[0-9]')
       ]))
@@ -89,14 +80,14 @@ export class ProfileComponent implements OnInit {
 
   sendForm(): void {
     this.httpClient.put(environment.endpointURL + 'user/profile', {
-      name: this.newName,
-      surname: this.newSurname,
+      name: this.name,
+      surname: this.surname,
       userName: this.username,
-      email: this.newEmail,
-      street: this.newStreet,
-      houseNumber: this.newHouseNumber,
-      place: this.newPlace,
-      postalCode: this.newPostalCode,
+      email: this.email,
+      street: this.street,
+      houseNumber: this.houseNumber,
+      place: this.place,
+      postalCode: this.postalCode,
     }).subscribe((res: any) => {
       // Set user data in local storage
       localStorage.setItem('name', res.name);
