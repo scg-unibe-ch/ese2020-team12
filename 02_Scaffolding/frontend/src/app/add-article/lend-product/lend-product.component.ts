@@ -29,6 +29,7 @@ export class LendProductComponent implements OnInit {
   location;
   lendingStatus;
   handling;
+  userId: string;
 
   addArticleForm: FormGroup;
   pricingOptions: Pricing[] = [
@@ -71,6 +72,14 @@ export class LendProductComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getUserId();
+  }
+
+  getUserId(): void {
+    this.httpClient.get(environment.endpointURL + 'user/profile',{
+    }).subscribe((res: any) => {
+      this.userId = res.userId;
+    });
   }
 
   addArticleRequest(): void {
@@ -82,7 +91,7 @@ export class LendProductComponent implements OnInit {
       location: this.location,
       status: this.lendingStatus,
       handling: this.handling,
-      articleListId: 1
+      userId: 1
     }).subscribe((res: any) => {
       // Set user data in local storage
       localStorage.setItem('title', res.title);
@@ -92,7 +101,7 @@ export class LendProductComponent implements OnInit {
       localStorage.setItem('location', res.location);
       localStorage.setItem('status', res.status);
       localStorage.setItem('handling', res.handling);
-      localStorage.setItem('articleListId', res.articleListId);
+      localStorage.setItem('userId', res.userId);
     });
   }
 }
