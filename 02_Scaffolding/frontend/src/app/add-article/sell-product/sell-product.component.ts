@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
-import {environment} from "../../../environments/environment";
+import {environment} from '../../../environments/environment';
+import {UserInfoService} from '../../user-info.service';
 
 
 interface Delivery {
@@ -35,6 +36,7 @@ export class SellProductComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private httpClient: HttpClient,
+    private userInfoService: UserInfoService
   ) {
     this.addArticleForm = this.formBuilder.group({
       title: new FormControl('', Validators.compose(
