@@ -28,14 +28,10 @@ export class UserService {
         })
         .catch(err => Promise.reject({ message: err }));
     }
-
-    public getAll(userData: UserAttributes): Promise<User[]> {
-        return User.findAll({
-            where: {
-                userName: userData.userName
-            }
-        });
+/*
+    public getAll(req: Request): Promise<User | null> {
+        return User.findByPk(req.param;
     }
 
-
+*/
 }

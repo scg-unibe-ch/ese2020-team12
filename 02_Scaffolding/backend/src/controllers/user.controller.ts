@@ -57,9 +57,10 @@ userController.post('/login',
     }
 );
 
-userController.get('/profile', verifyToken, // you can add middleware on specific requests like that
+userController.get('/profile/:id', verifyToken, // you can add middleware on specific requests like that
     (req: Request, res: Response) => {
-        userService.getAll(req.body).then(users => res.send(users)).catch(err => res.status(500).send(err));
+        console.log(req.params.id);
+        User.findByPk(req.params.id).then(users => res.send(users)).catch(err => res.status(500).send(err));
     }
 );
 
