@@ -1,16 +1,76 @@
-<h3>home works!</h3>
+<mat-grid-list cols="8"  rowHeight="144px">
+  <!--Sidebar-->
+  <mat-grid-tile colspan="2" rowspan="8" >
+    <mat-card>
+      <mat-card-title>Search</mat-card-title>
+      <mat-card-subtitle>Find what specifically fits you!</mat-card-subtitle>
+      <form class="search-sidebar">
+        <mat-form-field style="width:90%">
+          <mat-label>Simple Search</mat-label>
+          <input matInput placeholder="Type what you like">
+        </mat-form-field>
+        <input type="range">
+      </form>
+    </mat-card>
+  </mat-grid-tile>
 
-<a mat-raised-button color="accent" routerLink="/add-article">
-  Provisorischer Link zu Add Article
-</a>
+  <!--Banner-->
+  <mat-grid-tile colspan="6" rowspan="2">
+      <img class="banner" src="../../assets/Header_Home/Banner_selling.png" style="display:none;">
+      <img class="banner" src="../../assets/Header_Home/Banner_Lending.png" style="display:block;">
+      <img class="banner" src="../../assets/Header_Home/Banner_Service.png" style="display:none;">
+    </mat-grid-tile>
 
-<p>
-  As soon as we have some content, we can start to build on this page...
-</p>
 
-<p>
-  Until then:
-</p>
+  <!--Most recent articles-->
+  <mat-grid-tile colspan="6" rowspan="3">
+    <mat-card>
+      <mat-card-header class="title">
+        <mat-card-title>Most recent:</mat-card-title>
+      </mat-card-header>
 
-<iframe src="https://giphy.com/embed/d7IKIDx2UwRvlfZOOM" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen>
-</iframe>
+      <mat-card class="item">
+        <mat-card-header>
+          <mat-card-title>Shiba Inu. Very Friend!</mat-card-title>
+        </mat-card-header>
+        <img src="https://material.angular.io/assets/img/examples/shiba2.jpg">
+        <mat-card-content>
+          <mat-card-actions>
+            <button mat-button>Buy for 12CHF</button>
+            <button mat-button>Remember</button>
+          </mat-card-actions>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="item">
+        <mat-card-header>
+          <mat-card-title>Shiba Inu. Very Friend!</mat-card-title>
+        </mat-card-header>
+        <img src="https://material.angular.io/assets/img/examples/shiba2.jpg">
+        <mat-card-content>
+          <mat-card-actions>
+            <button mat-button>Buy for 12CHF</button>
+            <button mat-button>Remember</button>
+          </mat-card-actions>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="item">
+        <mat-card-header>
+          <mat-card-title>Shiba Inu. Very Friend!</mat-card-title>
+        </mat-card-header>
+        <img src="https://material.angular.io/assets/img/examples/shiba2.jpg">
+        <mat-card-content>
+          <mat-card-actions>
+            <button mat-button>Buy for 12CHF</button>
+            <button mat-button>Remember</button>
+          </mat-card-actions>
+        </mat-card-content>
+      </mat-card>
+
+    </mat-card>
+  </mat-grid-tile>
+
+  <!--Random articles-->
+  <mat-grid-tile colspan="6" rowspan="3">Random Product:</mat-grid-tile>
+</mat-grid-list>
