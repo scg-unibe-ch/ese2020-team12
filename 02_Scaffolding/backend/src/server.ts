@@ -14,6 +14,9 @@ import {LendProductItemController} from './controllers/lendProduct.controller';
 import {LendProductItem} from './models/lendProduct.model';
 import {SellProductItem} from './models/sellProduct.model';
 import {ServiceItem} from './models/service.model';
+import {ProfilePhotoController} from './controllers/profilePhoto.controller';
+import {ProfilePhoto} from './models/profilePhoto.model';
+
 
 
 export class Server {
@@ -28,6 +31,8 @@ export class Server {
         LendProductItem.initialize(this.sequelize);
         SellProductItem.initialize(this.sequelize);
         ServiceItem.initialize(this.sequelize);
+        ProfilePhoto.initialize(this.sequelize);
+        ProfilePhoto.createAssociations();
         SellProductItem.createAssociations();
         LendProductItem.createAssociations();
         ServiceItem.createAssociations();
@@ -63,6 +68,7 @@ export class Server {
             .use('/add-article/lend-product', LendProductItemController)
             .use('/add-article/provide-service', ServiceController)
             .use('/user', UserController)
+            .use('/user/profile', ProfilePhotoController)
             .use('/secured', SecuredController)
             .options('*', cors(options))
             .use(express.static('./src/public'))
