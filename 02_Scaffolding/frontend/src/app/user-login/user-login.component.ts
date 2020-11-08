@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
+// Note: this is the document from the given ESE scaffolding, it is not in use
+
 @Component({
   selector: 'app-user-login',
   templateUrl: './user-login.component.html',
@@ -43,7 +45,7 @@ export class UserLoginComponent implements OnInit {
       // Set user data in local storage
       localStorage.setItem('userToken', res.token);
       localStorage.setItem('userName', res.user.userName);
-      localStorage.setItem('userId', res.user.userId);
+      localStorage.setItem('userId', res.token.user.userId);
       this.checkUserStatus();
     });
   }
