@@ -24,6 +24,7 @@ export class UserInfoService {
   getLogin(): boolean {
     return this.isLoggedIn;
   }
+
   setLogin(loginStatus: boolean): void {
     this.isLoggedIn = loginStatus;
   }

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="26d3e81a-b0d8-46ab-bf50-6260a9789e8a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/02_Scaffolding/backend/db.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/02_Scaffolding/backend/db.sqlite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/02_Scaffolding/frontend/src/app/topbar/topbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/02_Scaffolding/frontend/src/app/topbar/topbar.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/02_Scaffolding/frontend/src/app/user-info.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/02_Scaffolding/frontend/src/app/user-info.service.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1iYWVM9wNWXnX627kuVybQYPjRL" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="C:\Users\phili\Documents\Studium\Informatik\3. Semester\ESE\Projekt\ese2020-team12\02_Scaffolding\backend\node_modules\typescript\lib" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="26d3e81a-b0d8-46ab-bf50-6260a9789e8a" name="Default Changelist" comment="" />
+      <created>1602146093965</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1602146093965</updated>
+      <workItem from="1602146097251" duration="5000" />
+      <workItem from="1602146186142" duration="9753000" />
+      <workItem from="1602250072473" duration="4676000" />
+      <workItem from="1602587775971" duration="15047000" />
+      <workItem from="1602608955877" duration="6366000" />
+      <workItem from="1602677774691" duration="3957000" />
+      <workItem from="1603631475620" duration="14105000" />
+      <workItem from="1603817441104" duration="525000" />
+      <workItem from="1603887930362" duration="12434000" />
+      <workItem from="1604149015578" duration="363000" />
+      <workItem from="1604429806011" duration="121000" />
+      <workItem from="1604435090904" duration="361000" />
+      <workItem from="1604585978851" duration="127000" />
+      <workItem from="1604761353047" duration="3648000" />
+      <workItem from="1604837933691" duration="5724000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LAST_COMMIT_MESSAGE" value="" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="435" y="260" key="#Notifications" timestamp="1602085236396">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="435" y="260" key="#Notifications/0.0.1368.872@0.0.1368.872" timestamp="1602085236396" />
+    <state x="93" y="93" width="1181" height="685" key="DiffContextDialog" timestamp="1602085293265">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="93" y="93" width="1181" height="685" key="DiffContextDialog/0.0.1368.872@0.0.1368.872" timestamp="1602085293265" />
+    <state x="502" y="350" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602085225470">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="502" y="350" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1368.872@0.0.1368.872" timestamp="1602085225470" />
+  </component>
+</project>
