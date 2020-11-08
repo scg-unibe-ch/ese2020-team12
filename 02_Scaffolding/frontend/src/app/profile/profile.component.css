@@ -50,3 +50,17 @@
   width: 60vw;
   background-color: rgb(18, 132, 177);
 }
+
+.item {
+  height:90%;
+  width:30%;
+  margin: 0 1.5%;
+  background-color: #eee;
+  float: left;
+}
+
+.item img {
+  width: 100%;
+  max-height:18.75em;
+  float: left;
+}
