@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
+import { UserInfoService } from '../user-info.service';
 
 @Component({
   selector: 'app-topbar',
@@ -9,28 +10,24 @@ import {environment} from '../../environments/environment';
 })
 export class TopbarComponent implements OnInit {
 
+  // local variables necessary for input logic
   username = '';
   password = '';
 
-  userToken: string;
-  loggedIn = false;
-
   secureEndpointResponse = '';
   constructor(
-    private httpClient: HttpClient
-  ) {}
+    private httpClient: HttpClient,
+    public userInfoService: UserInfoService
+  ) {
+  }
 
   ngOnInit(): void {
     this.checkUserStatus();
   }
 
   checkUserStatus(): void {
-    // Get user data from local storage
-    this.userToken = localStorage.getItem('userToken');
-    this.username = localStorage.getItem('userName');
-
     // Set boolean whether a user is logged in or not
-    this.loggedIn = !!(this.userToken);
+    this.userInfoService.setLogin(!!(this.userInfoService.getUserToken()));
   }
 
   login(): void {
@@ -38,19 +35,17 @@ export class TopbarComponent implements OnInit {
       userName: this.username,
       password: this.password
     }).subscribe((res: any) => {
-      // Set user data in local storage
-      localStorage.setItem('userToken', res.token);
-      localStorage.setItem('userName', res.user.userName);
-
+      // Set user data in user service
+      this.userInfoService.setUserToken(res.token);
+      this.userInfoService.setUsername(res.user.userName);
+      this.userInfoService.setUserId(res.user.userId);
       this.checkUserStatus();
     });
   }
 
   logout(): void {
-    // Remove user data from local storage
-    localStorage.removeItem('userToken');
-    localStorage.removeItem('userName');
-
+    // Remove user data from user service
+    this.userInfoService.setUserToken(null);
     this.checkUserStatus();
   }
 

@@ -1,4 +1,4 @@
-<div *ngIf="!loggedIn">
+<div *ngIf="!this.userInfoService.getLogin()">
 
   <p>
     <mat-toolbar color="primary">
@@ -27,7 +27,7 @@
 </div>
 
 
-<div *ngIf="loggedIn">
+<div *ngIf="this.userInfoService.getLogin()">
   <p>
     <mat-toolbar color="primary">
 
@@ -37,7 +37,7 @@
       <!-- i need some space here, not much, but a little -->
       <span class="i-need-some-space"></span>
 
-      <a mat-button color="basic" routerLink='/profile'>{{username}}</a>
+      <a mat-button color="basic" routerLink='/profile'>{{this.userInfoService.getUsername()}}</a>
 
       <a mat-button color="basic" routerLink="/add-article">Add Article</a>
 
