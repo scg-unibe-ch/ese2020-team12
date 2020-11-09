@@ -18,13 +18,14 @@ export class UserInfoService {
   userId: any;
 
   // Extended UserInfo
+  user: any;
+  email: string;
 
 
   // Getters and Setters
   getLogin(): boolean {
     return this.isLoggedIn;
   }
-
   setLogin(loginStatus: boolean): void {
     this.isLoggedIn = loginStatus;
   }
@@ -60,12 +61,45 @@ export class UserInfoService {
     this.userId = userId;
   }
 
+  getUser(): any {
+    if (this.getLogin()){
+      this.httpClient.get(environment.endpointURL + 'user/profile/' + this.getUserId())
+        .subscribe((res: any ) => {
+          this.user = res.user;
+        });
+    }
+    return this.user;
+  }
+
+  getEmail(): string {
+    /*
+    this.httpClient.get(environment.endpointURL + 'user/profile/' + this.getUsername())
+      .subscribe((res: any ) => {
+        this.email = res.user.email;
+      });
+    */
+    return this.email;
+  }
+  setEmail(email: string): void {
+    this.email = email;
+  }
+
   constructor(
     private httpClient: HttpClient
   ) {
+    // Check UserToken from localstorage via checkuserstatus
     this.isLoggedIn = false;
     this.username = '';
+    this.user = null;
   }
+
+
+  checkUserStatus(): void {
+    // Set boolean whether a user is logged in or not
+    this.setLogin(!!(this.getUserToken()));
+  }
+
+
 
 }
 

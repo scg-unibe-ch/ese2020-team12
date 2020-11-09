@@ -22,13 +22,15 @@ export class TopbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.checkUserStatus();
+    // this.userInfoService.checkUserStatus();
   }
 
+  /*
   checkUserStatus(): void {
     // Set boolean whether a user is logged in or not
     this.userInfoService.setLogin(!!(this.userInfoService.getUserToken()));
   }
+   */
 
   login(): void {
     this.httpClient.post(environment.endpointURL + 'user/login', {
@@ -36,17 +38,20 @@ export class TopbarComponent implements OnInit {
       password: this.password
     }).subscribe((res: any) => {
       // Set user data in user service
-      this.userInfoService.setUserToken(res.token);
+      this.userInfoService.setUserToken(res.token); // token in localstorage too
       this.userInfoService.setUsername(res.user.userName);
       this.userInfoService.setUserId(res.user.userId);
-      this.checkUserStatus();
+      this.userInfoService.setEmail(res.user.email);
+      // get other userInfo from backend the following way:
+      // this.userInfoService.set[Variable-Name](res.user.[Variable-Name])
+      this.userInfoService.checkUserStatus();
     });
   }
 
   logout(): void {
     // Remove user data from user service
     this.userInfoService.setUserToken(null);
-    this.checkUserStatus();
+    this.userInfoService.checkUserStatus();
   }
 
   accessSecuredEndpoint(): void {

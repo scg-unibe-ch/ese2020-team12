@@ -4,6 +4,7 @@ import { TodoList } from './models/todo-list.model';
 import { TodoItem } from './models/todo-item.model';
 import { environment } from '../environments/environment';
 import { TopbarComponent } from './topbar/topbar.component';
+import {UserInfoService} from './user-info.service';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,10 @@ export class AppComponent implements OnInit {
   newTodoListName = '';
   todoLists: TodoList[] = [];
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(
+    private httpClient: HttpClient,
+    public userInfoService: UserInfoService
+  ) {}
 
   ngOnInit(): void {
   }

@@ -3,6 +3,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute} from '@angular/router';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
+import {UserInfoService} from '../user-info.service';
 
 @Component({
   selector: 'app-profile',
@@ -25,9 +26,10 @@ export class ProfileComponent implements OnInit {
   password;
 
   ngOnInit(): void {
-    this.checkUserStatus();
+    this.userInfoService.checkUserStatus();
   }
 
+  /*
   checkUserStatus(): void {
     // Get user data from local storage
     this.userToken = localStorage.getItem('userToken');
@@ -43,6 +45,7 @@ export class ProfileComponent implements OnInit {
     // Set boolean whether a user is logged in or not
     this.loggedIn = !!(this.userToken);
   }
+   */
 
   editProfileForm: FormGroup;
 
@@ -50,6 +53,7 @@ export class ProfileComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private httpClient: HttpClient,
+    public userInfoService: UserInfoService
   ) {
     this.editProfileForm = this.formBuilder.group({
       name: new FormControl('', Validators.compose([
