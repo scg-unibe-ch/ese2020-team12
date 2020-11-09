@@ -14,6 +14,8 @@ import {UserInfoService} from './user-info.service';
 export class AppComponent implements OnInit {
   title = 'frontend';
 
+  userToken: string;
+
   newTodoListName = '';
   todoLists: TodoList[] = [];
 
@@ -23,6 +25,7 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.userInfoService.checkUserToken();
   }
 
   /*// TodoList - CREATE

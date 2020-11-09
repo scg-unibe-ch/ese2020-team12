@@ -20,6 +20,12 @@ export class UserInfoService {
   // Extended UserInfo
   user: any;
   email: string;
+  name: string;
+  surname: string;
+  street: string;
+  houseNumber: number;
+  postalCode: number;
+  place: string;
 
 
   // Getters and Setters
@@ -48,10 +54,21 @@ export class UserInfoService {
    */
 
   getUserToken(): string {
+    //this.userToken = localStorage.getItem('userToken');
     return this.userToken;
   }
   setUserToken(userToken: string): void {
+    //localStorage.setItem('userToken', userToken);
     this.userToken = userToken;
+  }
+
+  checkUserToken(): void {
+    this.userToken = this.getUserToken();
+    if(this.userToken != null){
+      this.setUserToken(this.userToken);
+    }
+    console.log("Hello");
+    console.log(this.userToken);
   }
 
   getUserId(): any {
@@ -71,6 +88,17 @@ export class UserInfoService {
     return this.user;
   }
 
+  //SASCHA TRYING HIS BEST
+  setExtendedUserInfo(user: any): void {
+    this.email = user.email;
+    this.name = user.name
+    this.surname = user.surname;
+    this.street = user.houseNumber;
+    this.houseNumber = user.houseNumber;
+    this.postalCode = user.postalCode;
+    this.place = user.place;
+  }
+
   getEmail(): string {
     /*
     this.httpClient.get(environment.endpointURL + 'user/profile/' + this.getUsername())
@@ -80,8 +108,29 @@ export class UserInfoService {
     */
     return this.email;
   }
-  setEmail(email: string): void {
-    this.email = email;
+
+  getName(): string {
+    return this.name;
+  }
+
+  getSurname(): string {
+    return this.surname;
+  }
+
+  getStreet(): string {
+    return this.street;
+  }
+
+  getHouseNumber(): number {
+    return this.houseNumber;
+  }
+
+  getPostalCode(): number {
+    return this.postalCode;
+  }
+
+  getPlace(): string {
+    return this.place;
   }
 
   constructor(
@@ -98,7 +147,6 @@ export class UserInfoService {
     // Set boolean whether a user is logged in or not
     this.setLogin(!!(this.getUserToken()));
   }
-
 
 
 }

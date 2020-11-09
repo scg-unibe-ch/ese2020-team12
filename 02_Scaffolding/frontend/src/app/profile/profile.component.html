@@ -14,21 +14,21 @@
         <mat-grid-list cols="3" rowHeight="50px">
           <mat-grid-tile colspan="1" rowspan="8">Profile pic</mat-grid-tile>
           <mat-grid-tile colspan="1" rowspan="1">Username</mat-grid-tile>
-          <mat-grid-tile colspan="1" rowspan="1">{{ username }}</mat-grid-tile>
+          <mat-grid-tile colspan="1" rowspan="1">{{ this.userInfoService.getUsername() }}</mat-grid-tile>
           <mat-grid-tile colspan="1" rowspan="1">Email</mat-grid-tile>
-          <mat-grid-tile colspan="1" rowspan="1">{{ email }}</mat-grid-tile>
+          <mat-grid-tile colspan="1" rowspan="1">{{ this.userInfoService.getEmail() }}</mat-grid-tile>
           <mat-grid-tile colspan="1" rowspan="1">Name</mat-grid-tile>
-          <mat-grid-tile colspan="1" rowspan="1">{{ name }}</mat-grid-tile>
+          <mat-grid-tile colspan="1" rowspan="1">{{ this.userInfoService.getName() }}</mat-grid-tile>
           <mat-grid-tile colspan="1" rowspan="1">Surname</mat-grid-tile>
-          <mat-grid-tile colspan="1" rowspan="1">{{ surname }}</mat-grid-tile>
+          <mat-grid-tile colspan="1" rowspan="1">{{ this.userInfoService.getSurname() }}</mat-grid-tile>
           <mat-grid-tile colspan="1" rowspan="1">Street</mat-grid-tile>
-          <mat-grid-tile colspan="1" rowspan="1">{{ street }}</mat-grid-tile>
+          <mat-grid-tile colspan="1" rowspan="1">{{ this.userInfoService.getStreet() }}</mat-grid-tile>
           <mat-grid-tile colspan="1" rowspan="1">Housenumber</mat-grid-tile>
-          <mat-grid-tile colspan="1" rowspan="1">{{ houseNumber }}</mat-grid-tile>
+          <mat-grid-tile colspan="1" rowspan="1">{{ this.userInfoService.getHouseNumber() }}</mat-grid-tile>
           <mat-grid-tile colspan="1" rowspan="1">Postal Code</mat-grid-tile>
-          <mat-grid-tile colspan="1" rowspan="1">{{ postalCode }}</mat-grid-tile>
+          <mat-grid-tile colspan="1" rowspan="1">{{ this.userInfoService.getPostalCode() }}</mat-grid-tile>
           <mat-grid-tile colspan="1" rowspan="1">Place</mat-grid-tile>
-          <mat-grid-tile colspan="1" rowspan="1">{{ place }}</mat-grid-tile>
+          <mat-grid-tile colspan="1" rowspan="1">{{ this.userInfoService.getPlace() }}</mat-grid-tile>
         </mat-grid-list>
 
       </mat-card-content>
@@ -39,7 +39,7 @@
 
     <mat-card class="edit-profile" [formGroup]="editProfileForm">
       <mat-card-header>
-        <mat-card-title>{{username}}</mat-card-title>
+        <mat-card-title>{{ this.userInfoService.getUsername() }}</mat-card-title>
         <mat-card-subtitle>Change personal information</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>

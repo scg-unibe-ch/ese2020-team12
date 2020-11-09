@@ -27,8 +27,18 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.userInfoService.checkUserStatus();
+    this.getUserInfo();
   }
 
+  getUserInfo(): void {
+    this.email = this.userInfoService.getEmail();
+    this.name = this.userInfoService.getName();
+    this.surname = this.userInfoService.getSurname();
+    this.street = this.userInfoService.getStreet();
+    this.houseNumber = this.userInfoService.getHouseNumber();
+    this.postalCode = this.userInfoService.getPostalCode();
+    this.place = this.userInfoService.getPlace();
+  }
   /*
   checkUserStatus(): void {
     // Get user data from local storage

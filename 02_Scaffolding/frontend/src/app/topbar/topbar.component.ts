@@ -22,7 +22,7 @@ export class TopbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.userInfoService.checkUserStatus();
+    this.userInfoService.checkUserStatus();
   }
 
   /*
@@ -38,10 +38,11 @@ export class TopbarComponent implements OnInit {
       password: this.password
     }).subscribe((res: any) => {
       // Set user data in user service
-      this.userInfoService.setUserToken(res.token); // token in localstorage too
+      localStorage.setItem('userToken', res.token); // token in localstorage too
+      this.userInfoService.setUserToken(localStorage.getItem('userToken'));
       this.userInfoService.setUsername(res.user.userName);
       this.userInfoService.setUserId(res.user.userId);
-      this.userInfoService.setEmail(res.user.email);
+      this.userInfoService.setExtendedUserInfo(res.user);
       // get other userInfo from backend the following way:
       // this.userInfoService.set[Variable-Name](res.user.[Variable-Name])
       this.userInfoService.checkUserStatus();
