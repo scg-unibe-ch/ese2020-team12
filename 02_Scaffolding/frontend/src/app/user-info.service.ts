@@ -62,9 +62,10 @@ export class UserInfoService {
     this.userToken = userToken;
   }
 
+  // delete console.log statements asap
   checkUserToken(): void {
     this.userToken = this.getUserToken();
-    if(this.userToken != null){
+    if (this.userToken != null){
       this.setUserToken(this.userToken);
     }
     console.log("Hello");
@@ -88,10 +89,9 @@ export class UserInfoService {
     return this.user;
   }
 
-  //SASCHA TRYING HIS BEST
   setExtendedUserInfo(user: any): void {
     this.email = user.email;
-    this.name = user.name
+    this.name = user.name;
     this.surname = user.surname;
     this.street = user.houseNumber;
     this.houseNumber = user.houseNumber;
@@ -100,12 +100,6 @@ export class UserInfoService {
   }
 
   getEmail(): string {
-    /*
-    this.httpClient.get(environment.endpointURL + 'user/profile/' + this.getUsername())
-      .subscribe((res: any ) => {
-        this.email = res.user.email;
-      });
-    */
     return this.email;
   }
 

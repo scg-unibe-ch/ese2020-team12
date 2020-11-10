@@ -25,13 +25,6 @@ export class TopbarComponent implements OnInit {
     this.userInfoService.checkUserStatus();
   }
 
-  /*
-  checkUserStatus(): void {
-    // Set boolean whether a user is logged in or not
-    this.userInfoService.setLogin(!!(this.userInfoService.getUserToken()));
-  }
-   */
-
   login(): void {
     this.httpClient.post(environment.endpointURL + 'user/login', {
       userName: this.username,
@@ -43,8 +36,6 @@ export class TopbarComponent implements OnInit {
       this.userInfoService.setUsername(res.user.userName);
       this.userInfoService.setUserId(res.user.userId);
       this.userInfoService.setExtendedUserInfo(res.user);
-      // get other userInfo from backend the following way:
-      // this.userInfoService.set[Variable-Name](res.user.[Variable-Name])
       this.userInfoService.checkUserStatus();
     });
   }
