@@ -11,6 +11,7 @@ export interface LendProductItemAttributes {
     status: boolean;
     handling: string;
     userId: number;
+    category: number;
 }
 
 
@@ -27,6 +28,7 @@ export class LendProductItem extends Model<LendProductItemAttributes, LProductIt
     status!: boolean;
     handling!: string;
     userId!: number;
+    category!: number;
 
 
     public static initialize(sequelize: Sequelize) { // definition for database
@@ -67,6 +69,10 @@ export class LendProductItem extends Model<LendProductItemAttributes, LProductIt
                 userId: {
                     type: DataTypes.INTEGER,
                     allowNull: false
+                },
+                category: {
+                    type: DataTypes.INTEGER,
+                    allowNull: true
                 }
             },
             { sequelize, tableName: 'lendProducts' }

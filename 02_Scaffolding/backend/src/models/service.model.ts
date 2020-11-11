@@ -11,6 +11,7 @@ export interface ServiceItemAttributes {
     expenses: string;
     expCost: string;
     userId: number;
+    category: number;
 }
 
 
@@ -27,6 +28,7 @@ export class ServiceItem extends Model<ServiceItemAttributes, ServiceItemCreatio
     expenses: string;
     expCost!: string;
     userId!: number;
+    category!: number;
 
 
     public static initialize(sequelize: Sequelize) { // definition for database
@@ -67,6 +69,10 @@ export class ServiceItem extends Model<ServiceItemAttributes, ServiceItemCreatio
                 userId: {
                     type: DataTypes.INTEGER,
                     allowNull: false
+                },
+                category: {
+                    type: DataTypes.INTEGER,
+                    allowNull: true
                 }
             },
             { sequelize, tableName: 'services' }
