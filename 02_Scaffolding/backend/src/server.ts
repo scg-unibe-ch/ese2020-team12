@@ -69,7 +69,7 @@ export class Server {
             .use('/add-article/lend-product', LendProductItemController)
             .use('/add-article/provide-service', ServiceController)
             .use('/user', UserController)
-            .use('/user/profile', ProfilePhotoController)
+            .use('/user/profilephoto', ProfilePhotoController)
             .use('/secured', SecuredController)
             .use('/article', GetArticleController)
             .options('*', cors(options))

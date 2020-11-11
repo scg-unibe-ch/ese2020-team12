@@ -7,7 +7,6 @@ const lendProductController: Router = express.Router();
 const lendProductService = new LendProductService();
 
 lendProductController.post('/', (req: Request, res: Response) => {
-    console.log(req.body);
     lendProductService.postLendProduct(req.body).then(added => res.status(201).send(added)).catch(err => res.status(500).send(err));
 
 });

@@ -1,21 +1,16 @@
-import {ProfilePhoto} from '../models/profilePhoto.model';
+import {ProfilePhoto, ProfilePhotoCreationAttributes} from '../models/profilePhoto.model';
 
 
 export class ProfilePhotoService {
 
-    public async create(file: any) {
-        return ProfilePhoto.create(file);
-    }
 
-    public async getFilename(photoId: string) {
-        const photo = await ProfilePhoto.findOne({
-            where: {
-                id: photoId,
-            },
+    public static findPicture(userId: string): Promise<ProfilePhotoCreationAttributes> {
+        return ProfilePhoto.findOne({
+            where: {userId: userId}
         });
-        return photo.fileName;
     }
 
+    public postProfilePhoto(image: any): Promise<ProfilePhotoCreationAttributes> {
+        return ProfilePhoto.create(image).then(inserted => Promise.resolve(inserted)).catch(err => Promise.reject(err));
+    }
 }
-
-export const profilePhotoService = new ProfilePhotoService();
