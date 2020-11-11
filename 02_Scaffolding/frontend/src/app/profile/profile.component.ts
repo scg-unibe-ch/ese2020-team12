@@ -25,6 +25,7 @@ export class ProfileComponent implements OnInit {
   postalCode;
   password;
   balance;
+  uploadedFile;
 
   ngOnInit(): void {
     this.userInfoService.checkUserStatus();
@@ -116,6 +117,19 @@ export class ProfileComponent implements OnInit {
       localStorage.setItem('place', res.place);
       localStorage.setItem('postalCode', res.postalCode);
       localStorage.setItem('balance', res.balance);
+    });
+  }
+
+  onFileChange(event): void {
+    this.uploadedFile = event.target.files[0];
+    } 
+
+  sendPicture(): void {
+    const formData = new FormData();
+    formData.append('image', this.uploadedFile)
+    this.httpClient.post(environment.endpointURL + 'user/profilephoto/' + this.userInfoService.getUserId(), formData).subscribe((res: any) => {
+      // Set user data in local storage
+      localStorage.setItem('profilephoto', res.profilephoto);
     });
   }
 }
