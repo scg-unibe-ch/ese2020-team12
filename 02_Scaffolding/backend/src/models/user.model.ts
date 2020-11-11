@@ -22,7 +22,7 @@ export interface UserAttributes {
     houseNumber: number;
     postalCode: number;
     place: string;
-    valence: number;
+    balance: number;
 }
 
 export interface UserCreationAttributes extends Optional<UserAttributes, 'userId'> { }
@@ -54,7 +54,7 @@ export class User extends Model<UserAttributes, UserCreationAttributes> implemen
     houseNumber!: number;
     postalCode!: number;
     place!: string;
-    valence!: number;
+    balance!: number;
 
     public static initialize(sequelize: Sequelize) {
         User.init({
@@ -101,7 +101,7 @@ export class User extends Model<UserAttributes, UserCreationAttributes> implemen
                 type: DataTypes.STRING,
                     allowNull: true
             },
-            valence: {
+            balance: {
                 type: DataTypes.INTEGER,
                 allowNull: true
             }
