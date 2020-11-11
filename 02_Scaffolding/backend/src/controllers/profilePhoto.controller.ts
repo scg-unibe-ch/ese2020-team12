@@ -52,7 +52,7 @@ photoController.post('/:userId', upload.single('profilePic'), verifyToken, (req:
 );
 
 photoController.get(
-    '/:userId', verifyToken,
+    '/:userId',
     async (req: Request, res: Response, next: NextFunction) => {
         try {
             let fileName = '';
