@@ -23,7 +23,7 @@ export class ArticleInfoService {
       case 'sell': {
         this.httpClient.get(environment.endpointURL + 'article/sell/')
           .subscribe((res: any ) => {
-            // code
+            // console.log(res);
           });
         break;
       }

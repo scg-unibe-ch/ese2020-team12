@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {UserInfoService} from "../user-info.service";
+import {ArticleInfoService} from "../article-info.service";
 
 @Component({
   selector: 'app-home',
@@ -7,7 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  // articleIds: any;
+
+  constructor(
+    public articleInfoService: ArticleInfoService
+  ) {
+    // this.articleIds = this.articleInfoService.getArticlesByType('sell');
+  }
 
   ngOnInit(): void {
     //this.SlideShow();
@@ -26,8 +34,8 @@ export class HomeComponent implements OnInit {
     slideIndex++;
     if (slideIndex > slides.length) {slideIndex = 1}
     slides[slideIndex-1].style.display = "block";
-    setTimeout(showSlides, 2000); // Change image every 2 seconds   
+    setTimeout(showSlides, 2000); // Change image every 2 seconds
     }
-  
+
   }*/
 }
