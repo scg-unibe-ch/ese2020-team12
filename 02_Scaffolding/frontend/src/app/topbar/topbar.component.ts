@@ -32,9 +32,9 @@ export class TopbarComponent implements OnInit {
     }).subscribe((res: any) => {
       // Set user data in user service
       localStorage.setItem('userToken', res.token); // token in localstorage too
-      this.userInfoService.setUserToken(localStorage.getItem('userToken'));
-      this.userInfoService.setUsername(res.user.userName);
-      this.userInfoService.setUserId(res.user.userId);
+      localStorage.setItem('username', this.username);
+      localStorage.setItem('password', this.password);
+      this.userInfoService.setUserToken(res.token);
       this.userInfoService.setExtendedUserInfo(res.user);
       this.userInfoService.checkUserStatus();
     });
@@ -43,6 +43,7 @@ export class TopbarComponent implements OnInit {
   logout(): void {
     // Remove user data from user service
     this.userInfoService.setUserToken(null);
+    localStorage.removeItem('userToken')
     this.userInfoService.checkUserStatus();
   }
 

@@ -93,7 +93,7 @@ export class ProfileComponent implements OnInit {
   }
 
   sendForm(): void {
-    this.httpClient.put(environment.endpointURL + 'user/profile', {
+    this.httpClient.put(environment.endpointURL + 'user/profile/' + this.userInfoService.getUserId(), {
       name: this.name,
       surname: this.surname,
       userName: this.username,

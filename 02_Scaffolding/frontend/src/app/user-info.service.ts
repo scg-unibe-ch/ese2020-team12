@@ -62,14 +62,24 @@ export class UserInfoService {
     this.userToken = userToken;
   }
 
+  //Responsible for refresh
   // delete console.log statements asap
   checkUserToken(): void {
-    this.userToken = this.getUserToken();
-    if (this.userToken != null){
-      this.setUserToken(this.userToken);
+    if(localStorage.getItem('userToken')){
+      this.getUserFromBackend();
     }
-    console.log("Hello");
-    console.log(this.userToken);
+  }
+
+  getUserFromBackend(): void {
+    this.httpClient.post(environment.endpointURL + 'user/login', {
+      userName: localStorage.getItem('username'),
+      password: localStorage.getItem('password')
+    }).subscribe((res: any) => {
+      // Set user data in user service
+      this.setUserToken(res.token);
+      this.setExtendedUserInfo(res.user);
+      this.checkUserStatus();
+    });
   }
 
   getUserId(): any {
@@ -90,6 +100,8 @@ export class UserInfoService {
   }
 
   setExtendedUserInfo(user: any): void {
+    this.username = user.userName;
+    this.userId = user.userId;
     this.email = user.email;
     this.name = user.name;
     this.surname = user.surname;

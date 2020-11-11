@@ -30,14 +30,9 @@ userController.delete('/:id', (req: Request, res: Response ) => {
         }).catch(err => res.status(500).send(err));
 });
 
-userController.put('/profile', verifyToken , (req: Request, res: Response) => {
+userController.put('/profile/:id', verifyToken , (req: Request, res: Response) => {
     console.log('test:---' + req.body);
-    User.findOne({
-        where: {
-            userName: req.body.userName
-        }
-    })
-        .then(found => {
+    User.findByPk(req.params.id).then(found => {
             if (found != null) {
                 found.update(req.body).then( update => {
                     res.status(200).send(update);
