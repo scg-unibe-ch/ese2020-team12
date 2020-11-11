@@ -24,6 +24,7 @@ export class ProfileComponent implements OnInit {
   place;
   postalCode;
   password;
+  balance;
 
   ngOnInit(): void {
     this.userInfoService.checkUserStatus();
@@ -38,6 +39,7 @@ export class ProfileComponent implements OnInit {
     this.houseNumber = this.userInfoService.getHouseNumber();
     this.postalCode = this.userInfoService.getPostalCode();
     this.place = this.userInfoService.getPlace();
+    this.balance = this.userInfoService.getBalance();
   }
   /*
   checkUserStatus(): void {
@@ -102,6 +104,7 @@ export class ProfileComponent implements OnInit {
       houseNumber: this.houseNumber,
       place: this.place,
       postalCode: this.postalCode,
+      balance: this.balance,
     }).subscribe((res: any) => {
       // Set user data in local storage
       localStorage.setItem('name', res.name);
@@ -113,6 +116,7 @@ export class ProfileComponent implements OnInit {
       localStorage.setItem('place', res.place);
       localStorage.setItem('postalCode', res.postalCode);
       localStorage.setItem('password', res.password);
+      localStorage.setItem('balance', res.balance);
     });
   }
 }

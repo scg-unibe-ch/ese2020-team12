@@ -79,6 +79,11 @@
             <mat-label>Place</mat-label>
             <input matInput name="place" [(ngModel)]="place" placeholder="{{ place }}" >
           </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Balance</mat-label>
+            <input matInput name="balance" [(ngModel)]="balance" placeholder="{{ balance }}" >
+          </mat-form-field>
         </form>
 
       </mat-card-content>
@@ -88,6 +93,7 @@
     </mat-card>
     <input type="file" accept="image/*" (change)="onFileChange($event)"> <button mat-button (click)="submit()">Save</button>
   </mat-tab>
+
   <mat-tab label="Articles">
     <mat-tab-group>
       <mat-tab label="Current Articles">
