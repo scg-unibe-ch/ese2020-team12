@@ -109,13 +109,12 @@ export class ProfileComponent implements OnInit {
       // Set user data in local storage
       localStorage.setItem('name', res.name);
       localStorage.setItem('surname', res.surname);
-      localStorage.setItem('userName', res.userName);
+      localStorage.setItem('username', res.userName);
       localStorage.setItem('email', res.email);
       localStorage.setItem('street', res.street);
       localStorage.setItem('houseNumber', res.houseNumber);
       localStorage.setItem('place', res.place);
       localStorage.setItem('postalCode', res.postalCode);
-      localStorage.setItem('password', res.password);
       localStorage.setItem('balance', res.balance);
     });
   }

@@ -25,6 +25,7 @@ export class SignupComponent implements OnInit {
   password;
   passwordAgain;
   userToken;
+  balance = 0;
 
   loggedIn = false;
 
@@ -124,12 +125,14 @@ export class SignupComponent implements OnInit {
       houseNumber: this.houseNumber,
       place: this.city,
       postalCode: this.postalCode,
-      password: this.password
+      password: this.password,
+      balance: this.balance
     }).subscribe((res: any) => {
       // Set user data in local storage
       localStorage.setItem('name', res.name);
       localStorage.setItem('surname', res.surname);
       localStorage.setItem('userName', res.userName);
+      localStorage.setItem('password', this.password);
       localStorage.setItem('email', res.email);
       localStorage.setItem('street', res.street);
       localStorage.setItem('houseNumber', res.houseNumber);
@@ -137,6 +140,7 @@ export class SignupComponent implements OnInit {
       localStorage.setItem('postalCode', res.postalCode);
       localStorage.setItem('password', res.password);
       localStorage.setItem('userToken', res.token);
+      localStorage.setItem('balance', res.balance);
     });
     this.login();
   }
