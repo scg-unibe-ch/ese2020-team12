@@ -26,6 +26,7 @@ export class UserInfoService {
   houseNumber: number;
   postalCode: number;
   place: string;
+  balance: number;
 
 
   // Getters and Setters
@@ -109,6 +110,7 @@ export class UserInfoService {
     this.houseNumber = user.houseNumber;
     this.postalCode = user.postalCode;
     this.place = user.place;
+    this.balance = user.balance;
   }
 
   getEmail(): string {
@@ -137,6 +139,10 @@ export class UserInfoService {
 
   getPlace(): string {
     return this.place;
+  }
+
+  getBalance(): number {
+    return this.balance;
   }
 
   constructor(

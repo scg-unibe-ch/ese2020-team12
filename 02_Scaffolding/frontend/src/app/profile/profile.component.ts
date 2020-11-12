@@ -24,6 +24,8 @@ export class ProfileComponent implements OnInit {
   place;
   postalCode;
   password;
+  balance;
+  uploadedFile;
 
   ngOnInit(): void {
     this.userInfoService.checkUserStatus();
@@ -38,6 +40,7 @@ export class ProfileComponent implements OnInit {
     this.houseNumber = this.userInfoService.getHouseNumber();
     this.postalCode = this.userInfoService.getPostalCode();
     this.place = this.userInfoService.getPlace();
+    this.balance = this.userInfoService.getBalance();
   }
   /*
   checkUserStatus(): void {
@@ -102,17 +105,31 @@ export class ProfileComponent implements OnInit {
       houseNumber: this.houseNumber,
       place: this.place,
       postalCode: this.postalCode,
+      balance: this.balance,
     }).subscribe((res: any) => {
       // Set user data in local storage
       localStorage.setItem('name', res.name);
       localStorage.setItem('surname', res.surname);
-      localStorage.setItem('userName', res.userName);
+      localStorage.setItem('username', res.userName);
       localStorage.setItem('email', res.email);
       localStorage.setItem('street', res.street);
       localStorage.setItem('houseNumber', res.houseNumber);
       localStorage.setItem('place', res.place);
       localStorage.setItem('postalCode', res.postalCode);
-      localStorage.setItem('password', res.password);
+      localStorage.setItem('balance', res.balance);
+    });
+  }
+
+  onFileChange(event): void {
+    this.uploadedFile = event.target.files[0];
+    } 
+
+  sendPicture(): void {
+    const formData = new FormData();
+    formData.append('image', this.uploadedFile)
+    this.httpClient.post(environment.endpointURL + 'user/profilephoto/' + this.userInfoService.getUserId(), formData).subscribe((res: any) => {
+      // Set user data in local storage
+      localStorage.setItem('profilephoto', res.profilephoto);
     });
   }
 }
