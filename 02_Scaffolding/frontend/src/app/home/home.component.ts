@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {UserInfoService} from "../user-info.service";
-import {ArticleInfoService} from "../article-info.service";
+import {UserInfoService} from '../user-info.service';
+import {ArticleInfoService} from '../article-info.service';
 
 @Component({
   selector: 'app-home',
@@ -49,7 +49,7 @@ export class HomeComponent implements OnInit {
     console.log(this.bArray.length);
     this.bArray[this.slideIndex].style.display = "block";
   }*/
-  
+
   //b2 = document.getElementById("banner-2");
   //b3 = document.getElementById("banner-3");
   //b: any;

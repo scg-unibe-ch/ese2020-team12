@@ -3,16 +3,23 @@
   <p>
     <mat-toolbar color="primary">
 
-      <a mat-button [routerLink]="['/']">Logo</a>
+      <a mat-button [routerLink]="['/']">iocus!</a>
+
+      <mat-form-field appearance="outline" class="search">
+        <mat-label>browse for products and services</mat-label>
+        <label>
+          <input matInput placeholder="search">
+        </label>
+      </mat-form-field>
 
       <span class="example-spacer"></span>
 
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="fill" class="input">
         <mat-label for="username">username</mat-label>
         <input matInput [(ngModel)]="username" id="username" type="text" name="username">
       </mat-form-field>
 
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="fill" class="input">
         <mat-label for="password">password</mat-label>
         <input matInput [(ngModel)]="password" id="password" type="password" name="password" (keyup.enter)="login()">
       </mat-form-field>
@@ -31,7 +38,7 @@
   <p>
     <mat-toolbar color="primary">
 
-      <a mat-button [routerLink]="['/']">Logo</a>
+      <a mat-button [routerLink]="['/']">iocus!</a>
 
       <span class="example-spacer"></span>
       <!-- i need some space here, not much, but a little -->

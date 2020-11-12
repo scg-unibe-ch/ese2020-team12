@@ -30,8 +30,10 @@ import { AddArticleComponent } from './add-article/add-article.component';
 import { SellProductComponent } from './add-article/sell-product/sell-product.component';
 import { LendProductComponent } from './add-article/lend-product/lend-product.component';
 import { ProvideServiceComponent } from './add-article/provide-service/provide-service.component';
-import {MatSelectModule} from "@angular/material/select";
+import {MatSelectModule} from '@angular/material/select';
 import {MatGridListModule} from '@angular/material/grid-list';
+
+
 
 
 @NgModule({

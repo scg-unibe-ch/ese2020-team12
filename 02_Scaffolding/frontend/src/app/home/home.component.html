@@ -1,32 +1,56 @@
 <mat-grid-list cols="8"  rowHeight="144px">
+
+  <!--Banner-->
+  <mat-grid-tile colspan="8" rowspan="2">
+    <img class="banner" id="banner-1" src="../../assets/Header_Home/Banner_selling.png" style="display:block;">
+    <img class="banner" id="banner-2" src="../../assets/Header_Home/Banner_Lending.png" style="display:none;">
+    <img class="banner" id="banner-3" src="../../assets/Header_Home/Banner_Service.png" style="display:none;">
+  </mat-grid-tile>
   <!--Sidebar-->
-  <mat-grid-tile colspan="2" rowspan="8" >
+  <mat-grid-tile colspan="2" rowspan="3">
     <mat-card>
-      <mat-card-title>Search</mat-card-title>
+      <mat-card-title>Popular categories</mat-card-title>
       <mat-card-subtitle>Find what specifically fits you!</mat-card-subtitle>
+
       <form class="search-sidebar">
         <mat-form-field style="width:90%">
-          <mat-label>Simple Search</mat-label>
-          <input matInput placeholder="Type what you like">
+          <mat-label>Search for products</mat-label>
+          <input matInput placeholder="search products">
         </mat-form-field>
-        <input type="range">
       </form>
+
+      <mat-grid-list cols="2" rowHeight="90px" class="categories">
+        <mat-grid-tile><button mat-button>clothes & shoes</button></mat-grid-tile>
+        <mat-grid-tile><button mat-button>electronics</button></mat-grid-tile>
+        <mat-grid-tile><button mat-button>household & garden</button></mat-grid-tile>
+        <mat-grid-tile><button mat-button>real estate</button></mat-grid-tile>
+        <mat-grid-tile><button mat-button>sport</button></mat-grid-tile>
+        <mat-grid-tile><button mat-button>vehicles</button></mat-grid-tile>
+      </mat-grid-list>
+
     </mat-card>
   </mat-grid-tile>
 
-  <!--Banner-->
-  <mat-grid-tile colspan="6" rowspan="2">
-      <img class="banner" id="banner-1" src="../../assets/Header_Home/Banner_selling.png" style="display:block;">
-      <img class="banner" id="banner-2" src="../../assets/Header_Home/Banner_Lending.png" style="display:none;">
-      <img class="banner" id="banner-3" src="../../assets/Header_Home/Banner_Service.png" style="display:none;">
-    </mat-grid-tile>
 
   <!--Most recent articles-->
   <mat-grid-tile colspan="6" rowspan="3">
     <mat-card>
       <mat-card-header class="title">
-        <mat-card-title>Most recent:</mat-card-title>
+        <mat-card-title>Most recent products:</mat-card-title>
       </mat-card-header>
+
+      <mat-card class="item">
+        <mat-card-header>
+          <mat-card-title>Shiba Inu. Very Friend!</mat-card-title>
+        </mat-card-header>
+        <img src="https://material.angular.io/assets/img/examples/shiba2.jpg">
+        <mat-card-content>
+          <mat-card-actions>
+            <button mat-button>Buy for 12CHF</button>
+            <button mat-button>Remember</button>
+          </mat-card-actions>
+        </mat-card-content>
+      </mat-card>
 
       <mat-card class="item">
         <mat-card-header>
@@ -71,8 +95,96 @@
   </mat-grid-tile>
 
   <!--Random articles-->
-  <mat-grid-tile colspan="6" rowspan="3">Random Product:</mat-grid-tile>
+  <mat-grid-tile colspan="2" rowspan="3">
+    <mat-card>
+      <mat-card-title>Popular services</mat-card-title>
+      <mat-card-subtitle>Find what specifically fits you!</mat-card-subtitle>
+
+      <form class="search-sidebar">
+        <mat-form-field style="width:90%">
+          <mat-label>Search for services</mat-label>
+          <input matInput placeholder="search services">
+        </mat-form-field>
+      </form>
+
+      <mat-grid-list cols="2" rowHeight="90px" class="categories">
+        <mat-grid-tile><button mat-button>babysitting</button></mat-grid-tile>
+        <mat-grid-tile><button mat-button>carpool</button></mat-grid-tile>
+        <mat-grid-tile><button mat-button>garden & lawn</button></mat-grid-tile>
+        <mat-grid-tile><button mat-button>household</button></mat-grid-tile>
+        <mat-grid-tile><button mat-button>private lessons</button></mat-grid-tile>
+        <mat-grid-tile><button mat-button>reparations</button></mat-grid-tile>
+      </mat-grid-list>
+
+    </mat-card>
+  </mat-grid-tile>
+
+  <mat-grid-tile colspan="6" rowspan="3">
+    <mat-card>
+      <mat-card-header class="title">
+        <mat-card-title>Most recent services:</mat-card-title>
+      </mat-card-header>
+
+      <mat-card class="item">
+        <mat-card-header>
+          <mat-card-title>Household</mat-card-title>
+          <mat-card-subtitle>Tom cleans your house!</mat-card-subtitle>
+        </mat-card-header>
+        <img src="https://cdn.pixabay.com/photo/2014/04/02/10/15/bucket-303265_1280.png">
+        <mat-card-content>
+          <mat-card-actions>
+            <button mat-button>Buy for 12CHF</button>
+            <button mat-button>Remember</button>
+          </mat-card-actions>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="item">
+        <mat-card-header>
+          <mat-card-title>Private lessons</mat-card-title>
+          <mat-card-subtitle>John helps you if your failing class!</mat-card-subtitle>
+        </mat-card-header>
+        <img src="https://cdn.pixabay.com/photo/2013/07/13/13/42/tux-161406_1280.png">
+        <mat-card-content>
+          <mat-card-actions>
+            <button mat-button>Buy for 12CHF</button>
+            <button mat-button>Remember</button>
+          </mat-card-actions>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="item">
+        <mat-card-header>
+          <mat-card-title>Reparations</mat-card-title>
+          <mat-card-subtitle>Karl brings your engine back to life!</mat-card-subtitle>
+        </mat-card-header>
+        <img src="https://cdn.pixabay.com/photo/2013/07/13/13/59/gear-161869_1280.png">
+        <mat-card-content>
+          <mat-card-actions>
+            <button mat-button>Buy for 12CHF</button>
+            <button mat-button>Remember</button>
+          </mat-card-actions>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="item">
+        <mat-card-header>
+          <mat-card-title>Household</mat-card-title>
+          <mat-card-subtitle>Sarah does your grocery shopping!</mat-card-subtitle>
+        </mat-card-header>
+        <img src="https://cdn.pixabay.com/photo/2019/03/16/16/08/shopping-4059182_1280.png">
+        <mat-card-content>
+          <mat-card-actions>
+            <button mat-button>Buy for 12CHF</button>
+            <button mat-button>Remember</button>
+          </mat-card-actions>
+        </mat-card-content>
+      </mat-card>
+
+    </mat-card>
+  </mat-grid-tile>
   <!--
   <p>{{articleIds}}</p>
   -->
+
 </mat-grid-list>

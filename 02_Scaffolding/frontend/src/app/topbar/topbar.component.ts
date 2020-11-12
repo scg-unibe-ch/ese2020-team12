@@ -54,5 +54,4 @@ export class TopbarComponent implements OnInit {
       this.secureEndpointResponse = 'Unauthorized';
     });
   }
-
 }
