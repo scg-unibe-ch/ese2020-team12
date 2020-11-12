@@ -15,7 +15,6 @@ userController.post('/signup', verifyUserUnique,
         userService.register(req.body).then(registered => res.status(201).send(registered)).catch(err => res.status(500).send(err));
     });
 
-// userService.register(req.body).then(registered => res.send(registered)).catch(err => res.status(500).send(err));
 
 userController.delete('/:id', (req: Request, res: Response ) => {
     User.findByPk(req.params.id)
