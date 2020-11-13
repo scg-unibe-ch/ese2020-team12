@@ -32,6 +32,20 @@ import { LendProductComponent } from './add-article/lend-product/lend-product.co
 import { ProvideServiceComponent } from './add-article/provide-service/provide-service.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { CategoriesComponent } from './categories/categories.component';
+import { ServicesComponent } from './services/services.component';
+import { ClothesShoesComponent } from './categories/clothes-shoes/clothes-shoes.component';
+import { ElectronicsComponent } from './categories/electronics/electronics.component';
+import { HouseholdGardenComponent } from './categories/household-garden/household-garden.component';
+import { RealestateComponent } from './categories/realestate/realestate.component';
+import { SportComponent } from './categories/sport/sport.component';
+import { VehiclesComponent } from './categories/vehicles/vehicles.component';
+import { BabysittingComponent } from './services/babysitting/babysitting.component';
+import { CarpoolComponent } from './services/carpool/carpool.component';
+import { GardenLawnComponent } from './services/garden-lawn/garden-lawn.component';
+import { HouseholdComponent } from './services/household/household.component';
+import { PrivatelessonsComponent } from './services/privatelessons/privatelessons.component';
+import { ReparationsComponent } from './services/reparations/reparations.component';
 
 
 
@@ -50,7 +64,21 @@ import {MatGridListModule} from '@angular/material/grid-list';
     AddArticleComponent,
     SellProductComponent,
     LendProductComponent,
-    ProvideServiceComponent
+    ProvideServiceComponent,
+    CategoriesComponent,
+    ServicesComponent,
+    ClothesShoesComponent,
+    ElectronicsComponent,
+    HouseholdGardenComponent,
+    RealestateComponent,
+    SportComponent,
+    VehiclesComponent,
+    BabysittingComponent,
+    CarpoolComponent,
+    GardenLawnComponent,
+    HouseholdComponent,
+    PrivatelessonsComponent,
+    ReparationsComponent
   ],
   imports: [
     BrowserModule,
@@ -72,6 +100,18 @@ import {MatGridListModule} from '@angular/material/grid-list';
       {path: 'add-article/sell-product', component: SellProductComponent},
       {path: 'add-article/lend-product', component: LendProductComponent},
       {path: 'add-article/provide-service', component: ProvideServiceComponent},
+      {path: 'categories/clothes-shoes', component: ClothesShoesComponent},
+      {path: 'categories/electronics', component: ElectronicsComponent},
+      {path: 'categories/household-garden', component: HouseholdGardenComponent},
+      {path: 'categories/realestate', component: RealestateComponent},
+      {path: 'categories/sport', component: SportComponent},
+      {path: 'categories/vehicles', component: VehiclesComponent},
+      {path: 'services/babysitting', component: BabysittingComponent},
+      {path: 'services/carpool', component: CarpoolComponent},
+      {path: 'services/garden-lawn', component: GardenLawnComponent},
+      {path: 'services/household', component: HouseholdComponent},
+      {path: 'services/privatelessons', component: PrivatelessonsComponent},
+      {path: 'services/reparations', component: ReparationsComponent}
     ]),
     FormsModule,
     MatSelectModule,

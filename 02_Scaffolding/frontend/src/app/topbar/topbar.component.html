@@ -40,17 +40,24 @@
 
       <a mat-button [routerLink]="['/']">iocus!</a>
 
+      <mat-form-field appearance="outline" class="search">
+        <mat-label>browse for products and services</mat-label>
+        <label>
+          <input matInput placeholder="search">
+        </label>
+      </mat-form-field>
+
       <span class="example-spacer"></span>
       <!-- i need some space here, not much, but a little -->
       <span class="i-need-some-space"></span>
-
-      <p>Balance: {{this.userInfoService.getBalance()}}</p>
 
       <a mat-button color="basic" routerLink="/profile">{{this.userInfoService.getUsername()}}</a>
 
       <a mat-button color="basic" routerLink="/add-article">Add Article</a>
 
       <button mat-raised-button color="secondary" (click)="logout()" onClick="window.location.reload()">logout</button>
+
+      <a mat-button color="basic" routerLink="/profile">Balance: {{this.userInfoService.getBalance()}}</a>
 
     </mat-toolbar>
   </p>

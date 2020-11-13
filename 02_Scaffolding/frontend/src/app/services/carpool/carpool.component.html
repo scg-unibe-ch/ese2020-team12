@@ -6,123 +6,38 @@
     <img class="banner" id="banner-2" src="../../assets/Header_Home/Banner_Lending.png" style="display:none;">
     <img class="banner" id="banner-3" src="../../assets/Header_Home/Banner_Service.png" style="display:none;">
   </mat-grid-tile>
+
+
   <!--Sidebar-->
   <mat-grid-tile colspan="2" rowspan="3">
     <mat-card>
-      <mat-card-title>Popular categories</mat-card-title>
+      <mat-card-title>Other popular services</mat-card-title>
       <mat-card-subtitle>Find what specifically fits you!</mat-card-subtitle>
 
       <form class="search-sidebar">
         <mat-form-field style="width:90%">
-          <mat-label>Search for products</mat-label>
-          <input matInput placeholder="search products">
-        </mat-form-field>
-      </form>
-
-      <mat-grid-list cols="2" rowHeight="90px" class="categories">
-        <mat-grid-tile><button mat-button class="button" routerLink="/categories/clothes-shoes">clothes & shoes</button></mat-grid-tile>
-        <mat-grid-tile><button mat-button class="button" routerLink="/categories/electronics">electronics</button></mat-grid-tile>
-        <mat-grid-tile><button mat-button class="button" routerLink="/categories/household-garden">household & garden</button></mat-grid-tile>
-        <mat-grid-tile><button mat-button class="button" routerLink="/categories/realestate">real estate</button></mat-grid-tile>
-        <mat-grid-tile><button mat-button class="button" routerLink="/categories/sport">sport</button></mat-grid-tile>
-        <mat-grid-tile><button mat-button class="button" routerLink="/categories/vehicles">vehicles</button></mat-grid-tile>
-      </mat-grid-list>
-
-    </mat-card>
-  </mat-grid-tile>
-
-
-  <!--Most recent articles-->
-  <mat-grid-tile colspan="6" rowspan="3">
-    <mat-card>
-      <mat-card-header class="title">
-        <mat-card-title>Most recent products:</mat-card-title>
-      </mat-card-header>
-
-      <mat-card class="item">
-        <mat-card-header>
-          <mat-card-title>Shiba Inu. Very Friend!</mat-card-title>
-        </mat-card-header>
-        <img src="https://material.angular.io/assets/img/examples/shiba2.jpg">
-        <mat-card-content>
-          <mat-card-actions>
-            <button mat-button>Buy for 12CHF</button>
-            <button mat-button>Remember</button>
-          </mat-card-actions>
-        </mat-card-content>
-      </mat-card>
-
-      <mat-card class="item">
-        <mat-card-header>
-          <mat-card-title>Shiba Inu. Very Friend!</mat-card-title>
-        </mat-card-header>
-        <img src="https://material.angular.io/assets/img/examples/shiba2.jpg">
-        <mat-card-content>
-          <mat-card-actions>
-            <button mat-button>Buy for 12CHF</button>
-            <button mat-button>Remember</button>
-          </mat-card-actions>
-        </mat-card-content>
-      </mat-card>
-
-      <mat-card class="item">
-        <mat-card-header>
-          <mat-card-title>Shiba Inu. Very Friend!</mat-card-title>
-        </mat-card-header>
-        <img src="https://material.angular.io/assets/img/examples/shiba2.jpg">
-        <mat-card-content>
-          <mat-card-actions>
-            <button mat-button>Buy for 12CHF</button>
-            <button mat-button>Remember</button>
-          </mat-card-actions>
-        </mat-card-content>
-      </mat-card>
-
-      <mat-card class="item">
-        <mat-card-header>
-          <mat-card-title>Shiba Inu. Very Friend!</mat-card-title>
-        </mat-card-header>
-        <img src="https://material.angular.io/assets/img/examples/shiba2.jpg">
-        <mat-card-content>
-          <mat-card-actions>
-            <button mat-button>Buy for 12CHF</button>
-            <button mat-button>Remember</button>
-          </mat-card-actions>
-        </mat-card-content>
-      </mat-card>
-
-    </mat-card>
-  </mat-grid-tile>
-
-  <!--Random articles-->
-  <mat-grid-tile colspan="2" rowspan="3">
-    <mat-card>
-      <mat-card-title>Popular services</mat-card-title>
-      <mat-card-subtitle>Find what specifically fits you!</mat-card-subtitle>
-
-      <form class="search-sidebar">
-        <mat-form-field style="width:90%">
-          <mat-label>Search for services</mat-label>
+          <mat-label>Search for carpools</mat-label>
           <input matInput placeholder="search services">
         </mat-form-field>
       </form>
 
       <mat-grid-list cols="2" rowHeight="90px" class="categories">
         <mat-grid-tile><button mat-button class="button" routerLink="/services/babysitting">babysitting</button></mat-grid-tile>
-        <mat-grid-tile><button mat-button class="button" routerLink="/services/carpool">carpool</button></mat-grid-tile>
         <mat-grid-tile><button mat-button class="button" routerLink="/services/garden-lawn">garden & lawn</button></mat-grid-tile>
         <mat-grid-tile><button mat-button class="button" routerLink="/services/household">household</button></mat-grid-tile>
         <mat-grid-tile><button mat-button class="button" routerLink="/services/privatelessons">private lessons</button></mat-grid-tile>
         <mat-grid-tile><button mat-button class="button" routerLink="/services/reparations">reparations</button></mat-grid-tile>
+        <mat-grid-tile><button mat-button class="button" routerLink="">return to homepage</button></mat-grid-tile>
       </mat-grid-list>
 
     </mat-card>
   </mat-grid-tile>
 
+  <!--most recent-->
   <mat-grid-tile colspan="6" rowspan="3">
     <mat-card>
       <mat-card-header class="title">
-        <mat-card-title>Most recent services:</mat-card-title>
+        <mat-card-title>Most recent offers for carpools:</mat-card-title>
       </mat-card-header>
 
       <mat-card class="item">
@@ -183,8 +98,29 @@
 
     </mat-card>
   </mat-grid-tile>
+
+  <!--filters-->
+  <mat-grid-tile colspan="2" rowspan="3">
+    <mat-card>
+      <mat-card-header class="title">
+        <mat-card-title>Filters:</mat-card-title>
+      </mat-card-header>
+
+    </mat-card>
+  </mat-grid-tile>
+
+  <!--in your area-->
+  <mat-grid-tile colspan="6" rowspan="3">
+    <mat-card>
+      <mat-card-header class="title">
+        <mat-card-title>Carpool options in your area:</mat-card-title>
+      </mat-card-header>
+    </mat-card>
+  </mat-grid-tile>
   <!--
   <p>{{articleIds}}</p>
   -->
 
 </mat-grid-list>
+
+
