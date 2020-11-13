@@ -8,6 +8,10 @@ import {environment} from "../../../environments/environment";
 interface Pricing{
   value: string;
 }
+interface Category {
+  name: string;
+  id: number;
+}
 
 @Component({
   selector: 'app-provide-service',
@@ -20,6 +24,7 @@ export class ProvideServiceComponent implements OnInit {
   title;
   price;
   pricingType;
+  category;
   description;
   location;
   expenses;
@@ -29,6 +34,15 @@ export class ProvideServiceComponent implements OnInit {
   pricingOptions: Pricing[] = [
     {value: 'per hour'},
     {value: 'per day'}
+  ];
+  // change id with accordance to backend
+  categories: Category[] = [
+    {name: 'babysitting', id: 1},
+    {name: 'car pool', id: 2},
+    {name: 'garden', id: 3},
+    {name: 'household', id: 4},
+    {name: 'private lessons', id: 5},
+    {name: 'reparations', id: 6},
   ];
 
   constructor(
@@ -44,6 +58,9 @@ export class ProvideServiceComponent implements OnInit {
         [Validators.required]
       )),
       pricingType: new FormControl('', Validators.compose(
+        [Validators.required]
+      )),
+      category: new FormControl('', Validators.compose(
         [Validators.required]
       )),
       description: new FormControl('', Validators.compose(
@@ -69,6 +86,7 @@ export class ProvideServiceComponent implements OnInit {
       title: this.title,
       price: this.price,
       hourOrDay: this.pricingType,
+      category: this.category,
       description: this.description,
       location: this.location,
       expenses: this.expenses,

@@ -8,10 +8,13 @@ import {environment} from "../../../environments/environment";
 interface Pricing{
   value: string;
 }
-
 interface LendingStatus{
   value: boolean;
   viewValue: string;
+}
+interface Category {
+  name: string;
+  id: number;
 }
 
 @Component({
@@ -25,6 +28,7 @@ export class LendProductComponent implements OnInit {
   title;
   price;
   pricingType;
+  category;
   description;
   location;
   lendingStatus;
@@ -40,6 +44,15 @@ export class LendProductComponent implements OnInit {
     {value: true, viewValue: 'Available'},
     {value: false, viewValue: 'Unavailable'}
   ];
+  // change id with accordance to backend
+  categories: Category[] = [
+    {name: 'clothes/shoes', id: 1},
+    {name: 'electronics', id: 2},
+    {name: 'household/garden', id: 3},
+    {name: 'real estate', id: 4},
+    {name: 'sport', id: 5},
+    {name: 'vehicles', id: 6},
+  ];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -54,6 +67,9 @@ export class LendProductComponent implements OnInit {
         [Validators.required]
       )),
       pricingType: new FormControl('', Validators.compose(
+        [Validators.required]
+      )),
+      category: new FormControl('', Validators.compose(
         [Validators.required]
       )),
       description: new FormControl('', Validators.compose(
@@ -87,6 +103,7 @@ export class LendProductComponent implements OnInit {
       title: this.title,
       price: this.price,
       hourOrDay: this.pricingType,
+      category: this.category,
       description: this.description,
       location: this.location,
       status: this.lendingStatus,

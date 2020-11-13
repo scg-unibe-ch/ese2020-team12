@@ -19,6 +19,17 @@
     <br>
 
     <mat-form-field appearance="fill">
+      <mat-label for="category">Category</mat-label>
+      <mat-select class="custom-select" [(ngModel)]="category" id="category" formControlName="category" required>
+        <mat-option *ngFor="let category of categories" [value]="category.id">
+          {{category.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field appearance="fill">
       <mat-label for="description">Description</mat-label>
       <textarea matInput [(ngModel)]="description" id="description" formControlName="description" required></textarea>
     </mat-form-field>

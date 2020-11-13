@@ -10,6 +10,10 @@ interface Delivery {
   value: boolean;
   viewValue: string;
 }
+interface Category {
+  name: string;
+  id: number;
+}
 
 @Component({
   selector: 'app-sell-product',
@@ -20,6 +24,7 @@ export class SellProductComponent implements OnInit {
 
   articleType;
   title;
+  category;
   price;
   description;
   location;
@@ -30,6 +35,15 @@ export class SellProductComponent implements OnInit {
   deliveryOptions: Delivery[] = [
     {value: true, viewValue: 'Yes'},
     {value: false, viewValue: 'No'}
+  ];
+  // change id with accordance to backend
+  categories: Category[] = [
+    {name: 'clothes/shoes', id: 1},
+    {name: 'electronics', id: 2},
+    {name: 'household/garden', id: 3},
+    {name: 'real estate', id: 4},
+    {name: 'sport', id: 5},
+    {name: 'vehicles', id: 6},
   ];
 
   constructor(
@@ -43,6 +57,9 @@ export class SellProductComponent implements OnInit {
         [Validators.required]
       )),
       price: new FormControl('', Validators.compose(
+        [Validators.required]
+      )),
+      category: new FormControl('', Validators.compose(
         [Validators.required]
       )),
       description: new FormControl('', Validators.compose(
@@ -71,6 +88,7 @@ export class SellProductComponent implements OnInit {
     this.httpClient.post(environment.endpointURL + 'add-article/sell-product/', {
       title: this.title,
       price: this.price,
+      category: this.category,
       description: this.description,
       location: this.location,
       delivery: this.delivery,
@@ -78,6 +96,7 @@ export class SellProductComponent implements OnInit {
       articleListId: 1
     }).subscribe((res: any) => {
       // Set user data in local storage
+      // we dont need that, right? (mauri 13.11)
       localStorage.setItem('title', res.title);
       localStorage.setItem('price', res.price);
       localStorage.setItem('description', res.description);
