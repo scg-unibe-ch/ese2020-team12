@@ -20,6 +20,27 @@ export class ArticleInfoService {
   allSearchResults: any[];
   productSearchResults: any[];
   serviceSearchResults: any[];
+  //General Info
+  title: string;
+  price: string;
+  description: string;
+  location: string;
+  userId: number;
+  category: number;
+  //SellProductInfo
+  sellProductId: number;
+  delivery: boolean;
+  delSpec: string;
+  //LendProductInfo
+  lendProductId: number;
+  hourOrDay: boolean;
+  status: boolean;
+  handling: string;
+  //SericeInfo
+  serviceId: number;
+  expenses: string;
+  expCost: string;
+
 
   /**
    * clears the locally stored array allSearchResults[]
@@ -61,6 +82,110 @@ export class ArticleInfoService {
   getAllSearchResults(): any{
     return this.allSearchResults;
   }
+
+  getSingleArticleInfo(articleNumber: number): void{
+    let singleArticle = this.allSearchResults[articleNumber];
+
+    this.saveGeneralInfo(singleArticle);
+
+    //check whether its a Lend/sell Product or a service
+    if(this.getSellProductId(singleArticle) != null){
+      this.saveSellProductInfo(singleArticle);
+    }
+    if(this.getLendProductId(singleArticle) != null){
+      this.saveLendProductInfo(singleArticle);
+    }
+    if(this.getServiceId(singleArticle) != null){
+      this.saveServiceInfo(singleArticle);
+    }
+  }
+  
+  saveGeneralInfo(article: any){
+    this.title = article.title;
+    this.price = article.price;
+    this.description = article.description;
+    this.location = article.location;
+    this.userId = article.userId;
+    this.category = article.category;
+  }
+
+  saveSellProductInfo(article: any){
+    this.sellProductId = article.sellProductId;
+    this.delivery = article.delivery;
+    this.delSpec = article.delSpec;
+  }
+
+  saveLendProductInfo(article: any){
+    this.lendProductId = article.lendProductId;
+    this.hourOrDay = article.hourOrDay;
+    this.status = article.status;
+    this.handling = article.handling;
+  }
+
+  saveServiceInfo(article: any){
+    this.serviceId = article.serviceId;
+    this.expenses = article.expenses;
+    this.expCost = article.expCost;
+  }
+
+  //general get-methodes
+  getTitle(article: any){
+    return this.title;
+  }
+  getPrice(article: any){
+    return this.price;
+  }
+  getDescription(article: any){
+    return this.description;
+  }
+  getLocation(article: any){
+    return this.location;
+  }
+  getUserId(article: any){
+    return this.userId;
+  }
+  getCategory(article: any){
+    return this.category;
+  }
+
+  //sellProduct get-methodes
+  getSellProductId(article: any){
+    return this.sellProductId;
+  }
+  getDelivery(article: any){
+    return this.delivery;
+  }
+  getDelSpec(article: any){
+    return this.delSpec;
+  }
+  
+
+  //lendProduct get-methodes
+  getLendProductId(article: any){
+    return this.lendProductId;
+  }
+  getHourOrDay(article: any){
+    return this.hourOrDay;
+  }
+  getStatus(article: any){
+    return this.status;
+  }
+  getHandling(article: any){
+    return this.handling;
+  }
+  
+  //provideService get-methodes
+  getServiceId(article: any){
+    return this.serviceId;
+  }
+  getExpenses(article: any){
+    return this.expenses;
+  }
+  getExpCost(article: any){
+    return this.expCost;
+  }
+  
+
 
   constructor(
     private httpClient: HttpClient
