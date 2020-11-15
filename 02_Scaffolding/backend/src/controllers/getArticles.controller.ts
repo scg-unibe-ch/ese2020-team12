@@ -25,5 +25,38 @@ getArticleController.get('/service/',
 );
 
 
+// get LendProduct
+getArticleController.get('/lend/:id',
+    (req: Request, res: Response) => {
+        LendProductItem.findOne({
+            where: {
+                lendProductId: req.params.id
+        }})
+            .then(list => res.status(200).send(list)).catch(err => res.status(500).send(err));
+    }
+);
+
+// get SellProduct
+getArticleController.get('/sell/:id',
+    (req: Request, res: Response) => {
+        SellProductItem.findOne({
+            where: {
+                sellProductId: req.params.id
+            }})
+            .then(list => res.status(200).send(list)).catch(err => res.status(500).send(err));
+    }
+);
+
+// get Service
+getArticleController.get('/service/:id',
+    (req: Request, res: Response) => {
+        ServiceItem.findOne({
+            where: {
+                serviceId: req.params.id
+            }})
+            .then(list => res.status(200).send(list)).catch(err => res.status(500).send(err));
+    }
+);
+
 
 export const GetArticleController: Router = getArticleController;
