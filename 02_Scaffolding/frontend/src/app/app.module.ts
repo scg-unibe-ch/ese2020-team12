@@ -46,6 +46,7 @@ import { GardenLawnComponent } from './services/garden-lawn/garden-lawn.componen
 import { HouseholdComponent } from './services/household/household.component';
 import { PrivatelessonsComponent } from './services/privatelessons/privatelessons.component';
 import { ReparationsComponent } from './services/reparations/reparations.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
 
 
 
@@ -78,7 +79,8 @@ import { ReparationsComponent } from './services/reparations/reparations.compone
     GardenLawnComponent,
     HouseholdComponent,
     PrivatelessonsComponent,
-    ReparationsComponent
+    ReparationsComponent,
+    SearchResultsComponent
   ],
   imports: [
     BrowserModule,
@@ -111,7 +113,8 @@ import { ReparationsComponent } from './services/reparations/reparations.compone
       {path: 'services/garden-lawn', component: GardenLawnComponent},
       {path: 'services/household', component: HouseholdComponent},
       {path: 'services/privatelessons', component: PrivatelessonsComponent},
-      {path: 'services/reparations', component: ReparationsComponent}
+      {path: 'services/reparations', component: ReparationsComponent},
+      {path: 'search-results', component: SearchResultsComponent}
     ]),
     FormsModule,
     MatSelectModule,

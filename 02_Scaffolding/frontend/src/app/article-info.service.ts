@@ -17,37 +17,33 @@ export class ArticleInfoService {
   articleId;
   articleType;
 
-  // stores an array of all the articles of a certain type
-  getArticlesByType( articleType: string): void{
-    switch (articleType) {
-      case 'sell': {
-        this.httpClient.get(environment.endpointURL + 'article/sell/')
-          .subscribe((res: any ) => {
-            // console.log(res);
-          });
-        break;
-      }
-      case 'lend': {
-        this.httpClient.get(environment.endpointURL + 'article/lend/')
-          .subscribe((res: any ) => {
-            // code
-          });
-        break;
-      }
-      case 'service': {
-        this.httpClient.get(environment.endpointURL + 'article/service/')
-          .subscribe((res: any ) => {
-            // code
-          });
-        break;
-      }
-      default: {
-        console.warn('no data stored');
-        break;
-      }
+  allSearchResults: any[];
+  productSearchResults: any[];
+  serviceSearchResults: any[];
 
-    }
+  /**
+   * clears the locally stored array allSearchResults[]
+   * loops through the database of articles
+   * stores every match with the searchTerm to the allSearchResults[]
+   * adds the results into a local array
+   * @param searchTerm (matching pattern)
+   */
+  searchEverything(searchTerm: string): void {
+    this.allSearchResults = [];
+    this.httpClient.get(environment.endpointURL + 'search/sellproduct?search=' + searchTerm)
+      .subscribe((res: any) => {
+        this.allSearchResults.push(res);
+      });
+    this.httpClient.get(environment.endpointURL + 'search/lendproduct?search=' + searchTerm)
+      .subscribe((res: any ) => {
+        this.allSearchResults.push(res);
+      });
+    this.httpClient.get(environment.endpointURL + 'search/provided-service?search=' + searchTerm)
+      .subscribe((res: any ) => {
+        this.allSearchResults.push(res);
+      });
   }
+
 
   // stores an array of all the articles of a certain user and type
   getArticlesByTypeUserId( articleType: string, userId: number): void{
@@ -59,7 +55,12 @@ export class ArticleInfoService {
     // code
   }
 
+
   // getters and setters for this article specifically
+
+  getAllSearchResults(): any{
+    return this.allSearchResults;
+  }
 
   constructor(
     private httpClient: HttpClient

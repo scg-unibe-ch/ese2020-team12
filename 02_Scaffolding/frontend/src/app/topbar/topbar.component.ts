@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import { UserInfoService } from '../user-info.service';
+import {ArticleInfoService} from "../article-info.service";
 
 @Component({
   selector: 'app-topbar',
@@ -14,10 +15,13 @@ export class TopbarComponent implements OnInit {
   username = '';
   password = '';
 
+  searchTerm;
+
   secureEndpointResponse = '';
   constructor(
     private httpClient: HttpClient,
-    public userInfoService: UserInfoService
+    public userInfoService: UserInfoService,
+    public articleInfoService: ArticleInfoService
   ) {
   }
 
