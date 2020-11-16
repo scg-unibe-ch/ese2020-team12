@@ -71,8 +71,8 @@ export class ArticleInfoService {
     this.httpClient.get(environment.endpointURL + 'search/sellproduct?search=' + searchTerm)
       .subscribe((res: any) => {
         this.iteratorArray = res;
+        this.storeArticles(this.iteratorArray, 'sell');
       });
-    this.storeArticles(this.iteratorArray, 'sell');
   }
 
   public lendSearch(searchTerm: string): void {
@@ -81,8 +81,9 @@ export class ArticleInfoService {
     this.httpClient.get(environment.endpointURL + 'search/lendproduct?search=' + searchTerm)
       .subscribe((res: any) => {
         this.iteratorArray = res;
+        this.storeArticles(this.iteratorArray, 'lend');
       });
-    this.storeArticles(this.iteratorArray, 'lend');
+    
   }
 
   public servSearch(searchTerm: string): void {
@@ -91,8 +92,9 @@ export class ArticleInfoService {
     this.httpClient.get(environment.endpointURL + 'search/provided-service?search=' + searchTerm)
       .subscribe((res: any) => {
         this.iteratorArray = res;
+        this.storeArticles(this.iteratorArray, 'service');
       });
-    this.storeArticles(this.iteratorArray, 'service');
+    
   }
 
   // Private Methods to conduct search
