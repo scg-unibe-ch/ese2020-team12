@@ -1,3 +1,16 @@
-<p>search-results works!</p>
+<h2>test content start</h2>
 
-<p>{{ this.getTitle() }}</p>
+<p>sell product results:</p>
+<p *ngFor="let article of articleInfoService.getSellSearchResults()">{{article}}</p>
+<br>
+<br>
+<p>lend product results:</p>
+<p *ngFor="let article of articleInfoService.getLendSearchResults()">{{article}}</p>
+<br>
+<br>
+<p>service product results:</p>
+<p *ngFor="let article of articleInfoService.getServSearchResults()">{{article}}</p>
+<br>
+<br>
+
+<h2>test content end</h2>
