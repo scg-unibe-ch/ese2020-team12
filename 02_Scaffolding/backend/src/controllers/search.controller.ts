@@ -6,6 +6,14 @@ import {ServiceItem, ServiceItemAttributes} from '../models/service.model';
 
 const searchController = express.Router();
 
+function moreWords(searchTerm: string[]) {
+    if ( searchTerm.length > 1) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 // SERV
 function searchValueServ(term: any): ServiceItemAttributes[] {
     const output = [];
@@ -119,65 +127,95 @@ function filterDuplicateSell(term: SellProductItemAttributes[]): any {
 
 
 
+
 // search SellProduct
 searchController.get('/sellproduct', async (req, res) => {
-    const term = req.query.search as string;
-    const list = [];
-    const searchTerm = term.split(' ');
-    for (const entry of searchTerm) {
-        await SellProductItem.findAll(
-            {
-                where: {
-                    [Op.or]: [
-                        {title: {[Op.like]: '%' + entry + '%'}},
-                        {description: {[Op.like]: '%' + entry + '%'}}
-                    ]
-                }
-            })
-            .then(items => list.push(items))
-            .catch(err => res.send(err));
-    }
-    const arrayList = [];
-    for (let i = 0; i < list.length; i++) {
-        for (let j = 0; j < list[i].length; j++) {
-            arrayList.push(list[i][j].dataValues);
+    try {
+        const term = req.query.search as string;
+        const list = [];
+        const searchTerm = term.split(' ');
+        for (const entry of searchTerm) {
+            await SellProductItem.findAll(
+                {
+                    where: {
+                        [Op.or]: [
+                            {title: {[Op.like]: '%' + entry + '%'}},
+                            {description: {[Op.like]: '%' + entry + '%'}}
+                        ]
+                    }
+                })
+                .then(items => {
+                    if (items !== null) {
+                        list.push(items);
+                    } else {
+                        res.sendStatus(404);
+                    }})
+                .catch(err => res.send(err));
         }
+        const arrayList = [];
+        for (let i = 0; i < list.length; i++) {
+            for (let j = 0; j < list[i].length; j++) {
+                arrayList.push(list[i][j].dataValues);
+            }
+        }
+        if (moreWords(searchTerm)) {
+            const comparedArray = searchValueSell(arrayList);
+         const uniqueArray = filterDuplicateSell(comparedArray);
+        res.send(uniqueArray);
+        } else {
+            res.send(arrayList);
+        }
+    } catch {
+        res.sendStatus(404);
     }
-    const comparedArray = searchValueSell(arrayList);
-    const uniqueArray = filterDuplicateSell(comparedArray);
-    res.send(uniqueArray);
 
 }
 );
 
 // search LendProduct
 searchController.get('/lendproduct', async (req, res) => {
-    const term = req.query.search as string;
-    const list = [];
-    const searchTerm = term.split(' ');
-    for (const entry of searchTerm) {
-    await LendProductItem.findAll({where: {
-            [Op.and]: [
-                {title: {[Op.like]: '%' + entry + '%'}},
-                {description: {[Op.like]: '%' + entry + '%'}}
-            ]
-        }})
-        .then(items => res.send(items))
-        .catch(err => res.send(err));
-    }
-    const arrayList = [];
-    for (let i = 0; i < list.length; i++) {
-        for (let j = 0; j < list[i].length; j++) {
-            arrayList.push(list[i][j].dataValues);
+    try {
+        const term = req.query.search as string;
+        const list = [];
+        const searchTerm = term.split(' ');
+        for (const entry of searchTerm) {
+            await LendProductItem.findAll({
+                where: {
+                    [Op.and]: [
+                        {title: {[Op.like]: '%' + entry + '%'}},
+                        {description: {[Op.like]: '%' + entry + '%'}}
+                    ]
+                }
+            })
+                .then(items => {
+                    if (items !== null) {
+                        list.push(items);
+                    } else {
+                        res.sendStatus(404);
+                    }})
+                .catch(err => res.send(err));
         }
+        const arrayList = [];
+        for (let i = 0; i < list.length; i++) {
+            for (let j = 0; j < list[i].length; j++) {
+                arrayList.push(list[i][j].dataValues);
+            }
+        }
+        if (moreWords(searchTerm)) {
+            const comparedArray = searchValueSell(arrayList);
+            const uniqueArray = filterDuplicateSell(comparedArray);
+            res.send(uniqueArray);
+        } else {
+            res.send(arrayList);
+        }
+    } catch {
+        res.sendStatus(404);
     }
-    const comparedArray = searchValueLend(arrayList);
-    const uniqueArray = filterDuplicateLend(comparedArray);
-    res.send(uniqueArray);
 } );
 
 // search Service
 searchController.get('/provided-service', async (req, res) => {
+    try {
     const term = req.query.search as string;
     const list = [];
     const searchTerm = term.split(' ');
@@ -188,7 +226,12 @@ searchController.get('/provided-service', async (req, res) => {
                 {description: {[Op.like]: '%' + searchTerm + '%'}}
             ]
         }})
-        .then(items => res.send(items))
+        .then(items => {
+            if (items !== null) {
+                list.push(items);
+            } else {
+                res.sendStatus(404);
+            }})
         .catch(err => res.send(err));
     }
     const arrayList = [];
@@ -197,9 +240,16 @@ searchController.get('/provided-service', async (req, res) => {
             arrayList.push(list[i][j].dataValues);
         }
     }
-    const comparedArray = searchValueServ(arrayList);
-    const uniqueArray = filterDuplicateServ(comparedArray);
-    res.send(uniqueArray);
-    } );
+        if (moreWords(searchTerm)) {
+            const comparedArray = searchValueSell(arrayList);
+            const uniqueArray = filterDuplicateSell(comparedArray);
+            res.send(uniqueArray);
+        } else {
+            res.send(arrayList);
+        }
+    } catch {
+        res.sendStatus(404);
+    }
+});
 
 export const SearchController: Router = searchController;
