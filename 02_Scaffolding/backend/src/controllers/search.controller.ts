@@ -202,8 +202,8 @@ searchController.get('/lendproduct', async (req, res) => {
             }
         }
         if (moreWords(searchTerm)) {
-            const comparedArray = searchValueSell(arrayList);
-            const uniqueArray = filterDuplicateSell(comparedArray);
+            const comparedArray = searchValueLend(arrayList);
+            const uniqueArray = filterDuplicateLend(comparedArray);
             res.send(uniqueArray);
         } else {
             res.send(arrayList);
@@ -241,8 +241,8 @@ searchController.get('/provided-service', async (req, res) => {
         }
     }
         if (moreWords(searchTerm)) {
-            const comparedArray = searchValueSell(arrayList);
-            const uniqueArray = filterDuplicateSell(comparedArray);
+            const comparedArray = searchValueServ(arrayList);
+            const uniqueArray = filterDuplicateServ(comparedArray);
             res.send(uniqueArray);
         } else {
             res.send(arrayList);
