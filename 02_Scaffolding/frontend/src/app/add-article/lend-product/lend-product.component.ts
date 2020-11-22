@@ -93,7 +93,7 @@ export class LendProductComponent implements OnInit {
   }
 
 
-  addArticleRequest(): void {
+  async addArticleRequest(): Promise<void> {
     this.httpClient.post(environment.endpointURL + 'add-article/lend-product/', {
       title: this.title,
       price: this.price,
@@ -103,7 +103,7 @@ export class LendProductComponent implements OnInit {
       location: this.location,
       status: this.lendingStatus,
       handling: this.handling,
-      userId: this.userInfoService.getUserId(),
+      userId: Number(await this.userInfoService.getUserId()),
     }).subscribe((res: any) => {
       // Set user data in local storage
       localStorage.setItem('title', res.title);

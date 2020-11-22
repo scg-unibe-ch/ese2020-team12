@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
-import {environment} from "../../../environments/environment";
-import {UserInfoService} from "../../user-info.service";
-import {User} from "../../../../../backend/src/models/user.model";
+import {environment} from '../../../environments/environment';
+import {UserInfoService} from '../../user-info.service';
+
 
 
 interface Pricing{
@@ -84,7 +84,7 @@ export class ProvideServiceComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addArticleRequest(): void {
+  async addArticleRequest(): Promise<void> {
     this.httpClient.post(environment.endpointURL + 'add-article/provide-service/', {
       title: this.title,
       price: this.price,
@@ -94,7 +94,7 @@ export class ProvideServiceComponent implements OnInit {
       location: this.location,
       expenses: this.expenses,
       expCost: this.expensesCost,
-      userId: this.userInfoService.getUserId()
+      userId: Number(await this.userInfoService.getUserId())
     }).subscribe((res: any) => {
       // Set user data in local storage
       localStorage.setItem('title', res.title);
