@@ -3,7 +3,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
-import {UserInfoService} from "../../user-info.service";
+import {UserInfoService} from '../../user-info.service';
 
 
 interface Pricing {

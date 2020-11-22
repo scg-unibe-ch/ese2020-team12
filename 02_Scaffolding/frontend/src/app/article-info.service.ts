@@ -53,9 +53,9 @@ export class ArticleInfoService {
 
   iteratorArray: any[];
 
-  private sellSearchResults: SellProduct[];
-  private lendSearchResults: LendProduct[];
-  private servSearchResults: ServiceProduct[];
+  private sellSearchResults: number[];
+  private lendSearchResults: number[];
+  private servSearchResults: number[];
 
   // Public Search Methods
 
@@ -67,11 +67,9 @@ export class ArticleInfoService {
 
   public sellSearch(searchTerm: string): void {
     this.sellSearchResults = [];
-    this.iteratorArray = [];
     this.httpClient.get(environment.endpointURL + 'search/sellproduct?search=' + searchTerm)
       .subscribe((res: any) => {
-        this.iteratorArray = res;
-        this.storeArticles(this.iteratorArray, 'sell');
+        this.storeArticles(res, 'sell');
       });
   }
 
@@ -83,7 +81,7 @@ export class ArticleInfoService {
         this.iteratorArray = res;
         this.storeArticles(this.iteratorArray, 'lend');
       });
-    
+
   }
 
   public servSearch(searchTerm: string): void {
@@ -94,41 +92,62 @@ export class ArticleInfoService {
         this.iteratorArray = res;
         this.storeArticles(this.iteratorArray, 'service');
       });
-    
+
   }
 
   // Private Methods to conduct search
-
   private storeArticles(articleArray: any, type: string): void{
     switch (type){
       case 'sell': {
-        this.iterateSellProducts(articleArray);
+        // tslint:disable-next-line:prefer-for-of
+        for (let i = 0 ; i < articleArray.length ; i++) {
+          const articleId = articleArray[i].sellProductId;
+          this.sellSearchResults.push(articleId);
+        }
         break;
       }
       case 'lend': {
-        this.iterateLendProducts(articleArray);
+        // tslint:disable-next-line:prefer-for-of
+        for (let i = 0 ; i < articleArray.length ; i++) {
+          const articleId = articleArray[i].lendProductId;
+          this.lendSearchResults.push(articleId);
+        }
         break;
       }
       case 'service': {
-        this.iterateServProducts(articleArray);
+        // tslint:disable-next-line:prefer-for-of
+        for (let i = 0 ; i < articleArray.length ; i++) {
+          const articleId = articleArray[i].providedServiceId;
+          this.servSearchResults.push(articleId);
+        }
         break;
       }
     }
   }
 
+  // Search Result Array Getters
+  public getSellSearchIds(): number[] {return this.sellSearchResults; }
+
+  public getLendSearchIds(): number[] {return this.lendSearchResults; }
+
+  public getServSearchIds(): number[] {return this.servSearchResults; }
+
+constructor(
+    private httpClient: HttpClient
+  ) {
+
+}
+
+}
+
+/*
+  Old Code:
+  /*
   private iterateSellProducts(articleArray: any): void {
-    for (const article of articleArray) {
-      const spi = new SellProduct();
-      spi.sellProductId = article.sellProductId;
-      spi.userId = article.userId;
-      spi.title = article.title;
-      spi.price = article.price;
-      spi.description = article.description;
-      spi.location = article.location;
-      spi.category = article.category;
-      spi.delivery = article.delivery;
-      spi.delSpec = article.delSpec;
-      this.sellSearchResults.push(spi);
+    // tslint:disable-next-line:prefer-for-of
+    for (let i = 0 ; i < articleArray.length ; i++) {
+      const articleId = articleArray[i].sellProductId;
+      this.sellSearchResults.push(articleId);
     }
   }
 
@@ -166,24 +185,8 @@ export class ArticleInfoService {
     }
   }
 
-  // Search Result Array Getters
 
-  public getSellSearchResults(): SellProduct[] {return this.sellSearchResults; }
 
-  public getLendSearchResults(): LendProduct[] {return this.lendSearchResults; }
-
-  public getServSearchResults(): ServiceProduct[] {return this.servSearchResults; }
-
-constructor(
-    private httpClient: HttpClient
-  ) {
-
-}
-
-}
-
-/*
-  Old Code:
  /**
    * clears the locally stored array allSearchResults[]
    * loops through the database of articles
@@ -326,4 +329,5 @@ getExpCost(article: any){
   return this.expCost;
 }
 */
+
 
