@@ -59,4 +59,5 @@ getArticleController.get('/service/:id',
 );
 
 
+
 export const GetArticleController: Router = getArticleController;

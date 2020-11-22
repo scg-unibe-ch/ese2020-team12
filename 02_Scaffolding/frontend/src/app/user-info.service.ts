@@ -55,18 +55,18 @@ export class UserInfoService {
    */
 
   getUserToken(): string {
-    //this.userToken = localStorage.getItem('userToken');
+    // this.userToken = localStorage.getItem('userToken');
     return this.userToken;
   }
   setUserToken(userToken: string): void {
-    //localStorage.setItem('userToken', userToken);
+    // localStorage.setItem('userToken', userToken);
     this.userToken = userToken;
   }
 
-  //Responsible for refresh
+  // Responsible for refresh
   // delete console.log statements asap
   checkUserToken(): void {
-    if(localStorage.getItem('userToken')){
+    if (localStorage.getItem('userToken')) {
       this.getUserFromBackend();
     }
   }
@@ -91,7 +91,7 @@ export class UserInfoService {
   }
 
   getUser(): any {
-    if (this.getLogin()){
+    if (this.getLogin()) {
       this.httpClient.get(environment.endpointURL + 'user/profile/' + this.getUserId())
         .subscribe((res: any ) => {
           this.user = res.user;

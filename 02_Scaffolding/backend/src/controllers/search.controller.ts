@@ -7,11 +7,7 @@ import {ServiceItem, ServiceItemAttributes} from '../models/service.model';
 const searchController = express.Router();
 
 function moreWords(searchTerm: string[]) {
-    if ( searchTerm.length > 1) {
-        return true;
-    } else {
-        return false;
-    }
+    return searchTerm.length > 1;
 }
 
 // SERV
@@ -160,8 +156,8 @@ searchController.get('/sellproduct', async (req, res) => {
         }
         if (moreWords(searchTerm)) {
             const comparedArray = searchValueSell(arrayList);
-         const uniqueArray = filterDuplicateSell(comparedArray);
-        res.send(uniqueArray);
+            const uniqueArray = filterDuplicateSell(comparedArray);
+            res.send(uniqueArray);
         } else {
             res.send(arrayList);
         }

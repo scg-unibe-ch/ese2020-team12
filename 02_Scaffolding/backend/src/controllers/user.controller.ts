@@ -29,8 +29,7 @@ userController.delete('/:id', (req: Request, res: Response ) => {
         }).catch(err => res.status(500).send(err));
 });
 
-userController.put('/profile/:id', verifyToken , (req: Request, res: Response) => {
-    console.log('test:---' + req.body);
+userController.put('/profile/:id', (req: Request, res: Response) => {
     User.findByPk(req.params.id).then(found => {
             if (found != null) {
                 found.update(req.body).then( update => {
