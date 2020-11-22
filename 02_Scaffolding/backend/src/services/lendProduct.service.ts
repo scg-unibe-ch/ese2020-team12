@@ -1,4 +1,5 @@
 import {LendProductItem, LProductItemCreationAttributes} from '../models/lendProduct.model';
+import {LendProductComponent} from '../../../frontend/src/app/add-article/lend-product/lend-product.component';
 
 
 export class LendProductService {
@@ -45,4 +46,5 @@ export class LendProductService {
             }
         });
     }
+
 }

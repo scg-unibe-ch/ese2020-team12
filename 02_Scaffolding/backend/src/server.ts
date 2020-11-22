@@ -18,6 +18,7 @@ import {ProfilePhotoController} from './controllers/profilePhoto.controller';
 import {ProfilePhoto} from './models/profilePhoto.model';
 import {GetArticleController} from './controllers/getArticles.controller';
 import {SearchController} from './controllers/search.controller';
+import {SellFilterController} from './controllers/sellFilter.controller';
 
 
 
@@ -73,6 +74,7 @@ export class Server {
             .use('/search', SearchController)
             .use('/user/profilephoto', ProfilePhotoController)
             .use('/secured', SecuredController)
+            .use('/filter', SellFilterController)
             .use('/article', GetArticleController)
             .options('*', cors(options))
             .use(express.static('./src/public'))

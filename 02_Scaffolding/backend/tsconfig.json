@@ -10,7 +10,10 @@
   "preserveConstEnums": true,
   "outDir": "./build",
   "sourceMap": true,
-  "types": ["node"]
+  "types": ["node"],
+  // because an error in frontend
+  "experimentalDecorators": true,
+  "allowJs": true
 },
 "include": ["./src/**/*"],
 "exclude": ["node_modules", "**/*.spec.ts"]
