@@ -47,6 +47,7 @@ import { HouseholdComponent } from './services/household/household.component';
 import { PrivatelessonsComponent } from './services/privatelessons/privatelessons.component';
 import { ReparationsComponent } from './services/reparations/reparations.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
+import {MatRadioModule} from "@angular/material/radio";
 
 
 
@@ -82,44 +83,45 @@ import { SearchResultsComponent } from './search-results/search-results.componen
     ReparationsComponent,
     SearchResultsComponent
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    MatButtonModule,
-    MatListModule,
-    MatInputModule,
-    MatCheckboxModule,
-    MatCardModule,
-    MatTabsModule,
-    MatToolbarModule,
-    ReactiveFormsModule,
-    RouterModule.forRoot([
-      {path: '', component: HomeComponent},
-      {path: 'signup', component: SignupComponent},
-      {path: 'profile', component: ProfileComponent},
-      {path: 'add-article', component: AddArticleComponent},
-      {path: 'add-article/sell-product', component: SellProductComponent},
-      {path: 'add-article/lend-product', component: LendProductComponent},
-      {path: 'add-article/provide-service', component: ProvideServiceComponent},
-      {path: 'categories/clothes-shoes', component: ClothesShoesComponent},
-      {path: 'categories/electronics', component: ElectronicsComponent},
-      {path: 'categories/household-garden', component: HouseholdGardenComponent},
-      {path: 'categories/realestate', component: RealestateComponent},
-      {path: 'categories/sport', component: SportComponent},
-      {path: 'categories/vehicles', component: VehiclesComponent},
-      {path: 'services/babysitting', component: BabysittingComponent},
-      {path: 'services/carpool', component: CarpoolComponent},
-      {path: 'services/garden-lawn', component: GardenLawnComponent},
-      {path: 'services/household', component: HouseholdComponent},
-      {path: 'services/privatelessons', component: PrivatelessonsComponent},
-      {path: 'services/reparations', component: ReparationsComponent},
-      {path: 'search-results', component: SearchResultsComponent}
-    ]),
-    FormsModule,
-    MatSelectModule,
-    MatGridListModule
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        MatButtonModule,
+        MatListModule,
+        MatInputModule,
+        MatCheckboxModule,
+        MatCardModule,
+        MatTabsModule,
+        MatToolbarModule,
+        ReactiveFormsModule,
+        RouterModule.forRoot([
+            {path: '', component: HomeComponent},
+            {path: 'signup', component: SignupComponent},
+            {path: 'profile', component: ProfileComponent},
+            {path: 'add-article', component: AddArticleComponent},
+            {path: 'add-article/sell-product', component: SellProductComponent},
+            {path: 'add-article/lend-product', component: LendProductComponent},
+            {path: 'add-article/provide-service', component: ProvideServiceComponent},
+            {path: 'categories/clothes-shoes', component: ClothesShoesComponent},
+            {path: 'categories/electronics', component: ElectronicsComponent},
+            {path: 'categories/household-garden', component: HouseholdGardenComponent},
+            {path: 'categories/realestate', component: RealestateComponent},
+            {path: 'categories/sport', component: SportComponent},
+            {path: 'categories/vehicles', component: VehiclesComponent},
+            {path: 'services/babysitting', component: BabysittingComponent},
+            {path: 'services/carpool', component: CarpoolComponent},
+            {path: 'services/garden-lawn', component: GardenLawnComponent},
+            {path: 'services/household', component: HouseholdComponent},
+            {path: 'services/privatelessons', component: PrivatelessonsComponent},
+            {path: 'services/reparations', component: ReparationsComponent},
+            {path: 'search-results', component: SearchResultsComponent}
+        ]),
+        FormsModule,
+        MatSelectModule,
+        MatGridListModule,
+        MatRadioModule
+    ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
