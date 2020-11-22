@@ -3,6 +3,7 @@
 import { Injectable } from '@angular/core';
 import {environment} from '../environments/environment';
 import {HttpClient} from '@angular/common/http';
+import {SellProductItem} from "../../../backend/src/models/sellProduct.model";
 
 class SellProduct{
   sellProductId: number;
@@ -132,7 +133,67 @@ export class ArticleInfoService {
 
   public getServSearchIds(): number[] {return this.servSearchResults; }
 
-constructor(
+  getSellArticleById(id: number): any {
+    let articleAsArray: any[];
+    articleAsArray = [];
+    this.httpClient.get(environment.endpointURL + '/sell/:' + id)
+      .subscribe((res: any) => {
+        articleAsArray.push(res.sellProductId);
+        articleAsArray.push(res.userId);
+        articleAsArray.push(res.title);
+        articleAsArray.push(res.price);
+        articleAsArray.push(res.description);
+        articleAsArray.push(res.location);
+        articleAsArray.push(res.category);
+        // SP specific:
+        articleAsArray.push(res.delivery);
+        articleAsArray.push(res.delSpec);
+      });
+    return articleAsArray;
+  }
+
+  getLendArticleById(id: number): any {
+    let articleAsArray: any[];
+    articleAsArray = [];
+    this.httpClient.get(environment.endpointURL + '/lend/:' + id)
+      .subscribe((res: any) => {
+        articleAsArray.push(res.lendProductId);
+        articleAsArray.push(res.userId);
+        articleAsArray.push(res.title);
+        articleAsArray.push(res.price);
+        articleAsArray.push(res.description);
+        articleAsArray.push(res.location);
+        articleAsArray.push(res.category);
+        // LP specific:
+        articleAsArray.push(res.hourOrDay);
+        articleAsArray.push(res.status);
+        articleAsArray.push(res.handling);
+      });
+    return articleAsArray;
+  }
+
+  getServArticleById(id: number): any {
+    let articleAsArray: any[];
+    articleAsArray = [];
+    this.httpClient.get(environment.endpointURL + '/service/:' + id)
+      .subscribe((res: any) => {
+        articleAsArray.push(res.serviceId);
+        articleAsArray.push(res.userId);
+        articleAsArray.push(res.title);
+        articleAsArray.push(res.price);
+        articleAsArray.push(res.description);
+        articleAsArray.push(res.location);
+        articleAsArray.push(res.category);
+        // PS specific:
+        articleAsArray.push(res.hourOrDay);
+        articleAsArray.push(res.expenses);
+        articleAsArray.push(res.expCost);
+      });
+    return articleAsArray;
+  }
+
+
+  constructor(
     private httpClient: HttpClient
   ) {
 
