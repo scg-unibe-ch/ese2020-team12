@@ -34,28 +34,34 @@ function locationFinder(loc: string): any {
 
 sellFilterController.get('/sell',
     async (req, res) => {
-        console.log('test');
-        console.log(req.query.delivery as string);
-        try {
-            const output = [];
-            console.log(req.query.delivery);
-            if (req.query.delivery === 'true') {
-                output.push(await placeFinder());
-            }
-            if (req.query.lowerPrice !== null || req.query.upperPrice !== null) {
-                const min = req.query.lowerPrice as string;
-                const max = req.query.upperPrice as string;
-                output.push(await priceFinder( min, max));
-            }
-            if (req.query.location !== null) {
-                const loc = req.query.location as string;
-                output.push(await locationFinder(loc));
-            }
-            res.status(200).send(output);
-        } catch {
-            res.sendStatus(999);
-        }
+    res.send('test ok');
     });
 
 
 export const SellFilterController: Router = sellFilterController;
+
+
+/*
+    console.log('test');
+    console.log(req.query.delivery as string);
+    try {
+        const output = [];
+        console.log(req.query.delivery);
+        if (req.query.delivery === 'true') {
+            output.push(await placeFinder());
+        }
+        if (req.query.lowerPrice !== null || req.query.upperPrice !== null) {
+            const min = req.query.lowerPrice as string;
+            const max = req.query.upperPrice as string;
+            output.push(await priceFinder( min, max));
+        }
+        if (req.query.location !== null) {
+            const loc = req.query.location as string;
+            output.push(await locationFinder(loc));
+        }
+        res.status(200).send(output);
+    } catch {
+        res.sendStatus(999);
+    }
+
+ */

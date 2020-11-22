@@ -84,7 +84,7 @@ export class ProvideServiceComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  async addArticleRequest(): Promise<void> {
+  addArticleRequest(): void {
     this.httpClient.post(environment.endpointURL + 'add-article/provide-service/', {
       title: this.title,
       price: this.price,
@@ -94,7 +94,7 @@ export class ProvideServiceComponent implements OnInit {
       location: this.location,
       expenses: this.expenses,
       expCost: this.expensesCost,
-      userId: Number(await this.userInfoService.getUserId())
+      userId: this.userInfoService.getUserId()
     }).subscribe((res: any) => {
       // Set user data in local storage
       localStorage.setItem('title', res.title);
@@ -104,7 +104,6 @@ export class ProvideServiceComponent implements OnInit {
       localStorage.setItem('location', res.location);
       localStorage.setItem('expenses', res.expenses);
       localStorage.setItem('expCost', res.expCost);
-      localStorage.setItem('articleListId', res.articleListId);
     });
   }
 }

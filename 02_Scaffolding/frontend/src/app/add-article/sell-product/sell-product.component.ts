@@ -93,7 +93,7 @@ export class SellProductComponent implements OnInit {
       location: this.location,
       delivery: this.delivery,
       delSpec: this.deliverySpecs,
-      userId: Number(this.userInfoService.getUserId())
+      userId: this.userInfoService.getUserId()
     }).subscribe((res: any) => {
       // Set user data in local storage
       // we dont need that, right? (mauri 13.11)
@@ -103,7 +103,6 @@ export class SellProductComponent implements OnInit {
       localStorage.setItem('location', res.location);
       localStorage.setItem('delivery', res.delivery);
       localStorage.setItem('delSpec', res.delSpec);
-      localStorage.setItem('articleListId', res.articleListId);
     });
   }
 }

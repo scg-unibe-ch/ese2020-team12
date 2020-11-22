@@ -12,6 +12,7 @@
   "sourceMap": true,
   "types": ["node"],
   // because an error in frontend
+  "typeRoots": ["node_modules/@types"],
   "experimentalDecorators": true,
   "allowJs": true
 },
