@@ -3,6 +3,8 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
 import {environment} from "../../../environments/environment";
+import {UserInfoService} from "../../user-info.service";
+import {User} from "../../../../../backend/src/models/user.model";
 
 
 interface Pricing{
@@ -49,6 +51,7 @@ export class ProvideServiceComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private httpClient: HttpClient,
+    public userInfoService: UserInfoService,
   ) {
     this.addArticleForm = this.formBuilder.group({
       title: new FormControl('', Validators.compose(
@@ -91,7 +94,7 @@ export class ProvideServiceComponent implements OnInit {
       location: this.location,
       expenses: this.expenses,
       expCost: this.expensesCost,
-      articleListId: 1
+      userId: this.userInfoService.getUserId()
     }).subscribe((res: any) => {
       // Set user data in local storage
       localStorage.setItem('title', res.title);

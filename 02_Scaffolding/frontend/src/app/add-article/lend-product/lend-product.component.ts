@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
-import {environment} from "../../../environments/environment";
+import {environment} from '../../../environments/environment';
+import {UserInfoService} from "../../user-info.service";
 
 
-interface Pricing{
+interface Pricing {
   value: string;
 }
-interface LendingStatus{
+interface LendingStatus {
   value: boolean;
   viewValue: string;
 }
@@ -58,6 +59,7 @@ export class LendProductComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private httpClient: HttpClient,
+    public userInfoService: UserInfoService,
   ) {
     this.addArticleForm = this.formBuilder.group({
       title: new FormControl('', Validators.compose(
@@ -88,15 +90,8 @@ export class LendProductComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getUserId();
   }
 
-  getUserId(): void {
-    this.httpClient.get(environment.endpointURL + 'user/profile',{
-    }).subscribe((res: any) => {
-      this.userId = res.userId;
-    });
-  }
 
   addArticleRequest(): void {
     this.httpClient.post(environment.endpointURL + 'add-article/lend-product/', {
@@ -108,7 +103,7 @@ export class LendProductComponent implements OnInit {
       location: this.location,
       status: this.lendingStatus,
       handling: this.handling,
-      userId: 1
+      userId: this.userInfoService.getUserId(),
     }).subscribe((res: any) => {
       // Set user data in local storage
       localStorage.setItem('title', res.title);
