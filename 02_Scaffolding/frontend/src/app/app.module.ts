@@ -48,6 +48,7 @@ import { PrivatelessonsComponent } from './services/privatelessons/privatelesson
 import { ReparationsComponent } from './services/reparations/reparations.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import {MatRadioModule} from "@angular/material/radio";
+import { ArticlePageComponent } from './article-page/article-page.component';
 
 
 
@@ -81,7 +82,8 @@ import {MatRadioModule} from "@angular/material/radio";
     HouseholdComponent,
     PrivatelessonsComponent,
     ReparationsComponent,
-    SearchResultsComponent
+    SearchResultsComponent,
+    ArticlePageComponent
   ],
     imports: [
         BrowserModule,
@@ -115,7 +117,8 @@ import {MatRadioModule} from "@angular/material/radio";
             {path: 'services/household', component: HouseholdComponent},
             {path: 'services/privatelessons', component: PrivatelessonsComponent},
             {path: 'services/reparations', component: ReparationsComponent},
-            {path: 'search-results', component: SearchResultsComponent}
+            {path: 'search-results', component: SearchResultsComponent},
+            {path: 'article-page', component: ArticlePageComponent}
         ]),
         FormsModule,
         MatSelectModule,
