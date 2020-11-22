@@ -3,8 +3,8 @@
     margin: 0;
 }
 
-.banner{
-  object-fit: fill;
+.banner img{
+  width: 100%;
 }
 
 .mat-grid-list {
