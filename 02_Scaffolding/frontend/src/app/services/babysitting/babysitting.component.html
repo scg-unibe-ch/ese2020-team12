@@ -99,19 +99,11 @@
   </mat-grid-tile>
 
   <!--filters-->
-  <mat-grid-tile colspan="2" rowspan="3">
+  <mat-grid-tile colspan="2" rowspan="4">
     <mat-card>
       <mat-card-header class="filtertitle">
         <mat-card-title>Filters:</mat-card-title>
       </mat-card-header>
-
-      <mat-card-content>
-        <h3>Deliverable: </h3>
-        <mat-radio-group aria-label="Select an option">
-          <mat-radio-button value="1">Yes</mat-radio-button>
-          <mat-radio-button value="2">No</mat-radio-button>
-        </mat-radio-group>
-      </mat-card-content>
       <br>
       <mat-card-content>
         <h3>Search for products in your location: </h3>
@@ -121,10 +113,25 @@
       </mat-card-content>
 
       <mat-card-content>
-        <h3>Pricing: </h3>
+        <h3>Pricing lower limit: </h3>
         <mat-form-field>
-          <input matInput type=text name="postalCode" placeholder="Enter your price limit:">
+          <input matInput type=text name="price" placeholder="Enter your lower price limit:">
         </mat-form-field>
+      </mat-card-content>
+
+      <mat-card-content>
+        <h3>Pricing upper limit: </h3>
+        <mat-form-field>
+          <input matInput type=text name="price" placeholder="Enter your upper price limit:">
+        </mat-form-field>
+      </mat-card-content>
+
+      <mat-card-content>
+        <h3>Price per: </h3>
+        <mat-radio-group aria-label="Select an option">
+          <mat-radio-button value="1">Hour</mat-radio-button>
+          <mat-radio-button value="2">Day</mat-radio-button>
+        </mat-radio-group>
       </mat-card-content>
 
       <button mat-raised-button color="primary"> <!--(click)="sendForm()"--> apply</button>
@@ -134,7 +141,7 @@
   </mat-grid-tile>
 
   <!--in your area-->
-  <mat-grid-tile colspan="6" rowspan="3">
+  <mat-grid-tile colspan="6" rowspan="4">
     <mat-card>
       <mat-card-header class="title">
         <mat-card-title>Babysitters in your area:</mat-card-title>

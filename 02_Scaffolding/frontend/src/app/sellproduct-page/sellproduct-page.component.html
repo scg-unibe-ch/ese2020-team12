@@ -36,24 +36,21 @@
 
   <mat-grid-tile colspan="6" rowspan="3">
     <div *ngFor="let article of articleInfoService.returnSellProducts()">
-
-      <mat-card class="example-card">
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>{{ article.title}}</mat-card-title>
-          <mat-card-subtitle>{{ article.price}}</mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-          <p>
-            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-          </p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-button>LIKE</button>
-          <button mat-button>SHARE</button>
-        </mat-card-actions>
-      </mat-card>
+      <div routerLink="/article-page">
+        <mat-card class="example-card">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>{{ article.title }}</mat-card-title>
+            <mat-card-subtitle>{{ article.price }} CHF</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+          <mat-card-content>
+            <p>
+              ProductId: {{article.sellProductId}}
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </div>
     </div>
 
   </mat-grid-tile>

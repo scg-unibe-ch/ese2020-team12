@@ -1,148 +1,303 @@
+<!--Banner-->
 <mat-grid-list cols="8"  rowHeight="144px">
 
-  <!--Banner-->
   <mat-grid-tile colspan="8" rowspan="2" class="banner">
     <img class="banner" id="banner-1" src="../../assets/Header_Home/Banner_iocus_realestate.jpg" style="display:block;">
   </mat-grid-tile>
-  <!--Sidebar-->
-  <mat-grid-tile colspan="2" rowspan="3">
-    <mat-card>
-      <mat-card-title>Other popular categories</mat-card-title>
-      <mat-card-subtitle>Find what specifically fits you!</mat-card-subtitle>
-
-      <form class="search-sidebar">
-        <mat-form-field style="width:90%">
-          <mat-label>Search real estate</mat-label>
-          <input matInput placeholder="search products">
-        </mat-form-field>
-      </form>
-
-      <mat-grid-list cols="2" rowHeight="90px" class="categories">
-        <mat-grid-tile><button mat-button class="button" routerLink="/categories/clothes-shoes">clothes & shoes</button></mat-grid-tile>
-        <mat-grid-tile><button mat-button class="button" routerLink="/categories/electronics">electronics</button></mat-grid-tile>
-        <mat-grid-tile><button mat-button class="button" routerLink="/categories/household-garden">household & garden</button></mat-grid-tile>
-        <mat-grid-tile><button mat-button class="button" routerLink="/categories/sport">sport</button></mat-grid-tile>
-        <mat-grid-tile><button mat-button class="button" routerLink="/categories/vehicles">vehicles</button></mat-grid-tile>
-        <mat-grid-tile><button mat-button class="button" routerLink="">return to homepage</button></mat-grid-tile>
-      </mat-grid-list>
-
-    </mat-card>
-  </mat-grid-tile>
-
-
-  <!--Most recent articles-->
-  <mat-grid-tile colspan="6" rowspan="3">
-    <mat-card>
-      <mat-card-header class="title">
-        <mat-card-title>Most recent real estate offers:</mat-card-title>
-      </mat-card-header>
-
-      <mat-card class="item">
-        <mat-card-header>
-          <mat-card-title>Shiba Inu. Very Friend!</mat-card-title>
-        </mat-card-header>
-        <img src="https://material.angular.io/assets/img/examples/shiba2.jpg">
-        <mat-card-content>
-          <mat-card-actions>
-            <button mat-button>Buy for 12CHF</button>
-            <button mat-button>Remember</button>
-          </mat-card-actions>
-        </mat-card-content>
-      </mat-card>
-
-      <mat-card class="item">
-        <mat-card-header>
-          <mat-card-title>Shiba Inu. Very Friend!</mat-card-title>
-        </mat-card-header>
-        <img src="https://material.angular.io/assets/img/examples/shiba2.jpg">
-        <mat-card-content>
-          <mat-card-actions>
-            <button mat-button>Buy for 12CHF</button>
-            <button mat-button>Remember</button>
-          </mat-card-actions>
-        </mat-card-content>
-      </mat-card>
-
-      <mat-card class="item">
-        <mat-card-header>
-          <mat-card-title>Shiba Inu. Very Friend!</mat-card-title>
-        </mat-card-header>
-        <img src="https://material.angular.io/assets/img/examples/shiba2.jpg">
-        <mat-card-content>
-          <mat-card-actions>
-            <button mat-button>Buy for 12CHF</button>
-            <button mat-button>Remember</button>
-          </mat-card-actions>
-        </mat-card-content>
-      </mat-card>
-
-      <mat-card class="item">
-        <mat-card-header>
-          <mat-card-title>Shiba Inu. Very Friend!</mat-card-title>
-        </mat-card-header>
-        <img src="https://material.angular.io/assets/img/examples/shiba2.jpg">
-        <mat-card-content>
-          <mat-card-actions>
-            <button mat-button>Buy for 12CHF</button>
-            <button mat-button>Remember</button>
-          </mat-card-actions>
-        </mat-card-content>
-      </mat-card>
-
-    </mat-card>
-  </mat-grid-tile>
-
-  <!--filters-->
-  <mat-grid-tile colspan="2" rowspan="3">
-    <mat-card>
-      <mat-card-header class="filtertitle">
-        <mat-card-title>Filters:</mat-card-title>
-      </mat-card-header>
-
-      <mat-card-content>
-        <h3>Deliverable: </h3>
-        <mat-radio-group aria-label="Select an option">
-          <mat-radio-button value="1">Yes</mat-radio-button>
-          <mat-radio-button value="2">No</mat-radio-button>
-        </mat-radio-group>
-      </mat-card-content>
-      <br>
-      <mat-card-content>
-        <h3>Search for products in your location: </h3>
-        <mat-form-field>
-          <input matInput type=text name="location" placeholder="Enter your city">
-        </mat-form-field>
-      </mat-card-content>
-
-      <mat-card-content>
-        <h3>Pricing: </h3>
-        <mat-form-field>
-          <input matInput type=text name="postalCode" placeholder="Enter your price limit:">
-        </mat-form-field>
-      </mat-card-content>
-
-      <button mat-raised-button color="primary"> <!--(click)="sendForm()"--> apply</button>
-
-    </mat-card>
-
-  </mat-grid-tile>
-
-  <!--in your area-->
-  <mat-grid-tile colspan="6" rowspan="3">
-    <mat-card>
-      <mat-card-header class="title">
-        <mat-card-title>Real estate objects in your area:</mat-card-title>
-      </mat-card-header>
-
-
-    </mat-card>
-  </mat-grid-tile>
-
-
-  <!--
-  <p>{{articleIds}}</p>
-  -->
 
 </mat-grid-list>
+
+<mat-tab-group mat-align-tabs="center">
+  <mat-tab label="To Buy">
+    <mat-grid-list cols="8" rowHeight="144px">
+      <!--Sidebar-->
+      <mat-grid-tile colspan="2" rowspan="3">
+        <mat-card>
+          <mat-card-title>Other popular categories</mat-card-title>
+          <mat-card-subtitle>Find what specifically fits you!</mat-card-subtitle>
+
+          <form class="search-sidebar">
+            <mat-form-field style="width:90%">
+              <mat-label>Search real estate products</mat-label>
+              <input matInput placeholder="search products">
+            </mat-form-field>
+          </form>
+
+          <mat-grid-list cols="2" rowHeight="90px" class="categories">
+            <mat-grid-tile><button mat-button class="button" routerLink="/categories/clothes-shoes">clothes & shoes</button></mat-grid-tile>
+            <mat-grid-tile><button mat-button class="button" routerLink="/categories/electronics">electronics</button></mat-grid-tile>
+            <mat-grid-tile><button mat-button class="button" routerLink="/categories/household-garden">household & garden</button></mat-grid-tile>
+            <mat-grid-tile><button mat-button class="button" routerLink="/categories/sport">sport</button></mat-grid-tile>
+            <mat-grid-tile><button mat-button class="button" routerLink="/categories/vehicles">vehicles</button></mat-grid-tile>
+            <mat-grid-tile><button mat-button class="button" routerLink="">return to homepage</button></mat-grid-tile>
+          </mat-grid-list>
+
+        </mat-card>
+      </mat-grid-tile>
+
+      <!--Most recent articles-->
+      <mat-grid-tile colspan="6" rowspan="3">
+        <mat-card>
+          <mat-card-header class="title">
+            <mat-card-title>Most recent real estate:</mat-card-title>
+          </mat-card-header>
+
+          <mat-card class="item">
+            <mat-card-header>
+              <mat-card-title>Shiba Inu. Very Friend!</mat-card-title>
+            </mat-card-header>
+            <img src="https://material.angular.io/assets/img/examples/shiba2.jpg">
+            <mat-card-content>
+              <mat-card-actions>
+                <button mat-button>Buy for 12CHF</button>
+                <button mat-button>Remember</button>
+              </mat-card-actions>
+            </mat-card-content>
+          </mat-card>
+
+          <mat-card class="item">
+            <mat-card-header>
+              <mat-card-title>Shiba Inu. Very Friend!</mat-card-title>
+            </mat-card-header>
+            <img src="https://material.angular.io/assets/img/examples/shiba2.jpg">
+            <mat-card-content>
+              <mat-card-actions>
+                <button mat-button>Buy for 12CHF</button>
+                <button mat-button>Remember</button>
+              </mat-card-actions>
+            </mat-card-content>
+          </mat-card>
+
+          <mat-card class="item">
+            <mat-card-header>
+              <mat-card-title>Shiba Inu. Very Friend!</mat-card-title>
+            </mat-card-header>
+            <img src="https://material.angular.io/assets/img/examples/shiba2.jpg">
+            <mat-card-content>
+              <mat-card-actions>
+                <button mat-button>Buy for 12CHF</button>
+                <button mat-button>Remember</button>
+              </mat-card-actions>
+            </mat-card-content>
+          </mat-card>
+
+          <mat-card class="item">
+            <mat-card-header>
+              <mat-card-title>Shiba Inu. Very Friend!</mat-card-title>
+            </mat-card-header>
+            <img src="https://material.angular.io/assets/img/examples/shiba2.jpg">
+            <mat-card-content>
+              <mat-card-actions>
+                <button mat-button>Buy for 12CHF</button>
+                <button mat-button>Remember</button>
+              </mat-card-actions>
+            </mat-card-content>
+          </mat-card>
+
+        </mat-card>
+      </mat-grid-tile>
+
+      <!--filters to buy-->
+      <mat-grid-tile colspan="2" rowspan="4">
+        <mat-card>
+          <mat-card-header class="filtertitle">
+            <mat-card-title>Filters:</mat-card-title>
+          </mat-card-header>
+
+          <mat-card-content>
+            <h3>Deliverable: </h3>
+            <mat-radio-group aria-label="Select an option">
+              <mat-radio-button value="1">Yes</mat-radio-button>
+              <mat-radio-button value="2">No</mat-radio-button>
+            </mat-radio-group>
+          </mat-card-content>
+          <br>
+          <mat-card-content>
+            <h3>Search for products in your location: </h3>
+            <mat-form-field>
+              <input matInput type=text name="location" placeholder="Enter your city">
+            </mat-form-field>
+          </mat-card-content>
+
+          <mat-card-content>
+            <h3>Pricing lower limit: </h3>
+            <mat-form-field>
+              <input matInput type=text name="price" placeholder="Enter your lower price limit:">
+            </mat-form-field>
+          </mat-card-content>
+
+          <mat-card-content>
+            <h3>Pricing upper limit: </h3>
+            <mat-form-field>
+              <input matInput type=text name="price" placeholder="Enter your upper price limit:">
+            </mat-form-field>
+          </mat-card-content>
+
+          <button mat-raised-button color="primary"> <!--(click)="sendForm()"--> apply</button>
+
+        </mat-card>
+
+      </mat-grid-tile>
+
+      <!--in your area-->
+      <mat-grid-tile colspan="6" rowspan="4">
+        <mat-card>
+          <mat-card-header class="title">
+            <mat-card-title>Real estate in your area:</mat-card-title>
+          </mat-card-header>
+
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-tab>
+
+  <!--to rent-->
+
+  <mat-tab label="To Rent">
+    <mat-grid-list cols="8" rowHeight="144px">
+      <!--Sidebar-->
+      <mat-grid-tile colspan="2" rowspan="3">
+        <mat-card>
+          <mat-card-title>Other popular categories</mat-card-title>
+          <mat-card-subtitle>Find what specifically fits you!</mat-card-subtitle>
+
+          <form class="search-sidebar">
+            <mat-form-field style="width:90%">
+              <mat-label>Search real estate products</mat-label>
+              <input matInput placeholder="search products">
+            </mat-form-field>
+          </form>
+
+          <mat-grid-list cols="2" rowHeight="90px" class="categories">
+            <mat-grid-tile><button mat-button class="button" routerLink="/categories/clothes-shoes">clothes & shoes</button></mat-grid-tile>
+            <mat-grid-tile><button mat-button class="button" routerLink="/categories/electronics">electronics</button></mat-grid-tile>
+            <mat-grid-tile><button mat-button class="button" routerLink="/categories/household-garden">household & garden</button></mat-grid-tile>
+            <mat-grid-tile><button mat-button class="button" routerLink="/categories/sport">sport</button></mat-grid-tile>
+            <mat-grid-tile><button mat-button class="button" routerLink="/categories/vehicles">vehicles</button></mat-grid-tile>
+            <mat-grid-tile><button mat-button class="button" routerLink="">return to homepage</button></mat-grid-tile>
+          </mat-grid-list>
+
+        </mat-card>
+      </mat-grid-tile>
+
+      <!--Most recent articles-->
+      <mat-grid-tile colspan="6" rowspan="3">
+        <mat-card>
+          <mat-card-header class="title">
+            <mat-card-title>Most recent real estate:</mat-card-title>
+          </mat-card-header>
+
+          <mat-card class="item">
+            <mat-card-header>
+              <mat-card-title>Shiba Inu. Very Friend!</mat-card-title>
+            </mat-card-header>
+            <img src="https://material.angular.io/assets/img/examples/shiba2.jpg">
+            <mat-card-content>
+              <mat-card-actions>
+                <button mat-button>Buy for 12CHF</button>
+                <button mat-button>Remember</button>
+              </mat-card-actions>
+            </mat-card-content>
+          </mat-card>
+
+          <mat-card class="item">
+            <mat-card-header>
+              <mat-card-title>Shiba Inu. Very Friend!</mat-card-title>
+            </mat-card-header>
+            <img src="https://material.angular.io/assets/img/examples/shiba2.jpg">
+            <mat-card-content>
+              <mat-card-actions>
+                <button mat-button>Buy for 12CHF</button>
+                <button mat-button>Remember</button>
+              </mat-card-actions>
+            </mat-card-content>
+          </mat-card>
+
+          <mat-card class="item">
+            <mat-card-header>
+              <mat-card-title>Shiba Inu. Very Friend!</mat-card-title>
+            </mat-card-header>
+            <img src="https://material.angular.io/assets/img/examples/shiba2.jpg">
+            <mat-card-content>
+              <mat-card-actions>
+                <button mat-button>Buy for 12CHF</button>
+                <button mat-button>Remember</button>
+              </mat-card-actions>
+            </mat-card-content>
+          </mat-card>
+
+          <mat-card class="item">
+            <mat-card-header>
+              <mat-card-title>Shiba Inu. Very Friend!</mat-card-title>
+            </mat-card-header>
+            <img src="https://material.angular.io/assets/img/examples/shiba2.jpg">
+            <mat-card-content>
+              <mat-card-actions>
+                <button mat-button>Buy for 12CHF</button>
+                <button mat-button>Remember</button>
+              </mat-card-actions>
+            </mat-card-content>
+          </mat-card>
+
+        </mat-card>
+      </mat-grid-tile>
+
+      <!--filters-->
+      <mat-grid-tile colspan="2" rowspan="4">
+        <mat-card>
+          <mat-card-header class="filtertitle">
+            <mat-card-title>Filters:</mat-card-title>
+          </mat-card-header>
+          <br>
+          <mat-card-content>
+            <h3>Search for products in your location: </h3>
+            <mat-form-field>
+              <input matInput type=text name="location" placeholder="Enter your city">
+            </mat-form-field>
+          </mat-card-content>
+
+          <mat-card-content>
+            <h3>Pricing lower limit: </h3>
+            <mat-form-field>
+              <input matInput type=text name="price" placeholder="Enter your lower price limit:">
+            </mat-form-field>
+          </mat-card-content>
+
+          <mat-card-content>
+            <h3>Pricing upper limit: </h3>
+            <mat-form-field>
+              <input matInput type=text name="price" placeholder="Enter your upper price limit:">
+            </mat-form-field>
+          </mat-card-content>
+
+          <mat-card-content>
+            <h3>Price per: </h3>
+            <mat-radio-group aria-label="Select an option">
+              <mat-radio-button value="1">Hour</mat-radio-button>
+              <mat-radio-button value="2">Day</mat-radio-button>
+            </mat-radio-group>
+          </mat-card-content>
+
+          <button mat-raised-button color="primary"> <!--(click)="sendForm()"--> apply</button>
+
+        </mat-card>
+
+      </mat-grid-tile>
+
+      <!--in your area-->
+      <mat-grid-tile colspan="6" rowspan="4">
+        <mat-card>
+          <mat-card-header class="title">
+            <mat-card-title>Real estate in your area:</mat-card-title>
+          </mat-card-header>
+
+
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-tab>
+
+</mat-tab-group>
+
 
 
