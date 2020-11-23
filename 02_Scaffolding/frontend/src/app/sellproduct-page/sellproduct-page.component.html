@@ -35,21 +35,36 @@
 
 
   <mat-grid-tile colspan="6" rowspan="3">
-    <div *ngFor="let article of articleInfoService.returnSellProducts()">
-      <div routerLink="/article-page">
-        <mat-card class="example-card">
-          <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>{{ article.title }}</mat-card-title>
-            <mat-card-subtitle>{{ article.price }} CHF</mat-card-subtitle>
-          </mat-card-header>
-          <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-          <mat-card-content>
-            <p>
-              ProductId: {{article.sellProductId}}
-            </p>
-          </mat-card-content>
-        </mat-card>
+
+    <div routerLink="/article-page">
+      <div *ngFor="let articleId of this.articleIds">
+
+        <div>
+
+          <mat-card class="example-card">
+            <!--
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+
+              <mat-card-title>{{ this.articleInfoService.getSellArticleById(articleId)[2] }}</mat-card-title>
+              <mat-card-subtitle>{{ this.articleInfoService.getSellArticleById(articleId)[3] }} CHF</mat-card-subtitle>
+
+            </mat-card-header>
+            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+            -->
+            <mat-card-content>
+              <p>
+                <!--
+                Title:  {{this.getArticleArrayFromId(articleId)[2]}}
+                Price:  {{this.getArticleArrayFromId(articleId)[3]}}
+                -->
+                ProductId: {{articleId}}
+              </p>
+            </mat-card-content>
+          </mat-card>
+
+        </div>
+
       </div>
     </div>
 

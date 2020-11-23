@@ -3,7 +3,6 @@
 import { Injectable } from '@angular/core';
 import {environment} from '../environments/environment';
 import {HttpClient} from '@angular/common/http';
-import {SellProductItem, SellProductItemAttributes} from "../../../backend/src/models/sellProduct.model";
 
 class SellProduct{
   sellProductId: number;
@@ -63,7 +62,11 @@ export class ArticleInfoService {
   private sellSearchResults: number[];
   private lendSearchResults: number[];
   private servSearchResults: number[];
-  private sellProductsArticles: any;
+
+  private sellResults: number[];
+  private lendResults: number[];
+  private servResults: number[];
+
   public currentArticleId: number;
   public currentArticleObject: any;
 
@@ -89,8 +92,7 @@ export class ArticleInfoService {
     this.iteratorArray = [];
     this.httpClient.get(environment.endpointURL + 'search/lendproduct?search=' + searchTerm)
       .subscribe((res: any) => {
-        this.iteratorArray = res;
-        this.storeArticles(this.iteratorArray, 'lend');
+        this.storeArticles(res, 'lend');
       });
 
   }
@@ -100,13 +102,12 @@ export class ArticleInfoService {
     this.iteratorArray = [];
     this.httpClient.get(environment.endpointURL + 'search/provided-service?search=' + searchTerm)
       .subscribe((res: any) => {
-        this.iteratorArray = res;
-        this.storeArticles(this.iteratorArray, 'service');
+        this.storeArticles(res, 'service');
       });
 
   }
 
-  // Private Methods to conduct search
+  // Private Methods to conduct fetching
   private storeArticles(articleArray: any, type: string): void{
     switch (type){
       case 'sell': {
@@ -136,25 +137,65 @@ export class ArticleInfoService {
     }
   }
 
-  // Search Result Array Getters
+  // Search Result Id Array Getters
   public getSellSearchIds(): number[] {return this.sellSearchResults; }
 
   public getLendSearchIds(): number[] {return this.lendSearchResults; }
 
   public getServSearchIds(): number[] {return this.servSearchResults; }
 
-  getSellArticleById(id: number): void {
-    this.currentArticleObject = null;
-    this.httpClient.get(environment.endpointURL + 'article/sell/:' + id)
+  /**
+   * returns the attributes of a sell-product article as an array:
+   * index:      meaning:
+   * 0           sellProductId
+   * 1           userId
+   * 2           title
+   * 3           price
+   * 4           description
+   * 5           location
+   * 6           category
+   * 7           delivery
+   * 8           delSpec
+   * @param id: needs the id as a parameter to fetch attributes
+   */
+  getSellArticleById(id: number): any {
+    let articleAsArray: any[];
+    articleAsArray = [];
+    this.httpClient.get(environment.endpointURL + 'article/sell/' + id.toString())
       .subscribe((res: any) => {
-        this.currentArticleObject = res;
+        articleAsArray.push(res.sellProductId);
+        articleAsArray.push(res.userId);
+        articleAsArray.push(res.title);
+        articleAsArray.push(res.price);
+        articleAsArray.push(res.description);
+        articleAsArray.push(res.location);
+        articleAsArray.push(res.category);
+        // SP specific:
+        articleAsArray.push(res.delivery);
+        articleAsArray.push(res.delSpec);
       });
+    return articleAsArray;
   }
 
+  /**
+   * returns the attributes of a lend-product article as an array:
+   * index:      meaning:
+   * 0           lendProductId
+   * 1           userId
+   * 2           title
+   * 3           price
+   * 4           description
+   * 5           location
+   * 6           category
+   * 7           hourOrDay
+   * 8           status
+   * 9           handling
+   * @param id: needs the id as a parameter to fetch attributes
+   */
   getLendArticleById(id: number): any {
     let articleAsArray: any[];
     articleAsArray = [];
-    this.httpClient.get(environment.endpointURL + '/lend/:' + id)
+    this.httpClient.get(environment.endpointURL + '/lend/:' + id.toString())
       .subscribe((res: any) => {
         articleAsArray.push(res.lendProductId);
         articleAsArray.push(res.userId);
@@ -171,10 +212,25 @@ export class ArticleInfoService {
     return articleAsArray;
   }
 
+  /**
+   * returns the attributes of a service-product article as an array:
+   * index:      meaning:
+   * 0           serviceId
+   * 1           userId
+   * 2           title
+   * 3           price
+   * 4           description
+   * 5           location
+   * 6           category
+   * 7           hourOrDay
+   * 8           expenses
+   * 9           expCost
+   * @param id: needs the id as a parameter to fetch attributes
+   */
   getServArticleById(id: number): any {
     let articleAsArray: any[];
     articleAsArray = [];
-    this.httpClient.get(environment.endpointURL + '/service/:' + id)
+    this.httpClient.get(environment.endpointURL + '/service/:' + id.toString())
       .subscribe((res: any) => {
         articleAsArray.push(res.serviceId);
         articleAsArray.push(res.userId);
@@ -191,19 +247,35 @@ export class ArticleInfoService {
     return articleAsArray;
   }
 
-  getAllSellProducts(): void {
-    this.sellProductsArticles = [];
-    this.httpClient.get(environment.endpointURL + 'article/sell/')
-      .subscribe( (res: any) => {
-        this.sellProductsArticles = res;
+
+  // Just like the search methods, these methods fetch all the ids of the articles of a category
+  fetchAllSellProductIds(): void {
+    this.sellSearchResults = [];
+    this.httpClient.get(environment.endpointURL + 'search/sellproduct?search=' + '')
+      .subscribe((res: any) => {
+        // console.log(res.length);
+        this.storeArticles(res, 'sell');
+        // console.log(this.sellSearchResults);
       });
   }
 
-  returnSellProducts(): any {
-    return this.sellProductsArticles;
+  fetchAllLendProductIds(): void {
+    this.lendSearchResults = [];
+    this.httpClient.get(environment.endpointURL + 'article/lend/')
+      .subscribe( (res: any) => {
+        this.storeArticles(res, 'lend');
+      });
   }
 
-  
+  fetchAllServiceProductIds(): void {
+    this.servSearchResults = [];
+    this.httpClient.get(environment.endpointURL + 'article/service/')
+      .subscribe( (res: any) => {
+        this.storeArticles(res, 'service');
+      });
+  }
+
+
 
   getCurrentTitle(): string{
     return this.currentArticleObject.title;
@@ -214,7 +286,7 @@ export class ArticleInfoService {
   }
 
   passId(currentArticleId: number): void{
-    console.log("Hier sollte die angeklickte Article Id erscheinen:")
+    console.log('Hier sollte die angeklickte Article Id erscheinen:');
     console.log(currentArticleId);
     this.currentArticleId = null;
     this.currentArticleId = currentArticleId;
@@ -225,6 +297,17 @@ export class ArticleInfoService {
 
 /*
   Old Code:
+
+  // this doesnt work
+  getSellArticleById(id: number): void {
+    this.currentArticleObject = null;
+    this.httpClient.get(environment.endpointURL + 'article/sell/:' + id)
+      .subscribe((res: any) => {
+        this.currentArticleObject = res;
+      });
+  }
+
+ */
   /*
   private iterateSellProducts(articleArray: any): void {
     // tslint:disable-next-line:prefer-for-of

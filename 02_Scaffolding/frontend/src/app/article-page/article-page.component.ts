@@ -11,14 +11,11 @@ export class ArticlePageComponent implements OnInit {
   constructor(
     public articleInfoService: ArticleInfoService,
   ) { }
-  
-  currentArticleId: number;
-  currentTitle: any;
+
+  currentArticleArray: any;
 
   ngOnInit(): void {
-    this.articleInfoService.getSellArticleById(this.articleInfoService.currentArticleId);
-    console.log(this.currentArticleId = this.articleInfoService.getCurrentArticleId());
-    console.log(this.currentTitle = this.articleInfoService.getCurrentTitle());
+    this.currentArticleArray = this.articleInfoService.getSellArticleById(3);    // todo: fetch id from previous page
   }
 
 }
