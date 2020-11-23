@@ -3,7 +3,7 @@
 import { Injectable } from '@angular/core';
 import {environment} from '../environments/environment';
 import {HttpClient} from '@angular/common/http';
-import {SellProductItem} from "../../../backend/src/models/sellProduct.model";
+import {SellProductItem, SellProductItemAttributes} from "../../../backend/src/models/sellProduct.model";
 
 class SellProduct{
   sellProductId: number;
@@ -52,11 +52,19 @@ class ServiceProduct{
 })
 export class ArticleInfoService {
 
+  constructor(
+    private httpClient: HttpClient
+  ) {
+
+}
+
   iteratorArray: any[];
 
   private sellSearchResults: number[];
   private lendSearchResults: number[];
   private servSearchResults: number[];
+  private sellProductsArticles: any;
+
 
   // Public Search Methods
 
@@ -192,12 +200,26 @@ export class ArticleInfoService {
     return articleAsArray;
   }
 
+  async getAllSellProducts(): Promise<any> {
+    this.sellProductsArticles = [];
+    await this.httpClient.get(environment.endpointURL + 'article/sell/')
+      .subscribe((res: any) => {
+        this.sellProductsArticles = res;
+        console.log(this.sellProductsArticles);
+      });
+  }
 
-  constructor(
-    private httpClient: HttpClient
-  ) {
+  async returnSellProducts(): Promise<any> {
+    await this.getAllSellProducts()
+      .then((articles) => {
+        if (articles !== null) {
+          return this.sellProductsArticles;
+        } else {
+          return null;
+        }
+      });
+  }
 
-}
 
 }
 
