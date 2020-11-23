@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ArticleInfoService} from "../article-info.service";
+import {ArticleInfoService} from '../article-info.service';
 
 @Component({
   selector: 'app-search-results',
