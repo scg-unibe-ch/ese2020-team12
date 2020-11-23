@@ -18,7 +18,7 @@ import {ProfilePhotoController} from './controllers/profilePhoto.controller';
 import {ProfilePhoto} from './models/profilePhoto.model';
 import {GetArticleController} from './controllers/getArticles.controller';
 import {SearchController} from './controllers/search.controller';
-import {SellFilterController} from './controllers/sellFilter.controller';
+import {SellFilterController} from './controllers/filter.controller';
 
 
 
