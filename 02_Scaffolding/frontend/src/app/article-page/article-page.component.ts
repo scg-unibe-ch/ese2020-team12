@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ArticleInfoService} from '../article-info.service';
 
 @Component({
   selector: 'app-article-page',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArticlePageComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public articleInfoService: ArticleInfoService,
+  ) { }
+  
+  currentArticleId: number;
+  currentTitle: any;
 
   ngOnInit(): void {
+    this.articleInfoService.getSellArticleById(this.articleInfoService.currentArticleId);
+    console.log(this.currentArticleId = this.articleInfoService.getCurrentArticleId());
+    console.log(this.currentTitle = this.articleInfoService.getCurrentTitle());
   }
 
 }

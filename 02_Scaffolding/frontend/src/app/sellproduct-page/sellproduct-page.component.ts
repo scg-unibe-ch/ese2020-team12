@@ -18,5 +18,6 @@ export class SellproductPageComponent implements OnInit {
     this.articleInfoService.getAllSellProducts();
   }
 
+  
 
 }
