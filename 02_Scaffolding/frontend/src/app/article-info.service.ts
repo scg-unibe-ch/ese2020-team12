@@ -200,24 +200,16 @@ export class ArticleInfoService {
     return articleAsArray;
   }
 
-  async getAllSellProducts(): Promise<any> {
+  getAllSellProducts(): void {
     this.sellProductsArticles = [];
-    await this.httpClient.get(environment.endpointURL + 'article/sell/')
-      .subscribe((res: any) => {
+    this.httpClient.get(environment.endpointURL + 'article/sell/')
+      .subscribe( (res: any) => {
         this.sellProductsArticles = res;
-        console.log(this.sellProductsArticles);
       });
   }
 
-  async returnSellProducts(): Promise<any> {
-    await this.getAllSellProducts()
-      .then((articles) => {
-        if (articles !== null) {
-          return this.sellProductsArticles;
-        } else {
-          return null;
-        }
-      });
+  returnSellProducts(): any {
+    return this.sellProductsArticles;
   }
 
 

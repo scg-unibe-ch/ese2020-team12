@@ -12,12 +12,11 @@ export class SellproductPageComponent implements OnInit {
 
   constructor(
     public articleInfoService: ArticleInfoService,
-  ) {
-    this.articles = articleInfoService.returnSellProducts();
-    console.log(this.articles);
-  }
+  ) {}
 
   ngOnInit(): void {
+    this.articleInfoService.getAllSellProducts();
   }
+
 
 }
