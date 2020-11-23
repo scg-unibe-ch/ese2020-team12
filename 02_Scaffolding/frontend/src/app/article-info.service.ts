@@ -64,6 +64,8 @@ export class ArticleInfoService {
   private lendSearchResults: number[];
   private servSearchResults: number[];
   private sellProductsArticles: any;
+  public currentArticleId: number;
+  public currentArticleObject: any;
 
 
   // Public Search Methods
@@ -141,23 +143,12 @@ export class ArticleInfoService {
 
   public getServSearchIds(): number[] {return this.servSearchResults; }
 
-  getSellArticleById(id: number): any {
-    let articleAsArray: any[];
-    articleAsArray = [];
-    this.httpClient.get(environment.endpointURL + '/sell/:' + id)
+  getSellArticleById(id: number): void {
+    this.currentArticleObject = null;
+    this.httpClient.get(environment.endpointURL + 'article/sell/:' + id)
       .subscribe((res: any) => {
-        articleAsArray.push(res.sellProductId);
-        articleAsArray.push(res.userId);
-        articleAsArray.push(res.title);
-        articleAsArray.push(res.price);
-        articleAsArray.push(res.description);
-        articleAsArray.push(res.location);
-        articleAsArray.push(res.category);
-        // SP specific:
-        articleAsArray.push(res.delivery);
-        articleAsArray.push(res.delSpec);
+        this.currentArticleObject = res;
       });
-    return articleAsArray;
   }
 
   getLendArticleById(id: number): any {
@@ -210,6 +201,23 @@ export class ArticleInfoService {
 
   returnSellProducts(): any {
     return this.sellProductsArticles;
+  }
+
+  
+
+  getCurrentTitle(): string{
+    return this.currentArticleObject.title;
+  }
+
+  getCurrentArticleId(): number{
+    return this.currentArticleId;
+  }
+
+  passId(currentArticleId: number): void{
+    console.log("Hier sollte die angeklickte Article Id erscheinen:")
+    console.log(currentArticleId);
+    this.currentArticleId = null;
+    this.currentArticleId = currentArticleId;
   }
 
 
