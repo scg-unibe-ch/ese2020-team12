@@ -55,6 +55,7 @@ import { ArticlePageServiceComponent } from './article-page-service/article-page
 import { LendproductPageComponent } from './lendproduct-page/lendproduct-page.component';
 import { SellservicePageComponent } from './sellservice-page/sellservice-page.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { BalanceComponent } from './balance/balance.component';
 
 
 
@@ -94,7 +95,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     ArticlePageLendComponent,
     ArticlePageServiceComponent,
     LendproductPageComponent,
-    SellservicePageComponent
+    SellservicePageComponent,
+    BalanceComponent
   ],
     imports: [
         BrowserModule,
@@ -135,7 +137,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
             {path: 'lendproduct-page', component: LendproductPageComponent},
             {path: 'sellservice-page', component: SellservicePageComponent},
             {path: 'article-page-lend', component: ArticlePageLendComponent},
-            {path: 'article-page-service', component: ArticlePageServiceComponent}
+            {path: 'article-page-service', component: ArticlePageServiceComponent},
+            {path: 'balance', component: BalanceComponent}
         ]),
         FormsModule,
         MatSelectModule,

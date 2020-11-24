@@ -12,55 +12,6 @@ import {UserInfoService} from '../user-info.service';
 })
 
 export class ProfileComponent implements OnInit {
-  userToken: string;
-  loggedIn = false;
-
-  name;
-  surname;
-  username;
-  email;
-  street;
-  houseNumber;
-  place;
-  postalCode;
-  password;
-  balance;
-  uploadedFile;
-
-  ngOnInit(): void {
-    this.userInfoService.checkUserStatus();
-    this.getUserInfo();
-  }
-
-  getUserInfo(): void {
-    this.email = this.userInfoService.getEmail();
-    this.name = this.userInfoService.getName();
-    this.surname = this.userInfoService.getSurname();
-    this.street = this.userInfoService.getStreet();
-    this.houseNumber = this.userInfoService.getHouseNumber();
-    this.postalCode = this.userInfoService.getPostalCode();
-    this.place = this.userInfoService.getPlace();
-    this.balance = this.userInfoService.getBalance();
-  }
-  /*
-  checkUserStatus(): void {
-    // Get user data from local storage
-    this.userToken = localStorage.getItem('userToken');
-    this.username = localStorage.getItem('userName');
-    this.email = localStorage.getItem('email');
-    this.name = localStorage.getItem('name');
-    this.surname = localStorage.getItem('surname');
-    this.street = localStorage.getItem('street');
-    this.houseNumber = localStorage.getItem('houseNumber');
-    this.postalCode = localStorage.getItem('postalCode');
-    this.place = localStorage.getItem('place');
-
-    // Set boolean whether a user is logged in or not
-    this.loggedIn = !!(this.userToken);
-  }
-   */
-
-  editProfileForm: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -94,6 +45,55 @@ export class ProfileComponent implements OnInit {
       ]))
     });
   }
+  userToken: string;
+  loggedIn = false;
+
+  name;
+  surname;
+  username;
+  email;
+  street;
+  houseNumber;
+  place;
+  postalCode;
+  password;
+  // balance;
+  uploadedFile;
+  /*
+  checkUserStatus(): void {
+    // Get user data from local storage
+    this.userToken = localStorage.getItem('userToken');
+    this.username = localStorage.getItem('userName');
+    this.email = localStorage.getItem('email');
+    this.name = localStorage.getItem('name');
+    this.surname = localStorage.getItem('surname');
+    this.street = localStorage.getItem('street');
+    this.houseNumber = localStorage.getItem('houseNumber');
+    this.postalCode = localStorage.getItem('postalCode');
+    this.place = localStorage.getItem('place');
+
+    // Set boolean whether a user is logged in or not
+    this.loggedIn = !!(this.userToken);
+  }
+   */
+
+  editProfileForm: FormGroup;
+
+  ngOnInit(): void {
+    this.userInfoService.checkUserStatus();
+    this.getUserInfo();
+  }
+
+  getUserInfo(): void {
+    this.email = this.userInfoService.getEmail();
+    this.name = this.userInfoService.getName();
+    this.surname = this.userInfoService.getSurname();
+    this.street = this.userInfoService.getStreet();
+    this.houseNumber = this.userInfoService.getHouseNumber();
+    this.postalCode = this.userInfoService.getPostalCode();
+    this.place = this.userInfoService.getPlace();
+    // this.balance = this.userInfoService.getBalance();
+  }
 
   sendForm(): void {
     this.httpClient.put(environment.endpointURL + 'user/profile/' + this.userInfoService.getUserId(), {
@@ -105,7 +105,7 @@ export class ProfileComponent implements OnInit {
       houseNumber: this.houseNumber,
       place: this.place,
       postalCode: this.postalCode,
-      balance: this.balance,
+      // balance: this.balance,
     }).subscribe((res: any) => {
       // Set user data in local storage
       localStorage.setItem('name', res.name);
@@ -116,13 +116,13 @@ export class ProfileComponent implements OnInit {
       localStorage.setItem('houseNumber', res.houseNumber);
       localStorage.setItem('place', res.place);
       localStorage.setItem('postalCode', res.postalCode);
-      localStorage.setItem('balance', res.balance);
+      // localStorage.setItem('balance', res.balance);
     });
   }
 
   onFileChange(event): void {
     this.uploadedFile = event.target.files[0];
-    } 
+    }
 
   sendPicture(): void {
     const formData = new FormData();
