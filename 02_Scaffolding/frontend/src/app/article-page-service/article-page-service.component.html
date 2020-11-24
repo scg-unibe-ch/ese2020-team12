@@ -1,0 +1,78 @@
+<mat-grid-list cols="8"  rowHeight="144px">
+
+  <!--Banner-->
+  <mat-grid-tile colspan="8" rowspan="2" class="banner">
+    <img class="banner" id="banner-1" src="../../assets/Header_Home/Banner_selling.png" style="display:none;">
+    <img class="banner" id="banner-2" src="../../assets/Header_Home/Banner_Lending.png" style="display:none;">
+    <img class="banner" id="banner-3" src="../../assets/Header_Home/Banner_Service.png" style="display:block;">
+  </mat-grid-tile>
+
+  <!--link to other services-->
+  <mat-grid-tile colspan="2" rowspan="3">
+    <mat-card>
+      <mat-card-title>Popular services</mat-card-title>
+      <mat-card-subtitle>Find what specifically fits you!</mat-card-subtitle>
+
+      <form class="search-sidebar">
+        <mat-form-field style="width:90%">
+          <mat-label>Search for services</mat-label>
+          <input matInput placeholder="search services">
+        </mat-form-field>
+      </form>
+
+      <mat-grid-list cols="2" rowHeight="90px" class="categories">
+        <mat-grid-tile><button mat-button class="button" routerLink="/services/babysitting">babysitting</button></mat-grid-tile>
+        <mat-grid-tile><button mat-button class="button" routerLink="/services/carpool">carpool</button></mat-grid-tile>
+        <mat-grid-tile><button mat-button class="button" routerLink="/services/garden-lawn">garden & lawn</button></mat-grid-tile>
+        <mat-grid-tile><button mat-button class="button" routerLink="/services/household">household</button></mat-grid-tile>
+        <mat-grid-tile><button mat-button class="button" routerLink="/services/privatelessons">private lessons</button></mat-grid-tile>
+        <mat-grid-tile><button mat-button class="button" routerLink="/services/reparations">reparations</button></mat-grid-tile>
+      </mat-grid-list>
+
+    </mat-card>
+  </mat-grid-tile>
+
+  <!--Title, Price-->
+  <mat-grid-tile colspan="2" rowspan="1">
+
+    <mat-card>
+      <mat-card-title>Title</mat-card-title>
+      <br>
+      <mat-card-title>Price</mat-card-title>
+    </mat-card>
+
+  </mat-grid-tile>
+
+  <!--Lender & Location-->
+  <mat-grid-tile colspan="4" rowspan="1">
+
+    <mat-card>
+      <mat-card-title>Service provider:</mat-card-title>
+      <p>Information about the service provider</p>
+      <mat-card-title>Locations:</mat-card-title>
+      <p>Where is this service available</p>
+    </mat-card>
+
+  </mat-grid-tile>
+
+  <!--Description-->
+  <mat-grid-tile colspan="6" rowspan="1">
+
+    <mat-card>
+      <mat-card-title>Description:</mat-card-title>
+        <p>Description of the service</p>
+    </mat-card>
+
+  </mat-grid-tile>
+
+  <!--Expenses and cost of them-->
+  <mat-grid-tile colspan="6" rowspan="1">
+
+    <mat-card>
+      <mat-card-title>Expenses and their costs:</mat-card-title>
+      <p>Information about all the expenses</p>
+    </mat-card>
+
+  </mat-grid-tile>
+
+</mat-grid-list>

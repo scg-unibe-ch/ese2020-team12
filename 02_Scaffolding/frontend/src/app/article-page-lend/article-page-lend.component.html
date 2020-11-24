@@ -1,0 +1,91 @@
+<mat-grid-list cols="8"  rowHeight="144px">
+
+  <!--Banner-->
+  <mat-grid-tile colspan="8" rowspan="2" class="banner">
+    <img class="banner" id="banner-1" src="../../assets/Header_Home/Banner_selling.png" style="display:none;">
+    <img class="banner" id="banner-2" src="../../assets/Header_Home/Banner_Lending.png" style="display:block;">
+    <img class="banner" id="banner-3" src="../../assets/Header_Home/Banner_Service.png" style="display:none;">
+  </mat-grid-tile>
+
+  <!--Sidebar-->
+  <mat-grid-tile colspan="2" rowspan="3">
+    <mat-card>
+      <mat-card-title>Popular categories</mat-card-title>
+      <mat-card-subtitle>Find what specifically fits you!</mat-card-subtitle>
+
+      <form class="search-sidebar">
+        <mat-form-field style="width:90%">
+          <mat-label>Search for products</mat-label>
+          <input matInput placeholder="search products">
+        </mat-form-field>
+      </form>
+
+      <mat-grid-list cols="2" rowHeight="90px" class="categories">
+        <mat-grid-tile><button mat-button class="button" routerLink="/categories/clothes-shoes">clothes & shoes</button></mat-grid-tile>
+        <mat-grid-tile><button mat-button class="button" routerLink="/categories/electronics">electronics</button></mat-grid-tile>
+        <mat-grid-tile><button mat-button class="button" routerLink="/categories/household-garden">household & garden</button></mat-grid-tile>
+        <mat-grid-tile><button mat-button class="button" routerLink="/categories/realestate">real estate</button></mat-grid-tile>
+        <mat-grid-tile><button mat-button class="button" routerLink="/categories/sport">sport</button></mat-grid-tile>
+        <mat-grid-tile><button mat-button class="button" routerLink="/categories/vehicles">vehicles</button></mat-grid-tile>
+      </mat-grid-list>
+
+    </mat-card>
+  </mat-grid-tile>
+
+  <!--Title, Price and Picture-->
+  <mat-grid-tile colspan="2" rowspan="3">
+
+    <mat-card>
+      <mat-card-title>Title</mat-card-title>
+      <br>
+      <mat-card-title>Price</mat-card-title>
+      <br>
+      <mat-grid-list cols="1" rowHeight="300px" class="categories">
+        <mat-grid-tile>Picture of article</mat-grid-tile>
+      </mat-grid-list>
+    </mat-card>
+
+  </mat-grid-tile>
+
+  <!--Description-->
+  <mat-grid-tile colspan="4" rowspan="1">
+
+    <mat-card>
+      <mat-card-title>Description:</mat-card-title>
+      <p>Description</p>
+    </mat-card>
+
+  </mat-grid-tile>
+
+  <!--Delivery & delivery specs-->
+  <mat-grid-tile colspan="4" rowspan="1">
+
+    <mat-card>
+      <mat-card-title>Delivery & delivery specifications:</mat-card-title>
+      <div><!--*ngIf="this.currentArticleArray[7]"-->
+        <p>Available for delivery</p>
+        <p></p><!--{{this.currentArticleArray[8]}}-->
+      </div>
+      <div><!-- *ngIf="!(this.currentArticleArray[7])"-->
+        <p>Delivery unavailable</p>
+        <p></p><!--{{this.currentArticleArray[8]}}-->
+      </div>
+    </mat-card>
+
+  </mat-grid-tile>
+
+  <!--Seller and location-->
+  <mat-grid-tile colspan="4" rowspan="1">
+
+    <mat-card>
+      <mat-card-title>Lender and location:</mat-card-title>
+      <!-- Seller needs to be fetched by id -->
+      <p></p><!--{{this.currentArticleArray[5]}}-->
+    </mat-card>
+
+  </mat-grid-tile>
+
+</mat-grid-list>
+
+
+
