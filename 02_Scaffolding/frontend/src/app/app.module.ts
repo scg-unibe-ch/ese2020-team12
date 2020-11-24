@@ -46,7 +46,7 @@ import { GardenLawnComponent } from './services/garden-lawn/garden-lawn.componen
 import { HouseholdComponent } from './services/household/household.component';
 import { PrivatelessonsComponent } from './services/privatelessons/privatelessons.component';
 import { ReparationsComponent } from './services/reparations/reparations.component';
-import { SearchResultsComponent } from './search-results/search-results.component';
+// import { SearchResultsComponent } from './search-results/search-results.component';
 import {MatRadioModule} from '@angular/material/radio';
 import { ArticlePageComponent } from './article-page/article-page.component';
 import { SellproductPageComponent } from './sellproduct-page/sellproduct-page.component';
@@ -88,7 +88,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     HouseholdComponent,
     PrivatelessonsComponent,
     ReparationsComponent,
-    SearchResultsComponent,
+    // SearchResultsComponent,
     ArticlePageComponent,
     SellproductPageComponent,
     ArticlePageLendComponent,
@@ -129,7 +129,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
             {path: 'services/household', component: HouseholdComponent},
             {path: 'services/privatelessons', component: PrivatelessonsComponent},
             {path: 'services/reparations', component: ReparationsComponent},
-            {path: 'search-results', component: SearchResultsComponent},
+            // {path: 'search-results', component: SearchResultsComponent},
             {path: 'article-page', component: ArticlePageComponent},
             {path: 'sellproduct-page', component: SellproductPageComponent},
             {path: 'lendproduct-page', component: LendproductPageComponent},
