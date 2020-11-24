@@ -36,9 +36,9 @@
   <mat-grid-tile colspan="2" rowspan="1">
 
     <mat-card>
-      <mat-card-title>Title</mat-card-title>
+      <mat-card-title>{{this.article.title}}</mat-card-title>
       <br>
-      <mat-card-title>Price</mat-card-title>
+      <mat-card-title>{{this.article.price}}</mat-card-title>
     </mat-card>
 
   </mat-grid-tile>
@@ -48,9 +48,9 @@
 
     <mat-card>
       <mat-card-title>Service provider:</mat-card-title>
-      <p>Information about the service provider</p>
+      <p>{{this.article.title}}</p>
       <mat-card-title>Locations:</mat-card-title>
-      <p>Where is this service available</p>
+      <p>{{this.article.location}}</p>
     </mat-card>
 
   </mat-grid-tile>
@@ -60,7 +60,7 @@
 
     <mat-card>
       <mat-card-title>Description:</mat-card-title>
-        <p>Description of the service</p>
+        <p>{{this.article.description}}</p>
     </mat-card>
 
   </mat-grid-tile>
@@ -70,7 +70,7 @@
 
     <mat-card>
       <mat-card-title>Expenses and their costs:</mat-card-title>
-      <p>Information about all the expenses</p>
+      <p>{{this.article.price}}</p>
     </mat-card>
 
   </mat-grid-tile>

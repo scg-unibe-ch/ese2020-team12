@@ -3,8 +3,7 @@
 import { Injectable } from '@angular/core';
 import {environment} from '../environments/environment';
 import {HttpClient} from '@angular/common/http';
-import {delay, take} from 'rxjs/operators';
-import {Observable, Subscription, timer} from "rxjs";
+
 
 class SellProduct{
   sellProductId: number;
@@ -152,7 +151,7 @@ export class ArticleInfoService {
   }
 
   getAllServiceArticles(): any[] {
-    return this.allLendArticles;
+    return this.allServiceArticles;
   }
 
   saveServiceArticleTemp(id: number): void {
