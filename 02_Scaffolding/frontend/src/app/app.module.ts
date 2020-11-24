@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-//Imports from original scaffoling -->
+// Imports from original scaffoling -->
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
@@ -9,8 +9,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatCardModule } from '@angular/material/card';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-//import { TodoListComponent } from './todo-list/todo-list.component';
-//import { TodoItemComponent } from './todo-list/todo-item/todo-item.component';
+// import { TodoListComponent } from './todo-list/todo-list.component';
+// import { TodoItemComponent } from './todo-list/todo-item/todo-item.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { AuthInterceptor } from './auth/auth.interceptor';
@@ -46,8 +46,8 @@ import { GardenLawnComponent } from './services/garden-lawn/garden-lawn.componen
 import { HouseholdComponent } from './services/household/household.component';
 import { PrivatelessonsComponent } from './services/privatelessons/privatelessons.component';
 import { ReparationsComponent } from './services/reparations/reparations.component';
-// import { SearchResultsComponent } from './search-results/search-results.component';
-import {MatRadioModule} from '@angular/material/radio';
+import { SearchResultsComponent } from './search-results/search-results.component';
+import { MatRadioModule } from '@angular/material/radio';
 import { ArticlePageComponent } from './article-page/article-page.component';
 import { SellproductPageComponent } from './sellproduct-page/sellproduct-page.component';
 import { ArticlePageLendComponent } from './article-page-lend/article-page-lend.component';
@@ -62,8 +62,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
   declarations: [
     AppComponent,
-    //TodoListComponent,
-    //TodoItemComponent,
+    // TodoListComponent,
+    // TodoItemComponent,
     UserLoginComponent,
     TopbarComponent,
     SignupComponent,
@@ -88,7 +88,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     HouseholdComponent,
     PrivatelessonsComponent,
     ReparationsComponent,
-    // SearchResultsComponent,
+    SearchResultsComponent,
     ArticlePageComponent,
     SellproductPageComponent,
     ArticlePageLendComponent,
@@ -129,7 +129,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
             {path: 'services/household', component: HouseholdComponent},
             {path: 'services/privatelessons', component: PrivatelessonsComponent},
             {path: 'services/reparations', component: ReparationsComponent},
-            // {path: 'search-results', component: SearchResultsComponent},
+            {path: 'search-results', component: SearchResultsComponent},
             {path: 'article-page', component: ArticlePageComponent},
             {path: 'sellproduct-page', component: SellproductPageComponent},
             {path: 'lendproduct-page', component: LendproductPageComponent},
