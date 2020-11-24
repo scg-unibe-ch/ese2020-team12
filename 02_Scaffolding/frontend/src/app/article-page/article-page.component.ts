@@ -15,8 +15,6 @@ export class ArticlePageComponent implements OnInit {
     public articleInfoService: ArticleInfoService,
   ) { }
 
-  currentArticleArray: any;
-
   ngOnInit(): void {
     this.article = this.articleInfoService.getArticle();
 

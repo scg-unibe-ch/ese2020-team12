@@ -29,7 +29,7 @@ export class SellproductPageComponent implements OnInit {
   }
 
   moreInfos(id: number): void{
-    this.articleInfoService.saveArticleTemp(id);
+    this.articleInfoService.saveSellArticleTemp(id);
     setTimeout(() =>
       {
         this.router.navigate(['/article-page']);
