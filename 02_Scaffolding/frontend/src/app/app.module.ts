@@ -47,11 +47,14 @@ import { HouseholdComponent } from './services/household/household.component';
 import { PrivatelessonsComponent } from './services/privatelessons/privatelessons.component';
 import { ReparationsComponent } from './services/reparations/reparations.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
-import {MatRadioModule} from "@angular/material/radio";
+import {MatRadioModule} from '@angular/material/radio';
 import { ArticlePageComponent } from './article-page/article-page.component';
 import { SellproductPageComponent } from './sellproduct-page/sellproduct-page.component';
 import { ArticlePageLendComponent } from './article-page-lend/article-page-lend.component';
 import { ArticlePageServiceComponent } from './article-page-service/article-page-service.component';
+import { LendproductPageComponent } from './lendproduct-page/lendproduct-page.component';
+import { SellservicePageComponent } from './sellservice-page/sellservice-page.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 
@@ -89,7 +92,9 @@ import { ArticlePageServiceComponent } from './article-page-service/article-page
     ArticlePageComponent,
     SellproductPageComponent,
     ArticlePageLendComponent,
-    ArticlePageServiceComponent
+    ArticlePageServiceComponent,
+    LendproductPageComponent,
+    SellservicePageComponent
   ],
     imports: [
         BrowserModule,
@@ -103,6 +108,7 @@ import { ArticlePageServiceComponent } from './article-page-service/article-page
         MatTabsModule,
         MatToolbarModule,
         ReactiveFormsModule,
+        FlexLayoutModule,
         RouterModule.forRoot([
             {path: '', component: HomeComponent},
             {path: 'signup', component: SignupComponent},
@@ -126,6 +132,8 @@ import { ArticlePageServiceComponent } from './article-page-service/article-page
             {path: 'search-results', component: SearchResultsComponent},
             {path: 'article-page', component: ArticlePageComponent},
             {path: 'sellproduct-page', component: SellproductPageComponent},
+            {path: 'lendproduct-page', component: LendproductPageComponent},
+            {path: 'sellservice-page', component: SellservicePageComponent},
             {path: 'article-page-lend', component: ArticlePageLendComponent},
             {path: 'article-page-service', component: ArticlePageServiceComponent}
         ]),
