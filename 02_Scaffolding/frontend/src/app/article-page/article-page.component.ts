@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import {ArticleInfoService} from '../article-info.service';
 
+
 @Component({
   selector: 'app-article-page',
   templateUrl: './article-page.component.html',
   styleUrls: ['./article-page.component.css']
 })
 export class ArticlePageComponent implements OnInit {
+
+  public article: any;
 
   constructor(
     public articleInfoService: ArticleInfoService,
@@ -15,7 +18,8 @@ export class ArticlePageComponent implements OnInit {
   currentArticleArray: any;
 
   ngOnInit(): void {
-    this.currentArticleArray = this.articleInfoService.getSellArticleById(3);    // todo: fetch id from previous page
+    this.article = this.articleInfoService.getArticle();
+
   }
 
 }

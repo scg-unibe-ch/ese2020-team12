@@ -3,6 +3,8 @@
 import { Injectable } from '@angular/core';
 import {environment} from '../environments/environment';
 import {HttpClient} from '@angular/common/http';
+import {delay, take} from 'rxjs/operators';
+import {Observable, Subscription, timer} from "rxjs";
 
 class SellProduct{
   sellProductId: number;
@@ -15,6 +17,19 @@ class SellProduct{
   // SP specific:
   delivery: boolean;
   delSpec: string;
+
+  // tslint:disable-next-line:max-line-length
+  constructor(sellProductId: number, userId: number, title: string, price: string, description: string, location: string, category: number, delivery: boolean, delSpec: string) {
+    this.sellProductId = sellProductId;
+    this.userId = userId;
+    this.title = title;
+    this.price = price;
+    this.description = description;
+    this.location = location;
+    this.category = category;
+    this.delivery = delivery;
+    this.delSpec = delSpec;
+  }
 }
 
 class LendProduct{
@@ -51,6 +66,8 @@ class ServiceProduct{
 })
 export class ArticleInfoService {
 
+
+
   constructor(
     private httpClient: HttpClient
   ) {
@@ -69,6 +86,15 @@ export class ArticleInfoService {
 
   public currentArticleId: number;
   public currentArticleObject: any;
+
+
+
+// ----------Marko Stuff start---------------
+  private allSellArticles: any;
+  private productId: number;
+  private actualArticle: any;
+  private test: any
+  // ----------Marko Stuff ende---------------
 
 
   // Public Search Methods
@@ -290,6 +316,38 @@ export class ArticleInfoService {
     console.log(currentArticleId);
     this.currentArticleId = null;
     this.currentArticleId = currentArticleId;
+  }
+
+  // -----------Marko, bringe di Person um wo hie öppis macht---------------------
+
+
+
+  saveAllSellArticles(): void {
+    this.httpClient.get(environment.endpointURL + 'article/sell/')
+      .subscribe((res) => {
+        this.allSellArticles = res;
+        }
+      );
+  }
+
+  getAllSellArticles(): any[] {
+    return this.allSellArticles;
+  }
+
+  saveArticleTemp(id: number): void {
+    this.httpClient.get(environment.endpointURL + 'article/sell/' + id)
+    .subscribe(res => {
+        this.actualArticle = res;
+    });
+  }
+
+  getId(): any {
+    return this.productId;
+  }
+
+
+  getArticle(): any {
+    return this.actualArticle;
   }
 
 

@@ -36,9 +36,9 @@
   <mat-grid-tile colspan="2" rowspan="3">
 
     <mat-card>
-      <mat-card-title>{{this.currentArticleArray[2]}}</mat-card-title>
+      <mat-card-title>{{this.article.title}}</mat-card-title>
       <br>
-      <mat-card-title>{{this.currentArticleArray[3]}}.-</mat-card-title>
+      <mat-card-title>{{this.article.price}}</mat-card-title>
       <br>
       <mat-grid-list cols="1" rowHeight="300px" class="categories">
         <mat-grid-tile>Picture of article</mat-grid-tile>
@@ -52,7 +52,7 @@
 
     <mat-card>
       <mat-card-title>Description:</mat-card-title>
-      <p>{{this.currentArticleArray[4]}}</p>
+      <p>{{this.article.description}}</p>
     </mat-card>
 
   </mat-grid-tile>
@@ -62,13 +62,13 @@
 
     <mat-card>
       <mat-card-title>Delivery & delivery specifications:</mat-card-title>
-      <div *ngIf="this.currentArticleArray[7]">
+      <div *ngIf="this.article.delivery">
         <p>Available for delivery</p>
-        <p>{{this.currentArticleArray[8]}}</p>
+        <p>{{this.article.delSpec}}</p>
       </div>
-      <div *ngIf="!(this.currentArticleArray[7])">
+      <div *ngIf="!(this.article.delivery)">
         <p>Delivery unavailable</p>
-        <p>{{this.currentArticleArray[8]}}</p>
+        <p>{{this.article.delSpec}}</p>
       </div>
     </mat-card>
 
@@ -80,7 +80,7 @@
     <mat-card>
       <mat-card-title>Seller and location:</mat-card-title>
       <!-- Seller needs to be fetched by id -->
-      <p>{{this.currentArticleArray[5]}}</p>
+      <p> user </p>
     </mat-card>
 
   </mat-grid-tile>
