@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {passwordValidator} from './password-validator.directive';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
+import {UserInfoService} from '../user-info.service';
 
 
 @Component({
@@ -72,6 +73,8 @@ export class SignupComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private httpClient: HttpClient,
+    private router: Router,
+    public userInfoService: UserInfoService
   ) {
     this.signUpForm = this.formBuilder.group({
       name: new FormControl('', Validators.compose([
@@ -128,24 +131,24 @@ export class SignupComponent implements OnInit {
       password: this.password,
       balance: this.balance
     }).subscribe((res: any) => {
-      // Set user data in local storage
-      localStorage.setItem('name', res.name);
-      localStorage.setItem('surname', res.surname);
-      localStorage.setItem('userName', res.userName);
-      localStorage.setItem('password', this.password);
-      localStorage.setItem('email', res.email);
-      localStorage.setItem('street', res.street);
-      localStorage.setItem('houseNumber', res.houseNumber);
-      localStorage.setItem('place', res.place);
-      localStorage.setItem('postalCode', res.postalCode);
-      localStorage.setItem('password', res.password);
-      localStorage.setItem('userToken', res.token);
-      localStorage.setItem('balance', res.balance);
+      this.httpClient.post(environment.endpointURL + 'user/login', {
+        userName: this.username,
+        password: this.password
+      }).subscribe((lol: any) => {
+        console.log('test1');
+        // Set user data in user service
+        localStorage.setItem('userToken', lol.token); // token in localstorage too
+        localStorage.setItem('username', this.username);
+        localStorage.setItem('password', this.password);
+        this.userInfoService.setUserToken(lol.token);
+        this.userInfoService.setExtendedUserInfo(lol.user);
+        this.userInfoService.checkUserStatus();
+      });
     });
-    this.login();
-  }
-  login(): void {
-    this.userToken = localStorage.getItem('userToken');
-    this.loggedIn = !!(this.userToken);
+    setTimeout(() =>
+      {
+        this.router.navigate(['/']);
+      },
+      1000);
   }
 }

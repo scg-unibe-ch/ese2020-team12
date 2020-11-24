@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import { UserInfoService } from '../user-info.service';
-import {ArticleInfoService} from "../article-info.service";
+import {ArticleInfoService} from '../article-info.service';
 
 @Component({
   selector: 'app-topbar',
