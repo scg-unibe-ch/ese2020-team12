@@ -30,7 +30,6 @@ export class TopbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.userInfoService.checkUserStatus();
-    this.userInfoService.getUserFromBackend();
   }
 
   login(): void {
