@@ -72,16 +72,6 @@ export class ArticleInfoService {
 
 
 
-  iteratorArray: any[];
-
-  private sellSearchResults: number[];
-
-  private lendSearchResults: number[];
-  private servSearchResults: number[];
-  private sellResults: number[];
-
-  private lendResults: number[];
-  private servResults: number[];
   public currentArticleId: number;
 
   // ----------Marko Stuff ende---------------
@@ -96,6 +86,40 @@ export class ArticleInfoService {
   private allServiceArticles: any;
   private productId: number;
   private actualArticle: any;
+  private searchTerm: any;
+  private sellSearchResult: any;
+  private lendSearchResult: any;
+  private serviceSearchResult: any;
+
+
+  // --------Search----------------
+  setSearchTerm(searchTerm: any): void {
+    this.searchTerm = searchTerm;
+  }
+
+  searchEngine(): void {
+    this.httpClient.get(environment.endpointURL + 'search/sellproduct?search=' + this.searchTerm).subscribe(res => {
+      this.sellSearchResult = res;
+    });
+    this.httpClient.get(environment.endpointURL + 'search/lendproduct?search=' + this.searchTerm).subscribe(res => {
+      this.lendSearchResult = res;
+    });
+    this.httpClient.get(environment.endpointURL + 'search/provided-service?search=' + this.searchTerm).subscribe(res => {
+      this.serviceSearchResult = res;
+    });
+
+  }
+
+  getSellSearchResult(): any {
+    return this.sellSearchResult;
+  }
+  getLendSearchResult(): any {
+    return this.lendSearchResult;
+  }
+  getServiceSearchResult(): any {
+    return this.serviceSearchResult;
+  }
+
 
 
   // -----------Marko, bringe di Person um wo hie öppis macht---------------------

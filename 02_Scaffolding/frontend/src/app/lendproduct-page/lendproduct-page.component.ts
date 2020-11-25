@@ -23,11 +23,7 @@ export class LendproductPageComponent implements OnInit {
 
   moreInfos(id: number): void{
     this.articleInfoService.saveLendArticleTemp(id);
-    setTimeout(() =>
-      {
-        this.router.navigate(['/article-page-lend']);
-      },
-      1000);
+    this.router.navigate(['/article-page-lend']);
   }
 
 }
