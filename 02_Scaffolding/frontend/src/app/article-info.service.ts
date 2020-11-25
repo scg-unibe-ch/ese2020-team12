@@ -51,7 +51,7 @@ export class ArticleInfoService {
   }
 
   getServiceCategory(cat: any): void {
-    this.httpClient.get(environment.endpointURL + 'category/service' + cat)
+    this.httpClient.get(environment.endpointURL + 'category/service/' + cat)
       .subscribe(items => {
         this.serviceCategoryList = items;
       });
