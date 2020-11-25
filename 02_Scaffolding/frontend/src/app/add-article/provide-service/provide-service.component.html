@@ -1,24 +1,24 @@
-<mat-card>
+<mat-card class="example-form">
 
   <div [formGroup]="addArticleForm" class="container-productSelling">
 
     <h2>Providing a Service</h2>
 
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="fill" class="field">
       <mat-label for="title">Title</mat-label>
       <input matInput [(ngModel)]="title" id="title" type="text" formControlName="title" required>
     </mat-form-field>
 
     <br>
 
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="fill" class="field">
       <mat-label for="price">Price (CHF)</mat-label>
       <input matInput [(ngModel)]="price" id="price" formControlName="price" required>
     </mat-form-field>
 
     <br>
 
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="fill" class="field">
       <mat-label for="pricingType">Price</mat-label>
       <mat-select class="custom-select" [(ngModel)]="pricingType" id="pricingType" formControlName="pricingType" required>
         <mat-option *ngFor="let pricingType of pricingOptions" [value]="pricingType.value">
@@ -29,7 +29,7 @@
 
     <br>
 
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="fill" class="field">
       <mat-label for="category">Category</mat-label>
       <mat-select class="custom-select" [(ngModel)]="category" id="category" formControlName="category" required>
         <mat-option *ngFor="let category of categories" [value]="category.id">
@@ -40,28 +40,28 @@
 
     <br>
 
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="fill" class="field">
       <mat-label for="description">Description</mat-label>
       <textarea matInput [(ngModel)]="description" id="description" formControlName="description" required></textarea>
     </mat-form-field>
 
     <br>
 
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="fill" class="field">
       <mat-label for="location">Location</mat-label>
       <input matInput [(ngModel)]="location" id="location" type="text" formControlName="location" required>
     </mat-form-field>
 
     <br>
 
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="fill" class="field">
       <mat-label for="expenses">Expenses</mat-label>
       <textarea matInput [(ngModel)]="expenses" id="expenses" formControlName="expenses" required></textarea>
     </mat-form-field>
 
     <br>
 
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="fill" class="field">
       <mat-label for="expensesCost">Expenses Cost (CHF)</mat-label>
       <input matInput [(ngModel)]="expensesCost" id="expensesCost" type="text" formControlName="expensesCost" required>
     </mat-form-field>

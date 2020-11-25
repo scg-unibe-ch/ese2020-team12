@@ -1,5 +1,5 @@
 
-<mat-card>
+<!--<mat-card>
 
   <h2>I would like to</h2>
 
@@ -17,7 +17,250 @@
     <button mat-raised-button color="primary" [routerLink]="articleForm.value" >Next</button>
   </div>
 
-</mat-card>
+</mat-card>-->
+
+<mat-tab-group mat-align-tabs="center">
+  <mat-tab label="Sell a product">
+
+    <!--<mat-card class="example-form">
+
+      <div [formGroup]="addArticleForm" class="container-productSelling">
+
+        <h2>Selling a Product</h2>
+
+        <mat-form-field appearance="fill" class="field">
+          <mat-label for="title">Title</mat-label>
+          <input matInput [(ngModel)]="sellTitle" type="text" formControlName="title" required>
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field appearance="fill" class="field">
+          <mat-label for="price">Price (CHF)</mat-label>
+          <input matInput [(ngModel)]="sellPrice" formControlName="price" required>
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field appearance="fill" class="field">
+          <mat-label for="category">Category</mat-label>
+          <mat-select class="custom-select" [(ngModel)]="sellCategory" formControlName="category" required>
+            <mat-option *ngFor="let category of categories" [value]="category.id">
+              {{category.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field appearance="fill" class="field">
+          <mat-label for="description">Description</mat-label>
+          <textarea matInput [(ngModel)]="sellDescription" formControlName="description" required></textarea>
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field appearance="fill" class="field">
+          <mat-label for="location">Location</mat-label>
+          <input matInput [(ngModel)]="sellLocation" type="text" formControlName="location" required>
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field appearance="fill" class="field">
+          <mat-label for="delivery">Delivery</mat-label>
+          <mat-select class="custom-select" [(ngModel)]="sellDelivery" id="delivery" formControlName="delivery" required>
+            <mat-option *ngFor="let delivery of deliveryOptions" [value]="delivery.value">
+              {{delivery.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field appearance="fill" class="field">
+          <mat-label for="deliverySpecs">Delivery Specification</mat-label>
+          <textarea matInput [(ngModel)]="sellDeliverySpecs" id="deliverySpecs" formControlName="deliverySpecs" required></textarea>
+        </mat-form-field>
+
+        <br>
+
+        <button mat-raised-button color="primary" (click)="addArticleRequest()">Add Product</button>
+
+      </div>
+
+
+    </mat-card>-->
+
+  </mat-tab>
+
+
+  <mat-tab label="Lend a product">
+
+    <!--<mat-card class="example-form">
+
+      <div [formGroup]="addArticleForm" class="container-productSelling">
+
+        <h2>Lending a Product</h2>
+
+        <mat-form-field appearance="fill" class="field">
+          <mat-label for="title">Title</mat-label>
+          <input matInput [(ngModel)]="lendTitle" type="text" formControlName="title" required>
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field appearance="fill" class="field">
+          <mat-label for="price">Price (CHF)</mat-label>
+          <input matInput [(ngModel)]="lendPrice" formControlName="price" required>
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field appearance="fill" class="field">
+          <mat-label for="pricingType">Price</mat-label>
+          <mat-select class="custom-select" [(ngModel)]="lendPricingType" formControlName="pricingType" required>
+            <mat-option *ngFor="let pricingType of pricingOptions" [value]="pricingType.value">
+              {{pricingType.value}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field appearance="fill" class="field">
+          <mat-label for="category">Category</mat-label>
+          <mat-select class="custom-select" [(ngModel)]="lendCategory" formControlName="category" required>
+            <mat-option *ngFor="let category of categories" [value]="category.id">
+              {{category.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field appearance="fill" class="field">
+          <mat-label for="description">Description</mat-label>
+          <textarea matInput [(ngModel)]="lendDescription" formControlName="description" required></textarea>
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field appearance="fill" class="field">
+          <mat-label for="location">Location</mat-label>
+          <input matInput [(ngModel)]="lendLocation" type="text" formControlName="location" required>
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field appearance="fill" class="field">
+          <mat-label for="lendingStatus">Status</mat-label>
+          <mat-select class="custom-select" [(ngModel)]="lendLendingStatus" id="lendingStatus" formControlName="lendingStatus" required>
+            <mat-option *ngFor="let lendingStatus of statusOptions" [value]="lendingStatus.value">
+              {{lendingStatus.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field appearance="fill" class="field">
+          <mat-label for="handling">Handling</mat-label>
+          <textarea matInput [(ngModel)]="lendHandling" id="handling" formControlName="handling" required></textarea>
+        </mat-form-field>
+
+        <br>
+
+        <button mat-raised-button color="primary" (click)="addArticleRequest()">Add Product</button>
+
+      </div>
+
+
+    </mat-card>-->
+
+  </mat-tab>
+
+
+  <mat-tab label="Provide a service">
+
+    <!--<mat-card class="example-form">
+
+      <div [formGroup]="addArticleForm" class="container-productSelling">
+
+        <h2>Providing a Service</h2>
+
+        <mat-form-field appearance="fill" class="field">
+          <mat-label for="title">Title</mat-label>
+          <input matInput [(ngModel)]="serviceTitle" type="text" formControlName="title" required>
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field appearance="fill" class="field">
+          <mat-label for="price">Price (CHF)</mat-label>
+          <input matInput [(ngModel)]="servicePrice" formControlName="price" required>
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field appearance="fill" class="field">
+          <mat-label for="pricingType">Price</mat-label>
+          <mat-select class="custom-select" [(ngModel)]="servicePricingType" formControlName="pricingType" required>
+            <mat-option *ngFor="let pricingType of pricingOptions" [value]="pricingType.value">
+              {{pricingType.value}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field appearance="fill" class="field">
+          <mat-label for="category">Category</mat-label>
+          <mat-select class="custom-select" [(ngModel)]="serviceCategory" formControlName="category" required>
+            <mat-option *ngFor="let category of categories" [value]="category.id">
+              {{category.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field appearance="fill" class="field">
+          <mat-label for="description">Description</mat-label>
+          <textarea matInput [(ngModel)]="serviceDescription" formControlName="description" required></textarea>
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field appearance="fill" class="field">
+          <mat-label for="location">Location</mat-label>
+          <input matInput [(ngModel)]="serviceLocation" type="text" formControlName="location" required>
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field appearance="fill" class="field">
+          <mat-label for="expenses">Expenses</mat-label>
+          <textarea matInput [(ngModel)]="serviceExpenses" formControlName="expenses" required></textarea>
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field appearance="fill" class="field">
+          <mat-label for="expensesCost">Expenses Cost (CHF)</mat-label>
+          <input matInput [(ngModel)]="serviceExpensesCost" type="text" formControlName="expensesCost" required>
+        </mat-form-field>
+
+        <br>
+
+        <button mat-raised-button color="primary" (click)="addArticleRequest()">Add Service</button>
+
+      </div>
+    </mat-card>-->
+
+  </mat-tab>
+
+</mat-tab-group>
 
 
 
