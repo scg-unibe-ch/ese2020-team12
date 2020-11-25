@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ArticleInfoService} from '../../article-info.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-garden-lawn',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GardenLawnComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public articleInfoService: ArticleInfoService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+    this.articleInfoService.getServiceCategory(3);
+  }
+
+  moreServiceInfos(id: number): void{
+    this.articleInfoService.saveServiceArticleTemp(id);
+    setTimeout(() =>
+      {
+        this.router.navigate(['/article-page-service']);
+      },
+      1000);
   }
 
 }
