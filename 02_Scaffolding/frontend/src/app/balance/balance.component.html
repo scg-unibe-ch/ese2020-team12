@@ -1,6 +1,33 @@
-<mat-form-field class="example-full-width">
-  <mat-label>Balance</mat-label>
-  <input matInput name="balance" [(ngModel)]="balance" placeholder="{{ balance }}" >
-</mat-form-field>
+<mat-card class="example-form">
+  <form class="example-form">
 
-<button mat-button (click)="sendForm()">Save changes</button>
+    <h1><strong>Operate your iocus! credit balance</strong></h1>
+    <br>
+    <br>
+    <mat-card-content>
+      <h3><strong>Choose which account you want to debit:</strong></h3>
+      <br>
+      <mat-radio-group aria-label="Select an option">
+        <mat-radio-button value="1">bank account</mat-radio-button>
+        <mat-radio-button value="2">post account</mat-radio-button>
+        <mat-radio-button value="3">paypal account</mat-radio-button>
+      </mat-radio-group>
+    </mat-card-content>
+    <br>
+    <br>
+    <mat-card-content>
+      <h3><strong>Amount to add to your balance (CHF):</strong></h3>
+      <mat-form-field class="example-full-width">
+        <mat-label>Amount to add</mat-label>
+        <input matInput name="balance" [(ngModel)]="balance" placeholder="{{ balance }}" >
+      </mat-form-field>
+    </mat-card-content>
+    <br>
+    <mat-card-content>
+      <mat-checkbox>agree <a button routerLink="/termsofservice">terms of service</a></mat-checkbox>
+    </mat-card-content>
+    <br>
+    <button mat-raised-button color="primary" (click)="sendForm()">Save changes</button>
+
+  </form>
+</mat-card>
