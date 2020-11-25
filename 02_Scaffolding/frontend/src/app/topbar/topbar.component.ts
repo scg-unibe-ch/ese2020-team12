@@ -66,7 +66,9 @@ export class TopbarComponent implements OnInit {
     this.articleInfoService.setSearchTerm(this.searchTerm);
     setTimeout(() =>
       {
-        this.router.navigate(['/search-results']);
+        this.router.navigateByUrl('/', {skipLocationChange: true}).then(() =>
+          this.router.navigate(['/search-results']));
+        // this.router.navigate(['/search-results']);
       },
       1000);
 
