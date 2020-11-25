@@ -15,6 +15,7 @@ export class TopbarComponent implements OnInit {
   // local variables necessary for input logic
   username = '';
   password = '';
+  public balance: number;
 
   searchTerm;
 
@@ -29,6 +30,7 @@ export class TopbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.userInfoService.checkUserStatus();
+    this.userInfoService.getUserFromBackend();
   }
 
   login(): void {
