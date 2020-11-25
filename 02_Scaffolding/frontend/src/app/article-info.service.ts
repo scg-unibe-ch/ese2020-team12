@@ -73,17 +73,22 @@ export class ArticleInfoService {
   // --------Search----------------
   setSearchTerm(searchTerm: any): void {
     this.searchTerm = searchTerm;
+    console.log(this.searchTerm);
   }
 
   searchEngine(): void {
+    console.log(this.searchTerm);
     this.httpClient.get(environment.endpointURL + 'search/sellproduct?search=' + this.searchTerm).subscribe(res => {
       this.sellSearchResult = res;
+      console.log(res);
     });
     this.httpClient.get(environment.endpointURL + 'search/lendproduct?search=' + this.searchTerm).subscribe(res => {
       this.lendSearchResult = res;
+      console.log(res);
     });
     this.httpClient.get(environment.endpointURL + 'search/provided-service?search=' + this.searchTerm).subscribe(res => {
       this.serviceSearchResult = res;
+      console.log(res);
     });
 
   }

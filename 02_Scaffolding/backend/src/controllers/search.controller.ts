@@ -68,7 +68,7 @@ searchController.get('/lendproduct', async (req, res) => {
         for (const entry of searchTerm) {
             await LendProductItem.findAll({
                 where: {
-                    [Op.and]: [
+                    [Op.or]: [
                         {title: {[Op.like]: '%' + entry + '%'}},
                         {description: {[Op.like]: '%' + entry + '%'}}
                     ]
@@ -103,30 +103,34 @@ searchController.get('/lendproduct', async (req, res) => {
 // search Service
 searchController.get('/provided-service', async (req, res) => {
     try {
-    const term = req.query.search as string;
-    const list = [];
-    const searchTerm = term.split(' ');
-    for (const entry of searchTerm) {
-    await ServiceItem.findAll({where: {
-            [Op.and]: [
-                {title: {[Op.like]: '%' + searchTerm + '%'}},
-                {description: {[Op.like]: '%' + searchTerm + '%'}}
-            ]
-        }})
-        .then(items => {
-            if (items !== null) {
-                list.push(items);
-            } else {
-                res.sendStatus(404);
-            }})
-        .catch(err => res.send(err));
-    }
-    const arrayList = [];
-    for (let i = 0; i < list.length; i++) {
-        for (let j = 0; j < list[i].length; j++) {
-            arrayList.push(list[i][j].dataValues);
+        const term = req.query.search as string;
+        const list = [];
+        const searchTerm = term.split(' ');
+        for (const entry of searchTerm) {
+            await ServiceItem.findAll({
+                where: {
+                    [Op.or]: [
+                        {title: {[Op.like]: '%' + entry + '%'}},
+                        {description: {[Op.like]: '%' + entry + '%'}}
+                    ]
+                }
+            })
+                .then(items => {
+                    if (items !== null) {
+                        console.log(items);
+                        list.push(items);
+                    } else {
+                        res.sendStatus(404);
+                    }})
+                .catch(err => res.send(err));
         }
-    }
+        const arrayList = [];
+        for (let i = 0; i < list.length; i++) {
+            for (let j = 0; j < list[i].length; j++) {
+                arrayList.push(list[i][j].dataValues);
+                console.log(list[i][j].dataValues);
+            }
+        }
         if (moreWords(searchTerm)) {
             const comparedArray = searchValueServ(arrayList);
             const uniqueArray = filterDuplicateServ(comparedArray);
