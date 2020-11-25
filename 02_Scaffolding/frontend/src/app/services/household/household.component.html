@@ -11,14 +11,7 @@
     <mat-card>
       <mat-card-title>Other popular services</mat-card-title>
       <mat-card-subtitle>Find what specifically fits you!</mat-card-subtitle>
-
-      <form class="search-sidebar">
-        <mat-form-field style="width:90%">
-          <mat-label>Search for household aids</mat-label>
-          <input matInput placeholder="search services">
-        </mat-form-field>
-      </form>
-
+      <br>
       <mat-grid-list cols="2" rowHeight="90px" class="categories">
         <mat-grid-tile><button mat-button class="button" routerLink="/services/babysitting">babysitting</button></mat-grid-tile>
         <mat-grid-tile><button mat-button class="button" routerLink="/services/carpool">carpool</button></mat-grid-tile>
@@ -56,59 +49,71 @@
   </mat-grid-tile>
 
   <!--filters-->
-  <mat-grid-tile colspan="2" rowspan="4">
+  <mat-grid-tile colspan="8" rowspan="1">
     <mat-card>
       <mat-card-header class="filtertitle">
         <mat-card-title>Filters:</mat-card-title>
       </mat-card-header>
-      <br>
-      <mat-card-content>
+
+      <mat-card-content class="filterelement1">
         <h3>Search for products in your location: </h3>
         <mat-form-field>
           <input matInput type=text name="location" placeholder="Enter your city">
         </mat-form-field>
       </mat-card-content>
 
-      <mat-card-content>
+      <mat-card-content class="filterelement">
         <h3>Pricing lower limit: </h3>
         <mat-form-field>
           <input matInput type=text name="price" placeholder="Enter your lower price limit:">
         </mat-form-field>
       </mat-card-content>
 
-      <mat-card-content>
+      <mat-card-content class="filterelement">
         <h3>Pricing upper limit: </h3>
         <mat-form-field>
           <input matInput type=text name="price" placeholder="Enter your upper price limit:">
         </mat-form-field>
       </mat-card-content>
 
-      <mat-card-content>
+      <mat-card-content class="filterelement">
         <h3>Price per: </h3>
+        <mat-card-content class="spacer"></mat-card-content>
         <mat-radio-group aria-label="Select an option">
           <mat-radio-button value="1">Hour</mat-radio-button>
           <mat-radio-button value="2">Day</mat-radio-button>
         </mat-radio-group>
       </mat-card-content>
 
-      <button mat-raised-button color="primary"> <!--(click)="sendForm()"--> apply</button>
+      <form class="search-sidebar" class="filterelement">
+        <mat-form-field style="width:90%" appearance="fill">
+          <mat-label>Search for household aid</mat-label>
+          <input matInput placeholder="search services">
+        </mat-form-field>
+      </form>
+
+      <button class="filterbutton" mat-raised-button color="primary"> <!--(click)="sendForm()"--> apply</button>
 
     </mat-card>
 
   </mat-grid-tile>
-
-  <!--in your area-->
-  <mat-grid-tile colspan="6" rowspan="4">
-    <mat-card>
-      <mat-card-header class="title">
-        <mat-card-title>Household aids in your area:</mat-card-title>
-      </mat-card-header>
-    </mat-card>
-  </mat-grid-tile>
-  <!--
-  <p>{{articleIds}}</p>
-  -->
 
 </mat-grid-list>
+
+<div class="content" fxLayout="row wrap">
+  <div fxFlex="25%" *ngFor="let article of this.articleInfoService.getServiceSearchResult();" class="bottomspace">
+    <mat-card class="card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{article.title}}</mat-card-title>
+        <mat-card-subtitle>{{article.price}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+      <mat-card-actions>
+        <button mat-button (click)="moreServiceInfos(article.serviceId)">more infos</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
 
 

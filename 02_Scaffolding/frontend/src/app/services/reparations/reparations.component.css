@@ -6,6 +6,7 @@
 .banner img{
   width: 100%;
 }
+
 .mat-grid-list {
   margin: 0 auto;
   width: 100vw;
@@ -52,5 +53,23 @@
 
 .filtertitle{
   margin-left: -16px;
+  height: 25px;
+}
+
+.filterelement{
+  display: inline-block;
+  margin-left: 60px;
+}
+
+.filterelement1{
+  display: inline-block;
+}
+
+.filterbutton{
+  margin-left: 30px;
+}
+
+.spacer{
+  margin-bottom: 31px;
 }
 
