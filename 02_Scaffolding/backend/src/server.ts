@@ -19,6 +19,7 @@ import {ProfilePhoto} from './models/profilePhoto.model';
 import {GetArticleController} from './controllers/getArticles.controller';
 import {SearchController} from './controllers/search.controller';
 import {SellFilterController} from './controllers/filter.controller';
+import {GetCategoryController} from './controllers/getCategory.controller';
 
 
 
@@ -76,6 +77,7 @@ export class Server {
             .use('/secured', SecuredController)
             .use('/filter', SellFilterController)
             .use('/article', GetArticleController)
+            .use('/category', GetCategoryController)
             .options('*', cors(options))
             .use(express.static('./src/public'))
             // this is the message you get if you open http://localhost:3000/ when the server is running
