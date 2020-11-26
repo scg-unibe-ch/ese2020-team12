@@ -57,6 +57,7 @@ import { SellservicePageComponent } from './sellservice-page/sellservice-page.co
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BalanceComponent } from './balance/balance.component';
 import { TermsofserviceComponent } from './termsofservice/termsofservice.component';
+import {AngularSvgIconModule} from "angular-svg-icon";
 
 
 
@@ -146,7 +147,8 @@ import { TermsofserviceComponent } from './termsofservice/termsofservice.compone
         FormsModule,
         MatSelectModule,
         MatGridListModule,
-        MatRadioModule
+        MatRadioModule,
+        AngularSvgIconModule
     ],
   providers: [
     {

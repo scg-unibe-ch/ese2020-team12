@@ -1,10 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, NgModule, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import { UserInfoService } from '../user-info.service';
 import {ArticleInfoService} from '../article-info.service';
 import {Router} from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
+@NgModule({
+  imports: [ HttpClientModule, AngularSvgIconModule.forRoot() ]
+})
+
+export class AppModule {}
 @Component({
   selector: 'app-topbar',
   templateUrl: './topbar.component.html',
