@@ -14,59 +14,80 @@ import {ServiceItem} from '../models/service.model';
 const filterController: Router = express.Router();
 
 
+function booleanConverter(input: any): boolean {
+    if (input === 'true') {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 
-filterController.get('/sell',
+
+
+filterController.get('/sell/:category',
     async (req, res) => {
     const city = req.query.city;
-    const delivery = req.query.delivery;
-    const category = req.query.category;
+    let delivery;
+    if (req.query.delivery !== '') {
+        delivery = booleanConverter(req.query.delivery);
+    } else {
+        delivery = '';
+    }
+    const category = req.params.category;
     const lowerPrice = Number(req.query.lowerPrice);
     let upperPrice = Number(req.query.upperPrice);
-    if (upperPrice === 0) {
+    let zeroFlag = false;
+    if (req.query.upperPrice === '0') {
         upperPrice = 9999999999999;
     }
     const list = [];
     let counter = 0;
-    if (category !== '') {
+    if (city !== '') {
         counter++;
         await SellProductItem.findAll({
             where: {
-                category: category
+                [Op.and]: [
+                    {location:  city},
+                    {category: category}
+                ]
             }
         }).then(articles => {
             list.push(articles);
-        })
-            .catch(err => res.send(err));
-    }
-    if (city !== null) {
-        counter++;
-        await SellProductItem.findAll({
-            where: {
-                location: {[Op.like]: city}
+            if ( articles.length === 0 ) {
+                zeroFlag = true;
             }
-        }).then(articles => {
-            list.push(articles);
         })
         .catch(err => res.send(err));
     }
-    if (delivery === 'true') {
+    if (delivery !== '') {
+        counter++;
         await SellProductItem.findAll({
             where: {
-                delivery: true
+                [Op.and]: [
+                    {delivery: delivery},
+                    {category: category}
+                    ]
             }
         }).then(articles => {
             list.push(articles);
+            if ( articles.length === 0 ) {
+                zeroFlag = true;
+            }
         })
             .catch(err => res.send(err));
     }
-    counter++;
     await SellProductItem.findAll({
-        where: {
-            price: {
-                [Op.between]: [lowerPrice, upperPrice]}}
-    }).then(articles => {
+    where: {
+        [Op.and]: [
+            {price: {[Op.between]: [lowerPrice, upperPrice]}},
+            {category: category}
+        ]
+    }}).then(articles => {
         list.push(articles);
+        if ( articles.length === 0 ) {
+            zeroFlag = true;
+        }
     })
         .catch(err => res.send(err));
     const arrayList = [];
@@ -76,12 +97,20 @@ filterController.get('/sell',
             arrayList.push(list[i][j].dataValues);
         }
     }
-    if (counter > 1) {
+    if (counter > 0) {
         const comparedArray = searchValueSell(arrayList);
         const uniqueArray = filterDuplicateSell(comparedArray);
-        res.send(uniqueArray);
+        if (!zeroFlag) {
+            res.send(uniqueArray);
+        } else {
+            res.send([]);
+        }
     } else {
-        res.send(arrayList);
+        if (!zeroFlag) {
+            res.send(arrayList);
+        } else {
+            res.send([]);
+        }
     }
 });
 
