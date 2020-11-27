@@ -6,7 +6,31 @@
 }
 
 .mat-grid-tile {
-  border: 1px solid black;
+  border: 0px solid black;
+  max-width: 40%;
+  float: left;
+}
+
+.pic{
+  margin-top: 18px;
+  width: 33%;
+  height: 380px;
+  float: right;
+  margin-right: -5px;
+}
+
+#image{
+  max-height: 70%;
+  max-width: 100%;
+  margin-top: 15%;
+  margin-bottom: 15%;
+}
+
+.profile{
+  width: 99%;
+  max-width: 100%;
+  margin: 0 auto;
+  margin-bottom: 10px;
 }
 
 .edit-profile {

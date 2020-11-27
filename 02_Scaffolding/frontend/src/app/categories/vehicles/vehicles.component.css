@@ -73,3 +73,11 @@
   margin-bottom: 31px;
 }
 
+.mat-tab-element{
+  max-width: 100%;
+}
+
+.pagewidth{
+  max-width: 100%;
+}
+

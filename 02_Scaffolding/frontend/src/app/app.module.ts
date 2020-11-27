@@ -58,6 +58,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { BalanceComponent } from './balance/balance.component';
 import { TermsofserviceComponent } from './termsofservice/termsofservice.component';
 import {AngularSvgIconModule} from "angular-svg-icon";
+import {MatIconModule} from "@angular/material/icon";
+import {MatMenuModule} from "@angular/material/menu";
+import {MatTableModule} from "@angular/material/table";
+import { BottombarComponent } from './bottombar/bottombar.component';
 
 
 
@@ -99,57 +103,61 @@ import {AngularSvgIconModule} from "angular-svg-icon";
     LendproductPageComponent,
     SellservicePageComponent,
     BalanceComponent,
-    TermsofserviceComponent
+    TermsofserviceComponent,
+    BottombarComponent
   ],
-    imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        HttpClientModule,
-        MatButtonModule,
-        MatListModule,
-        MatInputModule,
-        MatCheckboxModule,
-        MatCardModule,
-        MatTabsModule,
-        MatToolbarModule,
-        ReactiveFormsModule,
-        FlexLayoutModule,
-        RouterModule.forRoot([
-            {path: '', component: HomeComponent},
-            {path: 'signup', component: SignupComponent},
-            {path: 'profile', component: ProfileComponent},
-            {path: 'add-article', component: AddArticleComponent},
-            {path: 'add-article/sell-product', component: SellProductComponent},
-            {path: 'add-article/lend-product', component: LendProductComponent},
-            {path: 'add-article/provide-service', component: ProvideServiceComponent},
-            {path: 'categories/clothes-shoes', component: ClothesShoesComponent},
-            {path: 'categories/electronics', component: ElectronicsComponent},
-            {path: 'categories/household-garden', component: HouseholdGardenComponent},
-            {path: 'categories/realestate', component: RealestateComponent},
-            {path: 'categories/sport', component: SportComponent},
-            {path: 'categories/vehicles', component: VehiclesComponent},
-            {path: 'services/babysitting', component: BabysittingComponent},
-            {path: 'services/carpool', component: CarpoolComponent},
-            {path: 'services/garden-lawn', component: GardenLawnComponent},
-            {path: 'services/household', component: HouseholdComponent},
-            {path: 'services/privatelessons', component: PrivatelessonsComponent},
-            {path: 'services/reparations', component: ReparationsComponent},
-            {path: 'search-results', component: SearchResultsComponent},
-            {path: 'article-page', component: ArticlePageComponent},
-            {path: 'sellproduct-page', component: SellproductPageComponent},
-            {path: 'lendproduct-page', component: LendproductPageComponent},
-            {path: 'sellservice-page', component: SellservicePageComponent},
-            {path: 'article-page-lend', component: ArticlePageLendComponent},
-            {path: 'article-page-service', component: ArticlePageServiceComponent},
-            {path: 'balance', component: BalanceComponent},
-            {path: 'termsofservice', component: TermsofserviceComponent}
-        ]),
-        FormsModule,
-        MatSelectModule,
-        MatGridListModule,
-        MatRadioModule,
-        AngularSvgIconModule
-    ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    MatButtonModule,
+    MatListModule,
+    MatInputModule,
+    MatCheckboxModule,
+    MatCardModule,
+    MatTabsModule,
+    MatToolbarModule,
+    ReactiveFormsModule,
+    FlexLayoutModule,
+    RouterModule.forRoot([
+      {path: '', component: HomeComponent},
+      {path: 'signup', component: SignupComponent},
+      {path: 'profile', component: ProfileComponent},
+      {path: 'add-article', component: AddArticleComponent},
+      {path: 'add-article/sell-product', component: SellProductComponent},
+      {path: 'add-article/lend-product', component: LendProductComponent},
+      {path: 'add-article/provide-service', component: ProvideServiceComponent},
+      {path: 'categories/clothes-shoes', component: ClothesShoesComponent},
+      {path: 'categories/electronics', component: ElectronicsComponent},
+      {path: 'categories/household-garden', component: HouseholdGardenComponent},
+      {path: 'categories/realestate', component: RealestateComponent},
+      {path: 'categories/sport', component: SportComponent},
+      {path: 'categories/vehicles', component: VehiclesComponent},
+      {path: 'services/babysitting', component: BabysittingComponent},
+      {path: 'services/carpool', component: CarpoolComponent},
+      {path: 'services/garden-lawn', component: GardenLawnComponent},
+      {path: 'services/household', component: HouseholdComponent},
+      {path: 'services/privatelessons', component: PrivatelessonsComponent},
+      {path: 'services/reparations', component: ReparationsComponent},
+      {path: 'search-results', component: SearchResultsComponent},
+      {path: 'article-page', component: ArticlePageComponent},
+      {path: 'sellproduct-page', component: SellproductPageComponent},
+      {path: 'lendproduct-page', component: LendproductPageComponent},
+      {path: 'sellservice-page', component: SellservicePageComponent},
+      {path: 'article-page-lend', component: ArticlePageLendComponent},
+      {path: 'article-page-service', component: ArticlePageServiceComponent},
+      {path: 'balance', component: BalanceComponent},
+      {path: 'termsofservice', component: TermsofserviceComponent}
+    ]),
+    FormsModule,
+    MatSelectModule,
+    MatGridListModule,
+    MatRadioModule,
+    AngularSvgIconModule,
+    MatIconModule,
+    MatMenuModule,
+    MatTableModule
+  ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
