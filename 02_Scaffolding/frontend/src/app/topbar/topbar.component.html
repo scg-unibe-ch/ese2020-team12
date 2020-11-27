@@ -1,6 +1,5 @@
 <div *ngIf="!this.userInfoService.getLogin()">
 
-  <p>
     <mat-toolbar color="primary">
 
       <a mat-button [routerLink]="['/']">iocus!</a>
@@ -29,13 +28,11 @@
       <a mat-button color="basic" routerLink="/signup" >sign up</a>
 
     </mat-toolbar>
-  </p>
-
 </div>
 
 
 <div *ngIf="this.userInfoService.getLogin()">
-  <p>
+
     <mat-toolbar color="primary">
 
       <a mat-button [routerLink]="['/']">iocus!</a>
@@ -53,17 +50,29 @@
 
       <a mat-button color="basic" routerLink="/profile">{{this.userInfoService.getUsername()}}</a>
 
-      <a mat-button color="basic" routerLink="/add-article">Add Article</a>
-
-      <button mat-raised-button color="secondary" (click)="logout()" onClick="window.location.reload()">logout</button>
-
-      <a mat-button color="basic" routerLink="/balance">Balance: {{this.userInfoService.getBalance()}}</a>
-
-      <!--<svg-icon src="../../assets/shopping_cart-white-36dp.svg" [svgStyle]="{ 'width.px':90 }"></svg-icon>-->
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="/add-article">
+          <mat-icon>add</mat-icon>
+          <span>Add article</span>
+        </button>
+        <button mat-menu-item disabled>
+          <mat-icon>shopping_cart</mat-icon>
+          <span>Shopping cart</span>
+        </button>
+        <button mat-menu-item routerLink="/balance">
+          <mat-icon>attach_money</mat-icon>
+          <span>Balance: {{this.userInfoService.getBalance()}}</span>
+        </button>
+        <button mat-menu-item (click)="logout()" onClick="window.location.reload()">
+          <mat-icon>follow_the_signs</mat-icon>
+          <span>Logout</span>
+        </button>
+      </mat-menu>
 
     </mat-toolbar>
-  </p>
-
 </div>
 
 

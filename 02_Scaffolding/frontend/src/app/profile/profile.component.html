@@ -4,35 +4,70 @@
 <mat-tab-group mat-align-tabs="center" *ngIf="this.userInfoService.getLogin()">
   <mat-tab label="Profile">
 
-    <mat-card>
+    <mat-card class="profile">
       <mat-card-header>
         <mat-card-title>{{username}}</mat-card-title>
         <mat-card-subtitle>Personal information</mat-card-subtitle>
       </mat-card-header>
+
       <mat-card-content>
-
         <mat-grid-list cols="3" rowHeight="50px">
-          <mat-grid-tile colspan="1" rowspan="8">Profile pic</mat-grid-tile>
-          <mat-grid-tile colspan="1" rowspan="1">Username</mat-grid-tile>
-          <mat-grid-tile colspan="1" rowspan="1">{{ this.userInfoService.getUsername() }}</mat-grid-tile>
-          <mat-grid-tile colspan="1" rowspan="1">Email</mat-grid-tile>
-          <mat-grid-tile colspan="1" rowspan="1">{{ this.userInfoService.getEmail() }}</mat-grid-tile>
-          <mat-grid-tile colspan="1" rowspan="1">Name</mat-grid-tile>
-          <mat-grid-tile colspan="1" rowspan="1">{{ this.userInfoService.getName() }}</mat-grid-tile>
-          <mat-grid-tile colspan="1" rowspan="1">Surname</mat-grid-tile>
-          <mat-grid-tile colspan="1" rowspan="1">{{ this.userInfoService.getSurname() }}</mat-grid-tile>
-          <mat-grid-tile colspan="1" rowspan="1">Street</mat-grid-tile>
-          <mat-grid-tile colspan="1" rowspan="1">{{ this.userInfoService.getStreet() }}</mat-grid-tile>
-          <mat-grid-tile colspan="1" rowspan="1">Housenumber</mat-grid-tile>
-          <mat-grid-tile colspan="1" rowspan="1">{{ this.userInfoService.getHouseNumber() }}</mat-grid-tile>
-          <mat-grid-tile colspan="1" rowspan="1">Postal Code</mat-grid-tile>
-          <mat-grid-tile colspan="1" rowspan="1">{{ this.userInfoService.getPostalCode() }}</mat-grid-tile>
-          <mat-grid-tile colspan="1" rowspan="1">Place</mat-grid-tile>
-          <mat-grid-tile colspan="1" rowspan="1">{{ this.userInfoService.getPlace() }}</mat-grid-tile>
-        </mat-grid-list>
 
+          <mat-grid-tile colspan="1" rowspan="8">
+            <mat-list>
+              <mat-divider></mat-divider>
+              <mat-list-item>Username</mat-list-item>
+              <mat-divider></mat-divider>
+              <mat-list-item>Name</mat-list-item>
+              <mat-divider></mat-divider>
+              <mat-list-item>Surname</mat-list-item>
+              <mat-divider></mat-divider>
+              <mat-list-item>Street</mat-list-item>
+              <mat-divider></mat-divider>
+              <mat-list-item>Housenumber</mat-list-item>
+              <mat-divider></mat-divider>
+              <mat-list-item>Postal Code</mat-list-item>
+              <mat-divider></mat-divider>
+              <mat-list-item>Place</mat-list-item>
+              <mat-divider></mat-divider>
+              <mat-list-item>Email</mat-list-item>
+              <mat-divider></mat-divider>
+            </mat-list>
+          </mat-grid-tile>
+
+          <mat-grid-tile colspan="1" rowspan="8">
+            <mat-list>
+              <mat-divider></mat-divider>
+              <mat-list-item>{{ this.userInfoService.getUsername() }}</mat-list-item>
+              <mat-divider></mat-divider>
+              <mat-list-item>{{ this.userInfoService.getName() }}</mat-list-item>
+              <mat-divider></mat-divider>
+              <mat-list-item>{{ this.userInfoService.getSurname() }}</mat-list-item>
+              <mat-divider></mat-divider>
+              <mat-list-item>{{ this.userInfoService.getStreet() }}</mat-list-item>
+              <mat-divider></mat-divider>
+              <mat-list-item>{{ this.userInfoService.getHouseNumber() }}</mat-list-item>
+              <mat-divider></mat-divider>
+              <mat-list-item>{{ this.userInfoService.getPostalCode() }}</mat-list-item>
+              <mat-divider></mat-divider>
+              <mat-list-item>{{ this.userInfoService.getPlace() }}</mat-list-item>
+              <mat-divider></mat-divider>
+              <mat-list-item>{{ this.userInfoService.getEmail() }}</mat-list-item>
+              <mat-divider></mat-divider>
+            </mat-list>
+          </mat-grid-tile>
+
+          <mat-card class="pic">
+            <mat-card-content>
+            <img id="image" src="../../assets/plageholder.png">
+            </mat-card-content>
+          </mat-card>
+
+        </mat-grid-list>
       </mat-card-content>
+
     </mat-card>
+
 
   </mat-tab>
   <mat-tab label="Edit Profile">
