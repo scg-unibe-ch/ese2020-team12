@@ -205,11 +205,17 @@ filterController.get('/lend/:category',
     });
 
 
-filterController.get('/provided-service',
+filterController.get('/provided-service/:category',
     async (req, res) => {
         const city = req.query.city;
-        const delivery = req.query.delivery;
-        const category = req.query.category;
+        const category = req.params.category;
+        let servicePer;
+        if (req.query.servicePer !== '') {
+            servicePer = booleanConverter(req.query.servicePer);
+        } else {
+            servicePer = '';
+        }
+        let zeroFlag = false;
         const lowerPrice = Number(req.query.lowerPrice);
         let upperPrice = Number(req.query.upperPrice);
         if (upperPrice === 0) {
@@ -217,45 +223,52 @@ filterController.get('/provided-service',
         }
         const list = [];
         let counter = 0;
-        if (category !== '') {
+        if (servicePer !== '') {
             counter++;
             await ServiceItem.findAll({
                 where: {
-                    category: category
+                    [Op.and]: [
+                        {hourOrDay: servicePer},
+                        {category: category}
+                    ]
                 }
             }).then(articles => {
                 list.push(articles);
+                if ( articles.length === 0 ) {
+                    zeroFlag = true;
+                }
             })
                 .catch(err => res.send(err));
         }
-        if (city !== null) {
+        if (city !== '') {
             counter++;
             await ServiceItem.findAll({
                 where: {
-                    location: {[Op.like]: city}
+                    [Op.and]: [
+                        {location:  city},
+                        {category: category}
+                    ]
                 }
             }).then(articles => {
                 list.push(articles);
-            })
-                .catch(err => res.send(err));
-        }
-        if (delivery !== null) {
-            await ServiceItem.findAll({
-                where: {
-                    hourOrDay: delivery
+                if ( articles.length === 0 ) {
+                    zeroFlag = true;
                 }
-            }).then(articles => {
-                list.push(articles);
             })
                 .catch(err => res.send(err));
         }
-        counter++;
         await ServiceItem.findAll({
             where: {
-                price: {
-                    [Op.between]: [lowerPrice, upperPrice]}}
+                [Op.and]: [
+                    {price: {[Op.between]: [lowerPrice, upperPrice]}},
+                    {category: category}
+                ]
+            }
         }).then(articles => {
             list.push(articles);
+            if ( articles.length === 0 ) {
+                zeroFlag = true;
+            }
         })
             .catch(err => res.send(err));
         const arrayList = [];
@@ -265,12 +278,20 @@ filterController.get('/provided-service',
                 arrayList.push(list[i][j].dataValues);
             }
         }
-        if (counter > 1) {
+        if (counter > 0) {
             const comparedArray = searchValueServ(arrayList);
             const uniqueArray = filterDuplicateServ(comparedArray);
-            res.send(uniqueArray);
+            if (!zeroFlag) {
+                res.send(uniqueArray);
+            } else {
+                res.send([]);
+            }
         } else {
-            res.send(arrayList);
+            if (!zeroFlag) {
+                res.send(arrayList);
+            } else {
+                res.send([]);
+            }
         }
     });
 

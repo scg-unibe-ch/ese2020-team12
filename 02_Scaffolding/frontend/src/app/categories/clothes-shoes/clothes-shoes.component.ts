@@ -13,13 +13,12 @@ import {environment} from '../../../environments/environment';
 export class ClothesShoesComponent implements OnInit {
   sellDel;
   sellLoc = '';
-  sellFilter: FormControl;
   sellLowerPrice = 0;
   sellUpperPrice = 0;
   sellFilterResult;
   loadedSellFilter = false;
-  lendPricePer;
 
+  lendPricePer;
   lendLowerPrice = 0;
   lendUpperPrice = 0;
   loadedLendFilter = false;
@@ -93,7 +92,6 @@ export class ClothesShoesComponent implements OnInit {
       } );
     setTimeout(() =>
       {
-        console.log(this.lendFilterResult);
         this.loadedLendFilter = true;
       },
       1000);
