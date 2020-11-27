@@ -63,40 +63,40 @@
             <h3>Deliverable: </h3>
             <mat-card-content class="spacer"></mat-card-content>
             <mat-radio-group aria-label="Select an option">
-              <mat-radio-button value="1">Yes</mat-radio-button>
-              <mat-radio-button value="2">No</mat-radio-button>
+              <mat-radio-button (change)="sellRadioChangeHandler('true')" [value]="true">Yes</mat-radio-button>
+              <mat-radio-button (change)="sellRadioChangeHandler('false')" [value]="false">No</mat-radio-button>
             </mat-radio-group>
           </mat-card-content>
 
           <mat-card-content class="filterelement">
             <h3>Search for products in your location: </h3>
             <mat-form-field>
-              <input matInput type=text name="location" placeholder="Enter your city">
+              <input matInput type=text [(ngModel)]="sellLoc" name="location" placeholder="Enter your city">
             </mat-form-field>
           </mat-card-content>
 
           <mat-card-content class="filterelement">
             <h3>Pricing lower limit: </h3>
             <mat-form-field>
-              <input matInput type=text name="price" placeholder="Enter your lower price limit:">
+              <input matInput [(ngModel)]="sellLowerPrice" type=text name="price" placeholder="Enter your lower price limit:">
             </mat-form-field>
           </mat-card-content>
 
           <mat-card-content class="filterelement">
             <h3>Pricing upper limit: </h3>
             <mat-form-field>
-              <input matInput type=text name="price" placeholder="Enter your upper price limit:">
+              <input matInput [(ngModel)]="sellUpperPrice" type=text name="price" placeholder="Enter your upper price limit:">
             </mat-form-field>
           </mat-card-content>
 
           <form class="search-sidebar" class="filterelement">
             <mat-form-field style="width:90%" appearance="fill">
-              <mat-label>Search sport articles</mat-label>
+              <mat-label>Search clothes & shoes</mat-label>
               <input matInput placeholder="search products">
             </mat-form-field>
           </form>
 
-          <button class="filterbutton" mat-raised-button color="primary"> <!--(click)="sendForm()"--> apply</button>
+          <button class="filterbutton" (click)="sellSendFilter()" mat-raised-button color="primary"> <!--(click)="sendForm()"--> apply</button>
 
         </mat-card>
 
@@ -105,8 +105,8 @@
     </mat-grid-list>
 
     <div class="content" fxLayout="row wrap">
-      <div fxFlex="25%" *ngFor="let article of this.articleInfoService.getSellSearchResult();" class="bottomspace">
-        <mat-card class="card">
+      <div *ngIf="!loadedSellFilter">
+        <div class="card" *ngFor="let article of this.articleInfoService.getSellCategoryList()">
           <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
             <mat-card-title>{{article.title}}</mat-card-title>
@@ -116,7 +116,25 @@
           <mat-card-actions>
             <button mat-button (click)="moreSellInfos(article.sellProductId)">more infos</button>
           </mat-card-actions>
-        </mat-card>
+        </div>
+      </div>
+      <div *ngIf="loadedSellFilter">
+        <div *ngIf="sellFilterResult.length >0">
+          <div class="card" *ngFor="let article of sellFilterResult">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>{{article.title}}</mat-card-title>
+              <mat-card-subtitle>{{article.price}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+            <mat-card-actions>
+              <button mat-button (click)="moreSellInfos(article.sellProductId)">more infos</button>
+            </mat-card-actions>
+          </div>
+        </div>
+        <div *ngIf="sellFilterResult.length === 0">
+          nothing found
+        </div>
       </div>
     </div>
 
@@ -178,21 +196,21 @@
           <mat-card-content class="filterelement1">
             <h3>Search for products in your location: </h3>
             <mat-form-field>
-              <input matInput type=text name="location" placeholder="Enter your city">
+              <input matInput [(ngModel)]="lendLoc" type=text name="location" placeholder="Enter your city">
             </mat-form-field>
           </mat-card-content>
 
           <mat-card-content class="filterelement">
             <h3>Pricing lower limit: </h3>
             <mat-form-field>
-              <input matInput type=text name="price" placeholder="Enter your lower price limit:">
+              <input matInput [(ngModel)]="lendLowerPrice" type=text name="price" placeholder="Enter your lower price limit:">
             </mat-form-field>
           </mat-card-content>
 
           <mat-card-content class="filterelement">
             <h3>Pricing upper limit: </h3>
             <mat-form-field>
-              <input matInput type=text name="price" placeholder="Enter your upper price limit:">
+              <input matInput [(ngModel)]="lendUpperPrice"type=text name="price" placeholder="Enter your upper price limit:">
             </mat-form-field>
           </mat-card-content>
 
@@ -200,19 +218,19 @@
             <h3>Price per: </h3>
             <mat-card-content class="spacer"></mat-card-content>
             <mat-radio-group aria-label="Select an option">
-              <mat-radio-button value="1">Hour</mat-radio-button>
-              <mat-radio-button value="2">Day</mat-radio-button>
+              <mat-radio-button (change)="lendRadioChangeHandler('true')"[value]="true">Hour</mat-radio-button>
+              <mat-radio-button (change)="lendRadioChangeHandler('false')" [value]="false">Day</mat-radio-button>
             </mat-radio-group>
           </mat-card-content>
 
           <form class="search-sidebar" class="filterelement">
             <mat-form-field style="width:90%" appearance="fill">
-              <mat-label>Search sport articles</mat-label>
+              <mat-label>Search clothes & shoes</mat-label>
               <input matInput placeholder="search products">
             </mat-form-field>
           </form>
 
-          <button class="filterbutton" mat-raised-button color="primary"> <!--(click)="sendForm()"--> apply</button>
+          <button class="filterbutton" (click)="lendSendFilter()" mat-raised-button color="primary"> <!--(click)="sendForm()"--> apply</button>
 
         </mat-card>
 
@@ -221,8 +239,8 @@
     </mat-grid-list>
 
     <div class="content" fxLayout="row wrap">
-      <div fxFlex="25%" *ngFor="let article of this.articleInfoService.getLendSearchResult();" class="bottomspace">
-        <mat-card class="card">
+      <div *ngIf="!loadedLendFilter">
+        <div class="card" *ngFor="let article of this.articleInfoService.getLendCategoryList()">
           <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
             <mat-card-title>{{article.title}}</mat-card-title>
@@ -230,9 +248,27 @@
           </mat-card-header>
           <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
           <mat-card-actions>
-            <button mat-button (click)="moreLendInfos(article.lendProductId)" >more infos</button>
+            <button mat-button (click)="moreSellInfos(article.lendProductId)">more infos</button>
           </mat-card-actions>
-        </mat-card>
+        </div>
+      </div>
+      <div *ngIf="loadedLendFilter">
+        <div *ngIf="lendFilterResult.length >0">
+          <div class="card" *ngFor="let article of lendFilterResult">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>{{article.title}}</mat-card-title>
+              <mat-card-subtitle>{{article.price}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+            <mat-card-actions>
+              <button mat-button (click)="moreSellInfos(article.lendProductId)">more infos</button>
+            </mat-card-actions>
+          </div>
+        </div>
+        <div *ngIf="lendFilterResult.length === 0">
+          nothing found
+        </div>
       </div>
     </div>
 

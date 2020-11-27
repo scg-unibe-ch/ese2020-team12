@@ -14,10 +14,17 @@ export class ClothesShoesComponent implements OnInit {
   sellDel;
   sellLoc = '';
   sellFilter: FormControl;
-  lowerPrice = 0;
-  upperPrice = 0;
+  sellLowerPrice = 0;
+  sellUpperPrice = 0;
   sellFilterResult;
   loadedSellFilter = false;
+  lendPricePer;
+
+  lendLowerPrice = 0;
+  lendUpperPrice = 0;
+  loadedLendFilter = false;
+  lendFilterResult;
+  lendLoc = '';
 
 
   constructor(
@@ -29,6 +36,14 @@ export class ClothesShoesComponent implements OnInit {
   ngOnInit(): void {
     this.articleInfoService.getSellCategory(1);
     this.articleInfoService.getLendCategory(1);
+  }
+
+  radioFilter(input: any): any {
+    if (input === 'true' || input === 'false' ){
+      return input;
+    } else {
+      return '';
+    }
   }
 
   moreSellInfos(id: number): void{
@@ -52,16 +67,34 @@ export class ClothesShoesComponent implements OnInit {
     this.sellDel = input;
   }
 
+  lendRadioChangeHandler(input: string): void {
+    this.lendPricePer = input;
+  }
+
   sellSendFilter(): void {
-    console.log(environment.endpointURL + 'filter/sell/1?city=' + this.sellLoc + '&lowerPrice=' + this.lowerPrice + '&upperPrice=' + this.upperPrice + '&delivery= ' + this.sellDel);
     // tslint:disable-next-line:max-line-length
-    this.httpClient.get(environment.endpointURL + 'filter/sell/1?city=' + this.sellLoc + '&lowerPrice=' + this.lowerPrice + '&upperPrice=' + this.upperPrice + '&delivery=' + this.sellDel)
+    this.httpClient.get(environment.endpointURL + 'filter/sell/1?city=' + this.sellLoc + '&lowerPrice=' + this.sellLowerPrice + '&upperPrice=' + this.sellUpperPrice + '&delivery=' + this.radioFilter(this.sellDel))
       .subscribe(items => {
         this.sellFilterResult = items;
       } );
     setTimeout(() =>
       {
         this.loadedSellFilter = true;
+      },
+      1000);
+  }
+
+
+  lendSendFilter(): void {
+    // tslint:disable-next-line:max-line-length
+    this.httpClient.get(environment.endpointURL + 'filter/lend/1?city=' + this.lendLoc + '&lowerPrice=' + this.lendLowerPrice + '&upperPrice=' + this.lendUpperPrice + '&lendPricePer=' + this.radioFilter(this.lendPricePer))
+      .subscribe(items => {
+        this.lendFilterResult = items;
+      } );
+    setTimeout(() =>
+      {
+        console.log(this.lendFilterResult);
+        this.loadedLendFilter = true;
       },
       1000);
   }

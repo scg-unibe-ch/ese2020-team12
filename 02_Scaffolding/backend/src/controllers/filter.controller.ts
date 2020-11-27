@@ -114,12 +114,17 @@ filterController.get('/sell/:category',
     }
 });
 
-filterController.get('/lend',
+filterController.get('/lend/:category',
     async (req, res) => {
         const city = req.query.city;
-        const category = req.query.category;
-        const delivery = req.query.delivery;
-        console.log(delivery);
+        const category = req.params.category;
+        let lendPricePer;
+        if (req.query.lendPricePer !== '') {
+            lendPricePer = booleanConverter(req.query.lendPricePer);
+        } else {
+            lendPricePer = '';
+        }
+        let zeroFlag = false;
         const lowerPrice = Number(req.query.lowerPrice);
         let upperPrice = Number(req.query.upperPrice);
         if (upperPrice === 0) {
@@ -127,45 +132,52 @@ filterController.get('/lend',
         }
         const list = [];
         let counter = 0;
-        if (category !== '') {
+        if (lendPricePer !== '') {
             counter++;
             await LendProductItem.findAll({
                 where: {
-                    category: category
+                    [Op.and]: [
+                        {hourOrDay: lendPricePer},
+                        {category: category}
+                    ]
                 }
             }).then(articles => {
                 list.push(articles);
+                if ( articles.length === 0 ) {
+                    zeroFlag = true;
+                }
             })
                 .catch(err => res.send(err));
         }
-        if (city !== null) {
+        if (city !== '') {
             counter++;
             await LendProductItem.findAll({
                 where: {
-                    location: {[Op.like]: city}
+                    [Op.and]: [
+                        {location:  city},
+                        {category: category}
+                    ]
                 }
             }).then(articles => {
                 list.push(articles);
-            })
-                .catch(err => res.send(err));
-        }
-        if (delivery === 'true') {
-            await LendProductItem.findAll({
-                where: {
-                    status: true
+                if ( articles.length === 0 ) {
+                    zeroFlag = true;
                 }
-            }).then(articles => {
-                list.push(articles);
             })
                 .catch(err => res.send(err));
         }
-        counter++;
         await LendProductItem.findAll({
             where: {
-                price: {
-                    [Op.between]: [lowerPrice, upperPrice]}}
+                [Op.and]: [
+                    {price: {[Op.between]: [lowerPrice, upperPrice]}},
+                    {category: category}
+                ]
+            }
         }).then(articles => {
             list.push(articles);
+            if ( articles.length === 0 ) {
+                zeroFlag = true;
+            }
         })
             .catch(err => res.send(err));
         const arrayList = [];
@@ -175,12 +187,20 @@ filterController.get('/lend',
                 arrayList.push(list[i][j].dataValues);
             }
         }
-        if (counter > 1) {
+        if (counter > 0) {
             const comparedArray = searchValueLend(arrayList);
             const uniqueArray = filterDuplicateLend(comparedArray);
-            res.send(uniqueArray);
+            if (!zeroFlag) {
+                res.send(uniqueArray);
+            } else {
+                res.send([]);
+            }
         } else {
-            res.send(arrayList);
+            if (!zeroFlag) {
+                res.send(arrayList);
+            } else {
+                res.send([]);
+            }
         }
     });
 
