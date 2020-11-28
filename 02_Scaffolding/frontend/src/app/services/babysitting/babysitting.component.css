@@ -34,9 +34,10 @@
 
 .card2 {
   height:100%;
-  width:30%;
   background-color: #eee;
   float: left;
+  max-width: 200px;
+  margin-left: 50px;
 }
 
 .item img {
