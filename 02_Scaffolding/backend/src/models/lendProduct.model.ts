@@ -60,7 +60,8 @@ export class LendProductItem extends Model<LendProductItemAttributes, LProductIt
                 },
                 status: {
                     type: DataTypes.BOOLEAN,
-                    allowNull: false
+                    allowNull: false,
+                    defaultValue: true
                 },
                 handling: {
                     type: DataTypes.STRING,

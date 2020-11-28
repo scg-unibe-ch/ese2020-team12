@@ -12,6 +12,7 @@ export interface ServiceItemAttributes {
     expCost: string;
     userId: number;
     category: number;
+    status: boolean;
 }
 
 
@@ -29,6 +30,7 @@ export class ServiceItem extends Model<ServiceItemAttributes, ServiceItemCreatio
     expCost!: string;
     userId!: number;
     category!: number;
+    status!: boolean;
 
 
     public static initialize(sequelize: Sequelize) { // definition for database
@@ -53,6 +55,11 @@ export class ServiceItem extends Model<ServiceItemAttributes, ServiceItemCreatio
                 description: {
                     type: DataTypes.STRING,
                     allowNull: true
+                },
+                status: {
+                    type: DataTypes.BOOLEAN,
+                    allowNull: false,
+                    defaultValue: true
                 },
                 location: {
                     type: DataTypes.STRING,

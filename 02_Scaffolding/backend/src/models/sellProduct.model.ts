@@ -12,6 +12,7 @@ export interface SellProductItemAttributes {
     delSpec: string;
     userId: number;
     category: number;
+    status: boolean;
 }
 
 
@@ -28,6 +29,7 @@ export class SellProductItem extends Model<SellProductItemAttributes, SProductIt
     delSpec!: string;
     userId!: number;
     category!: number;
+    status!: boolean;
 
     public static initialize(sequelize: Sequelize) { // definition for database
         SellProductItem.init({
@@ -47,6 +49,11 @@ export class SellProductItem extends Model<SellProductItemAttributes, SProductIt
                 description: {
                     type: DataTypes.STRING,
                     allowNull: true
+                },
+                status: {
+                    type: DataTypes.BOOLEAN,
+                    allowNull: false,
+                    defaultValue: true
                 },
                 location: {
                     type: DataTypes.STRING,
