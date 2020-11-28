@@ -36,14 +36,14 @@
             </mat-card-header>
 
             <div *ngFor="let article of this.articleInfoService.getSellCategoryList().reverse(); let i = index">
-              <mat-card class="card" *ngIf = "i<4">
+              <mat-card class="card" *ngIf = "i<4 && article.status">
                 <mat-card-header>
                   <div mat-card-avatar class="example-header-image"></div>
                   <mat-card-title>{{article.title}}</mat-card-title>
-                  <mat-card-subtitle>{{article.price}}</mat-card-subtitle>
+                  <mat-card-subtitle>{{article.price}} CHF</mat-card-subtitle>
                 </mat-card-header>
                 <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-                <mat-card-actions>
+                <mat-card-actions class="button3">
                   <button mat-button (click)="moreSellInfos(article.sellProductId)">more infos</button>
                 </mat-card-actions>
               </mat-card>
@@ -104,38 +104,46 @@
 
       </mat-grid-list>
 
+      <div *ngIf="!loadedSellFilter">
+
       <div class="content" fxLayout="row wrap">
-        <div *ngIf="!loadedSellFilter">
-        <div class="card" *ngFor="let article of this.articleInfoService.getSellCategoryList()">
+        <div *ngFor="let article of this.articleInfoService.getSellCategoryList()" class="bottomspace">
+        <mat-card class="card2" *ngIf="article.status">
             <mat-card-header>
               <div mat-card-avatar class="example-header-image"></div>
               <mat-card-title>{{article.title}}</mat-card-title>
-              <mat-card-subtitle>{{article.price}}</mat-card-subtitle>
+              <mat-card-subtitle>{{article.price}} CHF</mat-card-subtitle>
             </mat-card-header>
             <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-            <mat-card-actions>
+            <mat-card-actions class="button3">
               <button mat-button (click)="moreSellInfos(article.sellProductId)">more infos</button>
             </mat-card-actions>
+        </mat-card>
         </div>
       </div>
-      <div *ngIf="loadedSellFilter">
-        <div *ngIf="sellFilterResult.length >0">
-          <div class="card" *ngFor="let article of sellFilterResult">
+
+
+      <div class="content" fxLayout="row wrap" *ngIf="loadedSellFilter">
+        <div *ngFor="let article of sellFilterResult">
+          <mat-card class="card2" *ngIf="sellFilterResult.length >0 && article.status">
             <mat-card-header>
               <div mat-card-avatar class="example-header-image"></div>
               <mat-card-title>{{article.title}}</mat-card-title>
-              <mat-card-subtitle>{{article.price}}</mat-card-subtitle>
+              <mat-card-subtitle>{{article.price}} CHF</mat-card-subtitle>
             </mat-card-header>
             <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-            <mat-card-actions>
+            <mat-card-actions class="button3">
               <button mat-button (click)="moreSellInfos(article.sellProductId)">more infos</button>
             </mat-card-actions>
-          </div>
+          </mat-card>
         </div>
+
         <div *ngIf="sellFilterResult.length === 0">
           nothing found
         </div>
+
       </div>
+
       </div>
 
     </mat-tab>
@@ -170,14 +178,14 @@
             </mat-card-header>
 
             <div *ngFor="let article of this.articleInfoService.getLendCategoryList().reverse(); let i = index">
-              <mat-card class="card" *ngIf = "i<4">
+              <mat-card class="card" *ngIf = "i<4 && article.status">
                 <mat-card-header>
                   <div mat-card-avatar class="example-header-image"></div>
                   <mat-card-title>{{article.title}}</mat-card-title>
-                  <mat-card-subtitle>{{article.price}}</mat-card-subtitle>
+                  <mat-card-subtitle>{{article.price}} CHF</mat-card-subtitle>
                 </mat-card-header>
                 <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-                <mat-card-actions>
+                <mat-card-actions class="button3">
                   <button mat-button (click)="moreLendInfos(article.lendProductId)">more infos</button>
                 </mat-card-actions>
               </mat-card>
