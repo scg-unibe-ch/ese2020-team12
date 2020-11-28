@@ -100,20 +100,45 @@
 
 </mat-grid-list>
 
-<div class="content" fxLayout="row wrap">
-  <div fxFlex="25%" *ngFor="let article of this.articleInfoService.getServiceSearchResult();" class="bottomspace">
-    <mat-card class="card">
+<div *ngIf="!loadedServFilter">
+
+  <div class="content" fxLayout="row wrap">
+    <div *ngFor="let article of this.articleInfoService.getServiceCategoryList()">
+      <mat-card class="card2" *ngIf="article.status">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{article.title}}</mat-card-title>
+          <mat-card-subtitle>{{article.price}} CHF</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+        <mat-card-actions class="button3">
+          <button mat-button (click)="moreServiceInfos(article.serviceId)">more infos</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+
+</div>
+
+<div class="content" fxLayout="row wrap" *ngIf="loadedServFilter">
+  <div *ngFor="let article of servFilterResult">
+    <mat-card class="card2" *ngIf="servFilterResult.length >0 && article.status">
       <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
         <mat-card-title>{{article.title}}</mat-card-title>
-        <mat-card-subtitle>{{article.price}}</mat-card-subtitle>
+        <mat-card-subtitle>{{article.price}} CHF</mat-card-subtitle>
       </mat-card-header>
       <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-      <mat-card-actions>
+      <mat-card-actions class="button3">
         <button mat-button (click)="moreServiceInfos(article.serviceId)">more infos</button>
       </mat-card-actions>
     </mat-card>
   </div>
+
+  <div *ngIf="servFilterResult.length === 0">
+    nothing found
+  </div>
+
 </div>
 
 
