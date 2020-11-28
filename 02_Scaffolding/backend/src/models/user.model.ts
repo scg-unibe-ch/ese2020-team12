@@ -10,6 +10,7 @@ import {
 import {SellProductItem} from './sellProduct.model';
 import {LendProductItem} from './lendProduct.model';
 import {ServiceItem} from './service.model';
+import {ShoppingCartItem} from './shoppingCart.model';
 
 export interface UserAttributes {
     userId: number;
@@ -124,6 +125,10 @@ export class User extends Model<UserAttributes, UserCreationAttributes> implemen
         });
         User.hasMany(ServiceItem, {
             as: 'services',
+            foreignKey: 'userId'
+        });
+        User.hasMany(ShoppingCartItem, {
+            as: 'shoppingItems',
             foreignKey: 'userId'
         });
     }
