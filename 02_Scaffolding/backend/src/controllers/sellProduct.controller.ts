@@ -4,6 +4,7 @@ import {SellProductService} from '../services/sellProduct.service';
 import {SellProductItem} from '../models/sellProduct.model';
 
 
+
 const sellProductController: Router = express.Router();
 const sellProductService = new SellProductService();
 
@@ -20,7 +21,15 @@ sellProductController.post('/', (req: Request, res: Response) => {
 
 
 sellProductController.put('/:id', (req: Request, res: Response) => {
-    sellProductService.putSellProduct(req.body).then(changed => res.status(200).send(changed)).catch(err => res.status(500).send(err));
+    SellProductItem.findByPk(req.params.id).then(found => {
+        if (found != null) {
+            found.update(req.body).then( update => {
+                res.status(200).send(update);
+            });
+        } else {
+            res.sendStatus(404);
+        }
+    }).catch(err => res.status(500).send(err));
 
 
 });

@@ -3,6 +3,7 @@ import { Router, Request, Response } from 'express';
 import {LendProductItem} from '../models/lendProduct.model';
 import {LendProductService} from '../services/lendProduct.service';
 
+
 const lendProductController: Router = express.Router();
 const lendProductService = new LendProductService();
 
@@ -12,7 +13,15 @@ lendProductController.post('/', (req: Request, res: Response) => {
 });
 
 lendProductController.put('/:id', (req: Request, res: Response) => {
-    lendProductService.putLendProduct(req.body).then(changed => res.status(200).send(changed)).catch(err => res.status(500).send(err));
+    LendProductItem.findByPk(req.params.id).then(found => {
+        if (found != null) {
+            found.update(req.body).then( update => {
+                res.status(200).send(update);
+            });
+        } else {
+            res.sendStatus(404);
+        }
+    }).catch(err => res.status(500).send(err));
 
 });
 
