@@ -30,8 +30,8 @@ import { AddArticleComponent } from './add-article/add-article.component';
 import { SellProductComponent } from './add-article/sell-product/sell-product.component';
 import { LendProductComponent } from './add-article/lend-product/lend-product.component';
 import { ProvideServiceComponent } from './add-article/provide-service/provide-service.component';
-import {MatSelectModule} from '@angular/material/select';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { MatSelectModule } from '@angular/material/select';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { CategoriesComponent } from './categories/categories.component';
 import { ServicesComponent } from './services/services.component';
 import { ClothesShoesComponent } from './categories/clothes-shoes/clothes-shoes.component';
@@ -57,13 +57,12 @@ import { SellservicePageComponent } from './sellservice-page/sellservice-page.co
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BalanceComponent } from './balance/balance.component';
 import { TermsofserviceComponent } from './termsofservice/termsofservice.component';
-import {AngularSvgIconModule} from "angular-svg-icon";
-import {MatIconModule} from "@angular/material/icon";
-import {MatMenuModule} from "@angular/material/menu";
-import {MatTableModule} from "@angular/material/table";
+import { AngularSvgIconModule } from 'angular-svg-icon';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatTableModule } from '@angular/material/table';
 import { BottombarComponent } from './bottombar/bottombar.component';
-
-
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -104,9 +103,10 @@ import { BottombarComponent } from './bottombar/bottombar.component';
     SellservicePageComponent,
     BalanceComponent,
     TermsofserviceComponent,
-    BottombarComponent
+    BottombarComponent,
   ],
   imports: [
+    MatSnackBarModule,
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,

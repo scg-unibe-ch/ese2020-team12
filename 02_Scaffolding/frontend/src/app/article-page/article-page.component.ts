@@ -16,15 +16,16 @@ export class ArticlePageComponent implements OnInit {
   constructor(
     public articleInfoService: ArticleInfoService,
     private snackBar: MatSnackBar
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.article = this.articleInfoService.getArticle();
   }
 
-  openSnackBar(message: string, action: string): void{
+  openSnackBar(message: string, action: string): void {
     this.snackBar.open(message, action, {
-      duration: 4000,
+      duration: 8000,
     });
   }
 }

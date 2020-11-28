@@ -56,3 +56,7 @@
   background-size: cover;
 }
 
+.invisible{
+  display: none;
+}
+

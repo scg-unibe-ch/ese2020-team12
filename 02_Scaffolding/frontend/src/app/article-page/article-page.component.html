@@ -83,18 +83,18 @@
       <p> user </p>
     </mat-card>
 
-    <mat-form-field> <!--snackbar-->
+    <!--snackbar-->
+    <mat-form-field class="invisible">
       <mat-label>Message</mat-label>
-      <input matInput value="Disco party!" #message>
+      <input matInput value="{{this.article.title}} was added to your shopping cart" #message>
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field class="invisible">
       <mat-label>Action</mat-label>
-      <input matInput value="Dance" #action>
+      <input matInput value="OK!" #action>
     </mat-form-field>
 
-    <button mat-stroked-button (click)="openSnackBar(message.value, action.value)">Show snack-bar</button>
-
+    <button mat-stroked-button (click)="openSnackBar(message.value, action.value)">Buy {{this.article.title}}</button>
 
   </mat-grid-tile>
 
