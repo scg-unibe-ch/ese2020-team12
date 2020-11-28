@@ -20,6 +20,8 @@ import {GetArticleController} from './controllers/getArticles.controller';
 import {SearchController} from './controllers/search.controller';
 import {SellFilterController} from './controllers/filter.controller';
 import {GetCategoryController} from './controllers/getCategory.controller';
+import {ShoppingCartController} from './controllers/shoppingCart.controller';
+import {ShoppingCartItem} from './models/shoppingCart.model';
 
 
 
@@ -36,6 +38,8 @@ export class Server {
         SellProductItem.initialize(this.sequelize);
         ServiceItem.initialize(this.sequelize);
         ProfilePhoto.initialize(this.sequelize);
+        ShoppingCartItem.initialize(this.sequelize);
+        ShoppingCartItem.createAssociations();
         ProfilePhoto.createAssociations();
         SellProductItem.createAssociations();
         LendProductItem.createAssociations();
@@ -77,6 +81,7 @@ export class Server {
             .use('/secured', SecuredController)
             .use('/filter', SellFilterController)
             .use('/article', GetArticleController)
+            .use('/shopping-cart', ShoppingCartController)
             .use('/category', GetCategoryController)
             .options('*', cors(options))
             .use(express.static('./src/public'))
