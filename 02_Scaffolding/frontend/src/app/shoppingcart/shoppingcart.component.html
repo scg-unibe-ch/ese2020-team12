@@ -1,70 +1,212 @@
-<mat-grid-list cols="8"  rowHeight="144px" class="pagewidth">
+<!--button to enable/disable optional steps, don't delete-->
 
-  <!--Banner-->
-  <mat-grid-tile colspan="8" rowspan="2" class="banner">
-    <img class="banner" id="banner-1" src="../../assets/Header_Home/Banner_selling.png" style="display:block;">
-    <img class="banner" id="banner-2" src="../../assets/Header_Home/Banner_Lending.png" style="display:none;">
-    <img class="banner" id="banner-3" src="../../assets/Header_Home/Banner_Service.png" style="display:none;">
-  </mat-grid-tile>
+<!--<button mat-raised-button (click)="isOptional = !isOptional">
+  {{!isOptional ? 'Enable optional steps' : 'Disable optional steps'}}
+</button>-->
 
-</mat-grid-list>
+<mat-horizontal-stepper linear #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Check your order</ng-template>
 
-<!--reactive page for all products to buy-->
+        <mat-tab-group mat-align-tabs="center">
 
-<h1 class="title">All products for sale: </h1>
+          <mat-tab label="Your articles to buy">
+            <div class="content" fxLayout="row wrap">
+              <div fxFlex="25%" *ngFor="let articles of this.shoppingCartService.getProductIds()" class="bottomspace">
+                <mat-card class="card">
+                  <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title>Title: </mat-card-title>
+                    <mat-card-subtitle>Price</mat-card-subtitle>
+                  </mat-card-header>
+                  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+                  <mat-card-actions>
+                    <button mat-button>more infos</button>
+                    <button mat-button>remove item</button>
+                  </mat-card-actions>
+                </mat-card>
+              </div>
+            </div>
+          </mat-tab>
 
-<div class="content" fxLayout="row wrap">
-  <div fxFlex="25%" *ngFor="let articles of this.shoppingCartService.getProductIds()" class="bottomspace">
-    <mat-card class="card">
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>Title: </mat-card-title>
-        <mat-card-subtitle>Price</mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-      <mat-card-actions>
-        <button mat-button>more infos</button>
-      </mat-card-actions>
-    </mat-card>
-  </div>
-</div>
+          <mat-tab label="Your articles to lend">
+            <div class="content" fxLayout="row wrap">
+              <div fxFlex="25%" class="bottomspace">
+                <mat-card class="card">
+                  <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title>Title</mat-card-title>
+                    <mat-card-subtitle>Price</mat-card-subtitle>
+                  </mat-card-header>
+                  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+                  <mat-card-actions>
+                    <button mat-button >more infos</button>
+                    <button mat-button>remove item</button>
+                  </mat-card-actions>
+                </mat-card>
+              </div>
+            </div>
+          </mat-tab>
 
-<!--reactive page for all products to lend-->
+          <mat-tab label="Your services">
+            <div class="content" fxLayout="row wrap">
+              <div fxFlex="25%"  class="bottomspace">
+                <mat-card class="card">
+                  <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title>Title</mat-card-title>
+                    <mat-card-subtitle>Price</mat-card-subtitle>
+                  </mat-card-header>
+                  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+                  <mat-card-actions>
+                    <button mat-button>more infos</button>
+                    <button mat-button>remove item</button>
+                  </mat-card-actions>
+                </mat-card>
+              </div>
+            </div>
+          </mat-tab>
 
-<h1 class="title">All products to rent: </h1>
+        </mat-tab-group>
 
-<div class="content" fxLayout="row wrap">
-  <div fxFlex="25%" class="bottomspace">
-    <mat-card class="card">
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>Title</mat-card-title>
-        <mat-card-subtitle>Price</mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-      <mat-card-actions>
-        <button mat-button >more infos</button>
-      </mat-card-actions>
-    </mat-card>
-  </div>
-</div>
 
-<!--reactive page for all services-->
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
 
-<h1 class="title">All services online: </h1>
+    </form>
 
-<div class="content" fxLayout="row wrap">
-  <div fxFlex="25%"  class="bottomspace">
-    <mat-card class="card">
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>Title</mat-card-title>
-        <mat-card-subtitle>Price</mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-      <mat-card-actions>
-        <button mat-button>more infos</button>
-      </mat-card-actions>
-    </mat-card>
-  </div>
-</div>
+  </mat-step>
+
+  <mat-step [stepControl]="secondFormGroup" [optional]="isOptional">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Fill out your address</ng-template>
+
+      <mat-card class="profile" *ngIf="!this.otherAddress">
+        <mat-card-header>
+          <mat-card-title>Your address:</mat-card-title>
+          <mat-card-subtitle>You can use the address of your profile or insert another one</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+          <mat-grid-list cols="3" rowHeight="50px">
+
+            <mat-grid-tile colspan="1" rowspan="8">
+              <mat-list>
+                <mat-divider></mat-divider>
+                <mat-list-item>Name</mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item>Surname</mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item>Street</mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item>Housenumber</mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item>Postal Code</mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item>Place</mat-list-item>
+                <mat-divider></mat-divider>
+              </mat-list>
+            </mat-grid-tile>
+
+            <mat-grid-tile colspan="1" rowspan="8">
+              <mat-list>
+                <mat-divider></mat-divider>
+                <mat-list-item>{{ this.userInfoService.getName() }}</mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item>{{ this.userInfoService.getSurname() }}</mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item>{{ this.userInfoService.getStreet() }}</mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item>{{ this.userInfoService.getHouseNumber() }}</mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item>{{ this.userInfoService.getPostalCode() }}</mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item>{{ this.userInfoService.getPlace() }}</mat-list-item>
+                <mat-divider></mat-divider>
+              </mat-list>
+            </mat-grid-tile>
+          </mat-grid-list>
+
+          <button mat-raised-button (click)="changeOtherAddress()">use other address</button>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card *ngIf="this.otherAddress">
+        <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="secondCtrl" placeholder="Ex. John"
+                 required>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <mat-label>Surname</mat-label>
+          <input matInput formControlName="secondCtrl" placeholder="Ex. Thomson"
+                 required>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <mat-label>Street</mat-label>
+          <input matInput formControlName="secondCtrl" placeholder="Ex. Main Street"
+                 required>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <mat-label>Housenumber</mat-label>
+          <input matInput formControlName="secondCtrl" placeholder="Ex. 123"
+                 required>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <mat-label>Postal Code</mat-label>
+          <input matInput formControlName="secondCtrl" placeholder="Ex. 3000"
+                 required>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <mat-label>Place</mat-label>
+          <input matInput formControlName="secondCtrl" placeholder="Ex. Thun"
+               required>
+        </mat-form-field>
+        <br>
+        <button mat-raised-button (click)="changeOtherAddress2()">use other address</button>
+
+      </mat-card>
+
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="thirdFormGroup" [optional]="isOptional">
+    <form [formGroup]="thirdFormGroup">
+      <ng-template matStepLabel>Payment</ng-template>
+      <mat-card>
+        <mat-card-title>Payment</mat-card-title>
+        <a>
+          We will debit your balance with the amount of "XXXX" CHF.
+          If needed, you can charge your balance right <a button routerLink="/balance">here!</a>
+        </a>
+      </mat-card>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>
+      If you inserted all the information needed, you can now purchase your items.
+      Thank you for choosing our page, unitl next time!
+    </p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button>Buy</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>
