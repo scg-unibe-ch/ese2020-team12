@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ArticleInfoService} from '../../article-info.service';
 import {Router} from '@angular/router';
-import {FormControl} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 
@@ -25,6 +24,9 @@ export class ClothesShoesComponent implements OnInit {
   lendFilterResult;
   lendLoc = '';
 
+  searchTerm;
+  searchSellTerm;
+
 
   constructor(
     public articleInfoService: ArticleInfoService,
@@ -43,6 +45,18 @@ export class ClothesShoesComponent implements OnInit {
     } else {
       return '';
     }
+  }
+
+  searchSellCat(): void {
+    console.log(this.searchSellTerm);
+    this.articleInfoService.setSearchTerm(this.searchSellTerm);
+    this.articleInfoService.searchSellByCategory(1);
+    setTimeout(() =>
+      {
+        this.sellFilterResult = this.articleInfoService.getSellSearchResult();
+      },
+      1000);
+    this.loadedSellFilter = true;
   }
 
   moreSellInfos(id: number): void{

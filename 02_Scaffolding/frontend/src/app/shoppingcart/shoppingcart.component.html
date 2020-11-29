@@ -1,1 +1,70 @@
-<p>shoppingcart works!</p>
+<mat-grid-list cols="8"  rowHeight="144px" class="pagewidth">
+
+  <!--Banner-->
+  <mat-grid-tile colspan="8" rowspan="2" class="banner">
+    <img class="banner" id="banner-1" src="../../assets/Header_Home/Banner_selling.png" style="display:block;">
+    <img class="banner" id="banner-2" src="../../assets/Header_Home/Banner_Lending.png" style="display:none;">
+    <img class="banner" id="banner-3" src="../../assets/Header_Home/Banner_Service.png" style="display:none;">
+  </mat-grid-tile>
+
+</mat-grid-list>
+
+<!--reactive page for all products to buy-->
+
+<h1 class="title">All products for sale: </h1>
+
+<div class="content" fxLayout="row wrap">
+  <div fxFlex="25%" *ngFor="let articles of this.shoppingCartService.getProductIds()" class="bottomspace">
+    <mat-card class="card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Title: </mat-card-title>
+        <mat-card-subtitle>Price</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+      <mat-card-actions>
+        <button mat-button>more infos</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+
+<!--reactive page for all products to lend-->
+
+<h1 class="title">All products to rent: </h1>
+
+<div class="content" fxLayout="row wrap">
+  <div fxFlex="25%" class="bottomspace">
+    <mat-card class="card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Title</mat-card-title>
+        <mat-card-subtitle>Price</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+      <mat-card-actions>
+        <button mat-button >more infos</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+
+<!--reactive page for all services-->
+
+<h1 class="title">All services online: </h1>
+
+<div class="content" fxLayout="row wrap">
+  <div fxFlex="25%"  class="bottomspace">
+    <mat-card class="card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Title</mat-card-title>
+        <mat-card-subtitle>Price</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+      <mat-card-actions>
+        <button mat-button>more infos</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

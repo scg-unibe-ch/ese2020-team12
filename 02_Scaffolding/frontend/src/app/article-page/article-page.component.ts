@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ArticleInfoService} from '../article-info.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {ShoppingCartService} from '../shopping-cart.service';
+import {UserInfoService} from "../user-info.service";
 
 
 @Component({
@@ -15,7 +17,9 @@ export class ArticlePageComponent implements OnInit {
 
   constructor(
     public articleInfoService: ArticleInfoService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private shoppingCart: ShoppingCartService,
+    private userInfoService: UserInfoService
   ) {
   }
 
@@ -24,6 +28,7 @@ export class ArticlePageComponent implements OnInit {
   }
 
   openSnackBar(message: string, action: string): void {
+    this.shoppingCart.addSellProduct(this.article.sellProductId, this.userInfoService.getUserId());
     this.snackBar.open(message, action, {
       duration: 8000,
     });

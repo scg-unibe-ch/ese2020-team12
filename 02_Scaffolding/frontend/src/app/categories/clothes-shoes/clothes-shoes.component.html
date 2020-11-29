@@ -92,7 +92,7 @@
             <form class="search-sidebar" class="filterelement">
               <mat-form-field style="width:90%" appearance="fill">
                 <mat-label>Search clothes & shoes</mat-label>
-                <input matInput placeholder="search products">
+                <input matInput [(ngModel)]="searchSellTerm" type=text placeholder="search products" (keyup.enter)="searchSellCat()">
               </mat-form-field>
             </form>
 
@@ -235,7 +235,7 @@
             <form class="search-sidebar" class="filterelement">
               <mat-form-field style="width:90%" appearance="fill">
                 <mat-label>Search clothes & shoes</mat-label>
-                <input matInput placeholder="search products">
+                <input matInput [(ngModel)]="searchTerm" (keyup.enter)="searchSellCat()" placeholder="search products">
               </mat-form-field>
             </form>
 

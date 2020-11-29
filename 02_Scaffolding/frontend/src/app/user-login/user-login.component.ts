@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
-// Note: this is the document from the given ESE scaffolding, it is not in use
 
 @Component({
   selector: 'app-user-login',

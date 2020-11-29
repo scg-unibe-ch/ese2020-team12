@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ShoppingCartService} from '../shopping-cart.service';
+import {UserInfoService} from '../user-info.service';
 
 @Component({
   selector: 'app-shoppingcart',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShoppingcartComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public shoppingCartService: ShoppingCartService,
+    private userInfoService: UserInfoService
+  ) { }
 
   ngOnInit(): void {
+    this.userInfoService.getUserFromBackend();
+    setTimeout(() =>
+      {
+        this.shoppingCartService.getMarkedArticle(this.userInfoService.getUserId());
+      },
+      1000);
   }
+
+
 
 }

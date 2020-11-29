@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ArticleInfoService} from '../article-info.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {ShoppingCartService} from '../shopping-cart.service';
+import {UserInfoService} from '../user-info.service';
 
 @Component({
   selector: 'app-article-page-lend',
@@ -13,7 +15,9 @@ export class ArticlePageLendComponent implements OnInit {
 
   constructor(
     public articleInfoService: ArticleInfoService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private shoppingCart: ShoppingCartService,
+    private userInfoService: UserInfoService
   ) {
     this.article = this.articleInfoService.getArticle();
   }
@@ -22,6 +26,7 @@ export class ArticlePageLendComponent implements OnInit {
   }
 
   openSnackBar(message: string, action: string): void{
+    this.shoppingCart.addLendProduct(this.article.lendProductId, this.userInfoService.getUserId());
     this.snackBar.open(message, action, {
       duration: 8000,
     });

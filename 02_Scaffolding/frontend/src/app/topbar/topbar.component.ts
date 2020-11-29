@@ -70,7 +70,6 @@ export class TopbarComponent implements OnInit {
   }
 
   search(): void {
-    console.log(this.searchTerm);
     this.articleInfoService.setSearchTerm(this.searchTerm);
     setTimeout(() =>
       {
