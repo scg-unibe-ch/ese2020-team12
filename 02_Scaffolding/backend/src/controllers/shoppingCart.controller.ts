@@ -46,12 +46,12 @@ shoppingCartController.delete('/delete/sell/:userId/:sellProductId', (req, res) 
         }).catch(err => res.status(500).send(err));
 });
 
-shoppingCartController.delete('/delete/lend', (req, res) => {
+shoppingCartController.delete('/delete/lend/:userId/:lendProductId', (req, res) => {
     ShoppingCartItem.findOne({
         where: {
             [Op.and]: [
-                {userId: req.body.userId},
-                {lendProductId: req.body.lendProductId}
+                {userId: req.params.userId},
+                {sellProductId: req.params.lendProductId}
             ]
         }
     })
@@ -66,12 +66,12 @@ shoppingCartController.delete('/delete/lend', (req, res) => {
         }).catch(err => res.status(500).send(err));
 });
 
-shoppingCartController.delete('/delete/service', (req, res) => {
+shoppingCartController.delete('/delete/service/:userId/:serviceId', (req, res) => {
     ShoppingCartItem.findOne({
         where: {
             [Op.and]: [
-                {userId: req.body.userId},
-                {serviceId: req.body.serviceId}
+                {userId: req.params.userId},
+                {sellProductId: req.params.serviceId}
             ]
         }
     })
@@ -85,6 +85,7 @@ shoppingCartController.delete('/delete/service', (req, res) => {
             }
         }).catch(err => res.status(500).send(err));
 });
+
 
 shoppingCartController.delete('/delete/:userId', (req, res) => {
     ShoppingCartItem.destroy({

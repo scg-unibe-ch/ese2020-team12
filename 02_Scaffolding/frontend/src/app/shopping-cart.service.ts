@@ -86,7 +86,7 @@ export class ShoppingCartService {
     return this.lendList;
   }
 
-  getServiceLists(): any {
+  getServiceList(): any {
     return this.serviceList;
   }
 

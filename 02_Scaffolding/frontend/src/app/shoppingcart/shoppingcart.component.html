@@ -42,7 +42,7 @@
                   <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
                   <mat-card-actions>
                     <button mat-button (click)="this.moreLendInfos(article.lendProductId)" >more infos</button>
-                    <button mat-button (click)="this.lendRemove(this.article.serviceId)">remove item</button>
+                    <button mat-button (click)="this.lendRemove(this.article.lendProductId)">remove item</button>
                   </mat-card-actions>
                 </mat-card>
               </div>
@@ -51,7 +51,7 @@
 
           <mat-tab label="Your services">
             <div class="content" fxLayout="row wrap">
-              <div fxFlex="25%" *ngFor="let article of this.shoppingCartService.getLendList()"  class="bottomspace">
+              <div fxFlex="25%" *ngFor="let article of this.shoppingCartService.getServiceList()"  class="bottomspace">
                 <mat-card class="card">
                   <mat-card-header>
                     <div mat-card-avatar class="example-header-image"></div>
@@ -187,7 +187,7 @@
       <mat-card>
         <mat-card-title>Payment</mat-card-title>
         <a>
-          We will debit your balance with the amount of "XXXX" CHF.
+          We will debit your balance with the amount of {{totalPayment()}} CHF.
           If needed, you can charge your balance right <a button routerLink="/balance">here!</a>
         </a>
       </mat-card>
@@ -206,7 +206,7 @@
     </p>
     <div>
       <button mat-button matStepperPrevious>Back</button>
-      <button mat-button>Buy</button>
+      <button mat-button (click)="buy()">Buy</button>
     </div>
   </mat-step>
 </mat-horizontal-stepper>

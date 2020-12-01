@@ -145,7 +145,53 @@ export class ShoppingcartComponent implements OnInit {
       1000);
   }
 
-  totalPayment(): any {
+  totalPayment(): number {
+    let pay = 0;
+    for (const sell of this.shoppingCartService.getSellList()) {
+      pay += Number(sell.price);
+    }
+    for (const lend of this.shoppingCartService.getLendList()) {
+      pay += Number(lend.price);
+    }
+    console.log(this.shoppingCartService.getServiceList());
+    for (const service of this.shoppingCartService.getServiceList()) {
+      pay += Number(service.price);
+    }
+    return pay;
+  }
+
+  buy(): void{
+    const newBalance = Number(this.userInfoService.getBalance()) - Number(this.totalPayment());
+    this.httpClient.put(environment.endpointURL + 'user/profile/' + this.userId , {
+      balance: newBalance
+    }).subscribe((res: any) => {
+    });
+    for (const id of this.articleSellList) {
+      this.httpClient.put(environment.endpointURL + 'add-article/sell-product' + id, {
+        status: false
+      }).subscribe((res: any) => {
+      });
+    }
+    for (const id of this.articleLendList) {
+      this.httpClient.put(environment.endpointURL + 'add-article/lend-product' + id, {
+        status: false
+      }).subscribe((res: any) => {
+      });
+    }
+    for (const id of this.articleServList) {
+      this.httpClient.put(environment.endpointURL + 'add-article/provide-service' + id, {
+        status: false
+      }).subscribe((res: any) => {
+      });
+    }
+    setTimeout(() =>
+      {
+        this.httpClient.delete(environment.endpointURL + 'shopping-cart/delete/' + this.userId)
+          .subscribe();
+        this.userInfoService.getUserFromBackend();
+        this.router.navigate(['/']);
+      },
+      1000);
 
   }
 }
