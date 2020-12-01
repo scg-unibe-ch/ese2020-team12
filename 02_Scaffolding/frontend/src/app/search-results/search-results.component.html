@@ -9,8 +9,11 @@
 
 </mat-grid-list>
 
+<mat-tab-group mat-align-tabs="center">
+
 <!--reactive page for all products to buy-->
 
+  <mat-tab label="Products for sale">
 <h1 class="title">All products for sale: </h1>
 
 <div class="content" fxLayout="row wrap">
@@ -28,9 +31,11 @@
     </mat-card>
   </div>
 </div>
+  </mat-tab>
 
 <!--reactive page for all products to lend-->
 
+  <mat-tab label="Products to rent">
 <h1 class="title">All products to rent: </h1>
 
 <div class="content" fxLayout="row wrap">
@@ -48,9 +53,11 @@
     </mat-card>
   </div>
 </div>
+  </mat-tab>
 
 <!--reactive page for all services-->
 
+  <mat-tab label="All services online">
 <h1 class="title">All services online: </h1>
 
 <div class="content" fxLayout="row wrap">
@@ -68,3 +75,6 @@
     </mat-card>
   </div>
 </div>
+  </mat-tab>
+
+</mat-tab-group>
