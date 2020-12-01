@@ -13,36 +13,36 @@
 
           <mat-tab label="Your articles to buy">
             <div class="content" fxLayout="row wrap">
-              <div fxFlex="25%" *ngFor="let articles of this.shoppingCartService.getProductIds()" class="bottomspace">
+              <div fxFlex="25%" *ngFor="let article of this.shoppingCartService.getSellList()" class="bottomspace">
                 <mat-card class="card">
                   <mat-card-header>
                     <div mat-card-avatar class="example-header-image"></div>
-                    <mat-card-title>Title: </mat-card-title>
-                    <mat-card-subtitle>Price</mat-card-subtitle>
+                    <mat-card-title>Title: {{this.article.title}}</mat-card-title>
+                    <mat-card-subtitle>Price: {{this.article.price}} </mat-card-subtitle>
                   </mat-card-header>
                   <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
                   <mat-card-actions>
-                    <button mat-button>more infos</button>
-                    <button mat-button>remove item</button>
+                    <button mat-button (click)="this.moreSellInfos(article.sellProductId)">more infos</button>
+                    <button mat-button (click)="sellRemove(this.article.sellProductId)" >remove item</button>
                   </mat-card-actions>
                 </mat-card>
               </div>
-            </div>
+              </div>
           </mat-tab>
 
           <mat-tab label="Your articles to lend">
             <div class="content" fxLayout="row wrap">
-              <div fxFlex="25%" class="bottomspace">
+              <div fxFlex="25%" *ngFor="let article of this.shoppingCartService.getLendList()" class="bottomspace">
                 <mat-card class="card">
                   <mat-card-header>
                     <div mat-card-avatar class="example-header-image"></div>
-                    <mat-card-title>Title</mat-card-title>
-                    <mat-card-subtitle>Price</mat-card-subtitle>
+                    <mat-card-title>Title {{this.article.title}}</mat-card-title>
+                    <mat-card-subtitle>Price {{this.article.price}}</mat-card-subtitle>
                   </mat-card-header>
                   <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
                   <mat-card-actions>
-                    <button mat-button >more infos</button>
-                    <button mat-button>remove item</button>
+                    <button mat-button (click)="this.moreLendInfos(article.lendProductId)" >more infos</button>
+                    <button mat-button (click)="this.lendRemove(this.article.serviceId)">remove item</button>
                   </mat-card-actions>
                 </mat-card>
               </div>
@@ -51,17 +51,17 @@
 
           <mat-tab label="Your services">
             <div class="content" fxLayout="row wrap">
-              <div fxFlex="25%"  class="bottomspace">
+              <div fxFlex="25%" *ngFor="let article of this.shoppingCartService.getLendList()"  class="bottomspace">
                 <mat-card class="card">
                   <mat-card-header>
                     <div mat-card-avatar class="example-header-image"></div>
-                    <mat-card-title>Title</mat-card-title>
-                    <mat-card-subtitle>Price</mat-card-subtitle>
+                    <mat-card-title>Title {{this.article.title}}</mat-card-title>
+                    <mat-card-subtitle>Price {{this.article.price}}</mat-card-subtitle>
                   </mat-card-header>
                   <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
                   <mat-card-actions>
-                    <button mat-button>more infos</button>
-                    <button mat-button>remove item</button>
+                    <button mat-button (click)="this.moreServiceInfos(article.serviceId)">more infos</button>
+                    <button mat-button (click)="this.serviceRemove(this.article.serviceId)">remove item</button>
                   </mat-card-actions>
                 </mat-card>
               </div>

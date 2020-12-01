@@ -7,6 +7,9 @@ import {environment} from '../environments/environment';
 })
 export class ShoppingCartService {
   productIds: any;
+  sellList = [];
+  lendList = [];
+  serviceList = [];
 
   constructor(
     private httpClient: HttpClient
@@ -14,24 +17,24 @@ export class ShoppingCartService {
 
   addSellProduct(sellProductId: any, userId: any ): void {
    this.httpClient.post(environment.endpointURL + 'shopping-cart/', {
-     userId: userId,
-     sellProductId: sellProductId
+     userId,
+     sellProductId
    }).subscribe(item => {
    });
   }
 
   addLendProduct(lendProductId: any, userId: any ): void {
     this.httpClient.post(environment.endpointURL + 'shopping-cart/', {
-      userId: userId,
-      lendProductId: lendProductId
+      userId,
+      lendProductId
     }).subscribe(item => {
     });
   }
 
   addServiceProduct(serviceId: any, userId: any ): void {
     this.httpClient.post(environment.endpointURL + 'shopping-cart/', {
-      userId: userId,
-      serviceId: serviceId
+      userId,
+      serviceId
     }).subscribe(item => {
     });
   }
@@ -45,4 +48,46 @@ export class ShoppingCartService {
   getProductIds(): any {
     return this.productIds;
   }
+
+  saveSellArticle(idList: any): void {
+    this.sellList = [];
+    for (const id of idList) {
+      this.httpClient.get(environment.endpointURL + 'article/sell/' + id)
+        .subscribe(res => {
+          this.sellList.push(res);
+        });
+    }
+  }
+
+  saveLendArticle(idList: any): void {
+    this.lendList = [];
+    for (const id of idList) {
+      this.httpClient.get(environment.endpointURL + 'article/lend/' + id)
+        .subscribe(res => {
+          this.lendList.push(res);
+        });
+    }
+  }
+  saveServiceArticle(idList: any): void {
+    this.serviceList = [];
+    for (const id of idList) {
+      this.httpClient.get(environment.endpointURL + 'article/service/' + id)
+        .subscribe(res => {
+          this.serviceList.push(res);
+        });
+    }
+  }
+
+  getSellList(): any {
+    return this.sellList;
+  }
+
+  getLendList(): any {
+    return this.lendList;
+  }
+
+  getServiceLists(): any {
+    return this.serviceList;
+  }
+
 }

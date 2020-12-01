@@ -2,6 +2,7 @@ import express, {Request, Response, Router} from 'express';
 import {ShoppingCartService} from '../services/shoppingCart.service';
 import {User} from '../models/user.model';
 import {ShoppingCartItem} from '../models/shoppingCart.model';
+import {Op} from 'sequelize';
 
 
 
@@ -25,8 +26,55 @@ shoppingCartController.get('/:id', (req: Request, res: Response) => {
 });
 
 
-shoppingCartController.delete('/delete/item/:cartId', (req, res) => {
-    ShoppingCartItem.findByPk(req.params.cartId)
+shoppingCartController.delete('/delete/sell/:userId/:sellProductId', (req, res) => {
+    ShoppingCartItem.findOne({
+            where: {
+                [Op.and]: [
+                    {userId: req.params.userId},
+                    {sellProductId: req.params.sellProductId}
+                ]
+        }
+    })
+        .then(found => {
+            if (found != null) {
+                found.destroy()
+                    .then(item => res.status(200).send({ deleted: item }))
+                    .catch(err => res.status(500).send(err));
+            } else {
+                res.sendStatus(404);
+            }
+        }).catch(err => res.status(500).send(err));
+});
+
+shoppingCartController.delete('/delete/lend', (req, res) => {
+    ShoppingCartItem.findOne({
+        where: {
+            [Op.and]: [
+                {userId: req.body.userId},
+                {lendProductId: req.body.lendProductId}
+            ]
+        }
+    })
+        .then(found => {
+            if (found != null) {
+                found.destroy()
+                    .then(item => res.status(200).send({ deleted: item }))
+                    .catch(err => res.status(500).send(err));
+            } else {
+                res.sendStatus(404);
+            }
+        }).catch(err => res.status(500).send(err));
+});
+
+shoppingCartController.delete('/delete/service', (req, res) => {
+    ShoppingCartItem.findOne({
+        where: {
+            [Op.and]: [
+                {userId: req.body.userId},
+                {serviceId: req.body.serviceId}
+            ]
+        }
+    })
         .then(found => {
             if (found != null) {
                 found.destroy()
