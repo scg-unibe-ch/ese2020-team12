@@ -66,6 +66,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
 import {MatStepperModule} from "@angular/material/stepper";
 import { FAQComponent } from './faq/faq.component';
+import { ChangepasswordComponent } from './changepassword/changepassword.component';
 
 
 @NgModule({
@@ -109,6 +110,7 @@ import { FAQComponent } from './faq/faq.component';
     BottombarComponent,
     ShoppingcartComponent,
     FAQComponent,
+    ChangepasswordComponent,
   ],
     imports: [
         MatSnackBarModule,
@@ -154,7 +156,8 @@ import { FAQComponent } from './faq/faq.component';
             {path: 'balance', component: BalanceComponent},
             {path: 'termsofservice', component: TermsofserviceComponent},
             {path: 'shoppingcart', component: ShoppingcartComponent},
-            {path: 'faq', component: FAQComponent}
+            {path: 'faq', component: FAQComponent},
+            {path: 'changepassword', component: ChangepasswordComponent}
         ]),
         FormsModule,
         MatSelectModule,
