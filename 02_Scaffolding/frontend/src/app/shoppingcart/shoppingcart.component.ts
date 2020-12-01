@@ -167,19 +167,19 @@ export class ShoppingcartComponent implements OnInit {
     }).subscribe((res: any) => {
     });
     for (const id of this.articleSellList) {
-      this.httpClient.put(environment.endpointURL + 'add-article/sell-product' + id, {
+      this.httpClient.put(environment.endpointURL + 'add-article/sell-product/' + id, {
         status: false
       }).subscribe((res: any) => {
       });
     }
     for (const id of this.articleLendList) {
-      this.httpClient.put(environment.endpointURL + 'add-article/lend-product' + id, {
+      this.httpClient.put(environment.endpointURL + 'add-article/lend-product/' + id, {
         status: false
       }).subscribe((res: any) => {
       });
     }
     for (const id of this.articleServList) {
-      this.httpClient.put(environment.endpointURL + 'add-article/provide-service' + id, {
+      this.httpClient.put(environment.endpointURL + 'add-article/provide-service/' + id, {
         status: false
       }).subscribe((res: any) => {
       });
