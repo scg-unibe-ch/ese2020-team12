@@ -127,6 +127,13 @@ export class ArticleInfoService {
     });
   }
 
+  getSellArticleById(id: any): void {
+    this.httpClient.get(environment.endpointURL + 'article/sell/' + id)
+      .subscribe(res => {
+      this.actualArticle = res;
+    });
+  }
+
   // LEND
   saveAllLendArticles(): void {
     this.httpClient.get(environment.endpointURL + 'article/lend/')
