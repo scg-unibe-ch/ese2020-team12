@@ -97,3 +97,7 @@
   min-height: 81vh;
 }
 
+.border{
+  border: 6px solid #00559d;
+}
+

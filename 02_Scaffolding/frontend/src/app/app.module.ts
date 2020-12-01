@@ -65,6 +65,7 @@ import { BottombarComponent } from './bottombar/bottombar.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
 import {MatStepperModule} from "@angular/material/stepper";
+import { FAQComponent } from './faq/faq.component';
 
 
 @NgModule({
@@ -107,6 +108,7 @@ import {MatStepperModule} from "@angular/material/stepper";
     TermsofserviceComponent,
     BottombarComponent,
     ShoppingcartComponent,
+    FAQComponent,
   ],
     imports: [
         MatSnackBarModule,
@@ -151,7 +153,8 @@ import {MatStepperModule} from "@angular/material/stepper";
             {path: 'article-page-service', component: ArticlePageServiceComponent},
             {path: 'balance', component: BalanceComponent},
             {path: 'termsofservice', component: TermsofserviceComponent},
-            {path: 'shoppingcart', component: ShoppingcartComponent}
+            {path: 'shoppingcart', component: ShoppingcartComponent},
+            {path: 'faq', component: FAQComponent}
         ]),
         FormsModule,
         MatSelectModule,

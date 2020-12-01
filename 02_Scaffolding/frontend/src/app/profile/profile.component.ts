@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {UserInfoService} from '../user-info.service';
+import {ArticleInfoService} from '../article-info.service';
 
 @Component({
   selector: 'app-profile',
@@ -15,7 +16,9 @@ export class ProfileComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
+    public articleInfoService: ArticleInfoService,
     private route: ActivatedRoute,
+    private router: Router,
     private httpClient: HttpClient,
     public userInfoService: UserInfoService
   ) {
@@ -126,10 +129,36 @@ export class ProfileComponent implements OnInit {
 
   sendPicture(): void {
     const formData = new FormData();
-    formData.append('image', this.uploadedFile)
+    formData.append('image', this.uploadedFile);
+    // tslint:disable-next-line:max-line-length
     this.httpClient.post(environment.endpointURL + 'user/profilephoto/' + this.userInfoService.getUserId(), formData).subscribe((res: any) => {
       // Set user data in local storage
       localStorage.setItem('profilephoto', res.profilephoto);
     });
+  }
+
+  moreSellInfos(id: number): void{
+    this.articleInfoService.saveSellArticleTemp(id);
+    setTimeout(() =>
+      {
+        this.router.navigate(['/article-page']);
+      },
+      1000);
+  }
+  moreLendInfos(id: number): void{
+    this.articleInfoService.saveLendArticleTemp(id);
+    setTimeout(() =>
+      {
+        this.router.navigate(['/article-page-lend']);
+      },
+      1000);
+  }
+  moreServiceInfos(id: number): void{
+    this.articleInfoService.saveServiceArticleTemp(id);
+    setTimeout(() =>
+      {
+        this.router.navigate(['/article-page-service']);
+      },
+      1000);
   }
 }

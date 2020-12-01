@@ -5,3 +5,7 @@
 .pagewidth{
   max-width: 100%;
 }
+
+.border{
+  border: 6px solid #00559d;
+}
