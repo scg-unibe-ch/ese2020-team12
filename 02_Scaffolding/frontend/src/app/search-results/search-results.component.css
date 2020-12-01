@@ -59,6 +59,7 @@
 
 .content {
   padding: 16px; /*abstand der produkte zu banner*/
+  min-height: 31vh;
 }
 
 .content > mat-card {
@@ -76,3 +77,8 @@
 .pagewidth{
   max-width: 100%;
 }
+
+.border{
+  border: 6px solid #00559d;
+}
+

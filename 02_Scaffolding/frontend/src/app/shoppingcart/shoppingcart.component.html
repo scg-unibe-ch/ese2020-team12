@@ -3,7 +3,7 @@
 <!--<button mat-raised-button (click)="isOptional = !isOptional">
   {{!isOptional ? 'Enable optional steps' : 'Disable optional steps'}}
 </button>-->
-
+<div class="border">
 <mat-horizontal-stepper linear #stepper>
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
@@ -210,3 +210,4 @@
     </div>
   </mat-step>
 </mat-horizontal-stepper>
+</div>

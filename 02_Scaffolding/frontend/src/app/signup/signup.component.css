@@ -76,3 +76,8 @@ input[type=submit]:hover {
 .example-full-width {
   width: 100%;
 }
+
+.border{
+  border: 6px solid #00559d;
+}
+
