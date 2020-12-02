@@ -44,27 +44,15 @@ export class UserInfoService {
     this.username = username;
   }
 
-  /*
-  // Storage of password in user service is not necessary / insecure
-  getPassword(): string {
-    return this.password;
-  }
-  setPassword(password: string): void {
-    this.password = password;
-  }
-   */
 
   getUserToken(): string {
-    // this.userToken = localStorage.getItem('userToken');
     return this.userToken;
   }
   setUserToken(userToken: string): void {
-    // localStorage.setItem('userToken', userToken);
     this.userToken = userToken;
   }
 
-  // Responsible for refresh
-  // delete console.log statements asap
+
   checkUserToken(): void {
     if (localStorage.getItem('userToken')) {
       this.getUserFromBackend();
@@ -148,7 +136,6 @@ export class UserInfoService {
   constructor(
     private httpClient: HttpClient
   ) {
-    // Check UserToken from localstorage via checkuserstatus
     this.isLoggedIn = false;
     this.username = '';
     this.user = null;
@@ -156,90 +143,15 @@ export class UserInfoService {
 
 
   checkUserStatus(): void {
-    // Set boolean whether a user is logged in or not
     this.setLogin(!!(this.getUserToken()));
+  }
+
+  deleteUser(id: any): void {
+    this.httpClient.delete(environment.endpointURL + 'user/' + id)
+      .subscribe();
   }
 
 
 }
 
-/*
-  // previous variables (delete as soon as not needed anymore)
-  username: string;
-  userToken: any; // change to correct type
-  password: string;
-  userId: string;
-
-  user: any;
-
-  email: string;
-  name: string;
-  surname: string;
-  street: string;
-  houseNumber: number;
-  postalCode: number;
-  place: string;
-   */
-
-/*  Old Methods (delete as soon as not needed anymore)
-  getUser(): string {
-    this.httpClient.get(environment.endpointURL + 'user/profile/' + this.userId)
-      .subscribe((res: any ) => {
-        this.user = res;
-      });
-    return this.user;
-  }
-
-  isLoggedIn(): boolean {
-    // code
-    return true;
-  }
-
-  getUserId(): string {
-    this.userId = localStorage.getItem('userId');
-    return this.userId;
-  }
-
-  getDataFromBackend(): void {
-    // if (this.isLoggedIn()){
-      this.httpClient.get(environment.endpointURL + 'user/profile/' + this.getUserId())
-        .subscribe((res: any ) => {
-          this.user = res.user;
-        });
-      // für aues angere müessmer ds de ono
-      this.httpClient.get(environment.endpointURL + 'user/profile/' + 'pockel')
-        .subscribe((res: any ) => {
-          this.username = res.pockel.username;
-      });
-    // }
-  }
-  getUserName(): string {
-    return this.username;
-  }
-
-  getEmail(): string {
-    this.getDataFromBackend();
-    return this.user.email;
-  }
-   */
-
-/*
-  // Where do i need to put this? How do i need to write this? (30.10.20 -mauri)
-  getUserId(): void {
-    this.httpClient.get(environment.endpointURL + 'user/profile').subscribe((res: any) => { this.isLoggedIn = res.loggedIn; });
-  }
-   */
-
-/*
- this.getUserDate();
-    console.log(this.username,
-      this.password,
-      this.email,
-      this.name,
-      this.surname,
-      this.street,
-      this.houseNumber,
-      this.postalCode,
-      this.place);
- */
 

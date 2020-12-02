@@ -153,7 +153,6 @@ export class ShoppingcartComponent implements OnInit {
     for (const lend of this.shoppingCartService.getLendList()) {
       pay += Number(lend.price);
     }
-    console.log(this.shoppingCartService.getServiceList());
     for (const service of this.shoppingCartService.getServiceList()) {
       pay += Number(service.price);
     }

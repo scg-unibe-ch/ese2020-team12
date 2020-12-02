@@ -4,6 +4,7 @@ import { UserService } from '../services/user.service';
 import { verifyToken } from '../middlewares/checkAuth';
 import {User} from '../models/user.model';
 import {verifyUserUnique} from '../middlewares/userUnique';
+import {Op} from 'sequelize';
 
 const userController: Router = express.Router();
 const userService = new UserService();
@@ -51,8 +52,17 @@ userController.post('/login',
 
 userController.get('/profile/:id', verifyToken, // you can add middleware on specific requests like that
     (req: Request, res: Response) => {
-        console.log(req.params.id);
         User.findByPk(req.params.id).then(users => res.send(users)).catch(err => res.status(500).send(err));
+    }
+);
+
+userController.get('/admin/users', verifyToken,
+    (req: Request, res: Response) => {
+        User.findAll({
+            where: {
+                userName: {[Op.ne]: 'admin'}
+            }
+        }).then(users => res.send(users)).catch(err => res.status(500).send(err));
     }
 );
 
