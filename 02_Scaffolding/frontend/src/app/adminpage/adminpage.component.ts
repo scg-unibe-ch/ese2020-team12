@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {UserInfoService} from '../user-info.service';
 
 @Component({
   selector: 'app-adminpage',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminpageComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private userInfoService: UserInfoService
+  ) { }
 
   ngOnInit(): void {
   }

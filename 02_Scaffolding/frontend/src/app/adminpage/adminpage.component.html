@@ -1,3 +1,36 @@
 <div class="border">
-<p>adminpage works!</p>
-</div>
+
+    <mat-grid-list cols="8"  rowHeight="144px" class="pagewidth">
+
+      <!--Banner-->
+      <mat-grid-tile colspan="8" rowspan="2" class="banner">
+        <img class="banner" id="banner-1" src="../../assets/Header_Home/Banner_selling.png" style="display:block;">
+        <img class="banner" id="banner-2" src="../../assets/Header_Home/Banner_Lending.png" style="display:none;">
+        <img class="banner" id="banner-3" src="../../assets/Header_Home/Banner_Service.png" style="display:none;">
+      </mat-grid-tile>
+
+    </mat-grid-list>
+
+
+      <!--reactive page for all products to buy-->
+
+        <h1 class="title">All registered users: </h1>
+
+        <div class="content" fxLayout="row wrap">
+          <div fxFlex="25%" *ngFor="let article of this.userInfoService;" class="bottomspace">
+            <mat-card class="card">
+              <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>{{article.username}}</mat-card-title>
+                <mat-card-subtitle>{{article.userId}}</mat-card-subtitle>
+              </mat-card-header>
+              <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+              <mat-card-actions>
+                <button mat-button routerLink="/user-info">more infos</button>
+                <button mat-button>delete profile</button>
+              </mat-card-actions>
+            </mat-card>
+          </div>
+        </div>
+
+  </div>

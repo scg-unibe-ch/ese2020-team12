@@ -68,6 +68,7 @@ import {MatStepperModule} from "@angular/material/stepper";
 import { FAQComponent } from './faq/faq.component';
 import { ChangepasswordComponent } from './changepassword/changepassword.component';
 import { AdminpageComponent } from './adminpage/adminpage.component';
+import { UserInfoComponent } from './user-info/user-info.component';
 
 
 @NgModule({
@@ -113,6 +114,7 @@ import { AdminpageComponent } from './adminpage/adminpage.component';
     FAQComponent,
     ChangepasswordComponent,
     AdminpageComponent,
+    UserInfoComponent,
   ],
     imports: [
         MatSnackBarModule,
@@ -159,7 +161,9 @@ import { AdminpageComponent } from './adminpage/adminpage.component';
             {path: 'termsofservice', component: TermsofserviceComponent},
             {path: 'shoppingcart', component: ShoppingcartComponent},
             {path: 'faq', component: FAQComponent},
-            {path: 'changepassword', component: ChangepasswordComponent}
+            {path: 'changepassword', component: ChangepasswordComponent},
+            {path: 'adminpage', component: AdminpageComponent},
+            {path: 'user-info', component: UserInfoComponent}
         ]),
         FormsModule,
         MatSelectModule,
