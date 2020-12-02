@@ -33,6 +33,10 @@ export class ArticleInfoService {
   private sellCategoryList: any;
   private lendCategoryList: any;
   private serviceCategoryList: any;
+  private userSellList: any;
+  private userLendList: any;
+  private userServiceList: any;
+
 
 
   // ---------- category--------------
@@ -182,6 +186,39 @@ export class ArticleInfoService {
     return this.actualArticle;
   }
 
+  // get article for user
+  saveUserLendArticle(id: number): void {
+    this.httpClient.get(environment.endpointURL + 'article/user/lend/' + id)
+      .subscribe(res => {
+        this.userLendList = res;
+      });
+  }
+
+  saveUserSellArticle(id: number): void {
+    this.httpClient.get(environment.endpointURL + 'article/user/sell/' + id)
+      .subscribe(res => {
+        this.userSellList = res;
+      });
+  }
+
+  saveUserServiceArticle(id: number): void {
+    this.httpClient.get(environment.endpointURL + 'article/user/service/' + id)
+      .subscribe(res => {
+        this.userServiceList = res;
+      });
+  }
+
+  getUserLendList(): any {
+    return this.userLendList;
+  }
+
+  getUserSellList(): any {
+    return this.userSellList;
+  }
+
+  getUserService(): any {
+    return this.userServiceList;
+  }
 
 }
 

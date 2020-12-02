@@ -85,6 +85,14 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     this.userInfoService.checkUserStatus();
     this.getUserInfo();
+    this.userInfoService.getUserFromBackend();
+    setTimeout(() =>
+      {
+        this.articleInfoService.saveUserLendArticle(this.userInfoService.getUserId());
+        this.articleInfoService.saveUserSellArticle(this.userInfoService.getUserId());
+        this.articleInfoService.saveUserServiceArticle(this.userInfoService.getUserId());
+      },
+      1000);
   }
 
   getUserInfo(): void {

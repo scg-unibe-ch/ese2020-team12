@@ -58,6 +58,39 @@ getArticleController.get('/service/:id',
     }
 );
 
+// get all lendProducts with userId
+getArticleController.get('/user/lend/:id',
+    (req: Request, res: Response) => {
+        LendProductItem.findAll({
+            where: {
+                userId: req.params.id
+            }})
+            .then(list => res.status(200).send(list)).catch(err => res.status(500).send(err));
+    }
+);
+
+
+// get all sellProducts with userId
+getArticleController.get('/user/sell/:id',
+    (req: Request, res: Response) => {
+        SellProductItem.findAll({
+            where: {
+                userId: req.params.id
+            }})
+            .then(list => res.status(200).send(list)).catch(err => res.status(500).send(err));
+    }
+);
+
+// get all Services with userId
+getArticleController.get('/user/service/:id',
+    (req: Request, res: Response) => {
+        ServiceItem.findAll({
+            where: {
+                userId: req.params.id
+            }})
+            .then(list => res.status(200).send(list)).catch(err => res.status(500).send(err));
+    }
+);
 
 
 export const GetArticleController: Router = getArticleController;
