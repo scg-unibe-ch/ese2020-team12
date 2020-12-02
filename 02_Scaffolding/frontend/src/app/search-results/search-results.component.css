@@ -50,6 +50,7 @@
 .card {
   max-width: 250px;
   padding-bottom: 10px;
+  margin-left: 30px;
 }
 
 .example-header-image {
