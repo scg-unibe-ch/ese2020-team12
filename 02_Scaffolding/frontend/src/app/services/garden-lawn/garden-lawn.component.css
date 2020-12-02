@@ -30,6 +30,8 @@
   margin: 0 1.5%;
   background-color: #eee;
   float: left;
+  max-height: 350px;
+  max-width: 250px;
 }
 
 .card2 {
@@ -38,6 +40,8 @@
   float: left;
   max-width: 200px;
   margin-left: 50px;
+  max-height: 300px;
+  max-width: 200px;
 }
 
 

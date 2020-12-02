@@ -33,9 +33,9 @@
     margin: 0 1.5%;
     background-color: #eee;
     float: left;
+    max-height: 350px;
+    max-width: 250px;
 }
-<<<<<<< HEAD
-=======
 
 .service{
   height:90%;
@@ -49,7 +49,6 @@
   width: 100%;
   max-height:18.75em;
 }
->>>>>>> 2a1fc6390a2186b69cc9df200ef7d9eacf2842ff
 
 .item img {
     width: 100%;
