@@ -67,6 +67,7 @@ import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
 import {MatStepperModule} from "@angular/material/stepper";
 import { FAQComponent } from './faq/faq.component';
 import { ChangepasswordComponent } from './changepassword/changepassword.component';
+import { AdminpageComponent } from './adminpage/adminpage.component';
 
 
 @NgModule({
@@ -111,6 +112,7 @@ import { ChangepasswordComponent } from './changepassword/changepassword.compone
     ShoppingcartComponent,
     FAQComponent,
     ChangepasswordComponent,
+    AdminpageComponent,
   ],
     imports: [
         MatSnackBarModule,
