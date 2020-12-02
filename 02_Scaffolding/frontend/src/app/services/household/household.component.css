@@ -1,6 +1,13 @@
 .mat-grid-tile {
-  border: 1px solid black;
   margin: 0;
+}
+
+.thinborder{
+  border: 1px solid black;
+}
+
+#thinborder{
+  border: 1px solid black;
 }
 
 .banner img{
@@ -58,6 +65,7 @@
 .button{
   width: 100%;
   height: 100%;
+  border: 2px solid #00559d;
 }
 
 .button3{

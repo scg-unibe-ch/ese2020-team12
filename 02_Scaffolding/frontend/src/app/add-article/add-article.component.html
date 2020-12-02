@@ -29,7 +29,7 @@
 
                 <mat-form-field appearance="fill" class="field">
                   <mat-label for="sellTitle">Title</mat-label>
-                  <input matInput [(ngModel)]="sellTitle" type="text" formControlName="sellTitle" required>
+                  <input matInput [(ngModel)]="sellTitle" maxlength="12" type="text" formControlName="sellTitle" required>
                 </mat-form-field>
 
                 <br>
@@ -102,7 +102,7 @@
 
                 <mat-form-field appearance="fill" class="field">
                   <mat-label for="lendTitle">Title</mat-label>
-                  <input matInput [(ngModel)]="lendTitle" type="text" formControlName="lendTitle" required>
+                  <input matInput [(ngModel)]="lendTitle" maxlength="12" type="text" formControlName="lendTitle" required>
                 </mat-form-field>
 
                 <br>
@@ -186,7 +186,7 @@
 
                        <mat-form-field appearance="fill" class="field">
                          <mat-label for="serviceTitle">Title</mat-label>
-                         <input matInput [(ngModel)]="serviceTitle" type="text" formControlName="serviceTitle" required>
+                         <input matInput [(ngModel)]="serviceTitle" maxlength="12" type="text" formControlName="serviceTitle" required>
                        </mat-form-field>
 
                        <br>
