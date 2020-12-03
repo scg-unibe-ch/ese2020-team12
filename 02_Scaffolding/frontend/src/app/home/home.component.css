@@ -66,6 +66,10 @@
   border: 2px solid #00559d;
 }
 
+.button:hover{
+  background-color: lightgray;
+}
+
 .button2{
   width: 90%;
   height: 10%;
