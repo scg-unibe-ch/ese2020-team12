@@ -6,6 +6,10 @@
   border: 1px solid black;
 }
 
+.background{
+  background-image: url("https://www.fg-a.com/wallpapers/marble-white-1-2018.jpg");
+}
+
 #banner img{
   width: 100%;
 }
@@ -75,6 +79,8 @@
   height: 10%;
   margin-top: 50px;
   margin-left: 15px;
+  background-color: #00559d;
+  color: white;
 }
 
 .button3{
