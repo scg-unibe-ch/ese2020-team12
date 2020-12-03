@@ -44,20 +44,6 @@
   width: 100%;
 }
 
-.col-30 {
-  float: left;
-  width: 30%;
-  margin-top: 1vh;
-  border: 1px solid black;
-}
-
-.col-70 {
-  float: left;
-  width: 70%;
-  margin-top: 1vh;
-  border: 1px solid black;
-}
-
 .row:after {
   clear: both;
   display: table;
@@ -99,5 +85,16 @@
 
 .border{
   border: 6px solid #00559d;
+}
+
+.card {
+  max-width: 250px;
+  padding-bottom: 10px;
+  margin-left: 30px;
+  margin-bottom: 30px;
+}
+
+.button3{
+  margin-top: -15px;
 }
 

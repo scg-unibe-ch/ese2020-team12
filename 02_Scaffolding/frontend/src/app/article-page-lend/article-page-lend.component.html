@@ -33,6 +33,7 @@
     </mat-card>
   </mat-grid-tile>
 
+  <div *ngIf="!this.userInfoService.getUserId()===article.userId">
   <!--Title, Price and Picture-->
   <mat-grid-tile colspan="2" rowspan="3">
 
@@ -93,9 +94,76 @@
       <input matInput value="OK!" #action>
     </mat-form-field>
 
-    <button mat-stroked-button (click)="openSnackBar(message.value, action.value)">Rent {{this.article.title}}</button>
+    <button class="button2" mat-stroked-button (click)="openSnackBar(message.value, action.value)">Rent {{this.article.title}}</button>
 
   </mat-grid-tile>
+  </div>
+
+  <div *ngIf="this.userInfoService.getUserId()===article.userId">
+    <!--Title, Price and Picture-->
+    <mat-grid-tile colspan="2" rowspan="3">
+
+      <mat-card>
+        <mat-card-title>{{this.article.title}}</mat-card-title>
+        <br>
+        <mat-card-title>{{this.article.price}} CHF</mat-card-title>
+        <br>
+        <mat-grid-list cols="1" rowHeight="300px" class="categories">
+          <mat-grid-tile>Picture of article</mat-grid-tile>
+        </mat-grid-list>
+      </mat-card>
+
+    </mat-grid-tile>
+
+    <!--Description-->
+    <mat-grid-tile colspan="4" rowspan="1">
+
+      <mat-card>
+        <mat-card-title>Description:</mat-card-title>
+        <p>{{this.article.description}}</p>
+      </mat-card>
+
+    </mat-grid-tile>
+
+    <!--Delivery & delivery specs-->
+    <mat-grid-tile colspan="4" rowspan="1">
+
+      <mat-card>
+        <mat-card-title>Delivery & delivery specifications:</mat-card-title>
+        <div *ngIf="this.article.status">
+          <p>Available</p>
+        </div>
+        <div *ngIf="!(this.article.status)">
+          <p>Unavailable</p>
+        </div>
+      </mat-card>
+
+    </mat-grid-tile>
+
+    <!--Seller and location-->
+    <mat-grid-tile colspan="4" rowspan="1">
+
+      <mat-card>
+        <mat-card-title>Lender and location:</mat-card-title>
+        <p>{{this.article.location}}</p>
+        <!-- Seller needs to be fetched by id -->
+      </mat-card>
+
+      <!--snackbar-->
+      <mat-form-field class="invisible">
+        <mat-label>Message</mat-label>
+        <input matInput value="{{this.article.title}} was added to your shopping cart" #message>
+      </mat-form-field>
+
+      <mat-form-field class="invisible">
+        <mat-label>Action</mat-label>
+        <input matInput value="OK!" #action>
+      </mat-form-field>
+
+      <button class="button2" mat-stroked-button (click)="openSnackBar(message.value, action.value)">Rent {{this.article.title}}</button>
+
+    </mat-grid-tile>
+  </div>
 
 </mat-grid-list>
 </div>
