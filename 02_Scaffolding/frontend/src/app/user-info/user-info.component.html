@@ -8,7 +8,7 @@
       <h1 class="title">All products for sale from this user: </h1>
 
       <div class="content" fxLayout="row wrap">
-        <div fxFlex="25%" *ngFor="let article of this.articleInfoService.getSellSearchResult();" class="bottomspace">
+        <div fxFlex="25%" *ngFor="let article of this.articleInfoService.getUserSellList()" class="bottomspace">
           <mat-card class="card">
             <mat-card-header>
               <div mat-card-avatar class="example-header-image"></div>
@@ -30,7 +30,7 @@
       <h1 class="title">All products to rent from this user: </h1>
 
       <div class="content" fxLayout="row wrap">
-        <div fxFlex="25%" *ngFor="let article of this.articleInfoService.getLendSearchResult();" class="bottomspace">
+        <div fxFlex="25%" *ngFor="let article of this.articleInfoService.getUserLendList()" class="bottomspace">
           <mat-card class="card">
             <mat-card-header>
               <div mat-card-avatar class="example-header-image"></div>
@@ -52,7 +52,7 @@
       <h1 class="title">All services online from this user: </h1>
 
       <div class="content" fxLayout="row wrap">
-        <div fxFlex="25%" *ngFor="let article of this.articleInfoService.getServiceSearchResult();" class="bottomspace">
+        <div fxFlex="25%" *ngFor="let article of this.articleInfoService.getUserService()" class="bottomspace">
           <mat-card class="card">
             <mat-card-header>
               <div mat-card-avatar class="example-header-image"></div>

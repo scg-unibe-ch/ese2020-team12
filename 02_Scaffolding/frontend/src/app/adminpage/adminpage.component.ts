@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {UserInfoService} from '../user-info.service';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
+import {Router} from '@angular/router';
+import {ArticleInfoService} from '../article-info.service';
 
 @Component({
   selector: 'app-adminpage',
@@ -13,7 +15,9 @@ export class AdminpageComponent implements OnInit {
 
   constructor(
     private userInfoService: UserInfoService,
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private articleInfoService: ArticleInfoService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -33,6 +37,15 @@ export class AdminpageComponent implements OnInit {
     setTimeout(() =>
       {
         window.location.reload();
+      },
+      1000);
+  }
+
+  moreInfo(id: any): void {
+    this.articleInfoService.setUserId(id);
+    setTimeout(() =>
+      {
+        this.router.navigate(['/user-info']);
       },
       1000);
   }

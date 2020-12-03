@@ -25,7 +25,7 @@
               </mat-card-header>
               <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
               <mat-card-actions>
-                <button mat-button routerLink="/user-info">more infos</button>
+                <button mat-button (click)="this.moreInfo(article.userId)">more infos</button>
                 <button mat-button (click)="this.deleteUser(article.userId)">delete profile</button>
               </mat-card-actions>
             </mat-card>

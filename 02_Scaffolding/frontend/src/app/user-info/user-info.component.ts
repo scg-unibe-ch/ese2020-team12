@@ -8,6 +8,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./user-info.component.css']
 })
 export class UserInfoComponent implements OnInit {
+  userId;
 
   constructor(
     public articleInfoService: ArticleInfoService,
@@ -15,6 +16,15 @@ export class UserInfoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.userId = this.articleInfoService.getUserId();
+    this.articleInfoService.saveUserLendArticle(this.userId);
+    this.articleInfoService.saveUserSellArticle(this.userId);
+    this.articleInfoService.saveUserServiceArticle(this.userId);
+    setTimeout(() =>
+      {
+        console.log();
+      },
+      1000);
   }
 
   moreSellInfos(id: number): void{

@@ -36,6 +36,7 @@ export class ArticleInfoService {
   private userSellList: any;
   private userLendList: any;
   private userServiceList: any;
+  private userId: any;
 
 
 
@@ -218,6 +219,14 @@ export class ArticleInfoService {
 
   getUserService(): any {
     return this.userServiceList;
+  }
+
+  setUserId(id: any): void {
+    this.userId = id;
+  }
+
+  getUserId(): any {
+    return this.userId;
   }
 
 }
