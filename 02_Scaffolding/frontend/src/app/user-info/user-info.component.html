@@ -18,6 +18,7 @@
             <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
             <mat-card-actions>
               <button mat-button (click)="moreSellInfos(article.sellProductId)">more infos</button>
+              <button mat-button (click)="deleteSell(article.sellProductId)">delete</button>
             </mat-card-actions>
           </mat-card>
         </div>
@@ -40,6 +41,7 @@
             <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
             <mat-card-actions>
               <button mat-button (click)="moreLendInfos(article.lendProductId)" >more infos</button>
+              <button mat-button (click)="deleteLend(article.lendProductId)" >delete</button>
             </mat-card-actions>
           </mat-card>
         </div>
@@ -62,6 +64,7 @@
             <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
             <mat-card-actions>
               <button mat-button (click)="moreServiceInfos(article.serviceId)">more infos</button>
+              <button mat-button (click)="deleteService(article.serviceId)">delete</button>
             </mat-card-actions>
           </mat-card>
         </div>

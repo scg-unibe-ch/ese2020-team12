@@ -229,6 +229,17 @@ export class ArticleInfoService {
     return this.userId;
   }
 
+  deleteSellProduct(id: any): void {
+    this.httpClient.delete(environment.endpointURL + 'add-article/sell-product/' + id).subscribe();
+  }
+  deleteLendProduct(id: any): void {
+    this.httpClient.delete(environment.endpointURL + 'add-article/lend-product/' + id).subscribe();
+  }
+  deleteService(id: any): void {
+    this.httpClient.delete(environment.endpointURL + 'add-article/provide-service/' + id).subscribe();
+  }
+
+
 }
 
 

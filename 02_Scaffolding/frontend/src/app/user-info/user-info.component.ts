@@ -20,11 +20,6 @@ export class UserInfoComponent implements OnInit {
     this.articleInfoService.saveUserLendArticle(this.userId);
     this.articleInfoService.saveUserSellArticle(this.userId);
     this.articleInfoService.saveUserServiceArticle(this.userId);
-    setTimeout(() =>
-      {
-        console.log();
-      },
-      1000);
   }
 
   moreSellInfos(id: number): void{
@@ -51,5 +46,33 @@ export class UserInfoComponent implements OnInit {
       },
       1000);
   }
+
+  deleteSell(id: any): void {
+    this.articleInfoService.deleteSellProduct(id);
+    setTimeout(() =>
+      {
+        this.ngOnInit();
+      },
+      1000);
+  }
+
+  deleteLend(id: any): void {
+    this.articleInfoService.deleteLendProduct(id);
+    setTimeout(() =>
+      {
+        this.ngOnInit();
+      },
+      1000);
+  }
+
+  deleteService(id: any): void {
+    this.articleInfoService.deleteService(id);
+    setTimeout(() =>
+      {
+        this.ngOnInit();
+      },
+      1000);
+  }
+
 
 }
