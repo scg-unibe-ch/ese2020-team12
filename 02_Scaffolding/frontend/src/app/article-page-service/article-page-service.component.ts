@@ -17,7 +17,7 @@ export class ArticlePageServiceComponent implements OnInit {
     public articleInfoService: ArticleInfoService,
     private snackBar: MatSnackBar,
     private shoppingCart: ShoppingCartService,
-    private userInfoService: UserInfoService
+    public userInfoService: UserInfoService
   ) { }
 
   ngOnInit(): void {

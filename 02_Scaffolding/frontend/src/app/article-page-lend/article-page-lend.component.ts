@@ -17,7 +17,7 @@ export class ArticlePageLendComponent implements OnInit {
     public articleInfoService: ArticleInfoService,
     private snackBar: MatSnackBar,
     private shoppingCart: ShoppingCartService,
-    private userInfoService: UserInfoService
+    public userInfoService: UserInfoService
   ) {
     this.article = this.articleInfoService.getArticle();
   }

@@ -19,7 +19,7 @@ export class ArticlePageComponent implements OnInit {
     public articleInfoService: ArticleInfoService,
     private snackBar: MatSnackBar,
     private shoppingCart: ShoppingCartService,
-    private userInfoService: UserInfoService
+    public userInfoService: UserInfoService
   ) {
   }
 
