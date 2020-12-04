@@ -108,14 +108,19 @@
 
       <mat-card>
         <mat-card-title>{{this.article.title}}</mat-card-title>
-        <br>
+        <mat-form-field style="width:80%">
+          <mat-label>Enter new product title</mat-label>
+          <input matInput placeholder="new title">
+        </mat-form-field>
         <mat-card-title>{{this.article.price}} CHF</mat-card-title>
-        <br>
-        <mat-grid-list cols="1" rowHeight="300px" class="categories">
+        <mat-form-field style="width:80%">
+          <mat-label>Enter new price</mat-label>
+          <input matInput placeholder="new price">
+        </mat-form-field>
+        <mat-grid-list cols="1" rowHeight="200px" class="categories">
           <mat-grid-tile>Picture of article</mat-grid-tile>
         </mat-grid-list>
       </mat-card>
-
     </mat-grid-tile>
 
     <!--Description-->
@@ -124,6 +129,10 @@
       <mat-card>
         <mat-card-title>Description:</mat-card-title>
         <p>{{this.article.description}}</p>
+        <mat-form-field style="width:80%">
+          <mat-label>Enter new description</mat-label>
+          <input matInput placeholder="new description">
+        </mat-form-field>
       </mat-card>
 
     </mat-grid-tile>
@@ -135,11 +144,22 @@
         <mat-card-title>Delivery & delivery specifications:</mat-card-title>
         <div *ngIf="this.article.delivery">
           <p>Available for delivery</p>
-          <p>{{this.article.delSpec}}</p>
+          <p>{{this.article.delSpec}}<br>
+            <mat-form-field style="width:80%">
+              <mat-label>Enter new delivery specification</mat-label>
+              <input matInput placeholder="new spec">
+            </mat-form-field>
+          </p>
+
         </div>
         <div *ngIf="!(this.article.delivery)">
           <p>Delivery unavailable</p>
-          <p>{{this.article.delSpec}}</p>
+          <p>{{this.article.delSpec}}<br>
+            <mat-form-field style="width:80%">
+              <mat-label>Enter new delivery specification</mat-label>
+              <input matInput placeholder="new spec">
+            </mat-form-field>
+          </p>
         </div>
       </mat-card>
 
@@ -151,21 +171,8 @@
       <mat-card>
         <mat-card-title>Seller and location:</mat-card-title>
         <!-- Seller needs to be fetched by id -->
-        <p> user </p>
+        <p>{{this.userInfoService.getUsername()}}, {{this.userInfoService.getPlace()}}</p>
       </mat-card>
-
-      <!--snackbar-->
-      <mat-form-field class="invisible">
-        <mat-label>Message</mat-label>
-        <input matInput value="{{this.article.title}} was added to your shopping cart" #message>
-      </mat-form-field>
-
-      <mat-form-field class="invisible">
-        <mat-label>Action</mat-label>
-        <input matInput value="OK!" #action>
-      </mat-form-field>
-
-      <button class="button2" mat-stroked-button (click)="openSnackBar(message.value, action.value)">Buy {{this.article.title}}</button>
 
     </mat-grid-tile>
   </div>
