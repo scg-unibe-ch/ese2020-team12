@@ -34,7 +34,7 @@
   </mat-grid-tile>
 
 
-  <div *ngIf="!this.userInfoService.getUserId()===article.userId">
+  <div *ngIf="!(this.userInfoService.getUserId()===article.userId)">
   <!--Title, Price and Picture-->
   <mat-grid-tile colspan="2" rowspan="3">
 
