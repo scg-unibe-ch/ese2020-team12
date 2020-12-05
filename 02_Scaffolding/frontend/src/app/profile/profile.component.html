@@ -178,25 +178,6 @@
             </div>
           </mat-tab>
 
-          <mat-tab label="Articles that I bought">
-            <h1 class="title">All products for sale: </h1>
-
-            <div class="content" fxLayout="row wrap">
-              <div fxFlex="25%" *ngFor="let article of this.articleInfoService.getSellSearchResult()" class="bottomspace">
-                <mat-card class="card">
-                  <mat-card-header>
-                    <div mat-card-avatar class="example-header-image"></div>
-                    <mat-card-title>{{article.title}}</mat-card-title>
-                    <mat-card-subtitle>{{article.price}} CHF</mat-card-subtitle>
-                  </mat-card-header>
-                  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-                  <mat-card-actions class="button3">
-                    <button mat-button (click)="moreSellInfos(article.sellProductId)">more infos</button>
-                  </mat-card-actions>
-                </mat-card>
-              </div>
-            </div>
-          </mat-tab>
         </mat-tab-group>
       </mat-tab>
 
@@ -243,25 +224,6 @@
             </div>
           </mat-tab>
 
-          <mat-tab label="Articles that I lent">
-            <h1 class="title">All products to rent: </h1>
-
-            <div class="content" fxLayout="row wrap">
-              <div fxFlex="25%" *ngFor="let article of this.articleInfoService.getLendSearchResult()" class="bottomspace">
-                <mat-card class="card">
-                  <mat-card-header>
-                    <div mat-card-avatar class="example-header-image"></div>
-                    <mat-card-title>{{article.title}}</mat-card-title>
-                    <mat-card-subtitle>{{article.price}} CHF</mat-card-subtitle>
-                  </mat-card-header>
-                  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-                  <mat-card-actions class="button3">
-                    <button mat-button (click)="moreLendInfos(article.lendProductId)" >more infos</button>
-                  </mat-card-actions>
-                </mat-card>
-              </div>
-            </div>
-          </mat-tab>
         </mat-tab-group>
       </mat-tab>
 
@@ -308,25 +270,6 @@
             </div>
           </mat-tab>
 
-          <mat-tab label="Services that I rented">
-            <h1 class="title">All services online: </h1>
-
-            <div class="content" fxLayout="row wrap">
-              <div fxFlex="25%" *ngFor="let article of this.articleInfoService.getServiceSearchResult();" class="bottomspace">
-                <mat-card class="card">
-                  <mat-card-header>
-                    <div mat-card-avatar class="example-header-image"></div>
-                    <mat-card-title>{{article.title}}</mat-card-title>
-                    <mat-card-subtitle>{{article.price}} CHF</mat-card-subtitle>
-                  </mat-card-header>
-                  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-                  <mat-card-actions class="button3">
-                    <button mat-button (click)="moreServiceInfos(article.serviceId)">more infos</button>
-                  </mat-card-actions>
-                </mat-card>
-              </div>
-            </div>
-          </mat-tab>
         </mat-tab-group>
       </mat-tab>
 

@@ -2,25 +2,18 @@
 <mat-grid-list cols="8"  rowHeight="144px" class="pagewidth">
 
   <!--Banner-->
-  <mat-grid-tile colspan="8" rowspan="2" class="banner">
+  <mat-grid-tile colspan="8" rowspan="2" id="banner" class="thinborder">
     <img class="banner" id="banner-1" src="../../assets/Header_Home/Banner_selling.png" style="display:none;">
     <img class="banner" id="banner-2" src="../../assets/Header_Home/Banner_Lending.png" style="display:none;">
     <img class="banner" id="banner-3" src="../../assets/Header_Home/Banner_Service.png" style="display:block;">
   </mat-grid-tile>
 
   <!--link to other services-->
-  <mat-grid-tile colspan="2" rowspan="3">
-    <mat-card>
+  <mat-grid-tile colspan="2" rowspan="3" class="thinborder">
+    <mat-card class="background">
       <mat-card-title>Popular services</mat-card-title>
       <mat-card-subtitle>Find what specifically fits you!</mat-card-subtitle>
-
-      <form class="search-sidebar">
-        <mat-form-field style="width:90%">
-          <mat-label>Search for services</mat-label>
-          <input matInput placeholder="search services">
-        </mat-form-field>
-      </form>
-
+      <br>
       <mat-grid-list cols="2" rowHeight="90px" class="categories">
         <mat-grid-tile><button mat-button class="button" routerLink="/services/babysitting">babysitting</button></mat-grid-tile>
         <mat-grid-tile><button mat-button class="button" routerLink="/services/carpool">carpool</button></mat-grid-tile>
@@ -35,9 +28,9 @@
 
   <div *ngIf="!(this.userInfoService.getUserId()===article.userId)">
   <!--Title, Price-->
-  <mat-grid-tile colspan="2" rowspan="1">
+  <mat-grid-tile colspan="2" rowspan="1" class="thinborder">
 
-    <mat-card>
+    <mat-card class="background">
       <mat-card-title>{{this.article.title}}</mat-card-title>
       <br>
       <mat-card-title>{{this.article.price}} CHF</mat-card-title>
@@ -46,9 +39,9 @@
   </mat-grid-tile>
 
   <!--Lender & Location-->
-  <mat-grid-tile colspan="4" rowspan="1">
+  <mat-grid-tile colspan="4" rowspan="1" class="thinborder">
 
-    <mat-card>
+    <mat-card class="background">
       <mat-card-title>Service provider:</mat-card-title>
       <p>{{this.article.title}}</p>
       <mat-card-title>Locations:</mat-card-title>
@@ -58,9 +51,9 @@
   </mat-grid-tile>
 
   <!--Description-->
-  <mat-grid-tile colspan="6" rowspan="1">
+  <mat-grid-tile colspan="6" rowspan="1" class="thinborder">
 
-    <mat-card>
+    <mat-card class="background">
       <mat-card-title>Description:</mat-card-title>
         <p>{{this.article.description}}</p>
     </mat-card>
@@ -68,12 +61,19 @@
   </mat-grid-tile>
 
   <!--Expenses and cost of them-->
-  <mat-grid-tile colspan="6" rowspan="1">
+  <mat-grid-tile colspan="6" rowspan="1" class="thinborder">
 
-    <mat-card>
-      <mat-card-title>Expenses and their costs:</mat-card-title>
-      <p>{{this.article.expenses}}</p>
-      <p>{{this.article.expCost}} CHF</p>
+    <mat-card class="background">
+      <mat-card-title class="lengthrestriction">Expenses and their costs:</mat-card-title>
+      <p class="lengthrestriction">{{this.article.expenses}}</p>
+      <p class="lengthrestriction">{{this.article.expCost}} CHF</p>
+
+      <mat-grid-list *ngIf="this.userInfoService.isLoggedIn" cols="1" rowHeight="70px" class="categories" class="rentservicetile">
+        <mat-grid-tile class="thinborder" >
+          <button class="rentservicebutton" mat-stroked-button (click)="openSnackBar(message.value, action.value)">Rent {{this.article.title}}</button>
+        </mat-grid-tile>
+      </mat-grid-list>
+
     </mat-card>
 
     <!--snackbar-->
@@ -87,7 +87,6 @@
       <input matInput value="OK!" #action>
     </mat-form-field>
 
-    <button class="button2" mat-stroked-button (click)="openSnackBar(message.value, action.value)">Rent {{this.article.title}}</button>
 
   </mat-grid-tile>
   </div>
@@ -95,9 +94,9 @@
 
   <div *ngIf="this.userInfoService.getUserId()===article.userId">
     <!--Title, Price-->
-    <mat-grid-tile colspan="2" rowspan="2">
+    <mat-grid-tile colspan="2" rowspan="2" class="thinborder">
 
-      <mat-card>
+      <mat-card class="background">
         <mat-card-title>{{this.article.title}}</mat-card-title>
         <mat-form-field style="width:80%">
           <mat-label>Enter new product title</mat-label>
@@ -113,9 +112,9 @@
     </mat-grid-tile>
 
     <!--Lender & Location-->
-    <mat-grid-tile colspan="4" rowspan="1">
+    <mat-grid-tile colspan="4" rowspan="1" class="thinborder">
 
-      <mat-card>
+      <mat-card class="background">
         <mat-card-title>Service provider:</mat-card-title>
         <p>{{this.article.title}}</p>
         <mat-card-title>Locations:</mat-card-title>
@@ -125,9 +124,9 @@
     </mat-grid-tile>
 
     <!--Description-->
-    <mat-grid-tile colspan="4" rowspan="1">
+    <mat-grid-tile colspan="4" rowspan="1" class="thinborder">
 
-      <mat-card>
+      <mat-card class="background">
         <mat-card-title>Description:</mat-card-title>
         <p>{{this.article.description}}</p>
         <mat-form-field style="width:80%">
@@ -139,9 +138,9 @@
     </mat-grid-tile>
 
     <!--Expenses and cost of them-->
-    <mat-grid-tile colspan="6" rowspan="2">
+    <mat-grid-tile colspan="6" rowspan="2" class="thinborder">
 
-      <mat-card>
+      <mat-card class="background">
         <mat-card-title>Expenses and their costs:</mat-card-title>
         <p>{{this.article.expenses}}</p>
         <mat-form-field style="width:80%">
@@ -155,9 +154,14 @@
         </mat-form-field>
       </mat-card>
 
-      <button mat-button>save changes</button>
-
     </mat-grid-tile>
+
+    <mat-grid-tile colspan="2" rowspan="1" class="thinborder">
+      <mat-card class="background">
+        <button class="button" mat-button>save changes</button>
+      </mat-card>
+    </mat-grid-tile>
+
   </div>
 
 </mat-grid-list>

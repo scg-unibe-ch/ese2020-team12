@@ -2,25 +2,18 @@
 <mat-grid-list cols="8"  rowHeight="144px" class="pagewidth">
 
   <!--Banner-->
-  <mat-grid-tile colspan="8" rowspan="2" class="banner">
+  <mat-grid-tile colspan="8" rowspan="2" id="banner"  class="thinborder">
     <img class="banner" id="banner-1" src="../../assets/Header_Home/Banner_selling.png" style="display:block;">
     <img class="banner" id="banner-2" src="../../assets/Header_Home/Banner_Lending.png" style="display:none;">
     <img class="banner" id="banner-3" src="../../assets/Header_Home/Banner_Service.png" style="display:none;">
   </mat-grid-tile>
 
   <!--Sidebar-->
-  <mat-grid-tile colspan="2" rowspan="3">
-    <mat-card>
+  <mat-grid-tile colspan="2" rowspan="3" class="thinborder">
+    <mat-card class="background">
       <mat-card-title>Popular categories</mat-card-title>
       <mat-card-subtitle>Find what specifically fits you!</mat-card-subtitle>
-
-      <form class="search-sidebar">
-        <mat-form-field style="width:90%">
-          <mat-label>Search for products</mat-label>
-          <input matInput placeholder="search products">
-        </mat-form-field>
-      </form>
-
+      <br>
       <mat-grid-list cols="2" rowHeight="90px" class="categories">
         <mat-grid-tile><button mat-button class="button" routerLink="/categories/clothes-shoes">clothes & shoes</button></mat-grid-tile>
         <mat-grid-tile><button mat-button class="button" routerLink="/categories/electronics">electronics</button></mat-grid-tile>
@@ -36,24 +29,30 @@
 
   <div *ngIf="!(this.userInfoService.getUserId()===article.userId)">
   <!--Title, Price and Picture-->
-  <mat-grid-tile colspan="2" rowspan="3">
+  <mat-grid-tile colspan="2" rowspan="3" class="thinborder">
 
-    <mat-card>
+    <mat-card class="background">
       <mat-card-title>{{this.article.title}}</mat-card-title>
       <br>
       <mat-card-title>{{this.article.price}} CHF</mat-card-title>
       <br>
-      <mat-grid-list cols="1" rowHeight="300px" class="categories">
-        <mat-grid-tile>Picture of article</mat-grid-tile>
+      <mat-grid-list cols="1" rowHeight="230px" class="categories">
+        <mat-grid-tile class="thinborder">Picture of article</mat-grid-tile>
       </mat-grid-list>
+      <mat-grid-list *ngIf="this.userInfoService.isLoggedIn" cols="1" rowHeight="70px" class="categories" id="buycase">
+        <mat-grid-tile class="thinborder">
+          <button class="savechangesbutton" mat-stroked-button (click)="openSnackBar(message.value, action.value)">Buy {{this.article.title}}</button>
+        </mat-grid-tile>
+      </mat-grid-list>
+
     </mat-card>
 
   </mat-grid-tile>
 
   <!--Description-->
-  <mat-grid-tile colspan="4" rowspan="1">
+  <mat-grid-tile colspan="4" rowspan="1" class="thinborder">
 
-    <mat-card>
+    <mat-card class="background">
       <mat-card-title>Description:</mat-card-title>
       <p>{{this.article.description}}</p>
     </mat-card>
@@ -61,9 +60,9 @@
   </mat-grid-tile>
 
   <!--Delivery & delivery specs-->
-  <mat-grid-tile colspan="4" rowspan="1">
+  <mat-grid-tile colspan="4" rowspan="1" class="thinborder">
 
-    <mat-card>
+    <mat-card class="background">
       <mat-card-title>Delivery & delivery specifications:</mat-card-title>
       <div *ngIf="this.article.delivery">
         <p>Available for delivery</p>
@@ -78,9 +77,9 @@
   </mat-grid-tile>
 
   <!--Seller and location-->
-  <mat-grid-tile colspan="4" rowspan="1">
+  <mat-grid-tile colspan="4" rowspan="1" class="thinborder">
 
-    <mat-card>
+    <mat-card class="background">
       <mat-card-title>Seller and location:</mat-card-title>
       <!-- Seller needs to be fetched by id -->
       <p> user </p>
@@ -97,16 +96,14 @@
       <input matInput value="OK!" #action>
     </mat-form-field>
 
-    <button class="button2" mat-stroked-button (click)="openSnackBar(message.value, action.value)">Buy {{this.article.title}}</button>
-
   </mat-grid-tile>
   </div>
 
   <div *ngIf="this.userInfoService.getUserId()===article.userId">
     <!--Title, Price and Picture-->
-    <mat-grid-tile colspan="2" rowspan="3">
+    <mat-grid-tile colspan="2" rowspan="3" class="thinborder">
 
-      <mat-card>
+      <mat-card class="background">
         <mat-card-title>{{this.article.title}}</mat-card-title>
         <mat-form-field style="width:80%">
           <mat-label>Enter new product title</mat-label>
@@ -117,16 +114,22 @@
           <mat-label>Enter new price</mat-label>
           <input matInput placeholder="new price">
         </mat-form-field>
-        <mat-grid-list cols="1" rowHeight="200px" class="categories">
-          <mat-grid-tile>Picture of article</mat-grid-tile>
+        <mat-grid-list cols="1" rowHeight="150px" class="categories">
+          <mat-grid-tile class="thinborder">Picture of article</mat-grid-tile>
         </mat-grid-list>
+        <mat-grid-list cols="1" rowHeight="70px" class="categories" id="savechangecase">
+          <mat-grid-tile class="thinborder">
+            <button class="savechangesbutton" mat-button>save changes</button>
+          </mat-grid-tile>
+        </mat-grid-list>
+
       </mat-card>
     </mat-grid-tile>
 
     <!--Description-->
-    <mat-grid-tile colspan="4" rowspan="1">
+    <mat-grid-tile colspan="4" rowspan="1" class="thinborder">
 
-      <mat-card>
+      <mat-card class="background">
         <mat-card-title>Description:</mat-card-title>
         <p>{{this.article.description}}</p>
         <mat-form-field style="width:80%">
@@ -138,9 +141,9 @@
     </mat-grid-tile>
 
     <!--Delivery & delivery specs-->
-    <mat-grid-tile colspan="4" rowspan="1">
+    <mat-grid-tile colspan="4" rowspan="1" class="thinborder">
 
-      <mat-card>
+      <mat-card class="background">
         <mat-card-title>Delivery & delivery specifications:</mat-card-title>
         <div *ngIf="this.article.delivery">
           <p>Available for delivery</p>
@@ -166,15 +169,13 @@
     </mat-grid-tile>
 
     <!--Seller and location-->
-    <mat-grid-tile colspan="4" rowspan="1">
+    <mat-grid-tile colspan="4" rowspan="1" class="thinborder">
 
-      <mat-card>
+      <mat-card class="background">
         <mat-card-title>Seller and location:</mat-card-title>
         <!-- Seller needs to be fetched by id -->
         <p>{{this.userInfoService.getUsername()}}, {{this.userInfoService.getPlace()}}</p>
       </mat-card>
-
-      <button mat-button>save changes</button>
 
     </mat-grid-tile>
   </div>
