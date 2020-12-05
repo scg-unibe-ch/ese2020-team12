@@ -1,216 +1,105 @@
-<!--<mat-card [formGroup]="signUpForm" class="container-signup">
-
-<h2>Sign Up </h2>-->
-
-<!--<form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">-->
-
-  <!--<div class="row">
-    <div class="col-25"><label for="name">Name*</label></div>
-    <div class="col-75"><input [(ngModel)]="name" class="form-control" id="name" type="text" formControlName="name" name="name" required></div>
-    <div class="errorMessages">
-      <ng-container *ngFor="let error of errorMessages.name">
-        <div class="errorMessages" *ngIf="signUpForm.get('name').hasError(error.type) && (signUpForm.get('name').dirty || signUpForm.get('name').touched)">
-          {{ error.message }}
-        </div>
-      </ng-container>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-25"><label for="surname">Surname*</label></div>
-    <div class="col-75"><input [(ngModel)]="surname" id="surname" type="text" formControlName="surname" name="surname" required></div>
-    <div class="errorMessages">
-      <ng-container *ngFor="let error of errorMessages.surname">
-        <div class="errorMessages" *ngIf="signUpForm.get('surname').hasError(error.type) && (signUpForm.get('surname').dirty || signUpForm.get('surname').touched)">
-            {{ error.message }}
-        </div>
-      </ng-container>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-25"><label for="username">Username*</label></div>
-    <div class="col-75"><input [(ngModel)]="username" id="username" type="text" formControlName="username" name="username" required></div>
-    <div class="errorMessages">
-      <ng-container *ngFor="let error of errorMessages.username">
-        <div class="errorMessages" *ngIf="signUpForm.get('username').hasError(error.type) && (signUpForm.get('username').dirty || signUpForm.get('username').touched)">
-            {{ error.message }}
-        </div>
-      </ng-container>
-    </div>
-  </div>-->
-
-    <!--
-    E-Mail must be of the format "xY3@xY3.xY3"
-    -->
-  <!--<div class="row">
-    <div class="col-25"><label for="email">E-Mail*</label></div>
-    <div class="col-75"><input [(ngModel)]="email" id="email" type="text" formControlName="email" name="email" required></div>
-    <div class="errorMessages">
-      <ng-container *ngFor="let error of errorMessages.email">
-        <div class="errorMessages" *ngIf="signUpForm.get('email').hasError(error.type) && (signUpForm.get('email').dirty || signUpForm.get('email').touched)">
-            {{ error.message }}
-        </div>
-      </ng-container>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-25"><label for="street">Street</label></div>
-    <div class="col-75"><input [(ngModel)]="street" id="street" type="text" formControlName="street" name="street"></div>
-  </div>
-
-  <div class="row">
-    <div class="col-25"><label for="houseNumber">House number</label></div>
-    <div class="col-75"><input [(ngModel)]="houseNumber" id="houseNumber" type="text" formControlName="houseNumber" name="houseNumber"></div>
-  </div>
-
-  <div class="row">
-    <div class="col-25"><label for="city">City</label></div>
-    <div class="col-75"><input [(ngModel)]="city" id="city" type="text" formControlName="city" name="city"></div>
-    <div class="errorMessages">
-      <ng-container *ngFor="let error of errorMessages.city">
-        <div class="errorMessages" *ngIf="signUpForm.get('city').hasError(error.type) && (signUpForm.get('city').dirty || signUpForm.get('city').touched)">
-            {{ error.message }}
-        </div>
-      </ng-container>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-25"><label for="postalCode">Postal Code*</label></div>
-    <div class="col-75"><input [(ngModel)]="postalCode" id="postalCode" type="text" formControlName="postalCode" name="postalCode" required></div>
-    <div class="errorMessages">
-      <ng-container *ngFor="let error of errorMessages.postalCode">
-        <div class="errorMessages" *ngIf="signUpForm.get('postalCode').hasError(error.type) && (signUpForm.get('postalCode').dirty || signUpForm.get('postalCode').touched)">
-            {{ error.message }}
-        </div>
-      </ng-container>
-    </div>
-  </div>-->
-
-  <!--
-    Password must contain lowercase [a-z]+, UPPERCASE [A-Z]+, numbers [0-9]+, special chars \W
-    Valid combinations:
-    a1A@aaaa, a1@Aaaaa, aA1@aaaa, aA@1aaaa, a@1Aaaaa, a@A1aaaa,
-    A@1aaaaa, A@a1aaaa, A1@aaaaa, A1a@aaaa, Aa@1aaaa, Aa1@aaaa,
-    1aA@aaaa, 1a@Aaaaa, 1Aa@aaaa, 1A@aaaaa, 1@aAaaaa, 1@Aaaaaa,
-    @1aAaaaa, @1Aaaaaa, @a1Aaaaa, @aA1aaaa, @A1aaaaa, @Aa1aaaa
-
-    INVALID: AA1@AAAA (no lowercase letter)
-    INVALID: aa1@aaaa (no uppercase letter)
-    INVALID: Aaa@aaaa (no number)
-    INVALID: Aa1aaaaa (no special char)
-    idea: working with logical inversion of the or function
-    -->
-  <!--<div class="row">
-    <div class="col-25"><label for="password">Password*</label></div>
-    <div class="col-75"><input [(ngModel)]="password" id="password" type="password" formControlName="password" name="password" required></div>
-    <div class="errorMessages">
-      <ng-container *ngFor="let error of errorMessages.password">
-        <div class="errorMessages" *ngIf="signUpForm.get('password').hasError(error.type) && (signUpForm.get('password').dirty || signUpForm.get('password').touched)">
-            {{ error.message }}
-        </div>
-      </ng-container>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-25"><label for="passwordAgain">Repeat Password*</label></div>
-    <div class="col-75"><input id="passwordAgain" type="password" formControlName="passwordAgain" name="passwordAgain" required></div>
-    <div class="errorMessages">
-      <ng-container *ngFor="let error of errorMessages.passwordAgain">
-        <div class="errorMessages" *ngIf="signUpForm.get('passwordAgain').hasError(error.type) && (signUpForm.get('passwordAgain').dirty || signUpForm.get('passwordAgain').touched)">
-            {{ error.message }}
-        </div>
-      </ng-container>
-    </div>
-    <div class="errorMessages">
-      <div *ngIf="signUpForm.errors?.differentPassword && (signUpForm.touched || signUpForm.dirty)" class="cross-validation-error-message alert alert-danger">
-        Passwords must match
-      </div>
-    </div>
-
-  </div>
-
-
-
-  <pre>
-        Hint: {{ signUpForm.errors | json }}
-  </pre>
-
-  <div class="row">
-    <button type="button" class="button" (click)="sendForm()">Sign Up</button>
-  </div>-->
-
-  <!--</form>-->
-<!--</mat-card>-->
 <div class="border">
-<mat-card [formGroup]="signUpForm" class="example-form">
+<mat-card class="example-form">
 
-<form class="example-form">
+<form [formGroup]="myForm" class="example-form">
 
   <a>Sign Up</a>
 
   <table class="example-full-width" cellspacing="0"><tr>
     <td><mat-form-field class="example-full-width">
       <mat-label>First name</mat-label>
-      <input matInput type=text name="name" [(ngModel)]="name" placeholder="Ex. Peter">
+      <input matInput type=text formControlName ="name" name="name" [(ngModel)]="name" placeholder="Ex. Peter">
+      <mat-error *ngIf = "this.myForm.get('name').invalid && this.myForm.get('name').touched">
+        required
+      </mat-error>
     </mat-form-field></td>
     <td><mat-form-field class="example-full-width">
       <mat-label>Last Name</mat-label>
-      <input matInput type=text name="surname" [(ngModel)]="surname" placeholder="Ex. Johnson">
+      <input matInput type=text name="surname" formControlName ="surname" [(ngModel)]="surname" placeholder="Ex. Johnson">
+      <mat-error *ngIf = "this.myForm.get('surname').invalid && this.myForm.get('surname').touched">
+        required
+      </mat-error>
     </mat-form-field></td>
   </tr></table>
 
 
   <mat-form-field class="example-full-width">
     <mat-label>Username</mat-label>
-    <input matInput type=text name="username" [(ngModel)]="username" placeholder="your chosen username">
+    <input matInput type=text name="username" formControlName ="username" [(ngModel)]="username" placeholder="your chosen username">
+    <mat-error *ngIf = "this.myForm.get('username').invalid && this.myForm.get('username').touched">
+      required
+    </mat-error>
   </mat-form-field>
 
 
   <mat-form-field class="example-full-width">
     <mat-label>E-Mail</mat-label>
-    <input matInput type=text name="email" [(ngModel)]="email" placeholder="Ex. peter.johnson@mail.com">
+    <input matInput type=text name="email" formControlName ="email" [(ngModel)]="email" placeholder="Ex. peter.johnson@mail.com">
+    <mat-error *ngIf = "this.myForm.get('email').invalid && this.myForm.get('email').touched">
+      required a real email
+    </mat-error>
   </mat-form-field>
 
 
   <table class="example-full-width" cellspacing="0"><tr>
     <td><mat-form-field class="example-full-width">
       <mat-label>Street</mat-label>
-      <input matInput type=text name="street" [(ngModel)]="street" placeholder="Ex. Mainstreet">
+      <input matInput type=text name="street" formControlName ="street" [(ngModel)]="street" placeholder="Ex. Mainstreet">
+      <mat-error *ngIf = "this.myForm.get('street').invalid && this.myForm.get('street').touched">
+        required
+      </mat-error>
     </mat-form-field></td>
     <td><mat-form-field class="example-full-width">
       <mat-label>Housenumber</mat-label>
-      <input matInput type=text name="houseNumber" [(ngModel)]="houseNumber" placeholder="Ex. 12">
+      <input matInput type=text name="houseNumber" formControlName ="houseNumber" [(ngModel)]="houseNumber" placeholder="Ex. 12">
+      <mat-error *ngIf = "this.myForm.get('houseNumber').invalid && this.myForm.get('houseNumber').touched">
+        required
+      </mat-error>
     </mat-form-field></td>
   </tr></table>
 
   <table class="example-full-width" cellspacing="0"><tr>
     <td><mat-form-field class="example-full-width">
       <mat-label>Postal Code</mat-label>
-      <input matInput type=text name="postalCode" [(ngModel)]="postalCode" placeholder="Ex. 1234">
+      <input matInput type=text name="postalCode" formControlName ="postalCode" [(ngModel)]="postalCode" placeholder="Ex. 1234">
+      <mat-error *ngIf = "this.myForm.get('postalCode').invalid && this.myForm.get('postalCode').touched">
+        required
+      </mat-error>
     </mat-form-field></td>
     <td><mat-form-field class="example-full-width">
       <mat-label>City</mat-label>
-      <input matInput type=text name="city" [(ngModel)]="city" placeholder="Ex. Bern">
+      <input matInput type=text name="city" formControlName ="city" [(ngModel)]="city" placeholder="Ex. Bern">
+      <mat-error *ngIf = "this.myForm.get('postalCode').invalid && this.myForm.get('postalCode').touched">
+        required
+      </mat-error>
     </mat-form-field></td>
   </tr></table>
 
   <table class="example-full-width" cellspacing="0"><tr>
     <td><mat-form-field class="example-full-width">
       <mat-label>Password</mat-label>
-      <input matInput type=password name="password" [(ngModel)]="password" placeholder="enter your password">
+      <input matInput type=password name="password" formControlName ="password" [(ngModel)]="password" placeholder="enter your password">
+      <mat-error *ngIf = "this.myForm.get('password').invalid && this.myForm.get('password').touched">
+        Fehler
+      </mat-error>
+      <mat-hint align ="end"> Must have minimum 8 letter at least one uppercase letter, one lowercase letter, one number and one special character</mat-hint>
+      <mat-error *ngIf = "this.myForm.get('password').invalid && this.myForm.get('password').touched">
+          bad password
+      </mat-error>
     </mat-form-field></td>
     <td><mat-form-field class="example-full-width">
       <mat-label>Repeat Password</mat-label>
-      <input matInput type=password name="passwordAgain" [(ngModel)]="passwordAgain" placeholder="repeat your password">
+      <input matInput type=password name="passwordAgain" formControlName ="passwordAgain" [(ngModel)]="passwordAgain" placeholder="repeat your password">
+      <mat-error *ngIf = "this.myForm.get('passwordAgain').invalid && this.myForm.get('passwordAgain').touched">
+        required
+      </mat-error>
     </mat-form-field></td>
   </tr></table>
 
+  <mat-checkbox formControlName="agree" color="primary"> are your sure?</mat-checkbox>
 
-  <button mat-raised-button color="primary" (click)="sendForm()">sign up</button>
+
+  <button mat-raised-button color="primary" [disabled]="myForm.invalid" (click)="sendForm()">sign up</button>
 
 
 
