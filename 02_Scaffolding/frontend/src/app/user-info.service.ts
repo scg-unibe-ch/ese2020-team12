@@ -1,4 +1,4 @@
-/* tslint:disable:no-trailing-whitespace */
+
 
 import { Injectable } from '@angular/core';
 import {environment} from '../environments/environment';
@@ -9,6 +9,14 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class UserInfoService {
+
+  constructor(
+    private httpClient: HttpClient
+  ) {
+    this.isLoggedIn = false;
+    this.username = '';
+    this.user = null;
+  }
 
   // Basic UserInfo
   isLoggedIn: boolean;
@@ -27,6 +35,7 @@ export class UserInfoService {
   postalCode: number;
   place: string;
   balance: number;
+  sellMan: any;
 
 
   // Getters and Setters
@@ -78,15 +87,6 @@ export class UserInfoService {
     this.userId = userId;
   }
 
-  getUser(): any {
-    if (this.getLogin()) {
-      this.httpClient.get(environment.endpointURL + 'user/profile/' + this.getUserId())
-        .subscribe((res: any ) => {
-          this.user = res.user;
-        });
-    }
-    return this.user;
-  }
 
   setExtendedUserInfo(user: any): void {
     this.username = user.userName;
@@ -94,7 +94,7 @@ export class UserInfoService {
     this.email = user.email;
     this.name = user.name;
     this.surname = user.surname;
-    this.street = user.houseNumber;
+    this.street = user.street;
     this.houseNumber = user.houseNumber;
     this.postalCode = user.postalCode;
     this.place = user.place;
@@ -133,14 +133,6 @@ export class UserInfoService {
     return this.balance;
   }
 
-  constructor(
-    private httpClient: HttpClient
-  ) {
-    this.isLoggedIn = false;
-    this.username = '';
-    this.user = null;
-  }
-
 
   checkUserStatus(): void {
     this.setLogin(!!(this.getUserToken()));
@@ -150,7 +142,6 @@ export class UserInfoService {
     this.httpClient.delete(environment.endpointURL + 'user/' + id)
       .subscribe();
   }
-
 
 }
 

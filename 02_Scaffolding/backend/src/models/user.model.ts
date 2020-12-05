@@ -104,7 +104,8 @@ export class User extends Model<UserAttributes, UserCreationAttributes> implemen
             },
             balance: {
                 type: DataTypes.INTEGER,
-                allowNull: true
+                allowNull: true,
+                defaultValue: 0
             }
         },
             {

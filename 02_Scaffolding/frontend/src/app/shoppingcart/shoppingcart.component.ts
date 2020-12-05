@@ -25,6 +25,7 @@ export class ShoppingcartComponent implements OnInit {
   articleLendList = [];
   articleServList = [];
   userId;
+  paymentList = [];
 
 
   constructor(
@@ -115,7 +116,6 @@ export class ShoppingcartComponent implements OnInit {
   }
 
   sellRemove(id: any): void {
-    console.log('im in');
     this.httpClient.delete(environment.endpointURL + 'shopping-cart/delete/sell/' + this.userId + '/' + id)
       .subscribe();
     setTimeout(() =>
@@ -159,49 +159,76 @@ export class ShoppingcartComponent implements OnInit {
     return pay;
   }
 
-  buy(): void{
+  async buy(): Promise<void> {
+    this.paymentList = [];
     const newBalance = Number(this.userInfoService.getBalance()) - Number(this.totalPayment());
-    this.httpClient.put(environment.endpointURL + 'user/profile/' + this.userId , {
+    this.httpClient.put(environment.endpointURL + 'user/profile/' + this.userId, {
       balance: newBalance
     }).subscribe((res: any) => {
     });
     for (const id of this.articleSellList) {
-      this.httpClient.put(environment.endpointURL + 'add-article/sell-product/' + id, {
+      await this.httpClient.put(environment.endpointURL + 'add-article/sell-product/' + id, {
         status: false
       }).subscribe((res: any) => {
+        this.paymentList.push(JSON.parse(JSON.stringify(res)));
       });
     }
     for (const id of this.articleLendList) {
-      this.httpClient.put(environment.endpointURL + 'add-article/lend-product/' + id, {
+      await this.httpClient.put(environment.endpointURL + 'add-article/lend-product/' + id, {
         status: false
       }).subscribe((res: any) => {
+        this.paymentList.push(JSON.parse(JSON.stringify(res)));
       });
     }
     for (const id of this.articleServList) {
-      this.httpClient.put(environment.endpointURL + 'add-article/provide-service/' + id, {
+      await this.httpClient.put(environment.endpointURL + 'add-article/provide-service/' + id, {
         status: false
       }).subscribe((res: any) => {
+        this.paymentList.push(JSON.parse(JSON.stringify(res)));
       });
     }
-    setTimeout(() =>
-      {
+    setTimeout(
+      () => {
         this.httpClient.delete(environment.endpointURL + 'shopping-cart/delete/' + this.userId)
           .subscribe();
         this.userInfoService.getUserFromBackend();
+        this.profitCalculator(this.paymentList);
         this.router.navigate(['/']);
       },
       1000);
 
   }
 
+  profitCalculator(obj: any): void {
+    let j = 1;
+    for (const item of obj) {
+      setTimeout(() => {
+        let sellManKonto = 0;
+        this.httpClient.get(environment.endpointURL + 'user/profile/' + item.userId).subscribe(res => {
+          sellManKonto = JSON.parse(JSON.stringify(res)).balance;
+        });
+        setTimeout(
+          () => {
+            const newKonto = Number(sellManKonto) + Number(item.price);
+            this.httpClient.put(environment.endpointURL + 'user/profile/' + item.userId, {
+              balance: newKonto
+            }).subscribe();
+          },
+          1000);
+        },
+        2000 * j );
+      j++;
+    }
+  }
+
+
+
   balanceChecker(): boolean {
     const balance = Number(this.userInfoService.getBalance());
     const toPay = Number(this.totalPayment());
     if (balance < toPay) {
-      console.log('false');
       return false;
     } else {
-      console.log('true');
       return true;
     }
   }
