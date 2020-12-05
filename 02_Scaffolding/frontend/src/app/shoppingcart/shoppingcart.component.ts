@@ -193,4 +193,16 @@ export class ShoppingcartComponent implements OnInit {
       1000);
 
   }
+
+  balanceChecker(): boolean {
+    const balance = Number(this.userInfoService.getBalance());
+    const toPay = Number(this.totalPayment());
+    if (balance < toPay) {
+      console.log('false');
+      return false;
+    } else {
+      console.log('true');
+      return true;
+    }
+  }
 }

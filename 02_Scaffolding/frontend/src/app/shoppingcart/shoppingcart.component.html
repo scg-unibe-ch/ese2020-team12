@@ -193,7 +193,8 @@
       </mat-card>
       <div>
         <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+        <button *ngIf="balanceChecker()" mat-button matStepperNext>Next</button>
+        <a *ngIf="!balanceChecker()"> You need money</a>
       </div>
     </form>
   </mat-step>
