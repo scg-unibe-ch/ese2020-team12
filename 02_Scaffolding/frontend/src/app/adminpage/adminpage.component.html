@@ -20,13 +20,13 @@
             <mat-card class="card">
               <mat-card-header>
                 <div mat-card-avatar class="example-header-image"></div>
-                <mat-card-title>{{article.username}}</mat-card-title>
+                <mat-card-title>{{article.userName}}</mat-card-title>
                 <mat-card-subtitle>{{article.name}}</mat-card-subtitle>
               </mat-card-header>
               <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-              <mat-card-actions>
-                <button mat-button (click)="this.moreInfo(article.userId)">more infos</button>
-                <button mat-button (click)="this.deleteUser(article.userId)">delete profile</button>
+              <mat-card-actions id="button3">
+                <button id="button1" mat-button (click)="this.moreInfo(article.userId)">more infos</button>
+                <button id="button2" mat-button (click)="this.deleteUser(article.userId)">delete profile</button>
               </mat-card-actions>
             </mat-card>
           </div>

@@ -75,8 +75,8 @@
     </mat-form-field></td>
   </tr></table>
 
-  <table class="example-full-width" cellspacing="0"><tr>
-    <td><mat-form-field class="example-full-width">
+
+    <mat-form-field class="example-full-width">
       <mat-label>Password</mat-label>
       <input matInput type=password name="password" formControlName ="password" [(ngModel)]="password" placeholder="enter your password">
       <mat-error *ngIf = "this.myForm.get('password').invalid && this.myForm.get('password').touched">
@@ -86,15 +86,7 @@
       <mat-error *ngIf = "this.myForm.get('password').invalid && this.myForm.get('password').touched">
           bad password
       </mat-error>
-    </mat-form-field></td>
-    <td><mat-form-field class="example-full-width">
-      <mat-label>Repeat Password</mat-label>
-      <input matInput type=password name="passwordAgain" formControlName ="passwordAgain" [(ngModel)]="passwordAgain" placeholder="repeat your password">
-      <mat-error *ngIf = "this.myForm.get('passwordAgain').invalid && this.myForm.get('passwordAgain').touched">
-        required
-      </mat-error>
-    </mat-form-field></td>
-  </tr></table>
+    </mat-form-field>
 
   <mat-checkbox formControlName="agree" color="primary"> are your sure?</mat-checkbox>
 
