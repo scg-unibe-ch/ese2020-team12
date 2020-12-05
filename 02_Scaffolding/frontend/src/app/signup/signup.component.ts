@@ -75,11 +75,8 @@ export class SignupComponent implements OnInit {
       ] ],
       password: ['', [
         Validators.required,
-        Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}'),
+        Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%?&])'),
         Validators.minLength(8)
-      ] ],
-      passwordAgain: ['', [
-        Validators.required
       ] ],
       agree: [false, [
         Validators.requiredTrue      ]]
@@ -125,5 +122,22 @@ export class SignupComponent implements OnInit {
       },
       1000);
   }
+
+  numberOnly(event): boolean {
+    const charCode = (event.which) ? event.which : event.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+      return false;
+    }
+    return true;
+  }
+
+  textOnly(event): boolean {
+    const charCode = (event.which) ? event.which : event.keyCode;
+    if (charCode > 31 && (charCode < 65 || charCode > 90) && (charCode < 97 || charCode > 122)){
+      return false;
+    }
+    return true;
+  }
+
 }
 

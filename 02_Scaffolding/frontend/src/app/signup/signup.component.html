@@ -8,14 +8,14 @@
   <table class="example-full-width" cellspacing="0"><tr>
     <td><mat-form-field class="example-full-width">
       <mat-label>First name</mat-label>
-      <input matInput type=text formControlName ="name" name="name" [(ngModel)]="name" placeholder="Ex. Peter">
+      <input matInput type=text (keypress)="textOnly($event)" formControlName ="name" name="name" [(ngModel)]="name" placeholder="Ex. Peter">
       <mat-error *ngIf = "this.myForm.get('name').invalid && this.myForm.get('name').touched">
         required
       </mat-error>
     </mat-form-field></td>
     <td><mat-form-field class="example-full-width">
       <mat-label>Last Name</mat-label>
-      <input matInput type=text name="surname" formControlName ="surname" [(ngModel)]="surname" placeholder="Ex. Johnson">
+      <input matInput type=text (keypress)="textOnly($event)" name="surname" formControlName ="surname" [(ngModel)]="surname" placeholder="Ex. Johnson">
       <mat-error *ngIf = "this.myForm.get('surname').invalid && this.myForm.get('surname').touched">
         required
       </mat-error>
@@ -36,7 +36,7 @@
     <mat-label>E-Mail</mat-label>
     <input matInput type=text name="email" formControlName ="email" [(ngModel)]="email" placeholder="Ex. peter.johnson@mail.com">
     <mat-error *ngIf = "this.myForm.get('email').invalid && this.myForm.get('email').touched">
-      required a real email
+      real email address required
     </mat-error>
   </mat-form-field>
 
@@ -44,14 +44,14 @@
   <table class="example-full-width" cellspacing="0"><tr>
     <td><mat-form-field class="example-full-width">
       <mat-label>Street</mat-label>
-      <input matInput type=text name="street" formControlName ="street" [(ngModel)]="street" placeholder="Ex. Mainstreet">
+      <input matInput type=text (keypress)="textOnly($event)" name="street" formControlName ="street" [(ngModel)]="street" placeholder="Ex. Mainstreet">
       <mat-error *ngIf = "this.myForm.get('street').invalid && this.myForm.get('street').touched">
         required
       </mat-error>
     </mat-form-field></td>
     <td><mat-form-field class="example-full-width">
       <mat-label>Housenumber</mat-label>
-      <input matInput type=text name="houseNumber" formControlName ="houseNumber" [(ngModel)]="houseNumber" placeholder="Ex. 12">
+      <input matInput type=text (keypress)="numberOnly($event)" name="houseNumber" formControlName ="houseNumber" [(ngModel)]="houseNumber" placeholder="Ex. 12">
       <mat-error *ngIf = "this.myForm.get('houseNumber').invalid && this.myForm.get('houseNumber').touched">
         required
       </mat-error>
@@ -61,14 +61,14 @@
   <table class="example-full-width" cellspacing="0"><tr>
     <td><mat-form-field class="example-full-width">
       <mat-label>Postal Code</mat-label>
-      <input matInput type=text name="postalCode" formControlName ="postalCode" [(ngModel)]="postalCode" placeholder="Ex. 1234">
+      <input matInput type=text (keypress)="numberOnly($event)" name="postalCode" formControlName ="postalCode" [(ngModel)]="postalCode" placeholder="Ex. 1234">
       <mat-error *ngIf = "this.myForm.get('postalCode').invalid && this.myForm.get('postalCode').touched">
         required
       </mat-error>
     </mat-form-field></td>
     <td><mat-form-field class="example-full-width">
       <mat-label>City</mat-label>
-      <input matInput type=text name="city" formControlName ="city" [(ngModel)]="city" placeholder="Ex. Bern">
+      <input matInput type=text (keypress)="textOnly($event)" name="city" formControlName ="city" [(ngModel)]="city" placeholder="Ex. Bern">
       <mat-error *ngIf = "this.myForm.get('postalCode').invalid && this.myForm.get('postalCode').touched">
         required
       </mat-error>
@@ -80,18 +80,20 @@
       <mat-label>Password</mat-label>
       <input matInput type=password name="password" formControlName ="password" [(ngModel)]="password" placeholder="enter your password">
       <mat-error *ngIf = "this.myForm.get('password').invalid && this.myForm.get('password').touched">
-        Fehler
+        Error
       </mat-error>
       <mat-hint align ="end"> Must have minimum 8 letter at least one uppercase letter, one lowercase letter, one number and one special character</mat-hint>
       <mat-error *ngIf = "this.myForm.get('password').invalid && this.myForm.get('password').touched">
-          bad password
+          Password not strong enough, Must have minimum 8 letter at least one uppercase letter, one lowercase letter, one number and one special character
       </mat-error>
     </mat-form-field>
-
+  <br>
+  <br>
+  <br>
   <mat-checkbox formControlName="agree" color="primary"> are your sure?</mat-checkbox>
 
 
-  <button mat-raised-button color="primary" [disabled]="myForm.invalid" (click)="sendForm()">sign up</button>
+  <button class="button" mat-raised-button color="primary" [disabled]="myForm.invalid" (click)="sendForm()">sign up</button>
 
 
 
