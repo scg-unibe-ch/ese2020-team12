@@ -90,13 +90,6 @@
             </mat-form-field>
           </mat-card-content>
 
-          <form class="search-sidebar" class="filterelement">
-            <mat-form-field style="width:90%" appearance="fill">
-              <mat-label>Search clothes & shoes</mat-label>
-              <input matInput placeholder="search products">
-            </mat-form-field>
-          </form>
-
           <button class="filterbutton" (click)="sellSendFilter()" mat-raised-button color="primary"> <!--(click)="sendForm()"--> apply</button>
 
         </mat-card>
@@ -229,13 +222,6 @@
               <mat-radio-button (change)="lendRadioChangeHandler('false')" [value]="false">Day</mat-radio-button>
             </mat-radio-group>
           </mat-card-content>
-
-          <form class="search-sidebar" class="filterelement">
-            <mat-form-field style="width:90%" appearance="fill">
-              <mat-label>Search clothes & shoes</mat-label>
-              <input matInput placeholder="search products">
-            </mat-form-field>
-          </form>
 
           <button class="filterbutton" (click)="lendSendFilter()" mat-raised-button color="primary"> <!--(click)="sendForm()"--> apply</button>
 
