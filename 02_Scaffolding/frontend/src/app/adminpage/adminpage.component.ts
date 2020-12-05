@@ -14,7 +14,7 @@ export class AdminpageComponent implements OnInit {
   users: any;
 
   constructor(
-    private userInfoService: UserInfoService,
+    public userInfoService: UserInfoService,
     private httpClient: HttpClient,
     private articleInfoService: ArticleInfoService,
     private router: Router

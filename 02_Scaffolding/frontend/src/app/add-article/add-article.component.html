@@ -36,7 +36,7 @@
 
                 <mat-form-field appearance="fill" class="field">
                   <mat-label for="sellPrice">Price (CHF)</mat-label>
-                  <input matInput [(ngModel)]="sellPrice" formControlName="sellPrice" required>
+                  <input matInput [(ngModel)]="sellPrice" maxlength="12" formControlName="sellPrice" required>
                 </mat-form-field>
 
                 <br>

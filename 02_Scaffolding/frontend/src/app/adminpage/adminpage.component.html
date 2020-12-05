@@ -13,9 +13,9 @@
 
       <!--reactive page for all products to buy-->
 
-        <h1 class="title">All registered users: </h1>
+        <h1 *ngIf="this.userInfoService.getUsername()==='admin'" class="title">All registered users: </h1>
 
-        <div class="content" fxLayout="row wrap">
+        <div *ngIf="this.userInfoService.getUsername()==='admin'" class="content" fxLayout="row wrap">
           <div fxFlex="25%" *ngFor="let article of this.users" class="bottomspace">
             <mat-card class="card">
               <mat-card-header>
@@ -30,6 +30,17 @@
               </mat-card-actions>
             </mat-card>
           </div>
+        </div>
+
+        <div *ngIf="!(this.userInfoService.getUsername()==='admin')" class="height">
+
+          <h1>
+            <mat-icon>mood_bad</mat-icon>
+            Sadly, you are not authorized to get access to this page
+            <mat-icon>mood_bad</mat-icon>
+          </h1>
+          <br>
+          <button mat-raised-button class="returnbutton" routerLink="/">return to homepage</button>
         </div>
 
   </div>
