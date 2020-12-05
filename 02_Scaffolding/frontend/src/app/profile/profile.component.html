@@ -88,32 +88,32 @@
 
           <mat-form-field class="example-full-width">
             <mat-label>Name</mat-label>
-            <input matInput name="name" [(ngModel)]="name" placeholder="{{ name }}">
+            <input matInput name="name" [(ngModel)]="name" (keypress)="textOnly($event)" placeholder="{{ name }}">
           </mat-form-field>
 
           <mat-form-field class="example-full-width">
             <mat-label>Surname</mat-label>
-            <input matInput name="surname" [(ngModel)]="surname" placeholder="{{ surname }}">
+            <input matInput name="surname" [(ngModel)]="surname" (keypress)="textOnly($event)" placeholder="{{ surname }}">
           </mat-form-field>
 
           <mat-form-field class="example-full-width">
             <mat-label>Street</mat-label>
-            <input matInput name="street" [(ngModel)]="street" placeholder="{{ street }}">
+            <input matInput name="street" [(ngModel)]="street" (keypress)="textOnly($event)" placeholder="{{ street }}">
           </mat-form-field>
 
          <mat-form-field class="example-full-width">
             <mat-label>Housenumber</mat-label>
-            <input matInput name="houseNumber" [(ngModel)]="houseNumber" placeholder="{{ houseNumber }}">
+            <input matInput name="houseNumber" [(ngModel)]="houseNumber" (keypress)="numberOnly($event)" placeholder="{{ houseNumber }}">
           </mat-form-field>
 
           <mat-form-field class="example-full-width">
             <mat-label>Postal Code</mat-label>
-            <input matInput name="postalCode" [(ngModel)]="postalCode" placeholder="{{ postalCode }}">
+            <input matInput name="postalCode" [(ngModel)]="postalCode" (keypress)="numberOnly($event)" placeholder="{{ postalCode }}">
           </mat-form-field>
 
           <mat-form-field class="example-full-width">
             <mat-label>Place</mat-label>
-            <input matInput name="place" [(ngModel)]="place" placeholder="{{ place }}" >
+            <input matInput name="place" [(ngModel)]="place" (keypress)="textOnly($event)" placeholder="{{ place }}" >
           </mat-form-field>
 
           <!--<mat-form-field class="example-full-width">

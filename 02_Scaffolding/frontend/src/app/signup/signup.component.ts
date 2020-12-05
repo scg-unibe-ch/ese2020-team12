@@ -75,13 +75,11 @@ export class SignupComponent implements OnInit {
       ] ],
       password: ['', [
         Validators.required,
-        Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%?&])'),
-        Validators.minLength(8)
+        Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#$%^&*]).{8,}$'),
       ] ],
       agree: [false, [
-        Validators.requiredTrue      ]]
+        Validators.requiredTrue]]
     });
-    this.myForm.valueChanges.subscribe(console.log);
   }
 
 

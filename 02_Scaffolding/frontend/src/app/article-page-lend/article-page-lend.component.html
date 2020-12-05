@@ -103,11 +103,11 @@
         <mat-card-title>{{this.article.title}}</mat-card-title>
         <mat-form-field style="width:80%">
           <mat-label>Enter new product title</mat-label>
-          <input [(ngModel)]="newTitle" matInput placeholder="new title">
+          <input [(ngModel)]="newTitle" maxlength="12" matInput placeholder="new title">
         </mat-form-field>
         <mat-card-title>{{this.article.price}} CHF</mat-card-title>
         <mat-form-field style="width:80%">
-          <mat-label [(ngModel)]="newPrice">Enter new price</mat-label>
+          <mat-label [(ngModel)]="newPrice" maxlength="12">Enter new price</mat-label>
           <input matInput placeholder="new price">
         </mat-form-field>
         <mat-grid-list cols="1" rowHeight="150px" class="categories">
