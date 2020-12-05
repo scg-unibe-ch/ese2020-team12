@@ -103,11 +103,11 @@
         <mat-card-title>{{this.article.title}}</mat-card-title>
         <mat-form-field style="width:80%">
           <mat-label>Enter new product title</mat-label>
-          <input matInput placeholder="new title">
+          <input [(ngModel)]="newTitle" matInput placeholder="new title">
         </mat-form-field>
         <mat-card-title>{{this.article.price}} CHF</mat-card-title>
         <mat-form-field style="width:80%">
-          <mat-label>Enter new price</mat-label>
+          <mat-label [(ngModel)]="newPrice">Enter new price</mat-label>
           <input matInput placeholder="new price">
         </mat-form-field>
         <mat-grid-list cols="1" rowHeight="150px" class="categories">
@@ -115,7 +115,7 @@
         </mat-grid-list>
         <mat-grid-list cols="1" rowHeight="70px" class="categories" id="savechangecase">
           <mat-grid-tile class="thinborder">
-            <button class="savechangesbutton" mat-button>save changes</button>
+            <button (click)="this.changeArticle(article.lendProductId)" class="savechangesbutton" mat-button>save changes</button>
           </mat-grid-tile>
         </mat-grid-list>
       </mat-card>
@@ -130,7 +130,7 @@
         <p>{{this.article.description}}</p>
         <mat-form-field style="width:80%">
           <mat-label>Enter new description</mat-label>
-          <input matInput placeholder="new description">
+          <input [(ngModel)]="newDescription" matInput placeholder="new description">
         </mat-form-field>
       </mat-card>
 

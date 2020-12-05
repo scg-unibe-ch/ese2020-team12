@@ -100,12 +100,12 @@
         <mat-card-title>{{this.article.title}}</mat-card-title>
         <mat-form-field style="width:80%">
           <mat-label>Enter new product title</mat-label>
-          <input matInput placeholder="new title">
+          <input  [(ngModel)]="newTitle" matInput placeholder="new title">
         </mat-form-field>
         <mat-card-title> {{this.article.price}} CHF</mat-card-title>
         <mat-form-field style="width:80%">
           <mat-label>Enter new price</mat-label>
-          <input matInput placeholder="new price">
+          <input  [(ngModel)]="newPrice" matInput placeholder="new price">
         </mat-form-field>
       </mat-card>
 
@@ -131,7 +131,7 @@
         <p>{{this.article.description}}</p>
         <mat-form-field style="width:80%">
           <mat-label>Enter new description</mat-label>
-          <input matInput placeholder="new description">
+          <input [(ngModel)]="newDescription" matInput placeholder="new description">
         </mat-form-field>
       </mat-card>
 
@@ -145,12 +145,12 @@
         <p>{{this.article.expenses}}</p>
         <mat-form-field style="width:80%">
           <mat-label>Enter new expenses</mat-label>
-          <input matInput placeholder="new expenses">
+          <input [(ngModel)]="expenses" matInput placeholder="new expenses">
         </mat-form-field>
         <p>{{this.article.expCost}} CHF</p>
         <mat-form-field style="width:80%">
           <mat-label>Enter new expension costs</mat-label>
-          <input matInput placeholder="new exp. costs">
+          <input [(ngModel)]="expCost" matInput placeholder="new exp. costs">
         </mat-form-field>
       </mat-card>
 
@@ -158,7 +158,7 @@
 
     <mat-grid-tile colspan="2" rowspan="1" class="thinborder">
       <mat-card class="background">
-        <button class="button" mat-button>save changes</button>
+        <button (click)="this.changeArticle(article.serviceId)" class="button" mat-button>save changes</button>
       </mat-card>
     </mat-grid-tile>
 

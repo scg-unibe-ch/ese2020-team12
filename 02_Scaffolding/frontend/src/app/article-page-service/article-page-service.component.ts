@@ -3,6 +3,9 @@ import {ArticleInfoService} from '../article-info.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {ShoppingCartService} from '../shopping-cart.service';
 import {UserInfoService} from '../user-info.service';
+import {environment} from '../../environments/environment';
+import {HttpClient} from '@angular/common/http';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-article-page-service',
@@ -10,6 +13,11 @@ import {UserInfoService} from '../user-info.service';
   styleUrls: ['./article-page-service.component.css']
 })
 export class ArticlePageServiceComponent implements OnInit {
+  newTitle;
+  newPrice;
+  newDescription;
+  expenses;
+  expCost;
 
   public article: any;
 
@@ -17,7 +25,9 @@ export class ArticlePageServiceComponent implements OnInit {
     public articleInfoService: ArticleInfoService,
     private snackBar: MatSnackBar,
     private shoppingCart: ShoppingCartService,
-    public userInfoService: UserInfoService
+    public userInfoService: UserInfoService,
+    private httpClient: HttpClient,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -29,6 +39,23 @@ export class ArticlePageServiceComponent implements OnInit {
     this.snackBar.open(message, action, {
       duration: 8000,
     });
+  }
+
+  changeArticle(id: any): void {
+    this.httpClient.put(environment.endpointURL + 'add-article/provide-service/' + id, {
+      title: this.newTitle,
+      price: this.newPrice,
+      description: this.newDescription,
+      expenses: this.expenses,
+      expCost: this.expCost,
+      userId: this.userInfoService.getUserId()
+    }).subscribe();
+    this.articleInfoService.saveSellArticleTemp(id);
+    setTimeout(() =>
+      {
+        this.router.navigate(['/profile']);
+      },
+      1000);
   }
 
 }

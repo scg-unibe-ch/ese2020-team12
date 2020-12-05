@@ -53,7 +53,7 @@ export class UserInfoComponent implements OnInit {
       {
         this.ngOnInit();
       },
-      1000);
+      750);
   }
 
   deleteLend(id: any): void {
@@ -62,7 +62,7 @@ export class UserInfoComponent implements OnInit {
       {
         this.ngOnInit();
       },
-      1000);
+      750);
   }
 
   deleteService(id: any): void {
@@ -71,7 +71,7 @@ export class UserInfoComponent implements OnInit {
       {
         this.ngOnInit();
       },
-      1000);
+      750);
   }
 
 
