@@ -24,7 +24,7 @@ export class AdminpageComponent implements OnInit {
     this.userInfoService.getUserFromBackend();
     this.saveUsers();
   }
-
+  // get all users
   saveUsers(): void {
     this.httpClient.get(environment.endpointURL + 'user/admin/users')
       .subscribe(res => {
