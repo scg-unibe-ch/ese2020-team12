@@ -100,3 +100,8 @@
   max-width: 400px;
 }
 
+.textstyle{
+  word-wrap: break-word;
+  max-width: 930px;
+}
+

@@ -129,6 +129,11 @@ export class ProfileComponent implements OnInit {
       localStorage.setItem('postalCode', res.postalCode);
       // localStorage.setItem('balance', res.balance);
     });
+    setTimeout(() =>
+      {
+        this.router.navigate(['/']);
+      },
+      1000);
   }
 
   onFileChange(event): void {

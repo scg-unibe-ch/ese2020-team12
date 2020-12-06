@@ -1,23 +1,4 @@
 
-<!--<mat-card>
-
-  <h2>I would like to</h2>
-
-  <mat-form-field appearance="fill">
-    <mat-select class="custom-select" [formControl]="articleForm" formControlName="articleType" required>
-      <mat-option *ngFor="let articleType of articleTypes" [value]="articleType.link">
-        {{articleType.text}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-
-  <br>
-
-  <div *ngIf="articleForm.value">
-    <button mat-raised-button color="primary" [routerLink]="articleForm.value" >Next</button>
-  </div>
-
-</mat-card>-->
 <div class="border">
 <mat-tab-group mat-align-tabs="center">
   <mat-tab label="Sell a product">
@@ -25,66 +6,66 @@
     <mat-card class="example-form">
 
       <div [formGroup]="sellAddArticleForm" class="container-productSelling">
-                <h2>Selling a Product</h2>
+        <h2>Selling a Product</h2>
 
-                <mat-form-field appearance="fill" class="field">
-                  <mat-label for="sellTitle">Title</mat-label>
-                  <input matInput [(ngModel)]="sellTitle" maxlength="12" type="text" formControlName="sellTitle" required>
-                </mat-form-field>
+        <mat-form-field appearance="fill" class="field">
+          <mat-label for="sellTitle">Title</mat-label>
+          <input matInput [(ngModel)]="sellTitle" maxlength="12" type="text" formControlName="sellTitle" required>
+        </mat-form-field>
 
-                <br>
+        <br>
 
-                <mat-form-field appearance="fill" class="field">
-                  <mat-label for="sellPrice">Price (CHF)</mat-label>
-                  <input matInput [(ngModel)]="sellPrice" maxlength="12" formControlName="sellPrice" required>
-                </mat-form-field>
+        <mat-form-field appearance="fill" class="field">
+          <mat-label for="sellPrice">Price (CHF)</mat-label>
+          <input matInput [(ngModel)]="sellPrice" maxlength="12" (keypress)="numberOnly($event)" maxlength="12" formControlName="sellPrice" required>
+        </mat-form-field>
 
-                <br>
+        <br>
 
-                <mat-form-field appearance="fill" class="field">
-                  <mat-label for="sellCategory">Category</mat-label>
-                  <mat-select class="custom-select" [(ngModel)]="sellCategory" formControlName="sellCategory" required>
-                    <mat-option *ngFor="let category of sellCategories" [value]="category.id">
-                      {{category.name}}
-                    </mat-option>
-                  </mat-select>
-                </mat-form-field>
+        <mat-form-field appearance="fill" class="field">
+          <mat-label for="sellCategory">Category</mat-label>
+          <mat-select class="custom-select" [(ngModel)]="sellCategory" formControlName="sellCategory" required>
+            <mat-option *ngFor="let category of sellCategories" [value]="category.id">
+              {{category.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
 
-                <br>
+        <br>
 
-                <mat-form-field appearance="fill" class="field">
-                  <mat-label for="sellDescription">Description</mat-label>
-                  <textarea matInput [(ngModel)]="sellDescription" formControlName="sellDescription" required></textarea>
-                </mat-form-field>
+        <mat-form-field appearance="fill" class="field">
+          <mat-label for="sellDescription">Description</mat-label>
+          <textarea matInput [(ngModel)]="sellDescription" maxlength="475" formControlName="sellDescription" required></textarea>
+        </mat-form-field>
 
-                <br>
+        <br>
 
-                <mat-form-field appearance="fill" class="field">
-                  <mat-label for="sellLocation">Location</mat-label>
-                  <input matInput [(ngModel)]="sellLocation" type="text" formControlName="sellLocation" required>
-                </mat-form-field>
+        <mat-form-field appearance="fill" class="field">
+          <mat-label for="sellLocation">Location</mat-label>
+          <input matInput [(ngModel)]="sellLocation" (keypress)="textOnly($event)" maxlength="90" type="text" formControlName="sellLocation" required>
+        </mat-form-field>
 
-                <br>
+        <br>
 
-                <mat-form-field appearance="fill" class="field">
-                  <mat-label for="sellDelivery">Delivery</mat-label>
-                  <mat-select class="custom-select" [(ngModel)]="sellDelivery" id="delivery" formControlName="sellDelivery" required>
-                    <mat-option *ngFor="let delivery of sellDeliveryOptions" [value]="delivery.value">
-                      {{delivery.viewValue}}
-                    </mat-option>
-                  </mat-select>
-                </mat-form-field>
+        <mat-form-field appearance="fill" class="field">
+          <mat-label for="sellDelivery">Delivery</mat-label>
+          <mat-select class="custom-select" [(ngModel)]="sellDelivery" id="delivery" formControlName="sellDelivery" required>
+            <mat-option *ngFor="let delivery of sellDeliveryOptions" [value]="delivery.value">
+              {{delivery.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
 
-                <br>
+        <br>
 
-                <mat-form-field appearance="fill" class="field">
-                  <mat-label for="SellDeliverySpecs">Delivery Specification</mat-label>
-                  <textarea matInput [(ngModel)]="sellDeliverySpecs" id="deliverySpecs" formControlName="sellDeliverySpecs" required></textarea>
-                </mat-form-field>
+        <mat-form-field appearance="fill" class="field">
+          <mat-label for="SellDeliverySpecs">Delivery Specification</mat-label>
+          <textarea matInput [(ngModel)]="sellDeliverySpecs" maxlength="200" id="deliverySpecs" formControlName="sellDeliverySpecs" required></textarea>
+        </mat-form-field>
 
-                <br>
+        <br>
 
-                <button mat-raised-button color="primary" (click)="sellAddArticleRequest()">Add Product</button>
+        <button mat-raised-button color="primary" (click)="sellAddArticleRequest()">Add Product</button>
 </div>
 
 
@@ -98,77 +79,77 @@
     <mat-card class="example-form">
 
       <div [formGroup]="lendAddArticleForm" class="container-productSelling">
-                <h2>Lending a Product</h2>
+        <h2>Lending a Product</h2>
 
-                <mat-form-field appearance="fill" class="field">
-                  <mat-label for="lendTitle">Title</mat-label>
-                  <input matInput [(ngModel)]="lendTitle" maxlength="12" type="text" formControlName="lendTitle" required>
-                </mat-form-field>
+        <mat-form-field appearance="fill" class="field">
+          <mat-label for="lendTitle">Title</mat-label>
+          <input matInput [(ngModel)]="lendTitle" maxlength="12" type="text" formControlName="lendTitle" required>
+        </mat-form-field>
 
-                <br>
+        <br>
 
-                <mat-form-field appearance="fill" class="field">
-                  <mat-label for="lendPrice">Price (CHF)</mat-label>
-                  <input matInput [(ngModel)]="lendPrice" formControlName="lendPrice" required>
-                </mat-form-field>
+        <mat-form-field appearance="fill" class="field">
+          <mat-label for="lendPrice">Price (CHF)</mat-label>
+          <input matInput [(ngModel)]="lendPrice" maxlength="12" (keypress)="numberOnly($event)" formControlName="lendPrice" required>
+        </mat-form-field>
 
-                <br>
+        <br>
 
-                <mat-form-field appearance="fill" class="field">
-                  <mat-label for="lendPricingType">Price</mat-label>
-                  <mat-select class="custom-select" [(ngModel)]="lendPricingType" formControlName="lendPricingType" required>
-                    <mat-option *ngFor="let pricingType of lendPricingOptions" [value]="pricingType.value">
-                      {{pricingType.value}}
-                    </mat-option>
-                  </mat-select>
-                </mat-form-field>
+        <mat-form-field appearance="fill" class="field">
+          <mat-label for="lendPricingType">Price</mat-label>
+          <mat-select class="custom-select" [(ngModel)]="lendPricingType" formControlName="lendPricingType" required>
+            <mat-option *ngFor="let pricingType of lendPricingOptions" [value]="pricingType.value">
+              {{pricingType.value}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
 
-                <br>
+        <br>
 
-                <mat-form-field appearance="fill" class="field">
-                  <mat-label for="lendCategory">Category</mat-label>
-                  <mat-select class="custom-select" [(ngModel)]="lendCategory" formControlName="lendCategory" required>
-                    <mat-option *ngFor="let category of lendCategories" [value]="category.id">
-                      {{category.name}}
-                    </mat-option>
-                  </mat-select>
-                </mat-form-field>
+        <mat-form-field appearance="fill" class="field">
+          <mat-label for="lendCategory">Category</mat-label>
+          <mat-select class="custom-select" [(ngModel)]="lendCategory" formControlName="lendCategory" required>
+            <mat-option *ngFor="let category of lendCategories" [value]="category.id">
+              {{category.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
 
-                <br>
+        <br>
 
-                <mat-form-field appearance="fill" class="field">
-                  <mat-label for="lendDescription">Description</mat-label>
-                  <textarea matInput [(ngModel)]="lendDescription" formControlName="lendDescription" required></textarea>
-                </mat-form-field>
+        <mat-form-field appearance="fill" class="field">
+          <mat-label for="lendDescription">Description</mat-label>
+          <textarea matInput [(ngModel)]="lendDescription" maxlength="475" formControlName="lendDescription" required></textarea>
+        </mat-form-field>
 
-                <br>
+        <br>
 
-                <mat-form-field appearance="fill" class="field">
-                  <mat-label for="lendLocation">Location</mat-label>
-                  <input matInput [(ngModel)]="lendLocation" type="text" formControlName="lendLocation" required>
-                </mat-form-field>
+        <mat-form-field appearance="fill" class="field">
+          <mat-label for="lendLocation">Location</mat-label>
+          <input matInput [(ngModel)]="lendLocation" (keypress)="textOnly($event)" type="text" maxlength="90" formControlName="lendLocation" required>
+        </mat-form-field>
 
-                <br>
+        <br>
 
-                <mat-form-field appearance="fill" class="field">
-                  <mat-label for="lendLendingStatus">Status</mat-label>
-                  <mat-select class="custom-select" [(ngModel)]="lendLendingStatus" id="lendingStatus" formControlName="lendLendingStatus" required>
-                    <mat-option *ngFor="let lendingStatus of lendStatusOptions" [value]="lendingStatus.value">
-                      {{lendingStatus.viewValue}}
-                    </mat-option>
-                  </mat-select>
-                </mat-form-field>
+        <mat-form-field appearance="fill" class="field">
+          <mat-label for="lendLendingStatus">Status</mat-label>
+          <mat-select class="custom-select" [(ngModel)]="lendLendingStatus" id="lendingStatus" formControlName="lendLendingStatus" required>
+            <mat-option *ngFor="let lendingStatus of lendStatusOptions" [value]="lendingStatus.value">
+              {{lendingStatus.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
 
-                <br>
+        <br>
 
-                <mat-form-field appearance="fill" class="field">
-                  <mat-label for="lendHandling">Handling</mat-label>
-                  <textarea matInput [(ngModel)]="lendHandling" id="handling" formControlName="lendHandling" required></textarea>
-                </mat-form-field>
+        <mat-form-field appearance="fill" class="field">
+          <mat-label for="lendHandling">Handling</mat-label>
+          <textarea matInput [(ngModel)]="lendHandling" id="handling" formControlName="lendHandling" required></textarea>
+        </mat-form-field>
 
-                <br>
+        <br>
 
-                <button mat-raised-button color="primary" (click)="lendAddArticleRequest()">Add Product</button>
+        <button mat-raised-button color="primary" (click)="lendAddArticleRequest()">Add Product</button>
       </div>
 
 
@@ -182,74 +163,74 @@
     <mat-card class="example-form">
 
       <div [formGroup]="serviceAddArticleForm" class="container-productSelling">
-               <h2>Providing a Service</h2>
+        <h2>Providing a Service</h2>
 
-                       <mat-form-field appearance="fill" class="field">
-                         <mat-label for="serviceTitle">Title</mat-label>
-                         <input matInput [(ngModel)]="serviceTitle" maxlength="12" type="text" formControlName="serviceTitle" required>
-                       </mat-form-field>
+        <mat-form-field appearance="fill" class="field">
+          <mat-label for="serviceTitle">Title</mat-label>
+          <input matInput [(ngModel)]="serviceTitle" maxlength="12" type="text" formControlName="serviceTitle" required>
+        </mat-form-field>
 
-                       <br>
+        <br>
 
-                       <mat-form-field appearance="fill" class="field">
-                         <mat-label for="servicePrice">Price (CHF)</mat-label>
-                         <input matInput [(ngModel)]="servicePrice" formControlName="servicePrice" required>
-                       </mat-form-field>
+        <mat-form-field appearance="fill" class="field">
+          <mat-label for="servicePrice">Price (CHF)</mat-label>
+          <input matInput [(ngModel)]="servicePrice" maxlength="12" (keypress)="numberOnly($event)" formControlName="servicePrice" required>
+        </mat-form-field>
 
-                       <br>
+        <br>
 
-                       <mat-form-field appearance="fill" class="field">
-                         <mat-label for="servicePricingType">Price</mat-label>
-                         <mat-select class="custom-select" [(ngModel)]="servicePricingType" formControlName="servicePricingType" required>
-                           <mat-option *ngFor="let pricingType of servicePricingOptions" [value]="pricingType.value">
-                             {{pricingType.value}}
-                           </mat-option>
-                         </mat-select>
-                       </mat-form-field>
+        <mat-form-field appearance="fill" class="field">
+          <mat-label for="servicePricingType">Price</mat-label>
+          <mat-select class="custom-select" [(ngModel)]="servicePricingType" formControlName="servicePricingType" required>
+            <mat-option *ngFor="let pricingType of servicePricingOptions" [value]="pricingType.value">
+              {{pricingType.value}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
 
-                       <br>
+        <br>
 
-                       <mat-form-field appearance="fill" class="field">
-                         <mat-label for="serviceCategory">Category</mat-label>
-                         <mat-select class="custom-select" [(ngModel)]="serviceCategory" formControlName="serviceCategory" required>
-                           <mat-option *ngFor="let category of serviceCategories" [value]="category.id">
-                             {{category.name}}
-                           </mat-option>
-                         </mat-select>
-                       </mat-form-field>
+        <mat-form-field appearance="fill" class="field">
+          <mat-label for="serviceCategory">Category</mat-label>
+          <mat-select class="custom-select" [(ngModel)]="serviceCategory" formControlName="serviceCategory" required>
+            <mat-option *ngFor="let category of serviceCategories" [value]="category.id">
+              {{category.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
 
-                       <br>
+        <br>
 
-                       <mat-form-field appearance="fill" class="field">
-                         <mat-label for="serviceDescription">Description</mat-label>
-                         <textarea matInput [(ngModel)]="serviceDescription" formControlName="serviceDescription" required></textarea>
-                       </mat-form-field>
+        <mat-form-field appearance="fill" class="field">
+          <mat-label for="serviceDescription">Description</mat-label>
+          <textarea matInput [(ngModel)]="serviceDescription" maxlength="730" formControlName="serviceDescription" required></textarea>
+        </mat-form-field>
 
-                       <br>
+        <br>
 
-                       <mat-form-field appearance="fill" class="field">
-                         <mat-label for="serviceLocation">Location</mat-label>
-                         <input matInput [(ngModel)]="serviceLocation" type="text" formControlName="serviceLocation" required>
-                       </mat-form-field>
+        <mat-form-field appearance="fill" class="field">
+          <mat-label for="serviceLocation">Location</mat-label>
+          <input matInput [(ngModel)]="serviceLocation" (keypress)="textOnly($event)" type="text" maxlength="90" formControlName="serviceLocation" required>
+        </mat-form-field>
 
-                       <br>
+        <br>
 
-                       <mat-form-field appearance="fill" class="field">
-                         <mat-label for="serviceExpenses">Expenses</mat-label>
-                         <textarea matInput [(ngModel)]="serviceExpenses" formControlName="serviceExpenses" required></textarea>
-                       </mat-form-field>
+        <mat-form-field appearance="fill" class="field">
+          <mat-label for="serviceExpenses">Expenses</mat-label>
+          <textarea matInput [(ngModel)]="serviceExpenses" maxlength="135" formControlName="serviceExpenses" required></textarea>
+        </mat-form-field>
 
-                       <br>
+        <br>
 
-                       <mat-form-field appearance="fill" class="field">
-                         <mat-label for="serviceExpensesCost">Expenses Cost (CHF)</mat-label>
-                         <input matInput [(ngModel)]="serviceExpensesCost" type="text" formControlName="serviceExpensesCost" required>
-                       </mat-form-field>
+        <mat-form-field appearance="fill" class="field">
+          <mat-label for="serviceExpensesCost">Expenses Cost (CHF)</mat-label>
+          <input matInput [(ngModel)]="serviceExpensesCost" type="text" formControlName="serviceExpensesCost" required>
+        </mat-form-field>
 
-                       <br>
+        <br>
 
-                       <button mat-raised-button color="primary" (click)="serviceAddArticleRequest()">Add Service</button>
-              </div>
+        <button mat-raised-button color="primary" (click)="serviceAddArticleRequest()">Add Service</button>
+      </div>
     </mat-card>
 
   </mat-tab>

@@ -96,3 +96,8 @@
 #buycase{
   margin-top: 10px;
 }
+
+.textstyle{
+  word-wrap: break-word;
+  max-width: 650px;
+}

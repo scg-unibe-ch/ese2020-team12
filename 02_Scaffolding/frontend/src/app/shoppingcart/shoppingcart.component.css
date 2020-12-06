@@ -1,3 +1,70 @@
 .border{
   border: 6px solid #00559d;
+  min-height: 82vh;
 }
+
+.addressbutton1{
+  background-color: #00559d;
+  color: white;
+  margin-top: 30px;
+  margin-left: -30vw;
+}
+
+.addressbutton2{
+  background-color: #00559d;
+  color: white;
+}
+
+.nextbutton{
+  float: right;
+  font-size: large;
+  background-color: #00559d;
+  color: white;
+  margin-top: 30px;
+}
+
+.backbutton{
+  float: left;
+  font-size: large;
+  background-color: #00559d;
+  color: white;
+  margin-top: 30px;
+}
+
+.attentionmessage{
+  color: red;
+}
+
+.profile{
+  text-align: center;
+  margin-left: 30vw;
+}
+
+.profile2{
+  text-align: center;
+}
+
+.otheraddress{
+  width: 300px;
+}
+
+.card {
+  max-width: 250px;
+  padding-bottom: 10px;
+  margin-left: 30px;
+  margin-bottom: 30px;
+}
+
+.content {
+  padding: 16px; /*abstand der produkte zu banner*/
+  min-height: 31vh;
+}
+
+.content > mat-card {
+  width: 200px;
+}
+
+.deletebutton{
+  float: right;
+}
+

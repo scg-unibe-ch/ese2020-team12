@@ -55,7 +55,9 @@
 
     <mat-card class="background">
       <mat-card-title>Description:</mat-card-title>
+      <div class="textstyle">
         <p>{{this.article.description}}</p>
+      </div>
     </mat-card>
 
   </mat-grid-tile>
@@ -105,7 +107,7 @@
         <mat-card-title> {{this.article.price}} CHF</mat-card-title>
         <mat-form-field style="width:80%">
           <mat-label>Enter new price</mat-label>
-          <input  [(ngModel)]="newPrice" maxlength="12" matInput placeholder="new price">
+          <input  [(ngModel)]="newPrice" maxlength="12" (keypress)="numberOnly($event)" matInput placeholder="new price">
         </mat-form-field>
       </mat-card>
 
@@ -116,7 +118,7 @@
 
       <mat-card class="background">
         <mat-card-title>Service provider:</mat-card-title>
-        <p>{{this.article.title}}</p>
+        <p>{{this.userInfoService.getUsername()}}</p>
         <mat-card-title>Locations:</mat-card-title>
         <p>{{this.article.location}}</p>
       </mat-card>
@@ -131,7 +133,7 @@
         <p>{{this.article.description}}</p>
         <mat-form-field style="width:80%">
           <mat-label>Enter new description</mat-label>
-          <input [(ngModel)]="newDescription" matInput placeholder="new description">
+          <input [(ngModel)]="newDescription" maxlength="730" matInput placeholder="new description">
         </mat-form-field>
       </mat-card>
 
@@ -150,7 +152,7 @@
         <p>{{this.article.expCost}} CHF</p>
         <mat-form-field style="width:80%">
           <mat-label>Enter new expension costs</mat-label>
-          <input [(ngModel)]="expCost" matInput placeholder="new exp. costs">
+          <input [(ngModel)]="expCost" matInput (keypress)="numberOnly($event)" placeholder="new exp. costs">
         </mat-form-field>
       </mat-card>
 
