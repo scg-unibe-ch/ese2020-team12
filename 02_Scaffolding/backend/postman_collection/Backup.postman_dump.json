@@ -1,0 +1,1121 @@
+{
+	"version": 1,
+	"collections": [
+		{
+			"id": "9f7b520b-d4e1-4950-ba49-745cc31faf28",
+			"name": "Random",
+			"description": null,
+			"auth": null,
+			"events": null,
+			"variables": [],
+			"order": [
+				"30c3a17d-a939-47dd-bc89-5cce28ecb8ad",
+				"312baa21-09d0-4708-8fc8-d104dff1d936"
+			],
+			"folders_order": [],
+			"folders": [],
+			"requests": [
+				{
+					"id": "30c3a17d-a939-47dd-bc89-5cce28ecb8ad",
+					"name": "HackShit",
+					"url": "",
+					"description": "I want to hack shit",
+					"data": null,
+					"dataMode": null,
+					"headerData": [],
+					"method": "GET",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": [],
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "9f7b520b-d4e1-4950-ba49-745cc31faf28",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "312baa21-09d0-4708-8fc8-d104dff1d936",
+					"name": "https://www.sbb.ch/de/kaufen/pages/fahrplan/fahrplan.xhtml?suche=true&language=de&vias=%5B%22%22%5D&von=Steffisburg%2C+Fl%C3%BChli&nach=Thierachern%2C+Kirche&viaField1=&datum=Fr%2C+31.05.2019&zeit=10%3A33&an=false",
+					"url": "https://www.sbb.ch/de/kaufen/pages/fahrplan/fahrplan.xhtml?suche=true&language=de&vias=%5B%22%22%5D&von=Steffisburg%2C+Fl%C3%BChli&nach=Thierachern%2C+Kirche&viaField1=&datum=Fr%2C+31.05.2019&zeit=10%3A33&an=false",
+					"description": "",
+					"data": null,
+					"dataMode": "params",
+					"headerData": [
+						{
+							"key": "Host",
+							"value": " www.sbb.ch",
+							"description": "",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "User-Agent",
+							"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0",
+							"description": "",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "Referer",
+							"value": "https://www.sbb.ch/de/",
+							"description": "",
+							"type": "text",
+							"enabled": true
+						}
+					],
+					"method": "GET",
+					"pathVariableData": [],
+					"queryParams": [
+						{
+							"key": "suche",
+							"value": "true",
+							"equals": true,
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "language",
+							"value": "de",
+							"equals": true,
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "vias",
+							"value": "%5B%22%22%5D",
+							"equals": true,
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "von",
+							"value": "Steffisburg%2C+Fl%C3%BChli",
+							"equals": true,
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "nach",
+							"value": "Thierachern%2C+Kirche",
+							"equals": true,
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "viaField1",
+							"value": "",
+							"equals": true,
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "datum",
+							"value": "Fr%2C+31.05.2019",
+							"equals": true,
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "zeit",
+							"value": "10%3A33",
+							"equals": true,
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "an",
+							"value": "false",
+							"equals": true,
+							"description": "",
+							"enabled": true
+						}
+					],
+					"auth": null,
+					"events": [],
+					"folder": null,
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "9f7b520b-d4e1-4950-ba49-745cc31faf28",
+					"headers": "Host:  www.sbb.ch\nUser-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0\nReferer: https://www.sbb.ch/de/\n",
+					"pathVariables": {}
+				}
+			]
+		},
+		{
+			"id": "c32f0e9e-32db-44e7-b297-8446c97edb44",
+			"name": "ESE",
+			"description": null,
+			"auth": null,
+			"events": null,
+			"variables": [],
+			"order": [
+				"900c2d14-3ce8-4555-952c-27039e111742"
+			],
+			"folders_order": [],
+			"folders": [],
+			"requests": [
+				{
+					"id": "900c2d14-3ce8-4555-952c-27039e111742",
+					"name": "RegisterUser",
+					"url": "",
+					"description": "It's a command to register a new user in the backend.",
+					"data": null,
+					"dataMode": null,
+					"headerData": [],
+					"method": "GET",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": [],
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "c32f0e9e-32db-44e7-b297-8446c97edb44",
+					"headers": "",
+					"pathVariables": {}
+				}
+			]
+		},
+		{
+			"id": "c6d21e3a-87f3-43d3-8e9a-51cadc01bcfa",
+			"name": "ese2020",
+			"description": null,
+			"auth": null,
+			"events": null,
+			"variables": [],
+			"order": [
+				"c2550aa5-afca-4003-afe4-3d42c4586e33",
+				"a1f8a7c4-837f-4333-a0f8-ef1b1b30f9d0",
+				"b969b00b-6dae-4f5f-a42c-47634e1fc380",
+				"a35d4b5f-5162-4479-a774-33068dd7f3f3",
+				"b6efd16a-5362-4475-8b4a-72b2704b624b",
+				"ecfbdb0d-64ba-45ce-b03d-6c2b91b91ded",
+				"fce1b3af-d32a-47d0-ae8e-31e3accefe13",
+				"3d28b680-dbba-4c75-83b9-5e2187ab126d",
+				"c55dbc63-3b44-43ab-a842-b7bd8b223137",
+				"42e47bd8-83bd-4cb9-88b6-b2faeb4308db",
+				"64ea3daf-898c-4f09-a6ed-4ab4e37fe40a",
+				"1fff63df-58c1-412e-aa58-7c392c4dc5b6"
+			],
+			"folders_order": [],
+			"folders": [],
+			"requests": [
+				{
+					"id": "1fff63df-58c1-412e-aa58-7c392c4dc5b6",
+					"name": "user login nora",
+					"url": "http://localhost:3000/user/login",
+					"description": null,
+					"data": [],
+					"dataMode": "raw",
+					"headerData": [],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": null,
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "c6d21e3a-87f3-43d3-8e9a-51cadc01bcfa",
+					"rawModeData": "{\r\n    \"userName\":\"Nora\",\r\n    \"password\":\"notSecure12\"\r\n}",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "3d28b680-dbba-4c75-83b9-5e2187ab126d",
+					"name": "todoitem delete",
+					"url": "http://localhost:3000/todoitem/7",
+					"description": null,
+					"data": null,
+					"dataMode": null,
+					"headerData": [],
+					"method": "DELETE",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": null,
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "c6d21e3a-87f3-43d3-8e9a-51cadc01bcfa",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "42e47bd8-83bd-4cb9-88b6-b2faeb4308db",
+					"name": "todoitem add",
+					"url": "http://localhost:3000/todoitem",
+					"description": null,
+					"data": [],
+					"dataMode": "raw",
+					"headerData": [],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": null,
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "c6d21e3a-87f3-43d3-8e9a-51cadc01bcfa",
+					"rawModeData": "{\r\n    \"name\":\"welcome\",\r\n    \"done\":\"false\",\r\n    \"todoListId\":\"2\"\r\n}",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "64ea3daf-898c-4f09-a6ed-4ab4e37fe40a",
+					"name": "welcome page",
+					"url": "http://localhost:3000/",
+					"description": null,
+					"data": null,
+					"dataMode": null,
+					"headerData": [],
+					"method": "GET",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": null,
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "c6d21e3a-87f3-43d3-8e9a-51cadc01bcfa",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "a1f8a7c4-837f-4333-a0f8-ef1b1b30f9d0",
+					"name": "secured endpoint",
+					"url": "http://localhost:3000/secured",
+					"description": null,
+					"data": null,
+					"dataMode": null,
+					"headerData": [],
+					"method": "GET",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IkpvbmF0aGFuIiwidXNlcklkIjoyLCJpYXQiOjE1OTk0NzgwMTYsImV4cCI6MTU5OTQ4NTIxNn0.Jr97kF4fFvM0cAujHBsXL3m1BNRXV2jS4lwzlUIljME",
+								"type": "string"
+							}
+						]
+					},
+					"events": null,
+					"folder": null,
+					"currentHelper": "bearerAuth",
+					"helperAttributes": {
+						"id": "bearer",
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IkpvbmF0aGFuIiwidXNlcklkIjoyLCJpYXQiOjE1OTk0NzgwMTYsImV4cCI6MTU5OTQ4NTIxNn0.Jr97kF4fFvM0cAujHBsXL3m1BNRXV2jS4lwzlUIljME"
+					},
+					"collectionId": "c6d21e3a-87f3-43d3-8e9a-51cadc01bcfa",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "a35d4b5f-5162-4479-a774-33068dd7f3f3",
+					"name": "user registration",
+					"url": "http://localhost:3000/user/register",
+					"description": null,
+					"data": [],
+					"dataMode": "raw",
+					"headerData": [],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": null,
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "c6d21e3a-87f3-43d3-8e9a-51cadc01bcfa",
+					"rawModeData": "{\r\n    \"userName\":\"Nora\",\r\n    \"password\":\"notSecure12\"\r\n}",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "b6efd16a-5362-4475-8b4a-72b2704b624b",
+					"name": "user list",
+					"url": "http://localhost:3000/user/",
+					"description": null,
+					"data": null,
+					"dataMode": null,
+					"headerData": [],
+					"method": "GET",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": null,
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "c6d21e3a-87f3-43d3-8e9a-51cadc01bcfa",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "b969b00b-6dae-4f5f-a42c-47634e1fc380",
+					"name": "user login",
+					"url": "http://localhost:3000/user/login",
+					"description": null,
+					"data": [],
+					"dataMode": "raw",
+					"headerData": [],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": null,
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "c6d21e3a-87f3-43d3-8e9a-51cadc01bcfa",
+					"rawModeData": "{\r\n    \"userName\": \"Jonathan\",\r\n    \"password\": \"notSecure2\"\r\n}",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "c2550aa5-afca-4003-afe4-3d42c4586e33",
+					"name": "static resources",
+					"url": "http://localhost:3000/images/tech_overview.png",
+					"description": null,
+					"data": null,
+					"dataMode": null,
+					"headerData": [],
+					"method": "GET",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": null,
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "c6d21e3a-87f3-43d3-8e9a-51cadc01bcfa",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "c55dbc63-3b44-43ab-a842-b7bd8b223137",
+					"name": "todolist delete",
+					"url": "http://localhost:3000/todolist/4",
+					"description": null,
+					"data": null,
+					"dataMode": null,
+					"headerData": [],
+					"method": "DELETE",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": null,
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "c6d21e3a-87f3-43d3-8e9a-51cadc01bcfa",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "ecfbdb0d-64ba-45ce-b03d-6c2b91b91ded",
+					"name": "todolist list",
+					"url": "http://localhost:3000/todolist",
+					"description": null,
+					"data": null,
+					"dataMode": null,
+					"headerData": [],
+					"method": "GET",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": null,
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "c6d21e3a-87f3-43d3-8e9a-51cadc01bcfa",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "fce1b3af-d32a-47d0-ae8e-31e3accefe13",
+					"name": "todolist add",
+					"url": "http://localhost:3000/todolist",
+					"description": null,
+					"data": [],
+					"dataMode": "raw",
+					"headerData": [],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": null,
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "c6d21e3a-87f3-43d3-8e9a-51cadc01bcfa",
+					"rawModeData": "{\r\n    \"name\":\"ESE-2020\"\r\n}",
+					"headers": "",
+					"pathVariables": {}
+				}
+			]
+		},
+		{
+			"id": "f1f0ded2-2eeb-401c-a96c-aa2866f7056a",
+			"name": "Example DB ESE",
+			"description": "",
+			"auth": null,
+			"events": null,
+			"variables": [],
+			"order": [
+				"78771408-3685-4229-aec9-5710329801b6",
+				"2cfb0878-cbf2-4b77-ab42-93e689c26966",
+				"1f56f8af-257d-45a3-a35b-5ee89aa7e26c",
+				"06ef6919-8285-44f6-b7c2-5c2c2d7b7dcb",
+				"732937d5-667e-4281-af5e-700b7f460ca7",
+				"12200c81-f5e2-4ea0-b2a2-f02c44a4be17",
+				"97c977e4-73b4-42f8-a430-2b5824a3db4d",
+				"a52ae05e-bfe0-433e-a5d7-3bdb6448aaab",
+				"dfaae02d-8bad-4fc1-a9c4-9d708f8d77ea",
+				"bfaed524-0958-4d40-9317-537cc14a3cbe",
+				"58c49071-01ee-4ad1-86c1-a7c9cbfd9ee6",
+				"f0815ff7-e608-4983-9aa1-6d154c57c7d6",
+				"db2367fd-a44f-4bc8-8ac7-2da352235eb9",
+				"bc6dfa76-a468-4f2b-b256-db6733350b22",
+				"7c9a2351-12e3-4b8d-b2f8-0975ebf81759",
+				"fae8f0f6-84a8-4add-96fc-70b78b83e2c9",
+				"868da072-c674-4852-b240-c8c8fd41f5a3",
+				"de6aa116-fac0-4107-9b30-eaaf587a7f06",
+				"53f20bdc-97e8-4d72-9add-1410df687e7a",
+				"24d84f88-413c-4751-ad58-08debbb7d59a",
+				"fb3bf946-df2d-4c7f-ac0b-b92d156164f1"
+			],
+			"folders_order": [],
+			"folders": [],
+			"requests": [
+				{
+					"id": "06ef6919-8285-44f6-b7c2-5c2c2d7b7dcb",
+					"name": "Add Article 1",
+					"url": "http://localhost:3000/add-article/sell-product/",
+					"description": "",
+					"data": [],
+					"dataMode": "raw",
+					"headerData": [
+						{
+							"description": "",
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"type": "text",
+							"value": "application/json"
+						}
+					],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": [],
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "f1f0ded2-2eeb-401c-a96c-aa2866f7056a",
+					"rawModeData": "{\n \"title\": \"Computer Asus 1GTX \",\n \"price\": \"2999\",\n \"description\": \"It's a really nice computer. Almost brand new!\",\n \"location\": \"Bern\",\n \"delivery\": \"true\",\n \"delSpec\": \"Can be sent!\",\n \"userId\": \"1\",\n \"category\": \"2\",\n \"status\": \"true\"\n}",
+					"headers": "Content-Type: application/json\n",
+					"pathVariables": {}
+				},
+				{
+					"id": "12200c81-f5e2-4ea0-b2a2-f02c44a4be17",
+					"name": "Add Article 3",
+					"url": "http://localhost:3000/add-article/sell-product/",
+					"description": "",
+					"data": [],
+					"dataMode": "raw",
+					"headerData": [
+						{
+							"description": "",
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"type": "text",
+							"value": "application/json"
+						}
+					],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": [],
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "f1f0ded2-2eeb-401c-a96c-aa2866f7056a",
+					"rawModeData": "{\n \"title\": \"Alienware PB22 \",\n \"price\": \"8999\",\n \"description\": \"It's a really nice computer. Almost brand new!\",\n \"location\": \"Bern\",\n \"delivery\": \"true\",\n \"delSpec\": \"Can be sent!\",\n \"userId\": \"1\",\n \"category\": \"2\",\n \"status\": \"true\"\n}",
+					"headers": "Content-Type: application/json\n",
+					"pathVariables": {}
+				},
+				{
+					"id": "1f56f8af-257d-45a3-a35b-5ee89aa7e26c",
+					"name": "User signup 3",
+					"url": "http://localhost:3000/user/signup",
+					"description": "",
+					"data": [],
+					"dataMode": "raw",
+					"headerData": [
+						{
+							"description": "",
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"type": "text",
+							"value": "application/json"
+						}
+					],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": [],
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "f1f0ded2-2eeb-401c-a96c-aa2866f7056a",
+					"rawModeData": "{\n \"userName\": \"BrigitteBuy\",\n \"email\": \"Brigitte_like_to_buy@gmail.com\",\n \"password\": \"SehrSicher123!\",\n \"name\": \"Brigitte\",\n \"surname\": \"KauftSehrViel\",\n \"street\": \"Schuldenberg\",\n \"houseNumber\": \"22\",\n \"postalCode\": \"2323\",\n \"place\": \"Pleiten\",\n \"balance\": \"0\"\n}",
+					"headers": "Content-Type: application/json\n",
+					"pathVariables": {}
+				},
+				{
+					"id": "24d84f88-413c-4751-ad58-08debbb7d59a",
+					"name": "Add Article 17 Service",
+					"url": "http://localhost:3000/add-article/provide-service/",
+					"description": "",
+					"data": [],
+					"dataMode": "raw",
+					"headerData": [
+						{
+							"description": "",
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"type": "text",
+							"value": "application/json"
+						}
+					],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": [],
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "f1f0ded2-2eeb-401c-a96c-aa2866f7056a",
+					"rawModeData": "{\n \"title\": \"Babysitter service\",\n \"price\": \"25\",\n \"hourOrDay\": \"true\",\n \"description\": \"I just love to babysit kids, but not for free, amigo!\",\n \"location\": \"Zürich\",\n \"expenses\": \"I charge per diaper changed!\",\n \"expCost\": \"200\",\n \"userId\": \"2\",\n \"category\": \"1\"\n}",
+					"headers": "Content-Type: application/json\n",
+					"pathVariables": {}
+				},
+				{
+					"id": "2cfb0878-cbf2-4b77-ab42-93e689c26966",
+					"name": "User signup 2",
+					"url": "http://localhost:3000/user/signup",
+					"description": "",
+					"data": [],
+					"dataMode": "raw",
+					"headerData": [
+						{
+							"description": "",
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"type": "text",
+							"value": "application/json"
+						}
+					],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": [],
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "f1f0ded2-2eeb-401c-a96c-aa2866f7056a",
+					"rawModeData": "{\n \"userName\": \"BobbySellin\",\n \"email\": \"Bobby@gmail.com\",\n \"password\": \"SehrSicher123!\",\n \"name\": \"Bobby\",\n \"surname\": \"Bravatski\",\n \"street\": \"Hohengasse\",\n \"houseNumber\": \"39\",\n \"postalCode\": \"5544\",\n \"place\": \"Zürich\",\n \"balance\": \"0\"\n}",
+					"headers": "Content-Type: application/json\n",
+					"pathVariables": {}
+				},
+				{
+					"id": "53f20bdc-97e8-4d72-9add-1410df687e7a",
+					"name": "Add Article 16 Service",
+					"url": "http://localhost:3000/add-article/provide-service/",
+					"description": "",
+					"data": [],
+					"dataMode": "raw",
+					"headerData": [
+						{
+							"description": "",
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"type": "text",
+							"value": "application/json"
+						}
+					],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": [],
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "f1f0ded2-2eeb-401c-a96c-aa2866f7056a",
+					"rawModeData": "{\n \"title\": \"Fix your car\",\n \"price\": \"30\",\n \"hourOrDay\": \"true\",\n \"description\": \"I clean and fix your car!\",\n \"location\": \"Zürich\",\n \"expenses\": \"You can rent me if you want\",\n \"expCost\": \"200\",\n \"userId\": \"2\",\n \"category\": \"6\"\n}",
+					"headers": "Content-Type: application/json\n",
+					"pathVariables": {}
+				},
+				{
+					"id": "58c49071-01ee-4ad1-86c1-a7c9cbfd9ee6",
+					"name": "Add Article 8",
+					"url": "http://localhost:3000/add-article/sell-product/",
+					"description": "",
+					"data": [],
+					"dataMode": "raw",
+					"headerData": [
+						{
+							"description": "",
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"type": "text",
+							"value": "application/json"
+						}
+					],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": [],
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "f1f0ded2-2eeb-401c-a96c-aa2866f7056a",
+					"rawModeData": "{\n \"title\": \"Leather Jacket\",\n \"price\": \"220\",\n \"description\": \"Nice leather jacket\",\n \"location\": \"Zürich\",\n \"delivery\": \"true\",\n \"delSpec\": \"Can be sent!\",\n \"userId\": \"2\",\n \"category\": \"1\",\n \"status\": \"true\"\n}",
+					"headers": "Content-Type: application/json\n",
+					"pathVariables": {}
+				},
+				{
+					"id": "732937d5-667e-4281-af5e-700b7f460ca7",
+					"name": "Add Article 2",
+					"url": "http://localhost:3000/add-article/sell-product/",
+					"description": "",
+					"data": [],
+					"dataMode": "raw",
+					"headerData": [
+						{
+							"description": "",
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"type": "text",
+							"value": "application/json"
+						}
+					],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": [],
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "f1f0ded2-2eeb-401c-a96c-aa2866f7056a",
+					"rawModeData": "{\n \"title\": \"Computer Asus 2Z_Gh \",\n \"price\": \"1044\",\n \"description\": \"It's a really nice computer. Almost brand new!\",\n \"location\": \"Bern\",\n \"delivery\": \"true\",\n \"delSpec\": \"Can be sent!\",\n \"userId\": \"1\",\n \"category\": \"2\",\n \"status\": \"true\"\n}",
+					"headers": "Content-Type: application/json\n",
+					"pathVariables": {}
+				},
+				{
+					"id": "78771408-3685-4229-aec9-5710329801b6",
+					"name": "User signup 1",
+					"url": "http://localhost:3000/user/signup",
+					"description": "",
+					"data": [],
+					"dataMode": "raw",
+					"headerData": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": [],
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "f1f0ded2-2eeb-401c-a96c-aa2866f7056a",
+					"rawModeData": "{\n \"userName\": \"Bernd_Der_Verkäufer\",\n \"email\": \"Bernd@gmail.com\",\n \"password\": \"SuperSecure123!\",\n \"name\": \"Bernd\",\n \"surname\": \"Bäcker\",\n \"street\": \"DerWeg\",\n \"houseNumber\": \"19\",\n \"postalCode\": \"2376\",\n \"place\": \"Bern\",\n \"balance\": \"0\"\n}",
+					"headers": "Content-Type: application/json\n",
+					"pathVariables": {}
+				},
+				{
+					"id": "7c9a2351-12e3-4b8d-b2f8-0975ebf81759",
+					"name": "Add Article 12 Lend",
+					"url": "http://localhost:3000/add-article/lend-product/",
+					"description": "",
+					"data": [],
+					"dataMode": "raw",
+					"headerData": [
+						{
+							"description": "",
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"type": "text",
+							"value": "application/json"
+						}
+					],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": [],
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "f1f0ded2-2eeb-401c-a96c-aa2866f7056a",
+					"rawModeData": "{\n \"title\": \"Lamborghini Aventador\",\n \"price\": \"1050\",\n \"hourOrDay\": \"true\",\n \"description\": \"Be like Batman and drive it. Very cheap\",\n \"location\": \"Bern\",\n \"handling\": \"You can rent it if you want\",\n \"userId\": \"1\",\n \"category\": \"6\",\n \"status\": \"true\"\n}",
+					"headers": "Content-Type: application/json\n",
+					"pathVariables": {}
+				},
+				{
+					"id": "868da072-c674-4852-b240-c8c8fd41f5a3",
+					"name": "Add Article 14 Lend",
+					"url": "http://localhost:3000/add-article/lend-product/",
+					"description": "",
+					"data": [],
+					"dataMode": "raw",
+					"headerData": [
+						{
+							"description": "",
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"type": "text",
+							"value": "application/json"
+						}
+					],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": [],
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "f1f0ded2-2eeb-401c-a96c-aa2866f7056a",
+					"rawModeData": "{\n \"title\": \"Broom\",\n \"price\": \"2\",\n \"hourOrDay\": \"false\",\n \"description\": \"If you're a witch and need a cheap ride, go for it!\",\n \"location\": \"Zürich\",\n \"handling\": \"You can rent it if you want\",\n \"userId\": \"2\",\n \"category\": \"3\",\n \"status\": \"true\"\n}",
+					"headers": "Content-Type: application/json\n",
+					"pathVariables": {}
+				},
+				{
+					"id": "97c977e4-73b4-42f8-a430-2b5824a3db4d",
+					"name": "Add Article 4",
+					"url": "http://localhost:3000/add-article/sell-product/",
+					"description": "",
+					"data": [],
+					"dataMode": "raw",
+					"headerData": [
+						{
+							"description": "",
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"type": "text",
+							"value": "application/json"
+						}
+					],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": [],
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "f1f0ded2-2eeb-401c-a96c-aa2866f7056a",
+					"rawModeData": "{\n \"title\": \"Dell Computer NEW!! \",\n \"price\": \"455\",\n \"description\": \"It's a really nice computer. Almost brand new!\",\n \"location\": \"Bern\",\n \"delivery\": \"true\",\n \"delSpec\": \"Can be sent!\",\n \"userId\": \"1\",\n \"category\": \"2\",\n \"status\": \"true\"\n}",
+					"headers": "Content-Type: application/json\n",
+					"pathVariables": {}
+				},
+				{
+					"id": "a52ae05e-bfe0-433e-a5d7-3bdb6448aaab",
+					"name": "Add Article 5",
+					"url": "http://localhost:3000/add-article/sell-product/",
+					"description": "",
+					"data": [],
+					"dataMode": "raw",
+					"headerData": [
+						{
+							"description": "",
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"type": "text",
+							"value": "application/json"
+						}
+					],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": [],
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "f1f0ded2-2eeb-401c-a96c-aa2866f7056a",
+					"rawModeData": "{\n \"title\": \"Asus Computer with i7 \",\n \"price\": \"1755\",\n \"description\": \"It's a really nice computer. Almost brand new!\",\n \"location\": \"Bern\",\n \"delivery\": \"true\",\n \"delSpec\": \"Can be sent!\",\n \"userId\": \"1\",\n \"category\": \"2\",\n \"status\": \"true\"\n}",
+					"headers": "Content-Type: application/json\n",
+					"pathVariables": {}
+				},
+				{
+					"id": "bc6dfa76-a468-4f2b-b256-db6733350b22",
+					"name": "Add Article 11 Lend",
+					"url": "http://localhost:3000/add-article/lend-product/",
+					"description": "",
+					"data": [],
+					"dataMode": "raw",
+					"headerData": [
+						{
+							"description": "",
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"type": "text",
+							"value": "application/json"
+						}
+					],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": [],
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "f1f0ded2-2eeb-401c-a96c-aa2866f7056a",
+					"rawModeData": "{\n \"title\": \"Mazda C33\",\n \"price\": \"20\",\n \"hourOrDay\": \"true\",\n \"description\": \"Just a Mazdda, bro\",\n \"location\": \"Bern\",\n \"handling\": \"You can rent it if you want\",\n \"userId\": \"1\",\n \"category\": \"6\",\n \"status\": \"true\"\n}",
+					"headers": "Content-Type: application/json\n",
+					"pathVariables": {}
+				},
+				{
+					"id": "bfaed524-0958-4d40-9317-537cc14a3cbe",
+					"name": "Add Article 7",
+					"url": "http://localhost:3000/add-article/sell-product/",
+					"description": "",
+					"data": [],
+					"dataMode": "raw",
+					"headerData": [
+						{
+							"description": "",
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"type": "text",
+							"value": "application/json"
+						}
+					],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": [],
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "f1f0ded2-2eeb-401c-a96c-aa2866f7056a",
+					"rawModeData": "{\n \"title\": \"Pretty Boots\",\n \"price\": \"20\",\n \"description\": \"Totally worn out boots. Don't buy lol\",\n \"location\": \"Zürich\",\n \"delivery\": \"true\",\n \"delSpec\": \"Can be sent!\",\n \"userId\": \"2\",\n \"category\": \"1\",\n \"status\": \"true\"\n}",
+					"headers": "Content-Type: application/json\n",
+					"pathVariables": {}
+				},
+				{
+					"id": "db2367fd-a44f-4bc8-8ac7-2da352235eb9",
+					"name": "Add Article 10",
+					"url": "http://localhost:3000/add-article/sell-product/",
+					"description": "",
+					"data": [],
+					"dataMode": "raw",
+					"headerData": [
+						{
+							"description": "",
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"type": "text",
+							"value": "application/json"
+						}
+					],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": [],
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "f1f0ded2-2eeb-401c-a96c-aa2866f7056a",
+					"rawModeData": "{\n \"title\": \"Vans T-shirt\",\n \"price\": \"44\",\n \"description\": \"Super nice Vans T-shirt\",\n \"location\": \"Zürich\",\n \"delivery\": \"true\",\n \"delSpec\": \"Can be sent!\",\n \"userId\": \"2\",\n \"category\": \"1\",\n \"status\": \"true\"\n}",
+					"headers": "Content-Type: application/json\n",
+					"pathVariables": {}
+				},
+				{
+					"id": "de6aa116-fac0-4107-9b30-eaaf587a7f06",
+					"name": "Add Article 15 Service",
+					"url": "http://localhost:3000/add-article/provide-service/",
+					"description": "",
+					"data": [],
+					"dataMode": "raw",
+					"headerData": [
+						{
+							"description": "",
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"type": "text",
+							"value": "application/json"
+						}
+					],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": [],
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "f1f0ded2-2eeb-401c-a96c-aa2866f7056a",
+					"rawModeData": "{\n \"title\": \"Clean your house\",\n \"price\": \"40\",\n \"hourOrDay\": \"true\",\n \"description\": \"I clean your house for some money and a couple of cookies!\",\n \"location\": \"Zürich\",\n \"expenses\": \"You can rent me if you want\",\n \"expCost\": \"200\",\n \"userId\": \"2\",\n \"category\": \"4\"\n}",
+					"headers": "Content-Type: application/json\n",
+					"pathVariables": {}
+				},
+				{
+					"id": "dfaae02d-8bad-4fc1-a9c4-9d708f8d77ea",
+					"name": "Add Article 6",
+					"url": "http://localhost:3000/add-article/sell-product/",
+					"description": "",
+					"data": [],
+					"dataMode": "raw",
+					"headerData": [
+						{
+							"description": "",
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"type": "text",
+							"value": "application/json"
+						}
+					],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": [],
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "f1f0ded2-2eeb-401c-a96c-aa2866f7056a",
+					"rawModeData": "{\n \"title\": \"Vans Pullover Christmas\",\n \"price\": \"109\",\n \"description\": \"Really good christmas sweater\",\n \"location\": \"Zürich\",\n \"delivery\": \"true\",\n \"delSpec\": \"Can be sent!\",\n \"userId\": \"2\",\n \"category\": \"1\",\n \"status\": \"true\"\n}",
+					"headers": "Content-Type: application/json\n",
+					"pathVariables": {}
+				},
+				{
+					"id": "f0815ff7-e608-4983-9aa1-6d154c57c7d6",
+					"name": "Add Article 9",
+					"url": "http://localhost:3000/add-article/sell-product/",
+					"description": "",
+					"data": [],
+					"dataMode": "raw",
+					"headerData": [
+						{
+							"description": "",
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"type": "text",
+							"value": "application/json"
+						}
+					],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": [],
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "f1f0ded2-2eeb-401c-a96c-aa2866f7056a",
+					"rawModeData": "{\n \"title\": \"Socks\",\n \"price\": \"10\",\n \"description\": \"New socks. Just fell from a truck infront of my house\",\n \"location\": \"Zürich\",\n \"delivery\": \"true\",\n \"delSpec\": \"Can be sent!\",\n \"userId\": \"2\",\n \"category\": \"1\",\n \"status\": \"true\"\n}",
+					"headers": "Content-Type: application/json\n",
+					"pathVariables": {}
+				},
+				{
+					"id": "fae8f0f6-84a8-4add-96fc-70b78b83e2c9",
+					"name": "Add Article 13 Lend",
+					"url": "http://localhost:3000/add-article/lend-product/",
+					"description": "",
+					"data": [],
+					"dataMode": "raw",
+					"headerData": [
+						{
+							"description": "",
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"type": "text",
+							"value": "application/json"
+						}
+					],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": [],
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "f1f0ded2-2eeb-401c-a96c-aa2866f7056a",
+					"rawModeData": "{\n \"title\": \"Lawn Mower\",\n \"price\": \"30\",\n \"hourOrDay\": \"false\",\n \"description\": \"Be a real dad and mow it by yourself!\",\n \"location\": \"Zürich\",\n \"handling\": \"You can rent it if you want\",\n \"userId\": \"2\",\n \"category\": \"3\",\n \"status\": \"true\"\n}",
+					"headers": "Content-Type: application/json\n",
+					"pathVariables": {}
+				},
+				{
+					"id": "fb3bf946-df2d-4c7f-ac0b-b92d156164f1",
+					"name": "Add Article 18 Service",
+					"url": "http://localhost:3000/add-article/provide-service/",
+					"description": "",
+					"data": [],
+					"dataMode": "raw",
+					"headerData": [
+						{
+							"description": "",
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"type": "text",
+							"value": "application/json"
+						}
+					],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": [],
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "f1f0ded2-2eeb-401c-a96c-aa2866f7056a",
+					"rawModeData": "{\n \"title\": \"Carpool Bern-Zürich\",\n \"price\": \"15\",\n \"hourOrDay\": \"true\",\n \"description\": \"Cheaper than the public transport\",\n \"location\": \"Zürich\",\n \"expenses\": \"Fuel boy!!\",\n \"expCost\": \"500\",\n \"userId\": \"2\",\n \"category\": \"2\"\n}",
+					"headers": "Content-Type: application/json\n",
+					"pathVariables": {}
+				}
+			]
+		}
+	],
+	"environments": [
+		{
+			"id": "e837520b-8bcf-4ecc-87c8-601be61c2af6",
+			"name": "My Workspace - globals",
+			"values": []
+		}
+	],
+	"headerPresets": [],
+	"globals": []
+}
