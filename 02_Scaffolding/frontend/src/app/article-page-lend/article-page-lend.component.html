@@ -52,7 +52,9 @@
 
     <mat-card class="background">
       <mat-card-title>Description:</mat-card-title>
+      <div class="textstyle">
       <p>{{this.article.description}}</p>
+      </div>
     </mat-card>
 
   </mat-grid-tile>
@@ -76,7 +78,7 @@
   <mat-grid-tile colspan="4" rowspan="1" class="thinborder">
 
     <mat-card class="background">
-      <mat-card-title>Lender and location:</mat-card-title>
+      <mat-card-title>Location:</mat-card-title>
       <p>{{this.article.location}}</p>
       <!-- Seller needs to be fetched by id -->
     </mat-card>
@@ -107,8 +109,8 @@
         </mat-form-field>
         <mat-card-title>{{this.article.price}} CHF</mat-card-title>
         <mat-form-field style="width:80%">
-          <mat-label [(ngModel)]="newPrice" maxlength="12">Enter new price</mat-label>
-          <input matInput placeholder="new price">
+          <mat-label>Enter new price</mat-label>
+          <input [(ngModel)]="newPrice" maxlength="12" (keypress)="numberOnly($event)" matInput placeholder="new price">
         </mat-form-field>
         <mat-grid-list cols="1" rowHeight="150px" class="categories">
           <mat-grid-tile class="thinborder">Picture of article</mat-grid-tile>
@@ -130,7 +132,7 @@
         <p>{{this.article.description}}</p>
         <mat-form-field style="width:80%">
           <mat-label>Enter new description</mat-label>
-          <input [(ngModel)]="newDescription" matInput placeholder="new description">
+          <input [(ngModel)]="newDescription" maxlength="475" matInput placeholder="new description">
         </mat-form-field>
       </mat-card>
 

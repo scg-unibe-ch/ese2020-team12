@@ -54,7 +54,9 @@
 
     <mat-card class="background">
       <mat-card-title>Description:</mat-card-title>
-      <p>{{this.article.description}}</p>
+      <div class="textstyle">
+        <p>{{this.article.description}}</p>
+      </div>
     </mat-card>
 
   </mat-grid-tile>
@@ -66,11 +68,15 @@
       <mat-card-title>Delivery & delivery specifications:</mat-card-title>
       <div *ngIf="this.article.delivery">
         <p>Available for delivery</p>
-        <p>{{this.article.delSpec}}</p>
+        <div class="textstyle">
+          <p>{{this.article.delSpec}}</p>
+        </div>
       </div>
       <div *ngIf="!(this.article.delivery)">
         <p>Delivery unavailable</p>
-        <p>{{this.article.delSpec}}</p>
+        <div class="textstyle">
+          <p>{{this.article.delSpec}}</p>
+        </div>
       </div>
     </mat-card>
 
@@ -80,9 +86,9 @@
   <mat-grid-tile colspan="4" rowspan="1" class="thinborder">
 
     <mat-card class="background">
-      <mat-card-title>Seller and location:</mat-card-title>
+      <mat-card-title>Location:</mat-card-title>
       <!-- Seller needs to be fetched by id -->
-      <p> user </p>
+      <p>{{this.article.location}}</p>
     </mat-card>
 
     <!--snackbar-->
@@ -112,7 +118,7 @@
         <mat-card-title>{{this.article.price}} CHF</mat-card-title>
         <mat-form-field style="width:80%">
           <mat-label>Enter new price</mat-label>
-          <input [(ngModel)]="newPrice" maxlength="12" matInput placeholder="new price">
+          <input [(ngModel)]="newPrice" maxlength="12" (keypress)="numberOnly($event)" matInput placeholder="new price">
         </mat-form-field>
         <mat-grid-list cols="1" rowHeight="150px" class="categories">
           <mat-grid-tile class="thinborder">Picture of article</mat-grid-tile>
@@ -134,7 +140,7 @@
         <p>{{this.article.description}}</p>
         <mat-form-field style="width:80%">
           <mat-label>Enter new description</mat-label>
-          <input [(ngModel)]="newDescription" matInput placeholder="new description">
+          <input [(ngModel)]="newDescription" maxlength="475" matInput placeholder="new description">
         </mat-form-field>
       </mat-card>
 
