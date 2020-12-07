@@ -21,9 +21,9 @@ export class ArticleInfoService {
 
 
   // ----------Marko Stuff start---------------
-  private allSellArticles: any;
-  private allLendArticles: any;
-  private allServiceArticles: any;
+  private allSellArticles: any = [];
+  private allLendArticles: any = [];
+  private allServiceArticles: any = [];
   private productId: number;
   private actualArticle: any;
   private searchTerm: any;
