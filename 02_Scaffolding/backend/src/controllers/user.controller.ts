@@ -5,6 +5,7 @@ import { verifyToken } from '../middlewares/checkAuth';
 import {User} from '../models/user.model';
 import {verifyUserUnique} from '../middlewares/userUnique';
 import {Op} from 'sequelize';
+import bcrypt from 'bcrypt';
 
 const userController: Router = express.Router();
 const userService = new UserService();
@@ -31,6 +32,10 @@ userController.delete('/:id', (req: Request, res: Response ) => {
 });
 
 userController.put('/profile/:id', (req: Request, res: Response) => {
+    if (req.body.password !== null) {
+        const saltRounds = 12;
+        req.body.password = bcrypt.hashSync(req.body.password, saltRounds);
+    }
     User.findByPk(req.params.id).then(found => {
             if (found != null) {
                 found.update(req.body).then( update => {
