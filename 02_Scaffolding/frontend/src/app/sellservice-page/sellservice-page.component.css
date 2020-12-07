@@ -17,9 +17,6 @@
   width:100%;
 }
 
-.mat-card-title {
-  font-size: 1.5em !important;
-}
 .mat-card-actions {
   padding: 8px 36px;
 }
@@ -87,6 +84,11 @@
   margin-left: 20px;
   margin-top: -20px;
   height: 50px;
+}
+
+.articletitle {
+  font-size: 1.2em;
+  width: 120px;
 }
 
 

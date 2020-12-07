@@ -68,3 +68,12 @@
   float: right;
 }
 
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+.articletitle {
+  font-size: 1.2em;
+  width: 120px;
+}

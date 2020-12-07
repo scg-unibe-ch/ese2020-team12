@@ -21,9 +21,6 @@
   width:100%;
 }
 
-.mat-card-title {
-  font-size: 1.5em !important;
-}
 .mat-card-actions {
   padding: 8px 36px;
 }
@@ -100,4 +97,9 @@
 .textstyle{
   word-wrap: break-word;
   max-width: 650px;
+}
+
+.articletitle {
+  font-size: 1.2em;
+  width: 120px;
 }

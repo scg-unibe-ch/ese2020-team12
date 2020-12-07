@@ -35,13 +35,13 @@
   <mat-grid-tile colspan="6" rowspan="3" class="thinborder">
     <mat-card class="background">
       <mat-card-header class="title">
-        <mat-card-title>Most recent products for sale:</mat-card-title>
+        <mat-card-title id="title">Most recent products for sale:</mat-card-title>
       </mat-card-header>
       <div *ngFor="let article of this.articleInfoService.getAllSellArticles().reverse(); let i = index">
         <mat-card class="card" *ngIf = "i<4 && article.status">
           <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>{{article.title}}</mat-card-title>
+            <mat-card-title class="articletitle">{{article.title}}</mat-card-title>
             <mat-card-subtitle>{{article.price}} CHF</mat-card-subtitle>
           </mat-card-header>
           <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
@@ -63,7 +63,7 @@
         <mat-card class="card" *ngIf = "i<4 && article.status">
           <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>{{article.title}}</mat-card-title>
+            <mat-card-title class="articletitle">{{article.title}}</mat-card-title>
             <mat-card-subtitle>{{article.price}} CHF</mat-card-subtitle>
           </mat-card-header>
           <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
@@ -105,7 +105,7 @@
       <mat-card class="card" *ngIf = "i<4 && article.status">
         <mat-card-header>
           <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>{{article.title}}</mat-card-title>
+          <mat-card-title class="articletitle">{{article.title}}</mat-card-title>
           <mat-card-subtitle>{{article.price}} CHF</mat-card-subtitle>
         </mat-card-header>
         <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
