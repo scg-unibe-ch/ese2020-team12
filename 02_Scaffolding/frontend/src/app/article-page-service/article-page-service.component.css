@@ -107,3 +107,12 @@
   width: 120px;
 }
 
+.savechangesbutton:hover{
+   background-color: lightgray;
+ }
+
+.rentservicebutton:hover{
+  background-color: lightgray;
+}
+
+
