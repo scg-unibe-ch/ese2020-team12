@@ -32,10 +32,6 @@ userController.delete('/:id', (req: Request, res: Response ) => {
 });
 
 userController.put('/profile/:id', (req: Request, res: Response) => {
-    if (req.body.password !== null) {
-        const saltRounds = 12;
-        req.body.password = bcrypt.hashSync(req.body.password, saltRounds);
-    }
     User.findByPk(req.params.id).then(found => {
             if (found != null) {
                 found.update(req.body).then( update => {
@@ -45,6 +41,22 @@ userController.put('/profile/:id', (req: Request, res: Response) => {
                 res.sendStatus(404);
             }
         }).catch(err => res.status(500).send(err));
+});
+
+userController.put('/profile/password/:id', (req: Request, res: Response) => {
+    if (req.body.password !== null) {
+        const saltRounds = 12;
+        req.body.password = bcrypt.hashSync(req.body.password, saltRounds);
+    }
+    User.findByPk(req.params.id).then(found => {
+        if (found != null) {
+            found.update(req.body).then( update => {
+                res.status(200).send(update);
+            });
+        } else {
+            res.sendStatus(404);
+        }
+    }).catch(err => res.status(500).send(err));
 });
 
 
