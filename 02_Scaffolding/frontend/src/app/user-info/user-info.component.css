@@ -50,6 +50,7 @@
 .card {
   max-width: 250px;
   padding-bottom: 10px;
+  margin-left: 30px;
 }
 
 .example-header-image {
@@ -80,5 +81,11 @@
 
 .border{
   border: 6px solid #00559d;
+  min-height: 82vh;
 }
 
+.mat-card-actions{
+  width: 20vw;
+  margin-left: -20px;
+  margin-top: -20px;
+}
