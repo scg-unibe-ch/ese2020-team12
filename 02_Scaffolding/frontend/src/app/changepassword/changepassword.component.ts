@@ -35,7 +35,7 @@ export class ChangepasswordComponent implements OnInit {
   }
 
   changePassword(): void {
-    this.httpClient.put(environment.endpointURL + 'user/profile/' + this.userInfoService.getUserId(), {
+    this.httpClient.put(environment.endpointURL + 'user/profile/password/' + this.userInfoService.getUserId(), {
       password: this.password
     }).subscribe();
     setTimeout(() =>
